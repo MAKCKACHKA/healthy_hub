@@ -9,6 +9,8 @@ body {
   background-repeat: no-repeat;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
   font-style: normal;
   color: var(--primary-text-color);
   width: 100%;
