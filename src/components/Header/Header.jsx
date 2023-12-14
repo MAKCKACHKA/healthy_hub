@@ -20,10 +20,7 @@ export const Header = () => {
         <StyledLink to="/signin">SignInPage</StyledLink>
         <StyledLink to="/forgot-password">ForgotPasswordPage</StyledLink>
 
-        <StyledLink to="/your-goal">YourGoalPage</StyledLink>
-        <StyledLink to="/select-gender">SelectGenderPage</StyledLink>
-        <StyledLink to="/body-parameters">BodyParameters</StyledLink>
-        <StyledLink to="/your-activity">YourActivityPage</StyledLink>
+        <StyledLink to="/set-params">SetParamsPage</StyledLink>
 
         <StyledLink to="/main">MainPage</StyledLink>
         <StyledLink to="/dashboard">DashboardPage</StyledLink>

@@ -11,16 +11,7 @@ const ForgotPasswordPage = lazy(() =>
   import('./pages/ForgotPasswordPage/ForgotPasswordPage')
 );
 
-const YourGoalPage = lazy(() => import('./pages/YourGoalPage/YourGoalPage'));
-const SelectGenderPage = lazy(() =>
-  import('./pages/SelectGenderPage/SelectGenderPage')
-);
-const BodyParameters = lazy(() =>
-  import('./pages/BodyParametersPage/BodyParameters')
-);
-const YourActivityPage = lazy(() =>
-  import('./pages/YourActivityPage/YourActivityPage')
-);
+const SetParamsPage = lazy(() => import('./pages/SetParamsPage/SetParamsPage'));
 
 const MainPage = lazy(() => import('./pages/MainPage/MainPage'));
 const DashboardPage = lazy(() => import('./pages/DashboardPage/DashboardPage'));
@@ -62,10 +53,7 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
           {/* Не зазначето в ТЗ але в макеті є */}
-          <Route path="/your-goal" element={<YourGoalPage />} />
-          <Route path="/select-gender" element={<SelectGenderPage />} />
-          <Route path="/body-parameters" element={<BodyParameters />} />
-          <Route path="/your-activity" element={<YourActivityPage />} />
+          <Route path="/set-params" element={<SetParamsPage />} />
 
           {/* Auth */}
           <Route path="/main" element={<MainPage />} />
@@ -73,7 +61,6 @@ function App() {
           <Route path="/diary" element={<DiaryPage />} />
           <Route path="/recommended-food" element={<RecommendedFoodPage />} />
           <Route path="/settings" element={<SettingsPage />} />
-
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
