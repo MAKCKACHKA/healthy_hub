@@ -9,30 +9,31 @@ export const Navigation = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 export const StyledLink = styled(Link)`
   padding: 8px 16px;
-  color: #ffffff; /* White text color */
-  text-shadow:
+  color: var(--primary-text-color);
+  /* text-shadow:
     0 0 5px #00baff,
     0 0 10px #00baff,
     0 0 20px #00baff,
     0 0 40px #00baff,
-    0 0 80px #00baff;
+    0 0 80px #00baff; */
   transition:
     color 0.3s,
     text-shadow 0.3s;
 
   &:hover,
   &:focus {
-    color: #00baff; /* Blue text color on hover/focus */
-    text-shadow:
+    color: #00baff;
+    /* text-shadow:
       0 0 5px #00baff,
       0 0 10px #00baff,
       0 0 20px #00baff,
       0 0 40px #00baff,
-      0 0 80px #00baff;
+      0 0 80px #00baff; */
   }
 `;
 
@@ -42,10 +43,10 @@ export const IconWrapper = styled.svg`
   fill: ${(props) => props.color || '#ffffff'};
   display: inline-block;
   margin-right: 5px;
-  box-shadow:
+  /* box-shadow:
     0 0 5px #00baff,
     0 0 10px #00baff,
     0 0 20px #00baff,
     0 0 40px #00baff,
-    0 0 80px #00baff;
+    0 0 80px #00baff; */
 `;
