@@ -32,7 +32,7 @@ const SettingsPage = lazy(() => import('./pages/SettingsPage/SettingsPage'));
 
 import { AppWrapper } from './App.styled';
 import { useSelector } from 'react-redux';
-import { selectToken } from '../redux/selesctors';
+import { selectToken } from './redux/selesctors';
 
 // const test = import.meta.env.VITE_API_TEST;
 
