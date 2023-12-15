@@ -6,7 +6,7 @@ export const ListItem = styled.ul`
   padding-left: 10px;
   color: var(--primary-title-text-color);
 
-  @media screen and (min-width: 834px) {
+  @media screen and (min-width: 768px) {
     text-align: left;
     display: flex;
     flex-wrap: wrap;
@@ -14,7 +14,7 @@ export const ListItem = styled.ul`
     gap: 16px;
   }
 
-  @media screen and (min-width: 1439px) {
+  @media screen and (min-width: 1200px) {
     display: block;
   }
 `;
@@ -27,7 +27,7 @@ export const Item = styled.li`
     color: var(--primary-btn-color);
   }
 
-  @media screen and (min-width: 835px) and (max-width: 1439px) {
+  @media screen and (min-width: 768px) and (max-width: 1200px) {
     margin: 0;
   }
 `;
