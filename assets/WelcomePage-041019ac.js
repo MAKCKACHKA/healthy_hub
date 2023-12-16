@@ -1,4 +1,4 @@
-import{s as i,L as n,j as e}from"./index-70a80e45.js";const a="/healthy_hub/assets/pageIllustrations-50866189.svg",r=i.div`
+import{s as i,L as n,j as e}from"./index-a2d4ba13.js";const a="/healthy_hub/assets/pageIllustrations-50866189.svg",r=i.div`
   display: flex;
   gap: 16px;
   margin-bottom: 40px;
