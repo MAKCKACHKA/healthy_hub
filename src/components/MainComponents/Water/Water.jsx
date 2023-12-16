@@ -21,7 +21,9 @@ export default function Water() {
   /*const [modalIsOpen, setIsOpen] = React.useState(false);*/
 
   useEffect(() => {
-    setPercentage(Math.round((current * 100) / objective));
+    if (current <= objective) {
+      setPercentage(Math.round((current * 100) / objective));
+    }
   }, [current, objective]);
 
   /*function calcPercentage(e) {
@@ -53,7 +55,9 @@ export default function Water() {
             </Value>
             <LeftValue>
               <b>left : </b>
-              <span>{objective - current}ml</span>
+              <span>
+                {objective - current >= 0 ? objective - current : 0}ml
+              </span>
             </LeftValue>
           </ValueContainer>
           <IntakeButton onClick={() => setCurrent(current + 100)}>
