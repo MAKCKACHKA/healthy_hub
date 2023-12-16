@@ -1,4 +1,4 @@
-/*import Modal from 'react-modal';*/
+import Modal from 'react-modal';
 import React, { useState, useEffect } from 'react';
 import {
   Container,
@@ -11,14 +11,40 @@ import {
   LeftValue,
   IntakeButton,
   DeleteButton,
+  ModalHeading,
+  ModalForm,
+  CancelModal,
 } from './Water.styled';
 import WaterChart from './WaterChart/WaterChart';
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    borderRadius: '12px',
+    background: '#0F0F0F',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '24px 40px',
+    border: 'none',
+  },
+  overlay: {
+    background: '#050505CC',
+  },
+};
+
+Modal.setAppElement('#root');
 
 export default function Water() {
   const [current, setCurrent] = useState(0);
   const [objective, setObjective] = useState(1500);
   const [percentage, setPercentage] = useState(0);
-  /*const [modalIsOpen, setIsOpen] = React.useState(false);*/
+  const [modalIsOpen, setIsOpen] = React.useState(false);
 
   useEffect(() => {
     if (current <= objective) {
@@ -26,7 +52,7 @@ export default function Water() {
     }
   }, [current, objective]);
 
-  /*function calcPercentage(e) {
+  function calcPercentage(e) {
     e.preventDefault();
     let quantity = e.target.children[0].children[0].value;
     setPercentage(percentage + Math.round((quantity * 100) / objective));
@@ -40,7 +66,7 @@ export default function Water() {
 
   function closeModal() {
     setIsOpen(false);
-  }*/
+  }
 
   return (
     <Container>
@@ -60,7 +86,7 @@ export default function Water() {
               </span>
             </LeftValue>
           </ValueContainer>
-          <IntakeButton onClick={() => setCurrent(current + 100)}>
+          <IntakeButton onClick={openModal}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -110,7 +136,7 @@ export default function Water() {
           strokeLinejoin="round"
         />
       </DeleteButton>
-      {/*<Modal
+      <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
@@ -125,7 +151,7 @@ export default function Water() {
           <button>Confirm</button>
         </ModalForm>
         <CancelModal onClick={closeModal}>Cancel</CancelModal>
-      </Modal>*/}
+      </Modal>
     </Container>
   );
 }

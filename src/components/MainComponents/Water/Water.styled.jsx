@@ -135,3 +135,75 @@ export const ValueContainer = styled.div`
     gap: 40px;
   }
 `;
+
+export const ModalHeading = styled.p`
+  color: var(--Color-Primary-White, #fff);
+  /* Headline text/H1 */
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px; /* 120% */
+  margin: 0;
+  margin-bottom: 24px;
+`;
+
+export const ModalForm = styled.form`
+  label {
+    display: flex;
+    flex-direction: column;
+    color: var(--Color-Primary-White, #fff);
+    /* Body text/2 */
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    margin-bottom: 32px;
+  }
+
+  input {
+    margin-top: 12px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid var(--Color-Primary-Green-Lite, #e3ffa8);
+    border-radius: 12px;
+    padding: 8px 10px;
+    color: #fff;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  button {
+    border-radius: 12px;
+    background: var(--Color-Primary-Green-Lite, #e3ffa8);
+    color: var(--Color-Primary-Black-2, #0f0f0f);
+    text-align: center;
+    /* Button text/1 */
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    border: none;
+    outline: none;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+`;
+
+export const CancelModal = styled.p`
+  color: var(--Color-Primary-Grey, #b6b6b6);
+  text-align: center;
+  /* Button text/3 */
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  margin: 0;
+  cursor: pointer;
+`;
