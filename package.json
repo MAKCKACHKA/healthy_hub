@@ -11,8 +11,6 @@
     "format": "prettier --write ./src"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.0",
     "@mui/x-date-pickers": "^6.18.4",
     "@reduxjs/toolkit": "^2.0.1",
@@ -24,6 +22,7 @@
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
+    "react-modal": "^3.16.1",
     "react-redux": "^9.0.4",
     "react-router-dom": "^6.15.0",
     "redux-persist": "^6.0.0",
