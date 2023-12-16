@@ -10,7 +10,7 @@ export default function RecommendedFoodPage() {
         <div className="wrapper">
           <div className="img_div">
             <img src="" alt="" width={300} />
-          </div>
+          <div>
           <ul>
             {food.map((el) => {
               return <li>{el}</li>;
