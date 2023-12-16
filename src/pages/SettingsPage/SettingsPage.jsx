@@ -1,56 +1,181 @@
 import { IconWrapper } from './SettingsPage.styled';
 import Illustration from '../../assets/pageIllustrations.svg';
-import { useState } from 'react';
+// import { useState } from 'react';
+import { Formik, Field, Form } from 'formik';
 
 export default function SettingsPage() {
-  const [name, setName] = useState('');
-  const [photo, setPhoto] = useState(null);
-  const [age, setAge] = useState('');
-  const [gender, setGender] = useState('');
-  const [height, setHeight] = useState('');
-  const [weight, setWeight] = useState('');
-  const [activity, setActivity] = useState('');
+  // const [name, setName] = useState('');
+  // const [age, setAge] = useState('');
+  // const [gender, setGender] = useState('');
+  // const [height, setHeight] = useState('');
+  // const [weight, setWeight] = useState('');
+  // const [activity, setActivity] = useState('');
 
-  const handleCancel = () => {
-    setName('');
-    setPhoto(null);
-    setAge('');
-    setGender('');
-    setHeight('');
-    setWeight('');
-    setActivity('');
+  // const handleCancel = () => {
+  //   setName('');
+  //   setPhoto(null);
+  //   setAge('');
+  //   setGender('');
+  //   setHeight('');
+  //   setWeight('');
+  //   setActivity('');
+  // };
+  // const handleSave = () => {
+  //   console.log('Form data saved:', {
+  //     name,
+  //     photo,
+  //     age,
+  //     gender,
+  //     height,
+  //     weight,
+  //     activity,
+  //   });
+  // };
+
+  // const [photo, setPhoto] = useState('');
+
+  const initialValues = {
+    name: '',
+    photo: '',
+    age: '',
+    gender: '',
+    height: '',
+    weight: '',
+    activity: '',
   };
-  const handleSave = () => {
-    console.log('Form data saved:', {
-      name,
-      photo,
-      age,
-      gender,
-      height,
-      weight,
-      activity,
-    });
+
+  const handleSave = (values) => {
+    console.log('Form data saved:', values);
+    console.log(values.photo);
+  };
+
+  const handleCancel = (resetForm) => {
+    resetForm();
   };
 
   return (
     <div>
-      <div>
-        <div>
-          <h2>Profile setting</h2>
-          <div>
-            <button type="button" onClick={handleCancel}>
-              Cancel
-            </button>
-            <button type="button" onClick={handleSave}>
-              Save
-            </button>
-          </div>
-        </div>
-        <IconWrapper>
-          <use href={`${Illustration}#icon-settings`} />
-        </IconWrapper>
-      </div>
-      <form>
+      <Formik initialValues={initialValues} onSubmit={handleSave}>
+        {({ resetForm, values, setFieldValue }) => (
+          <Form>
+            <div>
+              <h2>Profile setting</h2>
+              <div>
+                <button type="button" onClick={() => handleCancel(resetForm)}>
+                  Cancel
+                </button>
+                <button type="submit">Save</button>
+              </div>
+            </div>
+            <IconWrapper>
+              <use href={`${Illustration}#icon-settings`} />
+            </IconWrapper>
+
+            <div>
+              <label htmlFor="name">Your name:</label>
+              <Field type="text" id="name" name="name" />
+              <div>
+                <label htmlFor="photo">Your photo:</label>
+                {values.photo && <img src={values.photo} alt="Selected" />}
+                {/* <Field
+                  type="file"
+                  accept="image/*"
+                  id="photo"
+                  name="photo"
+                  // onChange={(e) => {
+                  //   const file = e.target.files[0];
+                  //   const imageUrl = URL.createObjectURL(file);
+                  //   setPhoto(imageUrl);
+                  // }}
+                /> */}
+
+                <input
+                  type="file"
+                  accept="image/*"
+                  id="photo"
+                  name="photo"
+                  onChange={(e) => {
+                    setFieldValue(
+                      'photo',
+                      URL.createObjectURL(e.target.files[0])
+                    );
+                  }}
+                />
+              </div>
+              <div>
+                <label htmlFor="age">Your age:</label>
+                <Field type="number" id="age" name="age" />
+              </div>
+              <div>
+                <div role="group" aria-labelledby="my-radio-group">
+                  <label>Gender:</label>
+                  <label>
+                    <Field type="radio" name="gender" value="Male" />
+                    Male
+                  </label>
+                  <label>
+                    <Field type="radio" name="gender" value="Female" />
+                    Female
+                  </label>
+                </div>
+              </div>
+              <div>
+                <label htmlFor="height">Height:</label>
+                <Field type="number" id="height" name="height" />
+              </div>
+              <div>
+                <label htmlFor="weight">Weight:</label>
+                <Field type="number" id="weight" name="weight" />
+              </div>
+              <div>
+                <div>
+                  <label>Your activity:</label>
+                  <label>
+                    <Field
+                      type="radio"
+                      id="activity1"
+                      name="activity"
+                      value="1.2"
+                    />
+                    1.2 - if you do not have physical activity and sedentary
+                    work
+                  </label>
+                  <label>
+                    <Field
+                      type="radio"
+                      id="activity2"
+                      name="activity"
+                      value="1.375"
+                    />
+                    1.375 - if you do short runs or light gymnastics 1-3 times a
+                    week
+                  </label>
+                  <label>
+                    <Field
+                      type="radio"
+                      id="activity3"
+                      name="activity"
+                      value="1.55"
+                    />
+                    1.55 - if you play sports with average loads 3-5 times a
+                    week
+                  </label>
+                  <label>
+                    <Field
+                      type="radio"
+                      id="activity4"
+                      name="activity"
+                      value="1.725"
+                    />
+                    1.725 - if you train fully 6-7 times a week
+                  </label>
+                </div>
+              </div>
+            </div>
+          </Form>
+        )}
+      </Formik>
+      {/* <form>
         <div>
           <label htmlFor="name">Your name:</label>
           <input
@@ -201,7 +326,7 @@ export default function SettingsPage() {
             </label>
           </div>
         </div>
-      </form>
+      </form> */}
     </div>
   );
 }
