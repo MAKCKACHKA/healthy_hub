@@ -1,7 +1,9 @@
+import { TimeSelection } from "./TimeSelection/TimeSelection";
+
 export default function DashboardPage() {
   return (
     <>
-      <p>DashboardPage</p>
+      <TimeSelection />      
     </>
   );
 }
