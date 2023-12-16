@@ -6,10 +6,10 @@ export default function RecommendedFoodPage() {
   return (
     <StyledRecommendedFoodPage>
       <div className="main_div">
-        <p>RecommendedFoodPage</p>
-        <div>
+        <h3>Recommended Food</h3>
+        <div className="wrapper">
           <div className="img_div">
-            <img src="" alt="" width={300} height={312} />
+            <img src="" alt="" width={300} />
           </div>
           <ul>
             {food.map((el) => {
