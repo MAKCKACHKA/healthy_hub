@@ -166,7 +166,7 @@ export const TextInput = styled(Field)`
   gap: 10px;
   border-radius: 12px;
   border: 1px solid var(--primary-text-color);
-  background: var(--layout-color);
+  background: transparent;
   color: var(--primary-title-text-color);
   font-size: 14px;
   font-style: normal;
