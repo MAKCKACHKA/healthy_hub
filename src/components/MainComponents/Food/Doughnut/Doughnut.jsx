@@ -4,9 +4,8 @@ import { Doughnut } from 'react-chartjs-2';
 import styled from 'styled-components';
 
 const StyledDoughnut = styled(Doughnut)`
-  // Add your custom styles here
-  width: ${(props) => props.widthpx}px !important;
-  height: ${(props) => props.heightpx}px !important;
+  width: ${(props) => props.widthpx}px;
+  height: ${(props) => props.heightpx}px;
 `;
 
 ChartJS.register(ArcElement);

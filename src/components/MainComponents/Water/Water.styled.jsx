@@ -61,27 +61,16 @@ export const Value = styled.p`
   font-size: 28px;
   font-style: normal;
   font-weight: 500;
-  line-height: 1.21; /* 121.429% */
+  line-height: 1.21;
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 0;
-  span {
-    color: #b6b6b6;
-    margin: 0;
-    font-family: Poppins;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.42; /* 142.857% */
-  }
 `;
 
 export const LeftValue = styled.p`
   display: flex;
   gap: 4px;
   align-items: center;
-  margin: 0;
 
   b {
     color: #fff;
@@ -89,15 +78,6 @@ export const LeftValue = styled.p`
     font-style: normal;
     font-weight: 400;
     line-height: 1.42;
-  }
-
-  span {
-    color: #b6b6b6;
-    font-family: Poppins;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px; /* 142.857% */
   }
 `;
 
