@@ -4,6 +4,12 @@ const StyledRecommendedFoodPage = styled.div`
   width: 320px;
   margin: 0 auto;
 
+  p {
+    color: var(--primary-title-text-color);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
   h3 {
     font-size: 30px;
     font-weight: 500;
@@ -20,7 +26,6 @@ const StyledRecommendedFoodPage = styled.div`
   }
 
   .img_div {
-    outline: 1px solid tomato;
     max-width: 300px;
     height: 312px;
   }
@@ -39,8 +44,35 @@ const StyledRecommendedFoodPage = styled.div`
     width: 100%;
     height: 86px;
     padding: 20px 80px 20px 24px;
-    background-color: #9bde90;
-    outline: 1px solid tomato;
+    background: var(--secondary-text-color);
+    border-radius: 12px;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .description h4 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .small_img_div {
+    width: 46px;
+    height: 45px;
+  }
+
+  .description section {
+    width: 130px;
+    height: 46px;
+  }
+
+  .description span {
+    margin-left: 6px;
+    color: #b6b6b6;
+    font-weight: 500;
   }
 
   @media screen and (min-width: 834px) {
@@ -71,8 +103,6 @@ const StyledRecommendedFoodPage = styled.div`
       width: 380px;
       height: 86px;
       padding: 20px 160px 20px 24px;
-      background-color: #9bde90;
-      outline: 1px solid tomato;
     }
   }
 
