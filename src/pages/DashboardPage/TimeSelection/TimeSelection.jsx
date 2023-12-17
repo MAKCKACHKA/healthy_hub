@@ -1,73 +1,96 @@
 // import 'react-datepicker/dist/react-datepicker.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import icons from './../../../assets/icons.svg';
 import React from 'react';
-import { GoBackToMainPageSvg, GoBackToMainPageWrapper, Header, HeaderWrapper, MonthPickerSvgInactive, MonthPickerSvgActive, MonthPickerWrapper } from './TimeSelection.styled';
+import { GoBackToMainPageSvg, GoBackToMainPageWrapper, Header, HeaderWrapper, MonthPickerSvgInactive, MonthPickerSvgActive, MonthPickerWrapper, MonthList, MonthListItem, ChoosenMonth } from './TimeSelection.styled';
 
 
-export const TimeSelection = () => {
+export const TimeSelection = ({month, setMonth}) => {
 
-    const [date, setDate] = useState(null);
-    const [isArrowCliced, setClickOfArrow] = useState(false)
+
+    // const [month, setMonth] = useState(null);
+    const [isArrowClicked, setClickOfArrow] = useState(null)
+
+    const onClickOfArrow = () => {
+        setClickOfArrow(!isArrowClicked)
+    }
+    
+    const onChooseOfMonth = (choosedMonth) => {
+        setMonth(choosedMonth)
+    }
+
+    //Go back on the main page arrow button
 
     const GoBackToMainPage = (() => (
         <GoBackToMainPageWrapper to="/main">
             <GoBackToMainPageSvg>
                 <use href={`${icons}#icon-arrow-right`}></use>
-            </GoBackToMainPageSvg> 
+            </GoBackToMainPageSvg>
         </GoBackToMainPageWrapper>
     ));
 
-    const onClick = () => {
-        setClickOfArrow(!isArrowCliced)
-    }
 
-    const MonthPicker = (({ onClick }) => (
-        <MonthPickerWrapper onClick={onClick}>
+    const MonthPicker = () => (
+        <MonthPickerWrapper onClick={onClickOfArrow}>
             <Header>Months</Header>
-            {!isArrowCliced ?
+            {!isArrowClicked ? (
                 <MonthPickerSvgInactive>
                     <use href={`${icons}#icon-arrow-down`}></use>
                 </MonthPickerSvgInactive>
-                :
+            ) : (
                 <>
                     <MonthPickerSvgActive>
                         <use href={`${icons}#icon-arrow-down`}></use>
-                    </MonthPickerSvgActive> 
-                    <ListOfMonthes/>
+                    </MonthPickerSvgActive>
+                    <ListOfMonthes onChooseOfMonth={onChooseOfMonth} />
                 </>
-            }
+            )}
+            
         </MonthPickerWrapper>
-    ));
-
-    const currentDate = new Date();
-    const previousMonth = currentDate.getMonth() - 1;
-    const currentMonth = currentDate.getMonth()
-
-    const previousMonthName = new Date(currentDate.getFullYear(), previousMonth, 1)
-    .toLocaleString('en-US', { month: 'long' });
-
-    const currentMonthName = new Date(currentDate.getFullYear(), currentMonth, 1)
-    .toLocaleString('en-US', { month: 'long' });
+    )
     
-    const currentAndPreviousMonth = [previousMonthName,currentMonthName]
+    const currentAndPreviousMonth = () => {
+        const currentDate = new Date();
+        const previousMonth = currentDate.getMonth() - 1;
+        const currentMonth = currentDate.getMonth()
 
-    const ListOfMonthes = (() => (
-        <ul>
-            {currentAndPreviousMonth.map((month) => {
-                return <li>{month}</li>
-            })}
-        </ul>
-    ))
+        const previousMonthName = new Date(currentDate.getFullYear(), previousMonth, 1)
+            .toLocaleString('en-US', { month: 'long' });
 
+        const currentMonthName = new Date(currentDate.getFullYear(), currentMonth, 1)
+            .toLocaleString('en-US', { month: 'long' });
+        
+        return [previousMonthName, currentMonthName]
+    }
 
+    const setInitMonth = () => {
+        const currentDate = new Date();
+        const currentMonth = currentDate.getMonth()
+        const currentMonthName = new Date(currentDate.getFullYear(), currentMonth, 1)
+            .toLocaleString('en-US', { month: 'long' });
+        return setMonth(currentMonthName)
+    }
 
-   
+    useEffect(() => {
+        if (!month) {
+            setInitMonth()
+        }
+    }, [month])
+    
+    const ListOfMonthes = ({onChooseOfMonth}) => (
+        <MonthList>
+        {currentAndPreviousMonth().map((month) => (
+            <MonthListItem key={month} onClick={() => onChooseOfMonth(month)}>{month}</MonthListItem>
+        ))}
+        </MonthList>
+    )
+
 
     return (
         <HeaderWrapper>
-            <GoBackToMainPage />
-            <MonthPicker onClick={onClick} />
+            <GoBackToMainPage/>
+            <MonthPicker />
+            {month && <ChoosenMonth>{month}</ChoosenMonth>}
         </HeaderWrapper>
     )
 }
@@ -91,47 +114,35 @@ export const TimeSelection = () => {
     //         display: none;
     //     };
     // `;
-
     // const filterDate = (date) => {
     //     const currentDate = new Date();
-    //     return ([date.getMonth() === currentDate.getMonth(), date.getMonth() === currentDate.getMonth() - 1]
-            
+    //     return ([date.getMonth() === currentDate.getMonth(), date.getMonth() === currentDate.getMonth() - 1]   
     //     );
     // };
-    
     // console.log(date.getMonth())
         // const currentDatee = new Date()
         // console.log(currentDatee.getTime())
 
 
 
-
-
-
-
-
-
-
-
-{/* <MonthPicker>
-                
-            <DatePicker
-                selected={date}
-                onChange={(date) => setDate(date)}
-                dateFormat="MMMM"
-                excludeDates={[
-                    previousMonth, currentMonth,
-                ]}
-                showMonthYearPicker
-                customInput={<CustomMonthInput />}
-            />
-            <DatePicker
-            selected={date}
-            onChange={(date) => setDate(date)}
-            dateFormat="MMMM"
-            showMonthYearPicker
-            customInput={<CustomMonthInput />}
-            dropdownMode="select"
-            filterDate={filterDate}
-            />
-            </MonthPicker> */}
+    // <MonthPicker>
+    // <DatePicker
+    //     selected={date}
+    //     onChange={(date) => setDate(date)}
+    //     dateFormat="MMMM"
+    //     excludeDates={[
+    //         previousMonth, currentMonth,
+    //     ]}
+    //     showMonthYearPicker
+    //     customInput={<CustomMonthInput />}
+    // />
+    // <DatePicker
+    // selected={date}
+    // onChange={(date) => setDate(date)}
+    // dateFormat="MMMM"
+    // showMonthYearPicker
+    // customInput={<CustomMonthInput />}
+    // dropdownMode="select"
+    // filterDate={filterDate}
+    // />
+    // </MonthPicker> 
