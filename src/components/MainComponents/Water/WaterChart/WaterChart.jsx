@@ -16,12 +16,12 @@ const BarBG = styled.div`
 const FillChart = styled.div`
   height: ${(props) => props.$percentage}%;
   width: 100%;
-  background: #b6c3ff;
+  background: var(--water-color);
   border-radius: 20px;
 `;
 
 const Percentage = styled.p`
-  color: #b6c3ff;
+  color: var(--water-color);
   text-align: center;
   font-family: Poppins;
   font-size: 16px;

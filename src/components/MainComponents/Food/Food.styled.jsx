@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Heading = styled.h4`
-  color: #fff;
+  color: var(--primary-title-text-color);
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -15,7 +15,7 @@ export const FullFrame = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background: #0f0f0f;
+  background: var(--secondary-text-color);
   border-radius: 12px;
   padding: 16px 12px;
   justify-content: space-around;
@@ -52,13 +52,13 @@ export const Chart = styled.div`
 
 export const Percentage = styled.p`
   margin: 0;
-  color: var(--Color-Primary-Grey, #b6b6b6);
+  color: var(--primary-text-color);
   text-align: center;
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.42; /* 142.857% */
+  line-height: 1.42;
   position: relative;
   right: 50px;
 `;
@@ -68,12 +68,11 @@ export const ChartInfo = styled.div`
   flex-direction: column;
 
   h3 {
-    color: #fff;
-    /* Headline text/H3 */
+    color: var(--primary-title-text-color);
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
-    line-height: 1.33; /* 133.333% */
+    line-height: 1.33;
     margin: 0;
   }
 
@@ -84,21 +83,21 @@ export const ChartInfo = styled.div`
   }
 
   div > p {
-    color: var(--Color-Primary-White, #fff);
-    /* Body text/1 */
+    color: var(--primary-title-text-color);
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.42; /* 142.857% */
+    line-height: 1.42;
     margin: 0;
   }
 
   div > p > span {
-    color: var(--Color-Primary-Grey, #b6b6b6);
-    /* Body text/2 */
+    color: var(--primary-text-color);
+
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 1.42; /* 142.857% */
+    line-height: 1.42;
   }
 `;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Heading = styled.h4`
-  color: #fff;
+  color: var(--primary-title-text-color);
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -15,7 +15,7 @@ export const FullFrame = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
-  background: #0f0f0f;
+  background: var(--secondary-text-color);
   border-radius: 12px;
   padding: 16px 12px;
   justify-content: space-around;
@@ -32,22 +32,20 @@ export const IntakeButton = styled.button`
   align-items: center;
   justify-content: space-between;
   border-radius: 12px;
-  background: #e3ffa8;
+  background: var(--primary-btn-color);
   border: none;
   outline: none;
   padding: 8px 10px;
   width: 166px;
 
-  color: var(--Color-Primary-Black-2, #0f0f0f);
-  /* Button text/1 */
-  font-family: Poppins;
+  color: var(--secondary-text-color);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
 `;
 
 export const SubHeading = styled.p`
-  color: #fff;
+  color: var(--primary-title-text-color);
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -57,7 +55,7 @@ export const SubHeading = styled.p`
 `;
 
 export const Value = styled.p`
-  color: #fff;
+  color: var(--primary-title-text-color);
   font-size: 28px;
   font-style: normal;
   font-weight: 500;
@@ -73,7 +71,7 @@ export const LeftValue = styled.p`
   align-items: center;
 
   b {
-    color: #fff;
+    color: var(--primary-title-text-color);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -117,12 +115,11 @@ export const ValueContainer = styled.div`
 `;
 
 export const ModalHeading = styled.p`
-  color: var(--Color-Primary-White, #fff);
-  /* Headline text/H1 */
+  color: var(--primary-title-text-color);
   font-size: 30px;
   font-style: normal;
   font-weight: 500;
-  line-height: 36px; /* 120% */
+  line-height: 1.2;
   margin: 0;
   margin-bottom: 24px;
 `;
@@ -131,13 +128,12 @@ export const ModalForm = styled.form`
   label {
     display: flex;
     flex-direction: column;
-    color: var(--Color-Primary-White, #fff);
-    /* Body text/2 */
+    color: var(--primary-title-text-color);
     font-family: Poppins;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 20px; /* 142.857% */
+    line-height: 1.42;
     margin-bottom: 32px;
   }
 
@@ -145,7 +141,7 @@ export const ModalForm = styled.form`
     margin-top: 12px;
     outline: none;
     background-color: transparent;
-    border: 1px solid var(--Color-Primary-Green-Lite, #e3ffa8);
+    border: 1px solid var(--primary-btn-color);
     border-radius: 12px;
     padding: 8px 10px;
     color: #fff;
@@ -159,15 +155,14 @@ export const ModalForm = styled.form`
 
   button {
     border-radius: 12px;
-    background: var(--Color-Primary-Green-Lite, #e3ffa8);
-    color: var(--Color-Primary-Black-2, #0f0f0f);
+    background: var(--primary-btn-color);
+    color: var(--secondary-text-color);
     text-align: center;
-    /* Button text/1 */
     font-family: Poppins;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 20px; /* 142.857% */
+    line-height: 1.42;
     border: none;
     outline: none;
     width: 100%;
@@ -176,14 +171,13 @@ export const ModalForm = styled.form`
 `;
 
 export const CancelModal = styled.p`
-  color: var(--Color-Primary-Grey, #b6b6b6);
+  color: var(--primary-text-color);
   text-align: center;
-  /* Button text/3 */
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 142.857% */
+  line-height: 1.42;
   margin: 0;
   cursor: pointer;
 `;

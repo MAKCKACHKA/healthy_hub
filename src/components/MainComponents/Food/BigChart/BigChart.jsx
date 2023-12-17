@@ -3,24 +3,23 @@ import styled from 'styled-components';
 import DoughnutElement from '../Doughnut/doughnut';
 
 const Value = styled.p`
-  color: #fff;
+  color: var(--primary-title-text-color);
   text-align: center;
   font-size: 32px;
   font-style: normal;
   font-weight: 500;
-  line-height: 1.18; /* 118.75% */
+  line-height: 1.18;
   display: flex;
   flex-direction: column;
   position: absolute;
   left: 50px;
 
   span {
-    color: #b6b6b6;
-    /* Body text/1 */
+    color: var(--primary-text-color);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.42; /* 142.857% */
+    line-height: 1.42;
   }
 `;
 

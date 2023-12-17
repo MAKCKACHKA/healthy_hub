@@ -20,7 +20,7 @@ export const HeadingWrapper = styled.div`
   margin-bottom: 20px;
 
   h2 {
-    color: #fff;
+    color: var(--primary-title-text-color);
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -29,7 +29,7 @@ export const HeadingWrapper = styled.div`
 `;
 
 export const StyledLink = styled(Link)`
-  color: #b6b6b6;
+  color: var(--primary-text-color);
   text-align: right;
   font-family: Poppins;
   font-size: 14px;

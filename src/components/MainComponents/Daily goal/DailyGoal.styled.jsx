@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Heading = styled.h4`
-  color: #fff;
+  color: var(--primary-title-text-color);
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -14,7 +14,7 @@ export const FullFrame = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background: #0f0f0f;
+  background: var(--secondary-text-color);
   border-radius: 12px;
   padding: 16px 12px;
 
@@ -31,16 +31,16 @@ export const Cont = styled.div`
 `;
 
 export const StyledName = styled.p`
-  color: #b6b6b6;
+  color: var(--primary-text-color);
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 1.33; /* 133.333% */
+  line-height: 1.33;
   margin: 0;
 `;
 
 export const StyledValue = styled.p`
-  color: #fff;
+  color: var(--primary-title-text-color);
   font-family: Poppins;
   font-size: 34px;
   font-style: normal;
@@ -49,7 +49,7 @@ export const StyledValue = styled.p`
   margin: 0;
 
   span {
-    color: #b6b6b6;
+    color: var(--primary-text-color);
     font-family: Poppins;
     font-size: 14px;
     font-style: normal;
