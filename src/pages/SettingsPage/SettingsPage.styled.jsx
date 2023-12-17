@@ -246,6 +246,13 @@ export const Avatar = styled.img`
   height: 36px;
   border-radius: 36px;
 `;
+export const AvatarIcon = styled.svg`
+  width: 36px;
+  height: 36px;
+  border-radius: 36px;
+  /* fill: var(--primary-text-color); */
+  stroke: var(--primary-title-text-color);
+`;
 
 export const UploadWrap = styled.div`
   position: relative;
@@ -276,6 +283,6 @@ export const ImageInput = styled.input`
 export const UploadIcon = styled.svg`
   width: 16px;
   height: 16px;
-  flex-shrink: 0;
-  fill: var(--primary-btn-color);
+  /* flex-shrink: 0; */
+  stroke: var(--primary-btn-color);
 `;

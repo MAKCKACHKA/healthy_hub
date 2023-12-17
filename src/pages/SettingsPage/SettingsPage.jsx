@@ -2,6 +2,7 @@ import * as Yup from 'yup';
 
 import {
   Avatar,
+  AvatarIcon,
   ButtonWraper,
   ButtonWraperDown,
   CancelBtn,
@@ -31,8 +32,7 @@ import icons from '../../assets/icons.svg';
 export default function SettingsPage() {
   const initialValues = {
     name: 'Max',
-    photo:
-      'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+    photo: '',
     age: '19',
     gender: 'Male',
     height: '',
@@ -96,7 +96,11 @@ export default function SettingsPage() {
               <LabelImg htmlFor="photo">
                 Your photo
                 <FileInput>
-                  {values.photo && (
+                  {values.photo === '' ? (
+                    <AvatarIcon>
+                      <use href={`${icons}#icon-profile-circle`} />
+                    </AvatarIcon>
+                  ) : (
                     <Avatar
                       src={values.photo}
                       // src={URL.createObjectURL(values.photo)}
