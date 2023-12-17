@@ -34,7 +34,8 @@ export const SingInForm = () => {
           placeholder="E-mail"
           onChange={formik.handleChange}
           value={formik.values.email}
-          valid={formik.isValid}
+          valid={formik.errors}
+          touched={formik.touched}
         />
         {formik.errors.email && formik.touched.email && (
           <ErrorMessageInput id="email">
@@ -49,7 +50,8 @@ export const SingInForm = () => {
           placeholder="Password"
           onChange={formik.handleChange}
           value={formik.values.password}
-          valid={formik.isValid}
+          valid={formik.errors}
+          touched={formik.touched}
         />
         {formik.errors.password && formik.touched.password && (
           <ErrorMessageInput id="password">
@@ -58,6 +60,7 @@ export const SingInForm = () => {
         )}
       </PasswordInputWrap>
       <PrimaryBtn text={'Sign In'} />
+      {console.log(formik)}
     </SingInFormStyled>
   );
 };

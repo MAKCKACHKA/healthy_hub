@@ -1,6 +1,14 @@
 import { InputStyled } from './Input.styled';
 
-export const Input = ({ name, type, placeholder, onChange, value, valid }) => {
+export const Input = ({
+  name,
+  type,
+  placeholder,
+  onChange,
+  value,
+  valid,
+  touched,
+}) => {
   return (
     <InputStyled
       autoComplete="off"
@@ -11,6 +19,7 @@ export const Input = ({ name, type, placeholder, onChange, value, valid }) => {
       onChange={onChange}
       value={value}
       $valid={valid}
+      $touched={touched}
     />
   );
 };
