@@ -1,15 +1,82 @@
-// import { Formik, Field, Form } from 'formik';
 import styled from 'styled-components';
+import { Field } from 'formik';
 
-export const HeaderContainer = styled.div`
-  padding: 20px;
+export const TitleContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  /* gap: 16px; */
+  font-weight: 500;
+  margin-bottom: 24px;
 `;
 
-export const Navigation = styled.nav`
+export const Title = styled.h1`
+  color: var(--primary-title-text-color);
+
+  font-family: Poppins;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+
+  /* @media screen and (min-width: 768px) {
+    margin: 0 auto 80px;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 1200px) {
+    justify-content: left;
+  } */
+`;
+
+export const ButtonWraper = styled.div`
   display: flex;
-  justify-content: center;
+  gap: 12px;
+
+  /* @media screen and (min-width: 768px) {
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 1200px) {
+    justify-content: left;
+  } */
+`;
+
+export const CancelBtn = styled.button`
+  width: 192px;
+  background-color: transparent;
+  border: 0;
+  color: var(--primary-text-color);
+  text-align: center;
+
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.42;
+
+  /* @media screen and (min-width: 768px) {
+    width: 212px;
+  } */
+`;
+
+export const SaveBtn = styled.button`
+  display: flex;
+  padding: 8px 10px;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
+  gap: 10px;
+  border-radius: 12px;
+  background: var(--primary-btn-color);
+  width: 212px;
+  height: 36px;
+
+  color: var(--secondary-text-color);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.42;
 `;
 
 export const IconWrapper = styled.svg`
@@ -17,98 +84,93 @@ export const IconWrapper = styled.svg`
   height: 528px;
   fill: ${(props) => props.color || '#ffffff'};
   display: inline-block;
-  margin-right: 5px;
+  /* margin-right: 5px; */
+`;
+export const WrapImgAndForm = styled.div`
+  display: flex;
+  /* flex-direction: column; */
+  /* align-items: flex-start; */
+  /* gap: 40px; */
+  justify-content: space-around;
 `;
 
-export const HeroSection = styled.section`
-  margin-top: 40px;
+export const FormInputs = styled.div`
+  max-width: 570px;
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  align-items: flex-start;
+  row-gap: 40px;
+  column-gap: 60px;
+`;
+
+export const Label = styled.label`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+`;
+
+export const TextInput = styled(Field)`
+  display: flex;
+  padding: 8px 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--primary-text-color);
+  background: var(--layout-color);
+  color: var(--primary-title-text-color, #fff);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.42;
+`;
+
+export const YourActivityInput = styled.label`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+`;
+
+export const RadioLabel = styled.label`
+  display: flex;
+  gap: 8px;
   align-items: center;
-  gap: 24px;
-
-  @media screen and (min-width: 768px) {
-    /* margin: 40px auto 80px; */
-    gap: 80px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 104px;
-    justify-content: center;
-  }
+  cursor: pointer;
+  position: relative;
+  color: var(--primary-text-color);
 `;
-
-export const HeroImg = styled.svg`
-  width: 300px;
-  height: 296px;
-  display: block;
-  height: 300px;
-  display: block;
-  margin: 0 auto 40px;
-  @media screen and (min-width: 768px) {
-    width: 380px;
-    height: 376px;
-    /* margin: 40px auto 80px; */
-  }
-
-  @media screen and (min-width: 1200px) {
-    width: 592px;
-    height: 588px;
-    margin: 0;
-  }
+export const RadioField = styled(Field)`
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
 `;
+export const CustomRadio = styled.span`
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--primary-text-color);
+  position: relative;
+  cursor: pointer;
+  border-radius: 50%;
 
-export const HeroDescWrap = styled.div`
-  padding-bottom: 40px;
-
-  @media screen and (min-width: 768px) {
-    width: 444px;
-    text-align: center;
-    margin: 0 auto;
-    padding-bottom: 286px;
+  &::after {
+    content: '';
+    width: 7px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition:
+      background-color 0.3s,
+      border-color 0.3s;
   }
-
-  @media screen and (min-width: 1200px) {
-    margin: 0;
-    text-align: left;
-    padding: 0;
-  }
-`;
-
-export const HeroTitle = styled.h1`
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 1.25;
-  margin-bottom: 16px;
-  text-align: center;
-  word-wrap: break-word;
-
-  @media screen and (min-width: 768px) {
-    font-size: 30px;
-    line-height: 1.2;
-  }
-  @media screen and (min-width: 1200px) {
-    text-align: start;
-  }
-`;
-
-export const SubTitleHero = styled.p`
-  font-size: 18px;
-  line-height: 1.3;
-  margin-bottom: 24px;
-  padding: 0;
-
-  @media screen and (min-width: 768px) {
-    font-size: 22px;
-    line-height: 1.45;
-  }
-
-  @media screen and (min-width: 1200px) {
-    padding: 0;
+  ${RadioField}:checked + &::after {
+    background-color: green;
   }
 `;

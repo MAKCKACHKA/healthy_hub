@@ -1,47 +1,31 @@
-import { IconWrapper } from './SettingsPage.styled';
+import {
+  ButtonWraper,
+  CancelBtn,
+  CustomRadio,
+  FormInputs,
+  IconWrapper,
+  Label,
+  RadioField,
+  RadioLabel,
+  SaveBtn,
+  TextInput,
+  Title,
+  TitleContainer,
+  WrapImgAndForm,
+  YourActivityInput,
+} from './SettingsPage.styled';
 import Illustration from '../../assets/pageIllustrations.svg';
-// import { useState } from 'react';
 import { Formik, Field, Form } from 'formik';
 
 export default function SettingsPage() {
-  // const [name, setName] = useState('');
-  // const [age, setAge] = useState('');
-  // const [gender, setGender] = useState('');
-  // const [height, setHeight] = useState('');
-  // const [weight, setWeight] = useState('');
-  // const [activity, setActivity] = useState('');
-
-  // const handleCancel = () => {
-  //   setName('');
-  //   setPhoto(null);
-  //   setAge('');
-  //   setGender('');
-  //   setHeight('');
-  //   setWeight('');
-  //   setActivity('');
-  // };
-  // const handleSave = () => {
-  //   console.log('Form data saved:', {
-  //     name,
-  //     photo,
-  //     age,
-  //     gender,
-  //     height,
-  //     weight,
-  //     activity,
-  //   });
-  // };
-
-  // const [photo, setPhoto] = useState('');
-
   const initialValues = {
-    name: '',
+    name: 'Max',
     photo: '',
-    age: '',
-    gender: '',
+    age: '19',
+    gender: 'Male',
     height: '',
     weight: '',
-    activity: '',
+    activity: '1.55',
   };
 
   const handleSave = (values) => {
@@ -50,45 +34,35 @@ export default function SettingsPage() {
   };
 
   const handleCancel = (resetForm) => {
-    resetForm();
+    resetForm({ values: initialValues });
   };
 
   return (
-    <div>
-      <Formik initialValues={initialValues} onSubmit={handleSave}>
-        {({ resetForm, values, setFieldValue }) => (
-          <Form>
-            <div>
-              <h2>Profile setting</h2>
-              <div>
-                <button type="button" onClick={() => handleCancel(resetForm)}>
-                  Cancel
-                </button>
-                <button type="submit">Save</button>
-              </div>
-            </div>
+    <Formik initialValues={initialValues} onSubmit={handleSave}>
+      {({ resetForm, values, setFieldValue }) => (
+        <Form>
+          <TitleContainer>
+            <Title>Profile setting</Title>
+            <ButtonWraper>
+              <CancelBtn type="button" onClick={() => handleCancel(resetForm)}>
+                Cancel
+              </CancelBtn>
+              <SaveBtn type="submit">Save</SaveBtn>
+            </ButtonWraper>
+          </TitleContainer>
+          <WrapImgAndForm>
             <IconWrapper>
               <use href={`${Illustration}#icon-settings`} />
             </IconWrapper>
 
-            <div>
-              <label htmlFor="name">Your name:</label>
-              <Field type="text" id="name" name="name" />
-              <div>
-                <label htmlFor="photo">Your photo:</label>
+            <FormInputs>
+              <Label htmlFor="name">
+                Your name
+                <TextInput type="text" id="name" name="name" />
+              </Label>
+              <Label htmlFor="photo">
+                Your photo
                 {values.photo && <img src={values.photo} alt="Selected" />}
-                {/* <Field
-                  type="file"
-                  accept="image/*"
-                  id="photo"
-                  name="photo"
-                  // onChange={(e) => {
-                  //   const file = e.target.files[0];
-                  //   const imageUrl = URL.createObjectURL(file);
-                  //   setPhoto(imageUrl);
-                  // }}
-                /> */}
-
                 <input
                   type="file"
                   accept="image/*"
@@ -101,232 +75,80 @@ export default function SettingsPage() {
                     );
                   }}
                 />
-              </div>
-              <div>
-                <label htmlFor="age">Your age:</label>
-                <Field type="number" id="age" name="age" />
-              </div>
-              <div>
-                <div role="group" aria-labelledby="my-radio-group">
-                  <label>Gender:</label>
-                  <label>
+              </Label>
+              <Label htmlFor="age">
+                Your age
+                <TextInput type="number" id="age" name="age" />
+              </Label>
+              <div role="group" aria-labelledby="my-radio-group">
+                <Label>Gender</Label>
+                <div>
+                  <RadioLabel>
                     <Field type="radio" name="gender" value="Male" />
                     Male
-                  </label>
-                  <label>
+                  </RadioLabel>
+                  <RadioLabel>
                     <Field type="radio" name="gender" value="Female" />
                     Female
-                  </label>
+                  </RadioLabel>
                 </div>
               </div>
-              <div>
-                <label htmlFor="height">Height:</label>
-                <Field type="number" id="height" name="height" />
-              </div>
-              <div>
-                <label htmlFor="weight">Weight:</label>
-                <Field type="number" id="weight" name="weight" />
-              </div>
-              <div>
-                <div>
-                  <label>Your activity:</label>
-                  <label>
-                    <Field
-                      type="radio"
-                      id="activity1"
-                      name="activity"
-                      value="1.2"
-                    />
-                    1.2 - if you do not have physical activity and sedentary
-                    work
-                  </label>
-                  <label>
-                    <Field
-                      type="radio"
-                      id="activity2"
-                      name="activity"
-                      value="1.375"
-                    />
-                    1.375 - if you do short runs or light gymnastics 1-3 times a
-                    week
-                  </label>
-                  <label>
-                    <Field
-                      type="radio"
-                      id="activity3"
-                      name="activity"
-                      value="1.55"
-                    />
-                    1.55 - if you play sports with average loads 3-5 times a
-                    week
-                  </label>
-                  <label>
-                    <Field
-                      type="radio"
-                      id="activity4"
-                      name="activity"
-                      value="1.725"
-                    />
-                    1.725 - if you train fully 6-7 times a week
-                  </label>
-                </div>
-              </div>
-            </div>
-          </Form>
-        )}
-      </Formik>
-      {/* <form>
-        <div>
-          <label htmlFor="name">Your name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="photo">Your photo:</label>
-          {photo && <img src={photo} alt="Selected" />}
-
-          <input
-            type="file"
-            accept="image/*"
-            id="photo"
-            name="photo"
-            onChange={(e) => {
-              const file = e.target.files[0];
-              const imageUrl = URL.createObjectURL(file);
-              setPhoto(imageUrl);
-            }}
-          />
-        </div>
-        <div>
-          <label htmlFor="age">Your age:</label>
-          <input
-            type="number"
-            id="age"
-            name="age"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Gender:</label>
-          <div>
-            <label htmlFor="male">Male</label>
-            <input
-              type="radio"
-              id="male"
-              name="gender"
-              value="Male"
-              checked={gender === 'Male'}
-              onChange={(e) => setGender(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="female">Female</label>
-            <input
-              type="radio"
-              id="female"
-              name="gender"
-              value="Female"
-              checked={gender === 'Female'}
-              onChange={(e) => setGender(e.target.value)}
-            />
-          </div>
-        </div>
-        <div>
-          <label htmlFor="height">Height:</label>
-          <input
-            type="number"
-            id="height"
-            name="height"
-            value={height}
-            onChange={(e) => setHeight(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="weight">Weight:</label>
-          <input
-            type="number"
-            id="weight"
-            name="weight"
-            value={weight}
-            onChange={(e) => setWeight(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Your activity:</label>
-          <div>
-            <input
-              type="radio"
-              id="activity1"
-              name="activity"
-              value="1.2"
-              checked={activity === '1.2'}
-              onChange={(e) => setActivity(e.target.value)}
-            />
-            <label htmlFor="activity1">
-              1.2 - if you do not have physical activity and sedentary work
-            </label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="activity2"
-              name="activity"
-              value="1.375"
-              checked={activity === '1.375'}
-              onChange={(e) => setActivity(e.target.value)}
-            />
-            <label htmlFor="activity2">
-              1.375 - if you do short runs or light gymnastics 1-3 times a week
-            </label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="activity3"
-              name="activity"
-              value="1.55"
-              checked={activity === '1.55'}
-              onChange={(e) => setActivity(e.target.value)}
-            />
-            <label htmlFor="activity3">
-              1.55 - if you play sports with average loads 3-5 times a week
-            </label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="activity4"
-              name="activity"
-              value="1.725"
-              checked={activity === '1.725'}
-              onChange={(e) => setActivity(e.target.value)}
-            />
-            <label htmlFor="activity4">
-              1.725 - if you train fully 6-7 times a week
-            </label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="activity5"
-              name="activity"
-              value="1.9"
-              checked={activity === '1.9'}
-              onChange={(e) => setActivity(e.target.value)}
-            />
-            <label htmlFor="activity5">
-              1.9 - if your work is related to physical labor, you train 2 times
-              a day and include strength exercises in your training program
-            </label>
-          </div>
-        </div>
-      </form> */}
-    </div>
+              <Label htmlFor="height">
+                Height
+                <TextInput type="number" id="height" name="height" />
+              </Label>
+              <Label htmlFor="weight">
+                Weight
+                <TextInput type="number" id="weight" name="weight" />
+              </Label>
+              <YourActivityInput>
+                Your activity
+                <RadioLabel>
+                  <RadioField
+                    type="radio"
+                    id="activity1"
+                    name="activity"
+                    value="1.2"
+                  />
+                  <CustomRadio />
+                  1.2 - if you do not have physical activity and sedentary work
+                </RadioLabel>
+                <RadioLabel>
+                  <RadioField
+                    type="radio"
+                    id="activity2"
+                    name="activity"
+                    value="1.375"
+                  />
+                  <CustomRadio />
+                  1.375 - if you do short runs or light gymnastics 1-3 times a
+                  week
+                </RadioLabel>
+                <RadioLabel>
+                  <RadioField
+                    type="radio"
+                    id="activity3"
+                    name="activity"
+                    value="1.55"
+                  />
+                  <CustomRadio />
+                  1.55 - if you play sports with average loads 3-5 times a week
+                </RadioLabel>
+                <RadioLabel>
+                  <RadioField
+                    type="radio"
+                    id="activity4"
+                    name="activity"
+                    value="1.725"
+                  />
+                  <CustomRadio />
+                  1.725 - if you train fully 6-7 times a week
+                </RadioLabel>
+              </YourActivityInput>
+            </FormInputs>
+          </WrapImgAndForm>
+        </Form>
+      )}
+    </Formik>
   );
 }
