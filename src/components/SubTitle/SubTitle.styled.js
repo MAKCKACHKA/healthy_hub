@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SubTitleStyled = styled.p`
   font-size: 18px;
@@ -8,5 +8,9 @@ export const SubTitleStyled = styled.p`
   @media screen and (min-width: 768px) {
     font-size: 21px;
     line-height: 1.45;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    text-align: center;
   }
 `;

@@ -27,6 +27,10 @@ export const InputStyled = styled.input`
   }
 `;
 
-// props.$valid[props.name] && props.$touched[props.name]
-//   ? '1px solid var(--error-validate-input)'
-// : '1px solid var(--primary-btn-color)'
+export const InputWrapp = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+`;
