@@ -1,4 +1,4 @@
-import{s as i,L as n,j as e}from"./index-a2d4ba13.js";const a="/healthy_hub/assets/pageIllustrations-50866189.svg",r=i.div`
+import{s as i,L as n,j as e}from"./index-ff60434c.js";import{p as a}from"./pageIllustrations-b7a0bff7.js";const r=i.div`
   display: flex;
   gap: 16px;
   margin-bottom: 40px;
@@ -23,12 +23,12 @@ import{s as i,L as n,j as e}from"./index-a2d4ba13.js";const a="/healthy_hub/asse
   @media screen and (min-width: 768px) {
     width: 212px;
   }
-`,s=i(n)`
+`,o=i(n)`
   width: 122px;
   padding: 8px 10px;
   text-align: center;
   color: var(--primary-title-text-color);
-`,o=()=>e.jsxs(r,{children:[e.jsx(d,{to:"/signin",children:"Sign in"}),e.jsx(s,{to:"/signup",children:"Sign up"})]}),p=i.ul`
+`,p=()=>e.jsxs(r,{children:[e.jsx(d,{to:"/signin",children:"Sign in"}),e.jsx(o,{to:"/signup",children:"Sign up"})]}),s=i.ul`
   list-style: disc;
   margin-left: 16px;
   padding-left: 10px;
@@ -56,7 +56,7 @@ import{s as i,L as n,j as e}from"./index-a2d4ba13.js";const a="/healthy_hub/asse
   @media screen and (min-width: 768px) and (max-width: 1200px) {
     margin: 0;
   }
-`,x=()=>e.jsxs(p,{children:[e.jsx(t,{children:"Set goals"}),e.jsx(t,{children:"Watch your calories"}),e.jsx(t,{children:"Keep track of your water intake"}),e.jsx(t,{children:"Control your weight"})]}),c=i.section`
+`,x=()=>e.jsxs(s,{children:[e.jsx(t,{children:"Set goals"}),e.jsx(t,{children:"Watch your calories"}),e.jsx(t,{children:"Keep track of your water intake"}),e.jsx(t,{children:"Control your weight"})]}),c=i.section`
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -81,8 +81,6 @@ import{s as i,L as n,j as e}from"./index-a2d4ba13.js";const a="/healthy_hub/asse
   width: 300px;
   height: 296px;
   display: block;
-  height: 300px;
-  display: block;
   margin: 0 auto 40px;
   @media screen and (min-width: 768px) {
     width: 380px;
@@ -95,7 +93,7 @@ import{s as i,L as n,j as e}from"./index-a2d4ba13.js";const a="/healthy_hub/asse
     height: 588px;
     margin: 0;
   }
-`,h=i.div`
+`,m=i.div`
   padding-bottom: 40px;
 
   @media screen and (min-width: 768px) {
@@ -110,7 +108,7 @@ import{s as i,L as n,j as e}from"./index-a2d4ba13.js";const a="/healthy_hub/asse
     text-align: left;
     padding: 0;
   }
-`,m=i.h1`
+`,h=i.h2`
   font-weight: 500;
   font-size: 24px;
   line-height: 1.25;
@@ -139,4 +137,4 @@ import{s as i,L as n,j as e}from"./index-a2d4ba13.js";const a="/healthy_hub/asse
   @media screen and (min-width: 1200px) {
     padding: 0;
   }
-`;function u(){return e.jsxs(c,{children:[e.jsx("div",{children:e.jsx(l,{height:300,children:e.jsx("use",{href:`${a}#icon-auth`})})}),e.jsxs(h,{children:[e.jsx(m,{children:"Set goals and achieve them"}),e.jsx(g,{children:"The service will help you set goals and follow them."}),e.jsx(o,{}),e.jsx(x,{})]})]})}export{u as default};
+`;function u(){return e.jsxs(c,{children:[e.jsx("div",{children:e.jsx(l,{height:300,children:e.jsx("use",{href:`${a}#icon-auth`})})}),e.jsxs(m,{children:[e.jsx(h,{children:"Set goals and achieve them"}),e.jsx(g,{children:"The service will help you set goals and follow them."}),e.jsx(p,{}),e.jsx(x,{})]})]})}export{u as default};
