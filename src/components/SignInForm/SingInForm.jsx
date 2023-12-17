@@ -3,11 +3,10 @@ import { validationShemasSignIn } from '../../validationShemas/validationShemasS
 import { PrimaryBtn } from '../PrimaryBtn/PrimaryBtn';
 import { Input } from '../Input/Input';
 import {
-  EmailInputWrap,
   ErrorMessageInput,
-  PasswordInputWrap,
   SingInFormStyled,
 } from './SignInForm.styled';
+import { InputWrapp } from '../Input/Input.styled';
 
 export const SingInForm = () => {
   const handleSubmitForm = ({ email, password }, actions) => {
@@ -27,7 +26,7 @@ export const SingInForm = () => {
 
   return (
     <SingInFormStyled onSubmit={formik.handleSubmit}>
-      <EmailInputWrap>
+      <InputWrapp>
         <Input
           name="email"
           type="text"
@@ -42,8 +41,7 @@ export const SingInForm = () => {
             {formik.errors.email}
           </ErrorMessageInput>
         )}
-      </EmailInputWrap>
-      <PasswordInputWrap>
+
         <Input
           name="password"
           type="password"
@@ -58,9 +56,9 @@ export const SingInForm = () => {
             {formik.errors.password}
           </ErrorMessageInput>
         )}
-      </PasswordInputWrap>
+      </InputWrapp>
+
       <PrimaryBtn text={'Sign In'} />
-      {console.log(formik)}
     </SingInFormStyled>
   );
 };
