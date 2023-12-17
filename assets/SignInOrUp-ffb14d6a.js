@@ -1,4 +1,4 @@
-import{s as n,j as e,L as m}from"./index-5fe2ac53.js";import{I as c}from"./pageIllustrations-cda26ded.js";import{c as h,a as s,u}from"./index.esm-9c8ce34b.js";const g=n.svg`
+import{s as e,j as t,L as o}from"./index-bc570213.js";import{c as d,a as r}from"./index.esm-87326695.js";const m=e.svg`
   width: 300px;
   height: 296px;
   display: block;
@@ -15,7 +15,7 @@ import{s as n,j as e,L as m}from"./index-5fe2ac53.js";import{I as c}from"./pageI
     height: 588px;
     margin: 0;
   }
-`,w=({pageIllustrations:i})=>e.jsx(g,{children:e.jsx("use",{href:`${i}#icon-auth`})}),b=n.section`
+`,y=({pageIllustrations:i})=>t.jsx(m,{children:t.jsx("use",{href:`${i}#icon-auth`})}),S=e.section`
   max-width: 300px;
   margin: 0 auto;
 
@@ -29,27 +29,32 @@ import{s as n,j as e,L as m}from"./index-5fe2ac53.js";import{I as c}from"./pageI
     display: flex;
     flex-wrap: wrap;
   }
-`,v=n(m)`
+`,I=e(o)`
   display: block;
   text-align: center;
-  margin-bottom: 54px;
   color: inherit;
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 222px;
-  }
 
   @media screen and (min-width: 1200px) {
     text-align: start;
     margin-left: 25px;
-    margin-bottom: 184px;
   }
-`,f=n.div`
+`,j=e.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 56px;
+
+  @media screen and (min-width: 768px) {
+    gap: 222px;
+  }
+
   @media screen and (min-width: 1200px) {
+    gap: 0;
+    max-width: 444px;
     margin-left: 104px;
     padding-top: 80px;
   }
-`,j=n.h2`
+`,c=e.h2`
   font-weight: 500;
   font-size: 24px;
   line-height: 1.25;
@@ -65,7 +70,7 @@ import{s as n,j as e,L as m}from"./index-5fe2ac53.js";import{I as c}from"./pageI
   @media screen and (min-width: 1200px) {
     text-align: start;
   }
-`,S=({titleText:i})=>e.jsx(j,{children:i}),y=n.p`
+`,$=({titleText:i})=>t.jsx(c,{children:i}),h=e.p`
   font-size: 18px;
   line-height: 1.3;
   margin-bottom: 24px;
@@ -74,7 +79,11 @@ import{s as n,j as e,L as m}from"./index-5fe2ac53.js";import{I as c}from"./pageI
     font-size: 21px;
     line-height: 1.45;
   }
-`,I=({description:i})=>e.jsx(y,{children:i}),$=h({email:s().email("Enter a valid email").required("Email is required"),password:s().min(8,"Password should be of minimum 8 characters length").required("Password is required")}),k=n.button`
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    text-align: center;
+  }
+`,k=({description:i})=>t.jsx(h,{children:i}),E=d({email:r().email("Enter a valid email").required("Email is required"),password:r().min(8,"Password should be of minimum 8 characters length").required("Password is required")}),z=d({email:r().email("Enter a valid email").required("Email is required")}),g=e.button`
   width: 100%;
   font-size: inherit;
   line-height: inherit;
@@ -84,7 +93,7 @@ import{s as n,j as e,L as m}from"./index-5fe2ac53.js";import{I as c}from"./pageI
   border-radius: 12px;
   color: var(--secondary-text-color);
   background-color: var(--primary-btn-color);
-`,P=({type:i="submit",text:t})=>e.jsx(k,{type:i,children:t}),F=n.input`
+`,P=({type:i="submit",text:n})=>t.jsx(g,{type:i,children:n}),u=e.input`
   width: 100%;
   line-height: 1.4;
   margin-bottom: ${i=>i.$valid[i.name]?"4px":"0"};
@@ -103,7 +112,13 @@ import{s as n,j as e,L as m}from"./index-5fe2ac53.js";import{I as c}from"./pageI
   &:focus-visible {
     outline: none;
   }
-`,d=({name:i,type:t,placeholder:r,onChange:o,value:a,valid:p,touched:x})=>e.jsx(F,{autoComplete:"off",id:i,name:i,type:t,placeholder:r,onChange:o,value:a,$valid:p,$touched:x}),T=n.form`
+`,q=e.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+`,T=({name:i,type:n,placeholder:a,onChange:s,value:p,valid:l,touched:x})=>t.jsx(u,{autoComplete:"off",id:i,name:i,type:n,placeholder:a,onChange:s,value:p,$valid:l,$touched:x}),L=e.form`
   margin-bottom: 14px;
 
   @media screen and (min-width: 768px) {
@@ -113,19 +128,15 @@ import{s as n,j as e,L as m}from"./index-5fe2ac53.js";import{I as c}from"./pageI
   @media screen and (min-width: 1200px) {
     max-width: 212px;
   }
-`,l=n.div`
+`,F=e.div`
   font-size: 12px;
   line-height: 1.2;
   margin-left: 10px;
   color: var(--error-validate-input);
-`,z=n.div`
-  margin-bottom: 20px;
-`,E=n.div`
-  margin-bottom: 40px;
-`,C=()=>{const t=u({initialValues:{email:"",password:""},validationSchema:$,onSubmit:({email:r,password:o},a)=>{console.log({email:r,password:o}),a.resetForm()}});return e.jsxs(T,{onSubmit:t.handleSubmit,children:[e.jsxs(z,{children:[e.jsx(d,{name:"email",type:"text",placeholder:"E-mail",onChange:t.handleChange,value:t.values.email,valid:t.errors,touched:t.touched}),t.errors.email&&t.touched.email&&e.jsx(l,{id:"email",children:t.errors.email})]}),e.jsxs(E,{children:[e.jsx(d,{name:"password",type:"password",placeholder:"Password",onChange:t.handleChange,value:t.values.password,valid:t.errors,touched:t.touched}),t.errors.password&&t.touched.password&&e.jsx(l,{id:"password",children:t.errors.password})]}),e.jsx(P,{text:"Sign In"}),console.log(t)]})},q=n.div`
+`,w=e.div`
   display: flex;
   gap: 20px;
-`,L=n(m)`
+`,f=e(o)`
   font-weight: 500;
   color: var(--primary-title-text-color);
-`,W=({descriptionText:i,linkText:t,to:r})=>e.jsxs(q,{children:[e.jsx("p",{children:i}),e.jsx(L,{to:r,children:t})]});function A(){return e.jsxs(b,{children:[e.jsx(w,{pageIllustrations:c}),e.jsxs(f,{children:[e.jsx(S,{titleText:"Sign in"}),e.jsx(I,{description:"You need to login to use the service"}),e.jsx(C,{}),e.jsx(v,{to:"/forgot-password",children:"Forgot your password?"}),e.jsx(W,{descriptionText:"If you don't have an account yet",linkText:"Sign up",to:"/signup"})]})]})}export{A as default};
+`,O=({descriptionText:i,linkText:n,to:a})=>t.jsxs(w,{children:[t.jsx("p",{children:i}),t.jsx(f,{to:a,children:n})]});export{y as A,F as E,I as F,q as I,P,L as S,j as T,T as a,S as b,$ as c,k as d,O as e,z as f,E as v};
