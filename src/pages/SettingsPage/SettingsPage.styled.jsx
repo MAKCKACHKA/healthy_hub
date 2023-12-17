@@ -4,59 +4,63 @@ import { Field } from 'formik';
 export const TitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  /* gap: 16px; */
-  font-weight: 500;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 export const Title = styled.h1`
   color: var(--primary-title-text-color);
 
-  font-family: Poppins;
-  font-size: 30px;
+  font-size: 24px;
+
   font-style: normal;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.25;
 
-  /* @media screen and (min-width: 768px) {
-    margin: 0 auto 80px;
-    justify-content: center;
+  @media screen and (min-width: 768px) {
+    font-size: 30px;
+    line-height: 1.2;
   }
-
-  @media screen and (min-width: 1200px) {
-    justify-content: left;
-  } */
 `;
 
 export const ButtonWraper = styled.div`
-  display: flex;
-  gap: 12px;
-
-  /* @media screen and (min-width: 768px) {
-    justify-content: center;
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 12px;
+    align-items: center;
   }
-
-  @media screen and (min-width: 1200px) {
-    justify-content: left;
-  } */
 `;
-
+export const ButtonWraperDown = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 12px;
+  margin-top: 40px;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
 export const CancelBtn = styled.button`
-  width: 192px;
+  width: 300px;
   background-color: transparent;
   border: 0;
   color: var(--primary-text-color);
   text-align: center;
 
-  font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.42;
 
-  /* @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: 212px;
-  } */
+  }
 `;
 
 export const SaveBtn = styled.button`
@@ -67,41 +71,68 @@ export const SaveBtn = styled.button`
   gap: 10px;
   border-radius: 12px;
   background: var(--primary-btn-color);
-  width: 212px;
+  width: 300px;
   height: 36px;
-
   color: var(--secondary-text-color);
   text-align: center;
-  font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 1.42;
+  /* line-height: 1.42; */
+
+  @media screen and (min-width: 768px) {
+    width: 212px;
+  }
 `;
 
 export const IconWrapper = styled.svg`
-  width: 536px;
-  height: 528px;
-  fill: ${(props) => props.color || '#ffffff'};
   display: inline-block;
-  /* margin-right: 5px; */
+  width: 300px;
+  height: 296px;
+  margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    width: 380px;
+    height: 374px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 536px;
+    height: 528px;
+  }
 `;
 export const WrapImgAndForm = styled.div`
-  display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   /* align-items: flex-start; */
   /* gap: 40px; */
+  display: flex;
   justify-content: space-around;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    /* width: 380px;
+    height: 374px; */
+  }
+
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
+  }
 `;
 
 export const FormInputs = styled.div`
-  max-width: 570px;
   display: flex;
-  /* flex-direction: column; */
   flex-wrap: wrap;
   align-items: flex-start;
   row-gap: 40px;
   column-gap: 60px;
+  max-width: 300px;
+  justify-content: center;
+  @media screen and (min-width: 768px) {
+    max-width: 490px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: 500px;
+  }
 `;
 
 export const Label = styled.label`
@@ -110,6 +141,21 @@ export const Label = styled.label`
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 12px;
+  width: 280px;
+  @media screen and (min-width: 768px) {
+    width: 212px;
+  }
+`;
+export const LabelImg = styled.label`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+  width: 280px;
+  @media screen and (min-width: 768px) {
+    width: 218px;
+  }
 `;
 
 export const TextInput = styled(Field)`
@@ -121,18 +167,24 @@ export const TextInput = styled(Field)`
   border-radius: 12px;
   border: 1px solid var(--primary-text-color);
   background: var(--layout-color);
-  color: var(--primary-title-text-color, #fff);
+  color: var(--primary-title-text-color);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.42;
+  width: 100%;
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
 export const YourActivityInput = styled.label`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 20px;
 `;
 
 export const RadioLabel = styled.label`
@@ -149,28 +201,81 @@ export const RadioField = styled(Field)`
   z-index: -1;
 `;
 export const CustomRadio = styled.span`
-  width: 12px;
+  box-sizing: border-box;
+  min-width: 12px;
   height: 12px;
   border: 1px solid var(--primary-text-color);
   position: relative;
   cursor: pointer;
   border-radius: 50%;
 
-  &::after {
-    content: '';
-    width: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > span {
+    width: 6px;
     height: 6px;
-    border-radius: 50%;
-    background-color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    background-color: transparent;
     transition:
       background-color 0.3s,
       border-color 0.3s;
+    position: relative;
   }
-  ${RadioField}:checked + &::after {
-    background-color: green;
+
+  ${RadioField}:checked + & > span {
+    background-color: var(--primary-btn-color);
   }
+`;
+
+export const GenderRadios = styled.div`
+  display: flex;
+  gap: 12px;
+`;
+
+export const FileInput = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+`;
+
+export const Avatar = styled.img`
+  width: 36px;
+  height: 36px;
+  border-radius: 36px;
+`;
+
+export const UploadWrap = styled.div`
+  position: relative;
+  display: flex;
+  column-gap: 6px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.42;
+  width: 100%;
+  height: 100%;
+`;
+
+export const ImageInput = styled.input`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+
+  &::-webkit-file-upload-button {
+    display: none;
+  }
+`;
+
+export const UploadIcon = styled.svg`
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  fill: var(--primary-btn-color);
 `;

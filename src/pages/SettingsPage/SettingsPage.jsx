@@ -1,26 +1,38 @@
+import * as Yup from 'yup';
+
 import {
+  Avatar,
   ButtonWraper,
+  ButtonWraperDown,
   CancelBtn,
   CustomRadio,
+  FileInput,
   FormInputs,
+  GenderRadios,
   IconWrapper,
+  ImageInput,
   Label,
+  LabelImg,
   RadioField,
   RadioLabel,
   SaveBtn,
   TextInput,
   Title,
   TitleContainer,
+  UploadIcon,
+  UploadWrap,
   WrapImgAndForm,
   YourActivityInput,
 } from './SettingsPage.styled';
 import Illustration from '../../assets/pageIllustrations.svg';
-import { Formik, Field, Form } from 'formik';
+import { Formik, Form } from 'formik';
+import icons from '../../assets/icons.svg';
 
 export default function SettingsPage() {
   const initialValues = {
     name: 'Max',
-    photo: '',
+    photo:
+      'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
     age: '19',
     gender: 'Male',
     height: '',
@@ -30,16 +42,38 @@ export default function SettingsPage() {
 
   const handleSave = (values) => {
     console.log('Form data saved:', values);
-    console.log(values.photo);
   };
 
   const handleCancel = (resetForm) => {
     resetForm({ values: initialValues });
   };
 
+  const validationSchema = Yup.object().shape({
+    // name: Yup.string().required('Name is required'),
+    // photo: Yup.string().url('Invalid URL'),
+    age: Yup.number()
+      .positive('Must be a positive number')
+      .integer('Must be an integer')
+      .max(100, 'Cannot be greater than 100')
+      .nullable(),
+    height: Yup.number()
+      .positive('Must be a positive number')
+      .max(300, 'Cannot be greater than 300')
+      .nullable(),
+    weight: Yup.number()
+      .positive('Must be a positive number')
+      .max(500, 'Cannot be greater than 500')
+      .nullable(),
+    // activity: Yup.string().required('Activity is required'),
+  });
+
   return (
-    <Formik initialValues={initialValues} onSubmit={handleSave}>
-      {({ resetForm, values, setFieldValue }) => (
+    <Formik
+      initialValues={initialValues}
+      onSubmit={handleSave}
+      validationSchema={validationSchema}
+    >
+      {({ resetForm, values, setFieldValue, errors, touched }) => (
         <Form>
           <TitleContainer>
             <Title>Profile setting</Title>
@@ -54,52 +88,95 @@ export default function SettingsPage() {
             <IconWrapper>
               <use href={`${Illustration}#icon-settings`} />
             </IconWrapper>
-
             <FormInputs>
               <Label htmlFor="name">
                 Your name
                 <TextInput type="text" id="name" name="name" />
               </Label>
-              <Label htmlFor="photo">
+              <LabelImg htmlFor="photo">
                 Your photo
-                {values.photo && <img src={values.photo} alt="Selected" />}
-                <input
-                  type="file"
-                  accept="image/*"
-                  id="photo"
-                  name="photo"
-                  onChange={(e) => {
-                    setFieldValue(
-                      'photo',
-                      URL.createObjectURL(e.target.files[0])
-                    );
-                  }}
-                />
-              </Label>
+                <FileInput>
+                  {values.photo && (
+                    <Avatar
+                      src={values.photo}
+                      // src={URL.createObjectURL(values.photo)}
+                      alt="Selected"
+                    />
+                  )}
+                  <UploadWrap>
+                    <UploadIcon>
+                      <use href={`${icons}#icon-direct-inbox`} />
+                    </UploadIcon>
+                    <ImageInput
+                      type="file"
+                      accept="image/*"
+                      id="photo"
+                      name="photo"
+                      onChange={(e) => {
+                        setFieldValue(
+                          'photo',
+                          URL.createObjectURL(e.target.files[0])
+                        );
+                      }}
+                    />
+                    Download new photo
+                  </UploadWrap>
+                </FileInput>
+              </LabelImg>
               <Label htmlFor="age">
                 Your age
-                <TextInput type="number" id="age" name="age" />
+                <TextInput
+                  type="number"
+                  id="age"
+                  name="age"
+                  className={touched.age && errors.age ? 'error' : ''}
+                />
+                {touched.age && errors.age && (
+                  <div className="error-message">{errors.age}</div>
+                )}
               </Label>
-              <div role="group" aria-labelledby="my-radio-group">
-                <Label>Gender</Label>
-                <div>
+              <Label>
+                Gender
+                <GenderRadios>
                   <RadioLabel>
-                    <Field type="radio" name="gender" value="Male" />
+                    <RadioField type="radio" name="gender" value="Male" />
                     Male
+                    <CustomRadio>
+                      <span></span>
+                    </CustomRadio>
                   </RadioLabel>
                   <RadioLabel>
-                    <Field type="radio" name="gender" value="Female" />
+                    <RadioField type="radio" name="gender" value="Female" />
                     Female
+                    <CustomRadio>
+                      <span></span>
+                    </CustomRadio>
                   </RadioLabel>
-                </div>
-              </div>
+                </GenderRadios>
+              </Label>
               <Label htmlFor="height">
                 Height
-                <TextInput type="number" id="height" name="height" />
+                <TextInput
+                  type="number"
+                  id="height"
+                  name="height"
+                  className={touched.height && errors.height ? 'error' : ''}
+                />
+                {touched.height && errors.height && (
+                  <div className="error-message">{errors.height}</div>
+                )}
               </Label>
               <Label htmlFor="weight">
                 Weight
-                <TextInput type="number" id="weight" name="weight" />
+                <TextInput
+                  type="number"
+                  id="weight"
+                  name="weight"
+                  className={touched.weight && errors.weight ? 'error' : ''}
+                />
+                {touched.weight && errors.weight && (
+                  <div className="error-message">{errors.weight}</div>
+                )}
               </Label>
               <YourActivityInput>
                 Your activity
@@ -110,7 +187,9 @@ export default function SettingsPage() {
                     name="activity"
                     value="1.2"
                   />
-                  <CustomRadio />
+                  <CustomRadio>
+                    <span></span>
+                  </CustomRadio>
                   1.2 - if you do not have physical activity and sedentary work
                 </RadioLabel>
                 <RadioLabel>
@@ -120,7 +199,9 @@ export default function SettingsPage() {
                     name="activity"
                     value="1.375"
                   />
-                  <CustomRadio />
+                  <CustomRadio>
+                    <span></span>
+                  </CustomRadio>
                   1.375 - if you do short runs or light gymnastics 1-3 times a
                   week
                 </RadioLabel>
@@ -131,7 +212,9 @@ export default function SettingsPage() {
                     name="activity"
                     value="1.55"
                   />
-                  <CustomRadio />
+                  <CustomRadio>
+                    <span></span>
+                  </CustomRadio>
                   1.55 - if you play sports with average loads 3-5 times a week
                 </RadioLabel>
                 <RadioLabel>
@@ -141,11 +224,33 @@ export default function SettingsPage() {
                     name="activity"
                     value="1.725"
                   />
-                  <CustomRadio />
+                  <CustomRadio>
+                    <span></span>
+                  </CustomRadio>
                   1.725 - if you train fully 6-7 times a week
+                </RadioLabel>
+                <RadioLabel>
+                  <RadioField
+                    type="radio"
+                    id="activity4"
+                    name="activity"
+                    value="1.9"
+                  />
+                  <CustomRadio>
+                    <span></span>
+                  </CustomRadio>
+                  1.9 - if your work is related to physical labor, you train 2
+                  times a day and include strength exercises in your training
+                  program
                 </RadioLabel>
               </YourActivityInput>
             </FormInputs>
+            <ButtonWraperDown>
+              <CancelBtn type="button" onClick={() => handleCancel(resetForm)}>
+                Cancel
+              </CancelBtn>
+              <SaveBtn type="submit">Save</SaveBtn>
+            </ButtonWraperDown>
           </WrapImgAndForm>
         </Form>
       )}
