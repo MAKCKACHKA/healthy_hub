@@ -8,7 +8,6 @@ export const StyledContainer = styled.div`
   margin-bottom: 20px;
 
   @media (min-width: 834px) {
-    padding: 0 28px;
     flex-direction: row;
     flex-wrap: wrap;
   }
