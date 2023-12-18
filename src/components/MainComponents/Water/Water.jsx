@@ -80,21 +80,16 @@ export default function Water() {
               {current} <span>ml</span>
             </Value>
             <LeftValue>
-              <b>left : </b>
+              <p>left : </p>
               <span>
                 {objective - current >= 0 ? objective - current : 0}ml
               </span>
             </LeftValue>
           </ValueContainer>
           <IntakeButton onClick={openModal}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-            >
-              <path
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <use href="assets/sprite.svg#icon-logo"></use>
+              {/*<path
                 d="M4 8H12"
                 stroke="#0F0F0F"
                 strokeWidth="2"
@@ -107,7 +102,7 @@ export default function Water() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-              />
+  />*/}
             </svg>
             Add Water Intake
           </IntakeButton>

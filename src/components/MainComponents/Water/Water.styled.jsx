@@ -70,12 +70,8 @@ export const LeftValue = styled.p`
   gap: 4px;
   align-items: center;
 
-  b {
+  p {
     color: var(--primary-title-text-color);
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.42;
   }
 `;
 

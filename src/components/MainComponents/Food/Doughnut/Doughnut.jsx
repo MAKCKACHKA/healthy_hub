@@ -4,8 +4,8 @@ import { Doughnut } from 'react-chartjs-2';
 import styled from 'styled-components';
 
 const StyledDoughnut = styled(Doughnut)`
-  width: ${(props) => props.widthpx}px;
-  height: ${(props) => props.heightpx}px;
+  width: ${(props) => props.$widthpx}px;
+  height: ${(props) => props.$heightpx}px;
 `;
 
 ChartJS.register(ArcElement);
@@ -16,7 +16,7 @@ const DoughnutElement = (props) => {
     datasets: [
       {
         data: [75, 25],
-        backgroundColor: [props.color, '#292928'], // Green for filled, light grey for empty
+        backgroundColor: [props.color, '#292928'],
         borderColor: ['transparent', '#292928'],
         borderWidth: [0, 0],
         borderRadius: [168, 0],
@@ -25,7 +25,7 @@ const DoughnutElement = (props) => {
   };
 
   const options = {
-    cutout: '80%', // Adjust the cutout percentage for a doughnut effect
+    cutout: '80%',
     legend: {
       display: false,
     },
@@ -56,8 +56,8 @@ const DoughnutElement = (props) => {
 
   return (
     <StyledDoughnut
-      widthpx={props.widthpx}
-      heightpx={props.heightpx}
+      $widthpx={props.widthpx}
+      $heightpx={props.heightpx}
       data={data}
       options={options}
       plugins={[backgroundCircle]}
