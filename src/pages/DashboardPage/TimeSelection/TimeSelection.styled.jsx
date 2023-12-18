@@ -4,8 +4,10 @@ import styled, {css} from 'styled-components';
 export const HeaderWrapper = styled.div`
         display: flex;
         align-items: center;
-
-`
+        max-width: 1372px;
+        margin-left: auto;
+        margin-right: auto;
+`;
 
 export const Header = styled.h1`
        font-family: Poppins;
