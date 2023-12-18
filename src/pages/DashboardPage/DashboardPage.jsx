@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { TimeSelection } from "./TimeSelection/TimeSelection";
-import { WaterGraph } from "./WaterGraph/WaterGraph";
-import { CaloriesGraph } from "./CaloriesGraph/CaloriesGraph";
+import { TimeSelection } from "../../components/DashboardComponents/TimeSelection/TimeSelection";
+import { WaterGraph } from "../../components/DashboardComponents/WaterGraph/WaterGraph";
+import { CaloriesGraph } from "../../components/DashboardComponents/CaloriesGraph/CaloriesGraph";
+import { WeightGraph } from "../../components/DashboardComponents/WeightGraph/WeightGraph";
 import { GraphsWrapper } from "./DashboardPage.styled";
-import { WeightGraph } from "./WeightGraph/WeightGraph";
+
 
 export default function DashboardPage() {
   
