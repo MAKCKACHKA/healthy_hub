@@ -12,6 +12,9 @@ export const TitleContainer = styled.div`
   @media screen and (min-width: 768px) {
     max-width: 100%;
   }
+  @media screen and (min-width: 1440px) {
+    max-width: 1440px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -35,6 +38,10 @@ export const ButtonWraper = styled.div`
     display: flex;
     gap: 12px;
     align-items: center;
+    margin-right: 20px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-right: 45px;
   }
 `;
 export const ButtonWraperDown = styled.div`
@@ -103,18 +110,19 @@ export const IconWrapper = styled.svg`
 `;
 export const WrapImgAndForm = styled.div`
   flex-direction: column;
-  /* align-items: flex-start; */
-  /* gap: 40px; */
+
   display: flex;
   justify-content: space-around;
   align-items: center;
-  @media screen and (min-width: 768px) {
-    /* width: 380px;
-    height: 374px; */
-  }
 
   @media screen and (min-width: 1200px) {
     flex-direction: row;
+  }
+  @media screen and (min-width: 1440px) {
+    /* justify-content: space-between; */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
   }
 `;
 
