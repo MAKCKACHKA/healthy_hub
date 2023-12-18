@@ -33,7 +33,6 @@ export const Cont = styled.div`
     height: 80px;
     width: 80px;
     fill: none;
-    stroke-width: 1;
   }
 `;
 
