@@ -1,4 +1,4 @@
-import{s as i,j as e}from"./index-b75a9d98.js";import{F as y,c as v,b as p,d as k,e as F}from"./index.esm-494708ca.js";import{I}from"./pageIllustrations-5a1c6282.js";const C=i.div`
+import{s as i,j as e}from"./index-3e6b81f5.js";import{F as y,c as v,b as p,d as k,e as F}from"./index.esm-014cb2c5.js";import{I}from"./pageIllustrations-4a0e4d57.js";const C=i.div`
   display: flex;
   justify-content: space-between;
   max-width: 300px;
@@ -8,6 +8,9 @@ import{s as i,j as e}from"./index-b75a9d98.js";import{F as y,c as v,b as p,d as 
 
   @media screen and (min-width: 768px) {
     max-width: 100%;
+  }
+  @media screen and (min-width: 1440px) {
+    max-width: 1440px;
   }
 `,z=i.h1`
   color: var(--primary-title-text-color);
@@ -28,6 +31,10 @@ import{s as i,j as e}from"./index-b75a9d98.js";import{F as y,c as v,b as p,d as 
     display: flex;
     gap: 12px;
     align-items: center;
+    margin-right: 20px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-right: 45px;
   }
 `,S=i.div`
   display: flex;
@@ -89,18 +96,19 @@ import{s as i,j as e}from"./index-b75a9d98.js";import{F as y,c as v,b as p,d as 
   }
 `,N=i.div`
   flex-direction: column;
-  /* align-items: flex-start; */
-  /* gap: 40px; */
+
   display: flex;
   justify-content: space-around;
   align-items: center;
-  @media screen and (min-width: 768px) {
-    /* width: 380px;
-    height: 374px; */
-  }
 
   @media screen and (min-width: 1200px) {
     flex-direction: row;
+  }
+  @media screen and (min-width: 1440px) {
+    /* justify-content: space-between; */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
   }
 `,W=i.div`
   display: flex;
@@ -245,4 +253,4 @@ import{s as i,j as e}from"./index-b75a9d98.js";import{F as y,c as v,b as p,d as 
   height: 16px;
   /* flex-shrink: 0; */
   stroke: var(--primary-btn-color);
-`,u="/healthy_hub/assets/icons-2d1f628e.svg";function O(){const x={name:"Max",photo:"",age:"19",gender:"Male",height:"",weight:"",activity:"1.55"},f=s=>{console.log("Form data saved:",s)},c=s=>{s({values:x})},w=v().shape({age:p().positive("Must be a positive number").integer("Must be an integer").max(100,"Cannot be greater than 100").nullable(),height:p().positive("Must be a positive number").max(300,"Cannot be greater than 300").nullable(),weight:p().positive("Must be a positive number").max(500,"Cannot be greater than 500").nullable()});return e.jsx(k,{initialValues:x,onSubmit:f,validationSchema:w,children:({resetForm:s,values:h,setFieldValue:j,errors:t,touched:o})=>e.jsxs(F,{children:[e.jsxs(C,{children:[e.jsx(z,{children:"Profile setting"}),e.jsxs(M,{children:[e.jsx(m,{type:"button",onClick:()=>c(s),children:"Cancel"}),e.jsx(g,{type:"submit",children:"Save"})]})]}),e.jsxs(N,{children:[e.jsx(R,{children:e.jsx("use",{href:`${I}#icon-settings`})}),e.jsxs(W,{children:[e.jsxs(l,{htmlFor:"name",children:["Your name",e.jsx(d,{type:"text",id:"name",name:"name"})]}),e.jsxs($,{htmlFor:"photo",children:["Your photo",e.jsxs(A,{children:[h.photo===""?e.jsx(U,{children:e.jsx("use",{href:`${u}#icon-profile-circle`})}):e.jsx(B,{src:h.photo,alt:"Selected"}),e.jsxs(T,{children:[e.jsx(G,{children:e.jsx("use",{href:`${u}#icon-direct-inbox`})}),e.jsx(D,{type:"file",accept:"image/*",id:"photo",name:"photo",onChange:b=>{j("photo",URL.createObjectURL(b.target.files[0]))}}),"Download new photo"]})]})]}),e.jsxs(l,{htmlFor:"age",children:["Your age",e.jsx(d,{type:"number",id:"age",name:"age",className:o.age&&t.age?"error":""}),o.age&&t.age&&e.jsx("div",{className:"error-message",children:t.age})]}),e.jsxs(l,{children:["Gender",e.jsxs(Y,{children:[e.jsxs(a,{children:[e.jsx(n,{type:"radio",name:"gender",value:"Male"}),"Male",e.jsx(r,{children:e.jsx("span",{})})]}),e.jsxs(a,{children:[e.jsx(n,{type:"radio",name:"gender",value:"Female"}),"Female",e.jsx(r,{children:e.jsx("span",{})})]})]})]}),e.jsxs(l,{htmlFor:"height",children:["Height",e.jsx(d,{type:"number",id:"height",name:"height",className:o.height&&t.height?"error":""}),o.height&&t.height&&e.jsx("div",{className:"error-message",children:t.height})]}),e.jsxs(l,{htmlFor:"weight",children:["Weight",e.jsx(d,{type:"number",id:"weight",name:"weight",className:o.weight&&t.weight?"error":""}),o.weight&&t.weight&&e.jsx("div",{className:"error-message",children:t.weight})]}),e.jsxs(L,{children:["Your activity",e.jsxs(a,{children:[e.jsx(n,{type:"radio",id:"activity1",name:"activity",value:"1.2"}),e.jsx(r,{children:e.jsx("span",{})}),"1.2 - if you do not have physical activity and sedentary work"]}),e.jsxs(a,{children:[e.jsx(n,{type:"radio",id:"activity2",name:"activity",value:"1.375"}),e.jsx(r,{children:e.jsx("span",{})}),"1.375 - if you do short runs or light gymnastics 1-3 times a week"]}),e.jsxs(a,{children:[e.jsx(n,{type:"radio",id:"activity3",name:"activity",value:"1.55"}),e.jsx(r,{children:e.jsx("span",{})}),"1.55 - if you play sports with average loads 3-5 times a week"]}),e.jsxs(a,{children:[e.jsx(n,{type:"radio",id:"activity4",name:"activity",value:"1.725"}),e.jsx(r,{children:e.jsx("span",{})}),"1.725 - if you train fully 6-7 times a week"]}),e.jsxs(a,{children:[e.jsx(n,{type:"radio",id:"activity4",name:"activity",value:"1.9"}),e.jsx(r,{children:e.jsx("span",{})}),"1.9 - if your work is related to physical labor, you train 2 times a day and include strength exercises in your training program"]})]})]}),e.jsxs(S,{children:[e.jsx(m,{type:"button",onClick:()=>c(s),children:"Cancel"}),e.jsx(g,{type:"submit",children:"Save"})]})]})]})})}export{O as default};
+`,u="/healthy_hub/assets/icons-2d1f628e.svg";function O(){const x={name:"Max",photo:"",age:"19",gender:"Male",height:"",weight:"",activity:"1.55"},w=s=>{console.log("Form data saved:",s)},c=s=>{s({values:x})},f=v().shape({age:p().positive("Must be a positive number").integer("Must be an integer").max(100,"Cannot be greater than 100").nullable(),height:p().positive("Must be a positive number").max(300,"Cannot be greater than 300").nullable(),weight:p().positive("Must be a positive number").max(500,"Cannot be greater than 500").nullable()});return e.jsx(k,{initialValues:x,onSubmit:w,validationSchema:f,children:({resetForm:s,values:h,setFieldValue:j,errors:t,touched:o})=>e.jsxs(F,{children:[e.jsxs(C,{children:[e.jsx(z,{children:"Profile setting"}),e.jsxs(M,{children:[e.jsx(m,{type:"button",onClick:()=>c(s),children:"Cancel"}),e.jsx(g,{type:"submit",children:"Save"})]})]}),e.jsxs(N,{children:[e.jsx(R,{children:e.jsx("use",{href:`${I}#icon-settings`})}),e.jsxs(W,{children:[e.jsxs(l,{htmlFor:"name",children:["Your name",e.jsx(d,{type:"text",id:"name",name:"name"})]}),e.jsxs($,{htmlFor:"photo",children:["Your photo",e.jsxs(A,{children:[h.photo===""?e.jsx(U,{children:e.jsx("use",{href:`${u}#icon-profile-circle`})}):e.jsx(B,{src:h.photo,alt:"Selected"}),e.jsxs(T,{children:[e.jsx(G,{children:e.jsx("use",{href:`${u}#icon-direct-inbox`})}),e.jsx(D,{type:"file",accept:"image/*",id:"photo",name:"photo",onChange:b=>{j("photo",URL.createObjectURL(b.target.files[0]))}}),"Download new photo"]})]})]}),e.jsxs(l,{htmlFor:"age",children:["Your age",e.jsx(d,{type:"number",id:"age",name:"age",className:o.age&&t.age?"error":""}),o.age&&t.age&&e.jsx("div",{className:"error-message",children:t.age})]}),e.jsxs(l,{children:["Gender",e.jsxs(Y,{children:[e.jsxs(a,{children:[e.jsx(n,{type:"radio",name:"gender",value:"Male"}),"Male",e.jsx(r,{children:e.jsx("span",{})})]}),e.jsxs(a,{children:[e.jsx(n,{type:"radio",name:"gender",value:"Female"}),"Female",e.jsx(r,{children:e.jsx("span",{})})]})]})]}),e.jsxs(l,{htmlFor:"height",children:["Height",e.jsx(d,{type:"number",id:"height",name:"height",className:o.height&&t.height?"error":""}),o.height&&t.height&&e.jsx("div",{className:"error-message",children:t.height})]}),e.jsxs(l,{htmlFor:"weight",children:["Weight",e.jsx(d,{type:"number",id:"weight",name:"weight",className:o.weight&&t.weight?"error":""}),o.weight&&t.weight&&e.jsx("div",{className:"error-message",children:t.weight})]}),e.jsxs(L,{children:["Your activity",e.jsxs(a,{children:[e.jsx(n,{type:"radio",id:"activity1",name:"activity",value:"1.2"}),e.jsx(r,{children:e.jsx("span",{})}),"1.2 - if you do not have physical activity and sedentary work"]}),e.jsxs(a,{children:[e.jsx(n,{type:"radio",id:"activity2",name:"activity",value:"1.375"}),e.jsx(r,{children:e.jsx("span",{})}),"1.375 - if you do short runs or light gymnastics 1-3 times a week"]}),e.jsxs(a,{children:[e.jsx(n,{type:"radio",id:"activity3",name:"activity",value:"1.55"}),e.jsx(r,{children:e.jsx("span",{})}),"1.55 - if you play sports with average loads 3-5 times a week"]}),e.jsxs(a,{children:[e.jsx(n,{type:"radio",id:"activity4",name:"activity",value:"1.725"}),e.jsx(r,{children:e.jsx("span",{})}),"1.725 - if you train fully 6-7 times a week"]}),e.jsxs(a,{children:[e.jsx(n,{type:"radio",id:"activity4",name:"activity",value:"1.9"}),e.jsx(r,{children:e.jsx("span",{})}),"1.9 - if your work is related to physical labor, you train 2 times a day and include strength exercises in your training program"]})]})]}),e.jsxs(S,{children:[e.jsx(m,{type:"button",onClick:()=>c(s),children:"Cancel"}),e.jsx(g,{type:"submit",children:"Save"})]})]})]})})}export{O as default};
