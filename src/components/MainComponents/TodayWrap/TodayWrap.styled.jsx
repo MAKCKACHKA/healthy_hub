@@ -40,4 +40,10 @@ export const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   gap: 6px;
+
+  svg {
+    height: 16px;
+    width: 16px;
+    fill: var(--primary-text-color);
+  }
 `;

@@ -37,11 +37,13 @@ export const IntakeButton = styled.button`
   outline: none;
   padding: 8px 10px;
   width: 166px;
-
-  color: var(--secondary-text-color);
-  font-size: 14px;
-  font-style: normal;
   font-weight: 500;
+
+  svg {
+    height: 16px;
+    width: 16px;
+    fill: #0f0f0f;
+  }
 `;
 
 export const SubHeading = styled.p`
@@ -70,7 +72,7 @@ export const LeftValue = styled.p`
   gap: 4px;
   align-items: center;
 
-  p {
+  span {
     color: var(--primary-title-text-color);
   }
 `;

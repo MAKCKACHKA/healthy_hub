@@ -28,6 +28,13 @@ export const FullFrame = styled.div`
 export const Cont = styled.div`
   display: flex;
   gap: 20px;
+
+  svg {
+    height: 80px;
+    width: 80px;
+    fill: none;
+    stroke-width: 1;
+  }
 `;
 
 export const StyledName = styled.p`

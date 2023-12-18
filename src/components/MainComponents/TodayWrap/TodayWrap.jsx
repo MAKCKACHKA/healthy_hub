@@ -14,27 +14,8 @@ export default function TodayWrap() {
         <h2>Today</h2>
         <StyledLink to="/dashboard">
           On the way to the goal{' '}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-          >
-            <path
-              d="M9.62012 3.95312L13.6668 7.99979L9.62012 12.0465"
-              stroke="#B6B6B6"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M2.33301 8H13.553"
-              stroke="#B6B6B6"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
+          <svg>
+            <use href="/healthy_hub/src/assets/icons.svg#icon-arrow-right"></use>
           </svg>
         </StyledLink>
       </HeadingWrapper>

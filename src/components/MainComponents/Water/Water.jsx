@@ -80,29 +80,13 @@ export default function Water() {
               {current} <span>ml</span>
             </Value>
             <LeftValue>
-              <p>left : </p>
-              <span>
-                {objective - current >= 0 ? objective - current : 0}ml
-              </span>
+              <span>left : </span>
+              {objective - current >= 0 ? objective - current : 0}ml
             </LeftValue>
           </ValueContainer>
           <IntakeButton onClick={openModal}>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <use href="assets/sprite.svg#icon-logo"></use>
-              {/*<path
-                d="M4 8H12"
-                stroke="#0F0F0F"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M8 12V4"
-                stroke="#0F0F0F"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-  />*/}
+            <svg stroke="#0f0f0f">
+              <use href="/healthy_hub/src/assets/icons.svg#icon-add"></use>
             </svg>
             Add Water Intake
           </IntakeButton>
