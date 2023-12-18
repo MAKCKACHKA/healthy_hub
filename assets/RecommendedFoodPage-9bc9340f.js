@@ -1,4 +1,4 @@
-import{s as n,j as i}from"./index-3e6b81f5.js";import{I as r}from"./pageIllustrations-4a0e4d57.js";const s=n.div`
+import{s as n,j as i}from"./index-ebf8c2e7.js";import{I as r}from"./pageIllustrations-65ec28e8.js";const s=n.div`
   width: 320px;
   margin: 0 auto;
 
