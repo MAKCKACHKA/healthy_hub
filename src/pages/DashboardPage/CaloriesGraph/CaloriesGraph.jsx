@@ -153,7 +153,7 @@ export const CaloriesGraph = ({month}) => {
         {averageValueOfTheCaloriesGraph &&
           (<>
           <CaloriesAverageTitle>Average value:</CaloriesAverageTitle>
-          <CaloriesAverageNumber>{averageValueOfTheCaloriesGraph}</CaloriesAverageNumber>
+          <CaloriesAverageNumber>{averageValueOfTheCaloriesGraph}cal</CaloriesAverageNumber>
           </>)
         }
       </CaloriesHeadingWrapper>

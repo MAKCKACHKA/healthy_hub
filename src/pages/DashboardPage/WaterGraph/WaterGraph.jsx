@@ -13,7 +13,7 @@ import { Line } from 'react-chartjs-2';
 import { faker } from '@faker-js/faker';
 import { WaterAverageNumber, WaterAverageTitle, WaterHeader, WaterHeadingWrapper, WaterSectionhWrapper, WaterGraphWrapper } from './WaterGraph.styled';
 
-export const WaterGraph = ({month}) => {
+export const WaterGraph = ({month, dateOfMonths, setDateOfMonths}) => {
 
   ChartJS.register(
     CategoryScale,
@@ -153,7 +153,7 @@ export const WaterGraph = ({month}) => {
         {averageValueOfTheWaterGraph &&
           (<>
           <WaterAverageTitle>Average value:</WaterAverageTitle>
-          <WaterAverageNumber>{averageValueOfTheWaterGraph}</WaterAverageNumber>
+          <WaterAverageNumber>{averageValueOfTheWaterGraph}ml</WaterAverageNumber>
           </>)
         }
       </WaterHeadingWrapper>
