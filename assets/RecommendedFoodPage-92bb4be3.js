@@ -1,4 +1,4 @@
-import{s as o,j as i}from"./index-dbe65343.js";const n=o.div`
+import{s as n,j as i}from"./index-b75a9d98.js";import{I as r}from"./pageIllustrations-5a1c6282.js";const s=n.div`
   width: 320px;
   margin: 0 auto;
 
@@ -131,4 +131,4 @@ import{s as o,j as i}from"./index-dbe65343.js";const n=o.div`
       padding: 20px 108px 20px 24px;
     }
   }
-`,r=n;function h(){const e=[1,2,3,4,5,6,7,8,9,10],t={carbohydrates:14,protein:.3,fat:.2,name:"Apples",amount:"100 g",img:"https://ftp.goit.study/img/you_health/Apples.png",calories:52},{name:d,amount:p,img:a,calories:x}=t;return i.jsx(r,{children:i.jsxs("div",{className:"main_div",children:[i.jsx("h3",{children:"Recommended Food"}),i.jsxs("div",{className:"wrapper",children:[i.jsx("div",{className:"img_div",children:i.jsx("img",{src:"/rec-food-main-img.png",alt:"",width:300})}),i.jsx("ul",{children:e.map(s=>i.jsx("li",{children:i.jsxs("div",{className:"description",children:[i.jsx("div",{className:"small_img_div",children:i.jsx("img",{src:a,alt:"",width:46,height:46})}),i.jsxs("section",{children:[i.jsx("h4",{children:d}),i.jsxs("p",{children:[p,i.jsxs("span",{children:[x," calories"]})]})]})]})}))})]})]})})}export{h as default};
+`,l=s;function c(){const e=[1,2,3,4,5,6,7,8,9,10],t={carbohydrates:14,protein:.3,fat:.2,name:"Apples",amount:"100 g",img:"https://ftp.goit.study/img/you_health/Apples.png",calories:52},{name:d,amount:p,img:a,calories:o}=t;return i.jsx(l,{children:i.jsxs("div",{className:"main_div",children:[i.jsx("h3",{children:"Recommended Food"}),i.jsxs("div",{className:"wrapper",children:[i.jsx("svg",{className:"img_div",children:i.jsx("use",{href:`${r}#icon-recommented-food`})}),i.jsx("ul",{children:e.map(x=>i.jsx("li",{children:i.jsxs("div",{className:"description",children:[i.jsx("div",{className:"small_img_div",children:i.jsx("img",{src:a,alt:"",width:46,height:46})}),i.jsxs("section",{children:[i.jsx("h4",{children:d}),i.jsxs("p",{children:[p,i.jsxs("span",{children:[o," calories"]})]})]})]})},x))})]})]})})}export{c as default};
