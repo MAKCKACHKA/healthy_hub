@@ -3,6 +3,7 @@ import icons from '../../../assets/icons.svg';
 
 export default function RecommendedFoodPage() {
   const food = [1, 2, 3, 4];
+  //
 
   const data = {
     carbohydrates: 14,
