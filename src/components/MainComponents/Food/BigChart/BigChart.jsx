@@ -29,7 +29,7 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const BigChart = () => {
+const BigChart = ({ calories }) => {
   return (
     <Container>
       <DoughnutElement color="#45FFBC" widthpx={168} heightpx={168} />

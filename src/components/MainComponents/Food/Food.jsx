@@ -9,8 +9,9 @@ import {
 } from './Food.styled';
 import BigChart from './BigChart/BigChart';
 import DoughnutElement from './Doughnut/Doughnut.jsx';
+import { useState } from 'react';
 
-export default function Food() {
+export default function Food({ stats }) {
   return (
     <Container>
       <Heading>Food</Heading>

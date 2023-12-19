@@ -26,8 +26,10 @@ const DoughnutElement = (props) => {
 
   const options = {
     cutout: '80%',
-    legend: {
-      display: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
     },
     hover: false,
   };
