@@ -1,43 +1,59 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { forgotPassword, signOut, signin, signup } from '../operations';
 
 // import { fetchExample } from '../operations';
 
 const initialState = {
-  // token: null,
+  user: { name: null, email: null },
   token: true,
 
   isLoading: false,
   error: null,
 };
 
-// const handlePending = (state) => {
-//   state.isLoading = true;
-// };
-// const handleRejected = (state, action) => {
-//   state.isLoading = false;
-//   state.error = action.payload;
-// };
-// const hendleFulfield = (state, action) => {
-//   state.isLoading = false;
-//   state.error = null;
-//   state.token = action.payload;
-// };
+const handleFulfilled = (state, action) => {
+  state.token = action.payload.token;
+  state.isLoading = false;
+  state.error = null;
+};
+
+const handlePending = (state) => {
+  state.isLoading = true;
+};
+
+const handleRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    // setToken: (state, action) => {
-    //   state.token = action.payload;
-    // },
+    setToken: (state, action) => {
+      state.token = action.payload;
+    },
   },
 
-  // extraReducers: (builder) => {
-  //   builder
-  //     .addCase(fetchExample.pending, handlePending)
-  //     .addCase(fetchExample.fulfilled, hendleFulfield)
-  //     .addCase(fetchExample.rejected, handleRejected);
-  // },
+  extraReducers: (builder) => {
+    builder
+      .addCase(signup.fulfilled, handleFulfilled)
+      .addCase(signup.pending, handlePending)
+      .addCase(signup.rejected, handleRejected)
+      .addCase(signin.fulfilled, handleFulfilled)
+      .addCase(signin.pending, handlePending)
+      .addCase(signin.rejected, handleRejected)
+      .addCase(signOut.fulfilled, (state) => {
+        state.token = null;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(signOut.pending, handlePending)
+      .addCase(signOut.rejected, handleRejected)
+      .addCase(forgotPassword.fulfilled, handleFulfilled)
+      .addCase(forgotPassword.pending, handlePending)
+      .addCase(forgotPassword.rejected, handleRejected);
+  },
 });
 
 export const authReducer = authSlice.reducer;
