@@ -1,20 +1,29 @@
-import { Link } from 'react-router-dom';
 import DailyGoal from '../Daily goal/DailyGoal';
 import Water from '../Water/Water';
 import Food from '../Food/Food';
+import {
+  StyledContainer,
+  HeadingWrapper,
+  StyledLink,
+} from './TodayWrap.styled';
 
 export default function TodayWrap() {
   return (
     <div>
-      <div>
+      <HeadingWrapper>
         <h2>Today</h2>
-        <Link to="/dashboard">On the way to the goal</Link>
-      </div>
-      <div>
+        <StyledLink to="/dashboard">
+          On the way to the goal{' '}
+          <svg stroke="grey">
+            <use href="/healthy_hub/src/assets/icons.svg#icon-arrow-right"></use>
+          </svg>
+        </StyledLink>
+      </HeadingWrapper>
+      <StyledContainer>
         <DailyGoal />
         <Water />
         <Food />
-      </div>
+      </StyledContainer>
     </div>
   );
 }
