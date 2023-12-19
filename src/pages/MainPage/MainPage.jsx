@@ -1,6 +1,6 @@
 import TodayWrap from '../../components/MainComponents/TodayWrap/TodayWrap';
 import Diary from '../../components/MainComponents/Diary/Diary';
-import RecommentedFood from '../../components/MainComponents/RecommentedFood/RecommentedFood';
+import RecommendedFood from '../../components/MainComponents/RecommendedFood/RecommendedFood';
 
 export default function MainPage() {
   return (
@@ -8,7 +8,7 @@ export default function MainPage() {
       <p>MainPage</p>
       <TodayWrap />
       <Diary />
-      <RecommentedFood />
+      <RecommendedFood />
     </>
   );
 }
