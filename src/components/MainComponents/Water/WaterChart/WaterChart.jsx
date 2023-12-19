@@ -27,7 +27,7 @@ const Percentage = styled.p`
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 1.37; /* 137.5% */
+  line-height: 1.37;
   margin: 0;
   margin-bottom: 6px;
 `;
@@ -35,7 +35,7 @@ const Percentage = styled.p`
 const WaterChart = ({ percentage }) => {
   return (
     <BarBG>
-      <Percentage>{percentage} %</Percentage>
+      <Percentage>{isNaN(percentage) ? 0 : percentage}%</Percentage>
       <FillChart $percentage={percentage} />
     </BarBG>
   );

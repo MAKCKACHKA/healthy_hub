@@ -41,22 +41,18 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-export default function Water() {
-  const [current, setCurrent] = useState(0);
-  const [objective, setObjective] = useState(1500);
+export default function Water({ waterobjective, watercurrent }) {
+  const [current, setCurrent] = useState(
+    watercurrent == null ? 0 : watercurrent
+  );
+  const [left, setLeft] = useState(waterobjective);
   const [percentage, setPercentage] = useState(0);
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-
-  useEffect(() => {
-    if (current <= objective) {
-      setPercentage(Math.round((current * 100) / objective));
-    }
-  }, [current, objective]);
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   function calcPercentage(e) {
     e.preventDefault();
     let quantity = e.target.children[0].children[0].value;
-    setPercentage(percentage + Math.round((quantity * 100) / objective));
+    setPercentage(percentage + Math.round((quantity * 100) / waterobjective));
     setCurrent(current + Math.round(e.target.children[0].children[0].value));
     closeModal();
   }
@@ -82,7 +78,7 @@ export default function Water() {
             </Value>
             <LeftValue>
               <span>left : </span>
-              {objective - current >= 0 ? objective - current : 0}ml
+              {waterobjective >= current ? waterobjective - current : 0}ml
             </LeftValue>
           </ValueContainer>
           <IntakeButton onClick={openModal}>

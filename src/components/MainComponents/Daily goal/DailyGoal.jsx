@@ -8,7 +8,7 @@ import {
 } from './DailyGoal.styled';
 import icons from '../../../assets/icons.svg';
 
-export default function DailyGoal() {
+export default function DailyGoal(props) {
   return (
     <Container>
       <Heading>Daily Goal</Heading>
@@ -19,7 +19,7 @@ export default function DailyGoal() {
           </svg>
           <div>
             <StyledName>Calories</StyledName>
-            <StyledValue>1700</StyledValue>
+            <StyledValue>{props.calories}</StyledValue>
           </div>
         </Cont>
         <Cont>
@@ -29,7 +29,7 @@ export default function DailyGoal() {
           <div>
             <StyledName>Water</StyledName>
             <StyledValue>
-              1500 <span>ml</span>
+              {props.water} <span>ml</span>
             </StyledValue>
           </div>
         </Cont>
