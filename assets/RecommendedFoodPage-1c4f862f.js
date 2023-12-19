@@ -1,4 +1,4 @@
-import{s as n,j as i}from"./index-ebf8c2e7.js";import{I as r}from"./pageIllustrations-65ec28e8.js";const s=n.div`
+import{s as n,j as i}from"./index-1e6428a3.js";import{I as r}from"./pageIllustrations-208653e3.js";const s=n.div`
   width: 320px;
   margin: 0 auto;
 
@@ -59,7 +59,7 @@ import{s as n,j as i}from"./index-ebf8c2e7.js";import{I as r}from"./pageIllustra
 
   .small_img_div {
     width: 46px;
-    height: 45px;
+    height: 46px;
   }
 
   .description section {
@@ -89,7 +89,6 @@ import{s as n,j as i}from"./index-ebf8c2e7.js";import{I as r}from"./pageIllustra
     }
 
     ul {
-      display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       gap: 20px;
