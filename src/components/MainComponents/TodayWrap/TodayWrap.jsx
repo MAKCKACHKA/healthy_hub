@@ -15,7 +15,7 @@ export default function TodayWrap() {
         <h2>Today</h2>
         <StyledLink to="/dashboard">
           On the way to the goal
-          <svg stroke="grey">
+          <svg>
             <use href={`${icons}#icon-arrow-right`} />
           </svg>
         </StyledLink>

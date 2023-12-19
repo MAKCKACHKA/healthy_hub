@@ -86,7 +86,7 @@ export default function Water() {
             </LeftValue>
           </ValueContainer>
           <IntakeButton onClick={openModal}>
-            <svg stroke="#0f0f0f">
+            <svg>
               <use href={`${icons}#icon-add`} />
             </svg>
             Add Water Intake
@@ -99,7 +99,7 @@ export default function Water() {
         fill="none"
         onClick={() => setCurrent(0)}
       >
-        <use href="/healthy_hub/src/assets/icons.svg#icon-trash"></use>
+        <use href={`${icons}#icon-trash`}></use>
       </DeleteButton>
       <Modal
         isOpen={modalIsOpen}
