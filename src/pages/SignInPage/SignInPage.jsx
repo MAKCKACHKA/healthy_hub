@@ -12,12 +12,14 @@ export default function SignInPage() {
     <SignInSection>
       <AuthorizationImg pageIllustrations={pageIllustrations} />
       <TextPartWrapper>
-        <Title titleText={'Sign in'} />
-        <SubTitle description={'You need to login to use the service'} />
-        <SingInForm />
-        <ForgotPassLink to="/forgot-password">
-          Forgot your password?
-        </ForgotPassLink>
+        <div>
+          <Title titleText={'Sign in'} />
+          <SubTitle description={'You need to login to use the service'} />
+          <SingInForm />
+          <ForgotPassLink to="/forgot-password">
+            Forgot your password?
+          </ForgotPassLink>
+        </div>
         <SignInOrUp
           descriptionText={`If you don't have an account yet`}
           linkText={'Sign up'}
