@@ -15,27 +15,28 @@ export const TitleWrapper = styled.div`
 `;
 
 export const Title = styled.h2`
-  color: ${(props) => props.theme.colors.white};
-  font-family: ${(props) => props.theme.fontFamily.poppins};
-  font-size: ${(p) => p.theme.fontSizes.m};
-  font-weight: ${(p) => p.theme.fontWeights.regular};
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
   line-height: 24px;
 
-  @media screen and (${(p) => p.theme.mq.tablet}) {
-    font-size: ${(p) => p.theme.fontSizes.l};
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
     line-height: 32px;
   }
 `;
 
 export const DiaryLink = styled(Link)`
-  color: ${(props) => props.theme.colors.gray};
-  font-family: ${(props) => props.theme.fontFamily.poppins};
-  font-size: ${(p) => p.theme.fontSizes.xs};
-  font-weight: ${(p) => p.theme.fontWeights.medium};
+  color: gray;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
   line-height: 20px;
+  text-decoration: none;
 
-  @media screen and (${(p) => p.theme.mq.tablet}) {
-    font-size: ${(p) => p.theme.fontSizes.s};
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
     line-height: 22px;
   }
 `;
