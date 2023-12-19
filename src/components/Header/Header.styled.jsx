@@ -108,6 +108,7 @@ export const DropIcon = styled.svg`
   height: 14px;
   margin-left: 12px;
   stroke: var(--primary-btn-color);
+  cursor: pointer;
 `;
 export const EditIcon = styled.svg`
   display: flex;
@@ -115,6 +116,7 @@ export const EditIcon = styled.svg`
   height: 16px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   stroke: var(--primary-btn-color);
 `;
 export const ControlPanel = styled.div`
@@ -128,12 +130,26 @@ export const ControlPanel = styled.div`
   @media screen and (min-width: 1200px) {
     gap: 80px;
   }
+  position: relative;
+
+  .SSSSS {
+    width: 392px;
+    height: 352px;
+    background-color: whitesmoke;
+    position: absolute;
+    z-index: 1;
+    top: 74px;
+    /* left: -14px; */
+  }
 `;
 
 export const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
+
+  z-index: 12;
+  overflow: none;
 `;
 
 export const ImageWrapper = styled.div`
@@ -150,6 +166,11 @@ export const ImageWrapper = styled.div`
 `;
 
 export const TextContainer = styled.div`
+  position: relative;
+  /* width: 100px;
+  height: 20px; */
+  z-index: 2;
+  overflow: none;
   p {
     color: var(--primary-title-text-color);
     font-size: 14px;

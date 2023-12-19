@@ -73,6 +73,30 @@ export const Header = () => {
               </EditableText>
             </TextContainer>
           </InfoContainer>
+          <div className="SSSSS">
+            <h4>Target selection</h4>
+            <p>The service will adjust your calorie intake to your goal</p>
+            <ul>
+              <li>
+                <ImageWrapper>
+                  <img src={run} alt="Running" />
+                </ImageWrapper>
+                <p>Lose fat</p>
+              </li>
+              <li>
+                <ImageWrapper>
+                  <img src={run} alt="Running" />
+                </ImageWrapper>
+                <p>Maintain</p>
+              </li>
+              <li>
+                <ImageWrapper>
+                  <img src={run} alt="Running" />
+                </ImageWrapper>
+                <p>Gain Muscle</p>
+              </li>
+            </ul>
+          </div>
         </ControlPanel>
         <AvatarContainer>
           <p>{testInfo.name}</p>
