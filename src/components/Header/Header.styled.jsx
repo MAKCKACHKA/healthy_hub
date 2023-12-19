@@ -135,7 +135,7 @@ export const ControlPanel = styled.div`
   .SSSSS {
     width: 392px;
     height: 352px;
-    background-color: whitesmoke;
+    background-color: var(--layout-color);
     position: absolute;
     z-index: 1;
     top: 74px;

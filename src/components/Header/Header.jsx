@@ -24,6 +24,7 @@ import icons from '../../assets/icons.svg';
 
 import run from '../../assets/emoji/run.png';
 import clap from '../../assets/emoji/clap.png';
+import { TargetModal } from './Modals/TargetModal';
 
 export const Header = () => {
   // const location = useLocation();
@@ -73,30 +74,7 @@ export const Header = () => {
               </EditableText>
             </TextContainer>
           </InfoContainer>
-          <div className="SSSSS">
-            <h4>Target selection</h4>
-            <p>The service will adjust your calorie intake to your goal</p>
-            <ul>
-              <li>
-                <ImageWrapper>
-                  <img src={run} alt="Running" />
-                </ImageWrapper>
-                <p>Lose fat</p>
-              </li>
-              <li>
-                <ImageWrapper>
-                  <img src={run} alt="Running" />
-                </ImageWrapper>
-                <p>Maintain</p>
-              </li>
-              <li>
-                <ImageWrapper>
-                  <img src={run} alt="Running" />
-                </ImageWrapper>
-                <p>Gain Muscle</p>
-              </li>
-            </ul>
-          </div>
+          {/* <TargetModal></TargetModal> */}
         </ControlPanel>
         <AvatarContainer>
           <p>{testInfo.name}</p>
