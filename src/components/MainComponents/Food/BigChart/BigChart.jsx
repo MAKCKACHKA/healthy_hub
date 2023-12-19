@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import DoughnutElement from '../Doughnut/doughnut';
+import DoughnutElement from '../Doughnut/Doughnut.jsx';
 
 const Value = styled.p`
   color: var(--primary-title-text-color);

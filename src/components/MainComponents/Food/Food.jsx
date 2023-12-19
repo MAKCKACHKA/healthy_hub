@@ -8,7 +8,7 @@ import {
   ChartInfo,
 } from './Food.styled';
 import BigChart from './BigChart/BigChart';
-import DoughnutElement from './Doughnut/doughnut';
+import DoughnutElement from './Doughnut/Doughnut.jsx';
 
 export default function Food() {
   return (
