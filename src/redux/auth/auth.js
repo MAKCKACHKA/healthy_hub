@@ -54,7 +54,7 @@ const authSlice = createSlice({
       .addCase(signOut.rejected, handleRejected)
       .addCase(forgotPassword.fulfilled, (state) => {
         state.token = null;
-        state.user = { name: null, email: null };
+        state.user = { name: '', email: '' };
         state.isLoading = false;
         state.error = null;
       })
