@@ -11,6 +11,19 @@ const StyledDoughnut = styled(Doughnut)`
 ChartJS.register(ArcElement);
 
 const DoughnutElement = (props) => {
+  const options = {
+    cutout: '80%',
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    tooltips: { enabled: false },
+    hover: { mode: null },
+    events: [],
+  };
+
   const data = {
     labels: ['Filled', 'Empty'],
     datasets: [
@@ -22,16 +35,6 @@ const DoughnutElement = (props) => {
         borderRadius: [168, 0],
       },
     ],
-  };
-
-  const options = {
-    cutout: '80%',
-    plugins: {
-      legend: {
-        display: false,
-      },
-    },
-    hover: false,
   };
 
   const backgroundCircle = {
