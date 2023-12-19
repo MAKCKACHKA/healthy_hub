@@ -17,6 +17,7 @@ import {
 } from './Water.styled';
 import WaterChart from './WaterChart/WaterChart';
 import icons from '../../../assets/icons.svg';
+import axios from 'axios';
 
 const customStyles = {
   content: {
@@ -40,25 +41,41 @@ const customStyles = {
 };
 
 Modal.setAppElement('#root');
+axios.defaults.baseURL = 'https://healthy-hub-rest-api.onrender.com/api';
 
-export default function Water({ waterobjective, watercurrent }) {
-  const [current, setCurrent] = useState(
-    watercurrent == null ? 0 : watercurrent
-  );
-  const [left, setLeft] = useState(waterobjective);
+export default function Water({ waterobjective, watercurrent, token }) {
   const [percentage, setPercentage] = useState(0);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [current, setCurrent] = useState(watercurrent);
+
+  useEffect(() => {
+    setCurrent(watercurrent);
+  }, [watercurrent]);
 
   useEffect(() => {
     setPercentage(Math.round((current * 100) / waterobjective));
   }, [current]);
 
-  function calcPercentage(e) {
+  async function calcPercentage(e) {
     e.preventDefault();
+    console.log(`Bearer ${token}`);
+    await axios.post(
+      '/user/water-intake',
+      { ml: e.target.children[0].children[0].value },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+
     let quantity = e.target.children[0].children[0].value;
     setPercentage(percentage + Math.round((quantity * 100) / waterobjective));
     setCurrent(current + Math.round(e.target.children[0].children[0].value));
     closeModal();
+  }
+
+  async function deleteWater() {
+    await axios.delete('/user/water-intake', {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    setCurrent(0);
   }
 
   function openModal() {
@@ -82,7 +99,8 @@ export default function Water({ waterobjective, watercurrent }) {
             </Value>
             <LeftValue>
               <span>left : </span>
-              {waterobjective >= current ? waterobjective - current : 0}ml
+              {waterobjective >= current ? waterobjective - current : 0}
+              ml
             </LeftValue>
           </ValueContainer>
           <IntakeButton onClick={openModal}>
@@ -93,12 +111,7 @@ export default function Water({ waterobjective, watercurrent }) {
           </IntakeButton>
         </Info>
       </FullFrame>
-      <DeleteButton
-        width="20"
-        height="20"
-        fill="none"
-        onClick={() => setCurrent(0)}
-      >
+      <DeleteButton width="20" height="20" fill="none" onClick={deleteWater}>
         <use href={`${icons}#icon-trash`}></use>
       </DeleteButton>
       <Modal

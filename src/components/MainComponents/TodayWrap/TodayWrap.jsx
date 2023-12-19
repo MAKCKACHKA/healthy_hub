@@ -15,6 +15,7 @@ axios.defaults.baseURL = 'https://healthy-hub-rest-api.onrender.com/api';
 export default function TodayWrap() {
   const [userStats, setUserStats] = useState({});
   const [token, setToken] = useState('');
+  const [waterConsumed, setWaterConsumed] = useState(0);
 
   useEffect(() => {
     async function logIn() {
@@ -40,8 +41,12 @@ export default function TodayWrap() {
           },
         })
         .then((response) => {
-          console.log(response.data);
           setUserStats(response.data);
+          setWaterConsumed(
+            response?.data?.consumedWaterByDay?.ml
+              ? response.data.consumedWaterByDay.ml
+              : 0
+          );
         });
     }
     if (token !== '') fetchUser();
@@ -65,7 +70,8 @@ export default function TodayWrap() {
         />
         <Water
           waterobjective={userStats.dailyWater}
-          watercurrent={userStats.consumedWaterByDay}
+          watercurrent={waterConsumed}
+          token={token}
         />
         <Food stats={userStats.consumedMealsByDay} />
       </StyledContainer>
