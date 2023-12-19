@@ -1,4 +1,4 @@
-import{s as E,j as u,r as I,g as bn,a as vn,b as wn,L as On}from"./index-c654ea5f.js";import{i as Z}from"./icons-fdffdb85.js";import{C as En,A as Sn,D as Cn}from"./index-e7d11ac1.js";const Rn=E.h4`
+import{s as E,j as u,r as I,g as bn,a as vn,b as wn,L as On}from"./index-3c72f87b.js";import{i as Z}from"./icons-c7f11e5d.js";import{C as En,A as Sn,D as Cn}from"./index-e6768c1a.js";const Rn=E.h4`
   color: var(--primary-title-text-color);
   font-size: 18px;
   font-style: normal;
@@ -348,7 +348,7 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
 `,uo=E(Cn)`
   width: ${e=>e.$widthpx}px !important;
   height: ${e=>e.$heightpx}px !important;
-`;En.register(Sn);const fo=e=>{const t={labels:["Filled","Empty"],datasets:[{data:[75,25],backgroundColor:[e.color,"#292928"],borderColor:["transparent","#292928"],borderWidth:[0,0],borderRadius:[168,0]}]},n={cutout:"80%",plugins:{legend:{display:!1}},hover:!1},r={id:"backgroundCircle",beforeDatasetsDraw(o,s,i){const{ctx:a}=o;a.save();const h=o.getDatasetMeta(0).data[0].x,p=o.getDatasetMeta(0).data[0].y,d=o.getDatasetMeta(0).data[0].innerRadius,l=o.getDatasetMeta(0).data[0].outerRadius,x=l-d,O=Math.PI/180;a.beginPath(),a.lineWidth=x,a.strokeStyle="#292928",a.arc(h,p,l-x/2,0,O*360,!1),a.stroke()}};return u.jsx(uo,{$widthpx:e.widthpx,$heightpx:e.heightpx,data:t,options:n,plugins:[r]})},ve=fo,po=E.p`
+`;En.register(Sn);const fo=e=>{const t={cutout:"80%",plugins:{legend:{display:!1}},tooltips:{enabled:!1},hover:{mode:null},events:[]},n={labels:["Filled","Empty"],datasets:[{data:[75,25],backgroundColor:[e.color,"#292928"],borderColor:["transparent","#292928"],borderWidth:[0,0],borderRadius:[168,0]}]},r={id:"backgroundCircle",beforeDatasetsDraw(o,s,i){const{ctx:a}=o;a.save();const h=o.getDatasetMeta(0).data[0].x,p=o.getDatasetMeta(0).data[0].y,d=o.getDatasetMeta(0).data[0].innerRadius,l=o.getDatasetMeta(0).data[0].outerRadius,x=l-d,O=Math.PI/180;a.beginPath(),a.lineWidth=x,a.strokeStyle="#292928",a.arc(h,p,l-x/2,0,O*360,!1),a.stroke()}};return u.jsx(uo,{$widthpx:e.widthpx,$heightpx:e.heightpx,data:n,options:t,plugins:[r]})},ve=fo,po=E.p`
   color: var(--primary-title-text-color);
   text-align: center;
   font-size: 32px;
