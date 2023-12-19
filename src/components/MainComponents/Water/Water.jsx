@@ -16,6 +16,7 @@ import {
   CancelModal,
 } from './Water.styled';
 import WaterChart from './WaterChart/WaterChart';
+import icons from '../../../assets/icons.svg';
 
 const customStyles = {
   content: {
@@ -86,7 +87,7 @@ export default function Water() {
           </ValueContainer>
           <IntakeButton onClick={openModal}>
             <svg stroke="#0f0f0f">
-              <use href="/healthy_hub/src/assets/icons.svg#icon-add"></use>
+              <use href={`${icons}#icon-add`} />
             </svg>
             Add Water Intake
           </IntakeButton>

@@ -6,6 +6,7 @@ import {
   StyledName,
   StyledValue,
 } from './DailyGoal.styled';
+import icons from '../../../assets/icons.svg';
 
 export default function DailyGoal() {
   return (
@@ -14,7 +15,7 @@ export default function DailyGoal() {
       <FullFrame>
         <Cont>
           <svg style={{ stroke: 'var(--colories-graf-color)' }}>
-            <use href="/healthy_hub/src/assets/icons.svg#icon-bubble"></use>
+            <use href={`${icons}#icon-bubble`} />
           </svg>
           <div>
             <StyledName>Calories</StyledName>
@@ -23,7 +24,7 @@ export default function DailyGoal() {
         </Cont>
         <Cont>
           <svg style={{ stroke: 'var(--water-color)' }}>
-            <use href="/healthy_hub/src/assets/icons.svg#icon-milk"></use>
+            <use href={`${icons}#icon-milk`} />
           </svg>
           <div>
             <StyledName>Water</StyledName>
