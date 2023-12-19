@@ -5,6 +5,12 @@ export const WeightSectionhWrapper = styled.div`
     max-width: 1372px;
     margin-left: auto;
     margin-right: auto;
+    @media screen and (min-width: 834px) and (max-width: 1439px) {
+        margin-top: 40px;
+    }
+    @media screen and (max-width: 834px) {
+        margin-top: 27px;
+    }
 `
 export const WeightHeadingWrapper = styled.div`
     display: flex;
@@ -45,6 +51,10 @@ export const WeightGraphWrapper = styled.div`
     gap: 6px;
     flex-shrink: 0;
     flex-direction: column;
+    @media screen and (min-width: 834px) and (max-width: 1439px) {
+        padding-bottom: 44px;
+    }
+
 `
 
 export const WeightArrayList = styled.ul`
@@ -71,7 +81,19 @@ export const WeightArrayItem = styled.li`
     font-weight: 400;
     line-height: 20px;
     color: var(--primary-title-text-color);
+    @media screen and (min-width: 834px) and (max-width: 1439px) {
+        font-family: Poppins;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px
+    }
+    @media screen and (max-width: 834px) {
+        
+    }
 `
+
+
 
 export const MonthArrayItem = styled.li`
     flex: 1;
@@ -84,4 +106,5 @@ export const MonthArrayItem = styled.li`
     line-height: 14px;
     width: 14px;
     height: 14px;
+
 `

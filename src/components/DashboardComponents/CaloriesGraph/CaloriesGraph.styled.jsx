@@ -1,5 +1,14 @@
 import styled from 'styled-components';
 
+// @media screen and (min-width: 768px) {
+//     font-size: 21px;
+//     line-height: 1.45;
+//   }
+
+//   @media screen and (min-width: 768px) and (max-width: 1199px) {
+//     text-align: center;
+//   }
+
 export const CaloriesSectionhWrapper = styled.div`
     margin-top: 16px;
 `
@@ -15,6 +24,11 @@ export const CaloriesHeader = styled.h2`
     font-weight: 400;
     line-height: 32px;  
     margin-right: 40px;
+    @media screen and (max-width: 834px) {
+        margin-right: 77px;
+        font-size: 18px;
+        line-height: 26px;
+    }
 `
 
 export const СaloriesGraphWrapper = styled.div`

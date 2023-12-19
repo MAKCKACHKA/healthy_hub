@@ -2,6 +2,12 @@ import styled from 'styled-components';
 
 export const WaterSectionhWrapper = styled.div`
     margin-top: 16px;
+    @media screen and (min-width: 834px) and (max-width: 1439px) {
+        margin-top: 40px;
+    }
+    @media screen and (max-width: 834px) {
+        margin-top: 27px;
+    }
 `
 export const WaterHeadingWrapper = styled.div`
     display: flex;
@@ -15,6 +21,11 @@ export const WaterHeader = styled.h2`
     font-weight: 400;
     line-height: 32px;  
     margin-right: 40px;
+    @media screen and (max-width: 834px) {
+        margin-right: 77px;
+        font-size: 18px;
+        line-height: 26px;
+    }
 `
 
 export const WaterGraphWrapper = styled.div`
