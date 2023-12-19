@@ -42,7 +42,7 @@ export const IntakeButton = styled.button`
   svg {
     height: 16px;
     width: 16px;
-    fill: #0f0f0f;
+    stroke: #0f0f0f;
   }
 `;
 

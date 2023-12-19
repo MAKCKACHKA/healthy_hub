@@ -44,6 +44,6 @@ export const StyledLink = styled(Link)`
   svg {
     height: 16px;
     width: 16px;
-    fill: var(--primary-text-color);
+    stroke: var(--primary-text-color);
   }
 `;

@@ -6,6 +6,7 @@ import {
   HeadingWrapper,
   StyledLink,
 } from './TodayWrap.styled';
+import icons from '../../../assets/icons.svg';
 
 export default function TodayWrap() {
   return (
@@ -13,9 +14,9 @@ export default function TodayWrap() {
       <HeadingWrapper>
         <h2>Today</h2>
         <StyledLink to="/dashboard">
-          On the way to the goal{' '}
-          <svg stroke="grey">
-            <use href="/healthy_hub/src/assets/icons.svg#icon-arrow-right"></use>
+          On the way to the goal
+          <svg>
+            <use href={`${icons}#icon-arrow-right`} />
           </svg>
         </StyledLink>
       </HeadingWrapper>
