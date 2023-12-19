@@ -49,6 +49,10 @@ export default function Water({ waterobjective, watercurrent }) {
   const [percentage, setPercentage] = useState(0);
   const [modalIsOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    setPercentage(Math.round((current * 100) / waterobjective));
+  }, [current]);
+
   function calcPercentage(e) {
     e.preventDefault();
     let quantity = e.target.children[0].children[0].value;
