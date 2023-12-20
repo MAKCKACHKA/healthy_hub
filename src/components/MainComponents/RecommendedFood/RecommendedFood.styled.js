@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledRecommendedFoodPage = styled.div`
+const StyledRecommendedFoodSection = styled.section`
   width: 320px;
   margin: 0 auto;
 
@@ -10,33 +10,29 @@ const StyledRecommendedFoodPage = styled.div`
     font-weight: 400;
   }
 
-  h3 {
-    font-size: 30px;
-    font-weight: 500;
+  h2 {
+    font-size: 18px;
+    font-weight: 400;
     margin-bottom: 16px;
   }
 
-  .main_div {
-    width: 100%;
-  }
-
   .wrapper {
+    width: 100%;
     display: flex;
     flex-direction: column;
-  }
-
-  .img_div {
-    max-width: 300px;
-    height: 312px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   ul {
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 10px;
     width: 100%;
     max-width: 300px;
-    margin-top: 24px;
+    margin-bottom: 16px;
+    height: 182px;
+    overflow: hidden;
   }
 
   ul > li {
@@ -75,24 +71,40 @@ const StyledRecommendedFoodPage = styled.div`
     font-weight: 500;
   }
 
+  .href {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500px;
+    color: #b6b6b6;
+  }
+
+  .svg {
+    stroke: #b6b6b6;
+    width: 16px;
+    height: 16px;
+  }
+
   @media screen and (min-width: 834px) {
     width: calc(834px - (27px * 2));
     margin: 0 auto;
 
-    .img_div {
-      width: 100%;
-      max-width: 380px;
-      height: 396px;
-      margin: 0 auto;
+    h2 {
+      font-size: 18px;
     }
 
-    img {
-      width: 100%;
+    .wrapper {
+      padding-left: 0px;
+      padding-right: 0px;
     }
 
     ul {
+      display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      height: auto;
       gap: 20px;
       width: 100%;
       max-width: 100%;
@@ -103,35 +115,24 @@ const StyledRecommendedFoodPage = styled.div`
       height: 86px;
       padding: 20px 160px 20px 24px;
     }
-  }
 
-  @media screen and (min-width: 1440px) {
-    width: calc(1440px - 150px - 27px);
-
-    .wrapper {
-      display: flex;
-      flex-direction: row;
-      column-gap: 24px;
-      margin-top: 16px;
+    .href {
+      font-size: 16px;
     }
 
-    .img_div {
-      max-width: 536px;
-      height: 560px;
-      margin-top: 8px;
-      /* margin: 0 auto; */
-    }
-
-    ul {
-      margin-top: 0;
+    @media screen and (min-width: 1440px) {
       width: 676px;
-    }
 
-    ul > li {
-      width: 328px;
-      padding: 20px 108px 20px 24px;
+      ul {
+        width: 100%;
+      }
+
+      ul > li {
+        width: 328px;
+        padding: 20px 108px 20px 24px;
+      }
     }
   }
 `;
 
-export default StyledRecommendedFoodPage;
+export default StyledRecommendedFoodSection;
