@@ -16,6 +16,7 @@ export default function TodayWrap() {
   const [userStats, setUserStats] = useState({});
   const [token, setToken] = useState('');
   const [waterConsumed, setWaterConsumed] = useState(0);
+  const [mealsConsumed, setMealsConsumed] = useState(0);
 
   useEffect(() => {
     async function logIn() {
@@ -26,6 +27,7 @@ export default function TodayWrap() {
         })
         .then((response) => {
           setToken(response.data.user.token);
+          console.log(token);
         });
     }
 
@@ -41,12 +43,10 @@ export default function TodayWrap() {
           },
         })
         .then((response) => {
-          setUserStats(response.data);
-          setWaterConsumed(
-            response?.data?.consumedWaterByDay?.ml
-              ? response.data.consumedWaterByDay.ml
-              : 0
-          );
+          setUserStats(response.data.user);
+          setWaterConsumed(response.data.consumedWaterByDay);
+          setMealsConsumed(response.data.consumedMealsByDay);
+          console.log(response.data);
         });
     }
     if (token !== '') fetchUser();
@@ -70,10 +70,10 @@ export default function TodayWrap() {
         />
         <Water
           waterobjective={userStats.dailyWater}
-          watercurrent={waterConsumed}
+          watercurrent={waterConsumed.ml ? waterConsumed.ml : waterConsumed}
           token={token}
         />
-        <Food stats={userStats.consumedMealsByDay} />
+        <Food stats={userStats} meals={mealsConsumed} />
       </StyledContainer>
     </div>
   );
