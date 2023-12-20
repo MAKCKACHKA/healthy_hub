@@ -11,7 +11,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { faker } from '@faker-js/faker';
-import { WaterAverageNumber, WaterAverageTitle, WaterHeader, WaterHeadingWrapper, WaterSectionhWrapper, WaterGraphWrapper } from './WaterGraph.styled';
+import { WaterAverageNumber, WaterAverageTitle, WaterHeader, WaterHeadingWrapper, WaterSectionhWrapper, WaterGraphWrapper, Overflow, ScrollerWrapper, HeaderData } from './WaterGraph.styled';
 
 export const WaterGraph = ({month, dateOfMonths, setDateOfMonths}) => {
 
@@ -48,7 +48,8 @@ export const WaterGraph = ({month, dateOfMonths, setDateOfMonths}) => {
   const dataCap = () => faker.number.int({ min: 750, max: 2500 })
 
   const options = {
-      responsive: true,
+    responsive: true,
+    maintainAspectRatio: false, 
       scales: {
         y: {
           min: 0,
@@ -151,15 +152,19 @@ export const WaterGraph = ({month, dateOfMonths, setDateOfMonths}) => {
       <WaterHeadingWrapper>
       <WaterHeader>Water</WaterHeader>
         {averageValueOfTheWaterGraph &&
-          (<>
+          (<HeaderData>
           <WaterAverageTitle>Average value:</WaterAverageTitle>
           <WaterAverageNumber>{averageValueOfTheWaterGraph}ml</WaterAverageNumber>
-          </>)
+          </HeaderData>)
         }
       </WaterHeadingWrapper>
-      <WaterGraphWrapper>
-        <Line options={options} data={data}></Line>
-      </WaterGraphWrapper>
+      <ScrollerWrapper>
+        <Overflow>
+          <WaterGraphWrapper>
+            <Line options={options} data={data}></Line>
+          </WaterGraphWrapper>  
+        </Overflow>
+      </ScrollerWrapper>
     </WaterSectionhWrapper>
   )   
 }

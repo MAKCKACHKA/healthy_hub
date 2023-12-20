@@ -1,21 +1,50 @@
 import styled from 'styled-components';
 
-// @media screen and (min-width: 768px) {
-//     font-size: 21px;
-//     line-height: 1.45;
-//   }
+export const ScrollerWrapper = styled.div`
+    @media screen and (max-width: 834px) {
+        overflow:auto;
+        
+        &::-webkit-scrollbar {
+        height: 8px;
+        }
 
-//   @media screen and (min-width: 768px) and (max-width: 1199px) {
-//     text-align: center;
-//   }
+        &::-webkit-scrollbar-thumb {
+        background-color: rgb(255, 255, 255, 0.1);
+        border-radius: 12px;
+        }
+
+        &::-webkit-scrollbar-track {
+        background-color: rgb(15, 15, 15, 1);
+        }
+    }
+`
+
+export const Overflow = styled.div`
+    background: var(--layout-color);
+    padding: 24px 21px 36px;
+    border-radius: 12px;
+    
+    @media screen and (min-width: 834px) and (max-width: 1439px) {
+        padding-bottom: 44px;
+    }
+    
+    @media screen and (max-width: 834px){
+        margin-bottom: 8px;
+        padding:0px;
+        background-color: transparent;
+    }
+    
+`
 
 export const CaloriesSectionhWrapper = styled.div`
     margin-top: 16px;
+    
 `
 export const CaloriesHeadingWrapper = styled.div`
     display: flex;
     align-items: baseline;
     margin-bottom: 6px;
+    justify-content: space-between;
 `
 export const CaloriesHeader = styled.h2`
     font-family: Poppins;
@@ -25,10 +54,14 @@ export const CaloriesHeader = styled.h2`
     line-height: 32px;  
     margin-right: 40px;
     @media screen and (max-width: 834px) {
-        margin-right: 77px;
+        /* margin-right: 77px; */
         font-size: 18px;
         line-height: 26px;
     }
+`
+
+export const HeaderData = styled.div`
+    display: flex;
 `
 
 export const СaloriesGraphWrapper = styled.div`
@@ -40,9 +73,16 @@ export const СaloriesGraphWrapper = styled.div`
     padding-bottom: 25px;
     min-width: 676px;
     min-height: 382px;
-    /* width: 676px;
-    height: 382px; */
+    /* width: 676px; */
+    /* height: 382px; */
     flex-shrink: 0;
+    /* width: 320px; */
+    /* max-width: 320px; */
+`
+
+export const TestForDiv = styled.div`
+    /* width:676px; */
+    height: 323px;
 `
 
 export const CaloriesAverageTitle = styled.p`

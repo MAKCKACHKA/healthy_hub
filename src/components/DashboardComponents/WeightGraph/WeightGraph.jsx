@@ -10,7 +10,7 @@ import {
   Legend,
 } from 'chart.js';
 import { faker } from '@faker-js/faker';
-import { WeightAverageNumber, WeightAverageTitle, WeightHeader, WeightHeadingWrapper, WeightSectionhWrapper, WeightGraphWrapper, WeightArrayList, MonthArrayList, WeightArrayItem, MonthArrayItem } from './WeightGraph.styled';
+import { ScrollerWrapper, Overflow, WeightAverageNumber, WeightAverageTitle, WeightHeader, WeightHeadingWrapper, WeightSectionhWrapper, WeightGraphWrapper, WeightArrayList, MonthArrayList, WeightArrayItem, MonthArrayItem, HeaderData } from './WeightGraph.styled';
 
 export const WeightGraph = ({month, dateOfMonths, setDateOfMonths }) => {
 
@@ -104,16 +104,21 @@ export const WeightGraph = ({month, dateOfMonths, setDateOfMonths }) => {
   return (
     <WeightSectionhWrapper>
       <WeightHeadingWrapper>
-        <WeightHeader>Weight</WeightHeader>
-          {avarageCalc() && <>
-            <WeightAverageTitle>Average value:</WeightAverageTitle>
-            <WeightAverageNumber>{avarageCalc()}kg</WeightAverageNumber>
-          </>}
+          <WeightHeader>Weight</WeightHeader>
+          {avarageCalc() &&
+            <HeaderData>
+              <WeightAverageTitle>Average value:</WeightAverageTitle>
+              <WeightAverageNumber>{avarageCalc()}kg</WeightAverageNumber>
+            </HeaderData>}
       </WeightHeadingWrapper>
-      <WeightGraphWrapper>
-          {weightArray()}
-          {monthArray()}
-      </WeightGraphWrapper>
+      <ScrollerWrapper>
+        <Overflow>
+          <WeightGraphWrapper>
+              {weightArray()}
+              {monthArray()}
+          </WeightGraphWrapper>
+        </Overflow>
+      </ScrollerWrapper>
     </WeightSectionhWrapper>
   )   
 }

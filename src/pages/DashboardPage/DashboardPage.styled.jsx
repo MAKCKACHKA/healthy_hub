@@ -13,7 +13,8 @@ export const DashboardPageWrapper = styled.div`
         width: 780px;
     }
     @media screen and (max-width: 834px) {
-        width: 320px
+        width: 320px;
+        overflow: hidden;
     } 
 `
 

@@ -11,7 +11,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { faker } from '@faker-js/faker';
-import { CaloriesAverageNumber, CaloriesAverageTitle, CaloriesHeader, CaloriesHeadingWrapper, CaloriesSectionhWrapper, СaloriesGraphWrapper } from './CaloriesGraph.styled';
+import { Overflow,TestForDiv,CaloriesAverageNumber, CaloriesAverageTitle, CaloriesHeader, CaloriesHeadingWrapper, CaloriesSectionhWrapper, СaloriesGraphWrapper, ScrollerWrapper, HeaderData } from './CaloriesGraph.styled';
 
 export const CaloriesGraph = ({month}) => {
 
@@ -23,7 +23,7 @@ export const CaloriesGraph = ({month}) => {
     Title,
     Tooltip,
     Filler,
-    Legend
+    Legend,
   );
 
   const numberOfDaysInTheMonth = month => {
@@ -36,7 +36,7 @@ export const CaloriesGraph = ({month}) => {
 
   const avarageCalc = () => {
   const dataOfGraph = data.datasets[0].data
-  const lengthOfGraph = labels.length
+    const lengthOfGraph = labels.length
   let sum = 0
   for (let i = 0; i < lengthOfGraph; i += 1) {
     sum += dataOfGraph[i]
@@ -47,7 +47,12 @@ export const CaloriesGraph = ({month}) => {
 
   const dataCap = () => faker.number.int({ min: 750, max: 2500 })
 
+    // if (2 > 1) {
+  // console.log(labels)
+  // }
+
   const options = {
+      maintainAspectRatio: false, 
       responsive: true,
       scales: {
         y: {
@@ -124,6 +129,12 @@ export const CaloriesGraph = ({month}) => {
 
   const labels = numberOfDaysInTheMonth(month)
 
+  const scrollerTest = () => {
+    if (labels.length > 14) {
+      return true
+    }
+  }
+
   const data = {
     labels,
     datasets: [
@@ -151,15 +162,21 @@ export const CaloriesGraph = ({month}) => {
       <CaloriesHeadingWrapper>
       <CaloriesHeader>Calories</CaloriesHeader>
         {averageValueOfTheCaloriesGraph &&
-          (<>
-          <CaloriesAverageTitle>Average value:</CaloriesAverageTitle>
-          <CaloriesAverageNumber>{averageValueOfTheCaloriesGraph}cal</CaloriesAverageNumber>
-          </>)
+          (<HeaderData>
+            <CaloriesAverageTitle>Average value:</CaloriesAverageTitle>
+            <CaloriesAverageNumber>{averageValueOfTheCaloriesGraph}cal</CaloriesAverageNumber>
+          </HeaderData>)
         }
       </CaloriesHeadingWrapper>
-      <СaloriesGraphWrapper>
-        <Line options={options} data={data}></Line>
-      </СaloriesGraphWrapper>
+      <ScrollerWrapper>
+        <Overflow>
+          <СaloriesGraphWrapper>
+            {/* <TestForDiv> */}
+              <Line options={options} data={data}/>
+            {/* </TestForDiv> */}
+          </СaloriesGraphWrapper>
+        </Overflow>
+      </ScrollerWrapper>
     </CaloriesSectionhWrapper>
   )   
 }
