@@ -8,8 +8,8 @@ export const InputStyled = styled.input`
   color: var(--primary-title-text-color);
   border: 1px solid var(--primary-btn-color);
   border: ${(props) => {
-    if (props.$valid && props.$touched !== undefined) {
-      return props.$valid[props.name] && props.$touched[props.name]
+    if (props.$valid !== undefined) {
+      return props.$valid[props.name] && props.value !== ''
         ? '1px solid var(--error-validate-input)'
         : '1px solid var(--primary-btn-color)';
     }

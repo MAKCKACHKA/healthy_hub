@@ -5,7 +5,7 @@ export const Section = styled.section`
   margin: 0 auto;
 
   @media screen and (min-width: 768px) {
-    max-width: 380px;
+    max-width: 444px;
   }
 
   @media screen and (min-width: 1200px) {
