@@ -4,7 +4,17 @@ import { forgotPassword, signOut, signin, signup } from '../operations';
 // import { fetchExample } from '../operations';
 
 const initialState = {
-  user: { name: null, email: null },
+  user: {
+    name: '',
+    email: '',
+    password: '',
+    age: 0,
+    weidht: 0,
+    height: 0,
+    gender: '',
+    coefficientOfActivity: 0,
+    goal: '',
+  },
   token: true,
 
   isLoading: false,

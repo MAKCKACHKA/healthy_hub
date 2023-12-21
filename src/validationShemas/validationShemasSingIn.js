@@ -23,8 +23,8 @@ export const validationShemaUser = Yup.object({
   password: Yup.string('Enter your password')
     .min(8, 'Password should be of minimum 8 characters length')
     .required('Password is required'),
-  goal: Yup.string('Enter your goal').matches(/(Lose Fat|Maintain|Gain Muscle)/),
-  gender: Yup.string('Enter your gender').matches(/(Male|Female)/),
+  goal: Yup.string('Enter your goal').matches(/(lose fat|maintain|gain muscle)/),
+  gender: Yup.string('Enter your gender').matches(/(male|female)/),
   age: Yup.number('Enter your age')
     .min(18, 'Enter age over 18 years old')
     .max(90, 'Enter correct age')
@@ -32,7 +32,7 @@ export const validationShemaUser = Yup.object({
     .positive('Age must be a positive')
     .integer('Age must be an integer'),
   height: Yup.number('Enter your height')
-    .min(100, 'Enter correct height')
+    .min(120, 'Enter correct height')
     .max(250, 'Enter correct height')
     .required('Height is required')
     .positive('Height must be a positive')

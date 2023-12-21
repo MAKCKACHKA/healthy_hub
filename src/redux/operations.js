@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://healthy-hub-rest-api.onrender.com/';
 
@@ -19,8 +20,10 @@ export const signup = createAsyncThunk(
     try {
       const res = await axios.post('/api/auth/signup', credentials);
       setAuthToken(res.data.token);
+      console.log(res.data);
       return res.data;
-    } catch (error) {
+    } catch (error) {  
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -34,6 +37,7 @@ export const signin = createAsyncThunk(
       setAuthToken(res.data.token);
       return res.data;
     } catch (error) {
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -44,6 +48,7 @@ export const signOut = createAsyncThunk('auth/signout', async (_, thunkAPI) => {
     await axios.post('/api/auth/signout');
     clearAuthHeader();
   } catch (error) {
+    toast.error(error.message)
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -55,6 +60,7 @@ export const forgotPassword = createAsyncThunk(
       const res = await axios.post('/api/auth/forgot-password', credentials);
       return res.data;
     } catch (error) {
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -69,6 +75,7 @@ export const refreshRecommendedFood = createAsyncThunk(
       const res = await axios.get('/api/recommended-food');
       return res.data;
     } catch (error) {
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -85,6 +92,7 @@ export const getMonthlyStatistics = createAsyncThunk(
       });
       return res.data;
     } catch (error) {
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -97,6 +105,7 @@ export const getCurrentUser = createAsyncThunk(
       const res = await axios.get('/api/user/current');
       return res.data;
     } catch (error) {
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -109,6 +118,7 @@ export const updateUserInformation = createAsyncThunk(
       const res = await axios.put('/api/user/update', userData);
       return res.data;
     } catch (error) {
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -121,6 +131,7 @@ export const updateUserGoal = createAsyncThunk(
       const res = await axios.put('/api/user/goal', goalData);
       return res.data;
     } catch (error) {
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -133,6 +144,7 @@ export const addUserWeight = createAsyncThunk(
       const res = await axios.post('/api/user/weight', weightData);
       return res.data;
     } catch (error) {
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -145,6 +157,7 @@ export const addFoodIntake = createAsyncThunk(
       const res = await axios.post('/api/user/food-intake', foodIntakeData);
       return res.data;
     } catch (error) {
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -159,6 +172,7 @@ export const deleteFoodIntake = createAsyncThunk(
       });
       return res.data;
     } catch (error) {
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -171,6 +185,7 @@ export const addWaterIntake = createAsyncThunk(
       const res = await axios.post('/api/user/water-intake', waterIntakeData);
       return res.data;
     } catch (error) {
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -183,6 +198,7 @@ export const deleteWaterIntake = createAsyncThunk(
       const res = await axios.delete('/api/user/water-intake');
       return res.data;
     } catch (error) {
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -198,6 +214,7 @@ export const updateFoodIntake = createAsyncThunk(
       );
       return res.data;
     } catch (error) {
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -218,6 +235,7 @@ export const addUserAvatar = createAsyncThunk(
 
       return res.data;
     } catch (error) {
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
