@@ -48,6 +48,7 @@ export const Chart = styled.div`
   display: flex;
   gap: 12px;
   align-items: center;
+  position: relative;
 `;
 
 export const Percentage = styled.p`
@@ -59,8 +60,7 @@ export const Percentage = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 1.42;
-  position: relative;
-  right: 24%;
+  position: absolute;
   width: 48px;
   text-align: center;
 `;
