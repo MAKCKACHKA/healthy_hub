@@ -1,28 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { forgotPassword, signOut, signin, signup } from '../operations';
-
-// import { fetchExample } from '../operations';
+import {
+  forgotPassword,
+  signOut,
+  signin,
+  signup,
+  // getCurrentUser,
+} from '../operations';
 
 const initialState = {
-  user: {
-    name: '',
-    email: '',
-    password: '',
-    age: 0,
-    weidht: 0,
-    height: 0,
-    gender: '',
-    coefficientOfActivity: 0,
-    goal: '',
-  },
-  token: true,
+  user: null,
+  token: null,
 
   isLoading: false,
   error: null,
 };
 
 const handleFulfilled = (state, action) => {
-  state.user = action.payload.user;
+  // state.user = action.payload.user;
   state.token = action.payload.token;
   state.isLoading = false;
   state.error = null;
@@ -56,7 +50,7 @@ const authSlice = createSlice({
       .addCase(signin.rejected, handleRejected)
       .addCase(signOut.fulfilled, (state) => {
         state.token = null;
-        state.user = { name: null, email: null };
+        // state.user = { name: null, email: null };
         state.isLoading = false;
         state.error = null;
       })
@@ -64,12 +58,22 @@ const authSlice = createSlice({
       .addCase(signOut.rejected, handleRejected)
       .addCase(forgotPassword.fulfilled, (state) => {
         state.token = null;
-        state.user = { name: '', email: '' };
+        // state.user = { name: '', email: '' };
         state.isLoading = false;
         state.error = null;
       })
       .addCase(forgotPassword.pending, handlePending)
       .addCase(forgotPassword.rejected, handleRejected);
+    // .addCase(getCurrentUser.fulfilled, (state) => {
+    //   state.isLoading = false;
+    //   state.error = null;
+    // })
+    // .addCase(getCurrentUser.pending, handlePending)
+    // .addCase(getCurrentUser.rejected, (state, action) => {
+    //   state.token = null;
+    //   state.isLoading = false;
+    //   state.error = action.payload;
+    // });
   },
 });
 

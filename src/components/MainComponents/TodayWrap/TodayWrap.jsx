@@ -9,43 +9,47 @@ import {
 import icons from '../../../assets/icons.svg';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { selectUserData } from '../../../redux/selesctors';
 
 axios.defaults.baseURL = 'https://healthy-hub-rest-api.onrender.com/api';
 
 export default function TodayWrap() {
   const [userStats, setUserStats] = useState({});
-  const [token, setToken] = useState('');
+  // const [token, setToken] = useState('');
+  const user = useSelector(selectUserData);
 
   useEffect(() => {
-    async function logIn() {
-      await axios
-        .post('/auth/signin', {
-          email: 'john.doe@example.com',
-          password: 'randompassword123',
-        })
-        .then((response) => {
-          setToken(response.data.user.token);
-        });
-    }
+    // async function logIn() {
+    //   await axios
+    //     .post('/auth/signin', {
+    //       email: 'john.doe@example.com',
+    //       password: 'randompassword123',
+    //     })
+    //     .then((response) => {
+    //       setToken(response.data.user.token);
+    //     });
+    // }
 
-    logIn();
-  }, [token]);
+    // logIn();
+    setUserStats(user);
+  }, []);
 
-  useEffect(() => {
-    async function fetchUser() {
-      await axios
-        .get('/user/current', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((response) => {
-          console.log(response.data);
-          setUserStats(response.data);
-        });
-    }
-    if (token !== '') fetchUser();
-  }, [token]);
+  // useEffect(() => {
+  //   async function fetchUser() {
+  //     await axios
+  //       .get('/user/current', {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       })
+  //       .then((response) => {
+  //         console.log(response.data);
+  //         setUserStats(response.data);
+  //       });
+  //   }
+  //   if (token !== '') fetchUser();
+  // }, [token]);
 
   return (
     <div>
