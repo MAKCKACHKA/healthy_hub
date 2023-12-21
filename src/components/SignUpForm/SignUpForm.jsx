@@ -25,7 +25,7 @@ export const SignUpForm = ({ currentStep }) => {
     const user = { ...values };
     user.coefficientOfActivity = Number(user.coefficientOfActivity);
     dispatch(signup({ ...user }));
-
+    
     actions.resetForm();
   };
 
@@ -58,9 +58,8 @@ export const SignUpForm = ({ currentStep }) => {
               onChange={formik.handleChange}
               value={formik.values.name}
               valid={formik.errors}
-              touched={formik.touched}
             />
-            {formik.errors.name && !formik.values.name && (
+            {formik.errors.name && formik.values.name !== '' && (
               <ErrorMessageInput id="name">
                 {formik.errors.name}
               </ErrorMessageInput>
@@ -75,7 +74,6 @@ export const SignUpForm = ({ currentStep }) => {
               onChange={formik.handleChange}
               value={formik.values.email}
               valid={formik.errors}
-              touched={formik.touched}
             />
             {formik.errors.email && formik.values.email !== '' && (
               <ErrorMessageInput id="email">
@@ -92,7 +90,6 @@ export const SignUpForm = ({ currentStep }) => {
               onChange={formik.handleChange}
               value={formik.values.password}
               valid={formik.errors}
-              touched={formik.touched}
             />
             {formik.errors.password && formik.values.password !== '' && (
               <ErrorMessageInput id="password">
@@ -161,7 +158,6 @@ export const SignUpForm = ({ currentStep }) => {
             onChange={formik.handleChange}
             value={formik.values.age}
             valid={formik.errors}
-            touched={formik.touched}
           />
           {formik.errors.age && formik.values.age && (
             <ErrorMessageInput id="password">
@@ -181,7 +177,6 @@ export const SignUpForm = ({ currentStep }) => {
               onChange={formik.handleChange}
               value={formik.values.height}
               valid={formik.errors}
-              touched={formik.touched}
             />
             {formik.errors.height && formik.values.height && (
               <ErrorMessageInput id="password">
@@ -199,7 +194,6 @@ export const SignUpForm = ({ currentStep }) => {
               onChange={formik.handleChange}
               value={formik.values.weight}
               valid={formik.errors}
-              touched={formik.touched}
             />
             {formik.errors.weight && formik.values.weight && (
               <ErrorMessageInput id="password">
