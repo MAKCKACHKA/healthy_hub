@@ -36,7 +36,7 @@ export const HeaderContainer2 = styled.div`
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 18px 10px;
   align-items: center;
-
+  z-index: 50;
   @media screen and (min-width: 768px) {
     padding: 26px 27px;
   }
@@ -61,7 +61,9 @@ export const LogoLink = styled(Link)`
   line-height: 1.37;
   cursor: pointer;
   transition: color 0.3s;
-
+  display: flex;
+  gap: 30px;
+  align-items: center;
   @media screen and (min-width: 768px) {
     font-size: 22px;
     line-height: 1.45;
@@ -131,23 +133,13 @@ export const ControlPanel = styled.div`
     gap: 80px;
   }
   position: relative;
-
-  .SSSSS {
-    width: 392px;
-    height: 352px;
-    background-color: var(--layout-color);
-    position: absolute;
-    z-index: 1;
-    top: 74px;
-    /* left: -14px; */
-  }
 `;
 
 export const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-
+  max-width: 200px;
   z-index: 12;
   overflow: none;
 `;
@@ -174,7 +166,7 @@ export const TextContainer = styled.div`
   p {
     color: var(--primary-title-text-color);
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.42;
     font-style: normal;
   }
@@ -191,6 +183,8 @@ export const EditableText = styled.p`
 export const AvatarContainer = styled.div`
   display: flex;
   align-items: center;
+  position: relative;
+
   svg {
     margin-left: 4px;
   }
@@ -230,4 +224,34 @@ export const KgSpan = styled.span`
   font-weight: 400;
   line-height: 1.42;
   margin-right: 12px;
+`;
+
+export const MobileMenuBtn = styled.button`
+  border-radius: 12px;
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--primary-btn-color);
+    transition: opacity, 0.3s;
+  }
+
+  &:hover {
+    svg {
+      opacity: 0.8;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+
+export const MobileLogoBtnWrap = styled.div`
+  display: flex;
+  gap: 8px;
 `;
