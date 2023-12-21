@@ -1,4 +1,4 @@
-import{s as i,j as r,L as m}from"./index-55986f96.js";import{c as s,a,b as d}from"./index.esm-42b72f59.js";const x=i.svg`
+import{s as i,j as r,L as m}from"./index-a002b40c.js";import{c as s,a,b as d}from"./index.esm-4af908ef.js";const x=i.svg`
   width: 300px;
   height: 296px;
   display: block;
@@ -39,7 +39,7 @@ import{s as i,j as r,L as m}from"./index-55986f96.js";import{c as s,a,b as d}fro
 `,u=i(m)`
   font-weight: 500;
   color: var(--primary-title-text-color);
-`,E=({descriptionText:e,linkText:n,to:t,flexDirectionColumn:o})=>r.jsxs(g,{$flexDirectionColumn:o,children:[r.jsx("p",{children:e}),r.jsx(u,{to:t,children:n})]}),$=s({email:a().email("Enter a valid email").required("Email is required"),password:a().min(8,"Password should be of minimum 8 characters length").required("Password is required")}),I=s({email:a().email("Enter a valid email").required("Email is required")}),j=s({name:a().required("Name is required"),email:a().email("Enter a valid email").required("Email is required"),password:a().min(8,"Password should be of minimum 8 characters length").required("Password is required"),goal:a().matches(/(Lose Fat|Maintain|Gain Muscle)/),gender:a().matches(/(Male|Female)/),age:d().min(18,"Enter age over 18 years old").max(90,"Enter correct age").required("Age is required").positive("Age must be a positive").integer("Age must be an integer"),height:d().min(100,"Enter correct height").max(250,"Enter correct height").required("Height is required").positive("Height must be a positive").integer("Height must be an integer"),weight:d().min(20,"Enter correct weight").max(250,"Enter correct weight").required("Weight is required").positive("Weight must be a positive").integer("Weight must be an integer"),activity:a().matches(/(1.2|1.375|1.55|1.725|1.9)/)}),w=i.input`
+`,E=({descriptionText:e,linkText:n,to:t,flexDirectionColumn:o})=>r.jsxs(g,{$flexDirectionColumn:o,children:[r.jsx("p",{children:e}),r.jsx(u,{to:t,children:n})]}),$=s({email:a().email("Enter a valid email").required("Email is required"),password:a().min(8,"Password should be of minimum 8 characters length").required("Password is required")}),I=s({email:a().email("Enter a valid email").required("Email is required")}),j=s({name:a().required("Name is required"),email:a().email("Enter a valid email").required("Email is required"),password:a().min(8,"Password should be of minimum 8 characters length").required("Password is required"),goal:a().matches(/(lose fat|maintain|gain muscle)/),gender:a().matches(/(male|female)/),age:d().min(18,"Enter age over 18 years old").max(90,"Enter correct age").required("Age is required").positive("Age must be a positive").integer("Age must be an integer"),height:d().min(120,"Enter correct height").max(250,"Enter correct height").required("Height is required").positive("Height must be a positive").integer("Height must be an integer"),weight:d().min(20,"Enter correct weight").max(250,"Enter correct weight").required("Weight is required").positive("Weight must be a positive").integer("Weight must be an integer"),activity:a().matches(/(1.2|1.375|1.55|1.725|1.9)/)}),w=i.input`
   width: 100%;
   line-height: 1.4;
   margin-bottom: ${e=>e.$valid[e.name]?"4px":"0"};
@@ -85,7 +85,7 @@ import{s as i,j as r,L as m}from"./index-55986f96.js";import{c as s,a,b as d}fro
   line-height: 1.2;
   margin-left: 10px;
   color: var(--error-validate-input);
-`,b=i.p`
+`,f=i.p`
   font-size: 18px;
   line-height: 1.3;
   margin-bottom: 24px;
@@ -98,7 +98,7 @@ import{s as i,j as r,L as m}from"./index-55986f96.js";import{c as s,a,b as d}fro
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     text-align: center;
   }
-`,W=({description:e})=>r.jsx(b,{children:e}),f=i.h2`
+`,W=({description:e})=>r.jsx(f,{children:e}),b=i.h2`
   font-weight: 500;
   font-size: 24px;
   line-height: 1.25;
@@ -114,7 +114,7 @@ import{s as i,j as r,L as m}from"./index-55986f96.js";import{c as s,a,b as d}fro
   @media screen and (min-width: 1200px) {
     text-align: start;
   }
-`,A=({titleText:e})=>r.jsx(f,{children:e}),F=i.section`
+`,A=({titleText:e})=>r.jsx(b,{children:e}),L=i.section`
   max-width: 300px;
   margin: 0 auto;
 
@@ -128,7 +128,7 @@ import{s as i,j as r,L as m}from"./index-55986f96.js";import{c as s,a,b as d}fro
     display: flex;
     flex-wrap: wrap;
   }
-`,L=i(m)`
+`,U=i(m)`
   display: block;
   text-align: center;
   color: inherit;
@@ -137,7 +137,7 @@ import{s as i,j as r,L as m}from"./index-55986f96.js";import{c as s,a,b as d}fro
     text-align: start;
     margin-left: 25px;
   }
-`,M=i.div`
+`,C=i.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -153,4 +153,4 @@ import{s as i,j as r,L as m}from"./index-55986f96.js";import{c as s,a,b as d}fro
     margin-left: 104px;
     padding-top: 80px;
   }
-`;export{q as A,T as E,L as F,k as I,S as P,W as S,M as T,P as a,A as b,E as c,z as d,$ as e,F as f,I as g,j as v};
+`;export{q as A,T as E,U as F,k as I,S as P,W as S,C as T,P as a,A as b,E as c,z as d,$ as e,L as f,I as g,j as v};
