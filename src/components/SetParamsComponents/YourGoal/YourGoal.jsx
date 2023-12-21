@@ -1,5 +1,27 @@
+import icons from '../../../assets/icons.svg';
 import { Formik, Field, Form } from 'formik';
 import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  @media (min-width: 1200px) {
+    flex-direction: row;
+  }
+`;
+
+const GoalContainer = styled.div`
+  margin-left: 0;
+
+  @media (min-width: 768px) {
+    margin-left: 104px;
+  }
+`;
 
 const YourGoalTitle = styled.p`
   font-size: 30px;
@@ -10,7 +32,8 @@ const YourGoalTitle = styled.p`
 const OtherText = styled.p`
   font-size: 22px;
   color: var(--primary-text-color);
-  width: 444px;
+  width: 100%; /* Adjust as needed */
+  max-width: 444px;
   padding-bottom: 24px;
 `;
 
@@ -99,47 +122,54 @@ const YourGoal = () => {
   };
 
   return (
-    <Formik initialValues={{ selectedGoal: '' }} onSubmit={handleNextPage}>
-      {() => (
-        <Form>
-          <YourGoalTitle>YourGoal</YourGoalTitle>
-          <OtherText>Choose a goal so that we can help you effectively</OtherText>
+    <Container>
+      <svg style={{ stroke: 'var(--colories-graf-color)' }}>
+        <use href={`${icons}#icon-bubble`} />
+      </svg>
+      <GoalContainer>
+        <Formik initialValues={{ selectedGoal: '' }} onSubmit={handleNextPage}>
+          {() => (
+            <Form>
+              <YourGoalTitle>YourGoal</YourGoalTitle>
+              <OtherText>Choose a goal so that we can help you effectively</OtherText>
 
-          <RadioLabel>
-            <RadioInput type="radio" name="selectedGoal" value="loseFat" />
-            <CustomRadio>
-              <span></span>
-            </CustomRadio>
-            Lose Fat
-          </RadioLabel>
+              <RadioLabel>
+                <RadioInput type="radio" name="selectedGoal" value="loseFat" />
+                <CustomRadio>
+                  <span></span>
+                </CustomRadio>
+                Lose Fat
+              </RadioLabel>
 
-          <RadioLabel>
-            <RadioInput type="radio" name="selectedGoal" value="maintain" />
-            <CustomRadio>
-              <span></span>
-            </CustomRadio>
-            Maintain
-          </RadioLabel>
+              <RadioLabel>
+                <RadioInput type="radio" name="selectedGoal" value="maintain" />
+                <CustomRadio>
+                  <span></span>
+                </CustomRadio>
+                Maintain
+              </RadioLabel>
 
-          <RadioLabel>
-            <RadioInput type="radio" name="selectedGoal" value="gainMuscle" />
-            <CustomRadio>
-              <span></span>
-            </CustomRadio>
-            Gain Muscle
-          </RadioLabel>
+              <RadioLabel>
+                <RadioInput type="radio" name="selectedGoal" value="gainMuscle" />
+                <CustomRadio>
+                  <span></span>
+                </CustomRadio>
+                Gain Muscle
+              </RadioLabel>
 
-          <ButtonContainer>
-            <NextButton type="submit" className="btn-next">
-              Next Page
-            </NextButton>
-            <BackButton type="button" onClick={handleBack} className="btn-back">
-              Back
-            </BackButton>
-          </ButtonContainer>
-        </Form>
-      )}
-    </Formik>
+              <ButtonContainer>
+                <NextButton type="submit" className="btn-next">
+                  Next Page
+                </NextButton>
+                <BackButton type="button" onClick={handleBack} className="btn-back">
+                  Back
+                </BackButton>
+              </ButtonContainer>
+            </Form>
+          )}
+        </Formik>
+      </GoalContainer>
+    </Container>
   );
 };
 

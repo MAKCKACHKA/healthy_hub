@@ -27,8 +27,6 @@ export const HeroImg = styled.svg`
   width: 300px;
   height: 296px;
   display: block;
-  height: 300px;
-  display: block;
   margin: 0 auto 40px;
   @media screen and (min-width: 768px) {
     width: 380px;
@@ -60,7 +58,7 @@ export const HeroDescWrap = styled.div`
   }
 `;
 
-export const HeroTitle = styled.h1`
+export const HeroTitle = styled.h2`
   font-weight: 500;
   font-size: 24px;
   line-height: 1.25;
