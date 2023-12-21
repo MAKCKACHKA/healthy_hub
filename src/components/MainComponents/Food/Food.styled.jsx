@@ -60,7 +60,9 @@ export const Percentage = styled.p`
   font-weight: 400;
   line-height: 1.42;
   position: relative;
-  right: 50px;
+  right: 24%;
+  width: 48px;
+  text-align: center;
 `;
 
 export const ChartInfo = styled.div`

@@ -12,7 +12,8 @@ const Value = styled.p`
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: 32%;
+  width: 168px;
+  text-align: center;
 
   span {
     color: var(--primary-text-color);

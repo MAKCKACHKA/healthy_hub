@@ -26,8 +26,8 @@ export default function TodayWrap() {
           password: 'randompassword123',
         })
         .then((response) => {
-          setToken(response.data.user.token);
-          console.log(token);
+          setToken(response.data.token);
+          console.log(response.data.token);
         });
     }
 
