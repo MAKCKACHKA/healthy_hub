@@ -64,3 +64,13 @@ export const ActivityBtnWrapp = styled.div`
     width: 212px;
   }
 `;
+
+export const InputIconErrorWrapp = styled.div`
+  position: relative;
+`;
+
+export const SvgIcon = styled.svg`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+`;

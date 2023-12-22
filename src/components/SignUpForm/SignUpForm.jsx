@@ -1,5 +1,6 @@
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
+import icon from '../../assets/icons.svg';
 import { signup } from '../../redux/operations.js';
 import { validationShemaUser } from '../../validationShemas/validationShemasSingIn';
 import { FormStyled } from '../ForgotPasswordForm/ForgotPasswordForm.styled';
@@ -15,6 +16,8 @@ import {
   ParametrsFormWrapp,
   AvtivityFormWrapp,
   ActivityBtnWrapp,
+  SvgIcon,
+  InputIconErrorWrapp,
 } from './SignUpForm.styled';
 import { PrimaryBtn } from '../PrimaryBtn/PrimaryBtn';
 
@@ -50,7 +53,7 @@ export const SignUpForm = ({ currentStep }) => {
     <FormStyled $currentStep={currentStep} onSubmit={formik.handleSubmit}>
       {currentStep === 0 && (
         <InputWrapp>
-          <div>
+          <InputIconErrorWrapp>
             <Input
               name="name"
               type="text"
@@ -58,16 +61,30 @@ export const SignUpForm = ({ currentStep }) => {
               onChange={formik.handleChange}
               value={formik.values.name}
               valid={formik.errors}
-              touched={formik.touched}
+              className={
+                !formik.errors.name && formik.values.name
+                  ? 'correct'
+                  : 'incorrect'
+              }
             />
-            {formik.errors.name && !formik.values.name && (
-              <ErrorMessageInput id="name">
-                {formik.errors.name}
-              </ErrorMessageInput>
+            {!formik.errors.name && formik.values.name && (
+              <SvgIcon width={16} height={16}>
+                <use href={`${icon}#icon-correct`}></use>
+              </SvgIcon>
             )}
-          </div>
+            {formik.errors.name && !formik.values.name && (
+              <>
+                <SvgIcon width={16} height={16}>
+                  <use href={`${icon}#icon-error`}></use>
+                </SvgIcon>
+                <ErrorMessageInput id="name">
+                  {formik.errors.name}
+                </ErrorMessageInput>
+              </>
+            )}
+          </InputIconErrorWrapp>
 
-          <div>
+          <InputIconErrorWrapp>
             <Input
               name="email"
               type="text"
@@ -75,16 +92,30 @@ export const SignUpForm = ({ currentStep }) => {
               onChange={formik.handleChange}
               value={formik.values.email}
               valid={formik.errors}
-              touched={formik.touched}
+              className={
+                !formik.errors.email && formik.values.email
+                  ? 'correct'
+                  : 'incorrect'
+              }
             />
-            {formik.errors.email && formik.values.email !== '' && (
-              <ErrorMessageInput id="email">
-                {formik.errors.email}
-              </ErrorMessageInput>
+            {!formik.errors.email && formik.values.email && (
+              <SvgIcon width={16} height={16}>
+                <use href={`${icon}#icon-correct`}></use>
+              </SvgIcon>
             )}
-          </div>
+            {formik.errors.email && formik.values.email !== '' && (
+              <>
+                <SvgIcon width={16} height={16}>
+                  <use href={`${icon}#icon-error`}></use>
+                </SvgIcon>
+                <ErrorMessageInput id="email">
+                  {formik.errors.email}
+                </ErrorMessageInput>
+              </>
+            )}
+          </InputIconErrorWrapp>
 
-          <div>
+          <InputIconErrorWrapp>
             <Input
               name="password"
               type="password"
@@ -92,14 +123,28 @@ export const SignUpForm = ({ currentStep }) => {
               onChange={formik.handleChange}
               value={formik.values.password}
               valid={formik.errors}
-              touched={formik.touched}
+              className={
+                !formik.errors.password && formik.values.password
+                  ? 'correct'
+                  : 'incorrect'
+              }
             />
-            {formik.errors.password && formik.values.password !== '' && (
-              <ErrorMessageInput id="password">
-                {formik.errors.password}
-              </ErrorMessageInput>
+            {!formik.errors.password && formik.values.password && (
+              <SvgIcon width={16} height={16}>
+                <use href={`${icon}#icon-correct`}></use>
+              </SvgIcon>
             )}
-          </div>
+            {formik.errors.password && formik.values.password !== '' && (
+              <>
+                <SvgIcon width={16} height={16}>
+                  <use href={`${icon}#icon-error`}></use>
+                </SvgIcon>
+                <ErrorMessageInput id="password">
+                  {formik.errors.password}
+                </ErrorMessageInput>
+              </>
+            )}
+          </InputIconErrorWrapp>
         </InputWrapp>
       )}
       {currentStep === 1 && (
@@ -151,61 +196,107 @@ export const SignUpForm = ({ currentStep }) => {
               onChange={formik.handleChange}
             />
           </GenderAgeRadioBtn>
-
           <LabelStyled htmlFor="age">Your age</LabelStyled>
-
-          <Input
-            name="age"
-            type="number"
-            placeholder="Enter your age"
-            onChange={formik.handleChange}
-            value={formik.values.age}
-            valid={formik.errors}
-            touched={formik.touched}
-          />
-          {formik.errors.age && formik.values.age && (
-            <ErrorMessageInput id="password">
-              {formik.errors.age}
-            </ErrorMessageInput>
-          )}
+          <InputIconErrorWrapp>
+            <Input
+              name="age"
+              type="number"
+              placeholder="Enter your age"
+              onChange={formik.handleChange}
+              value={formik.values.age}
+              valid={formik.errors}
+              className={
+                !formik.errors.age && formik.values.age
+                  ? 'correct'
+                  : 'incorrect'
+              }
+            />
+            {!formik.errors.age && formik.values.age && (
+              <SvgIcon width={16} height={16}>
+                <use href={`${icon}#icon-correct`}></use>
+              </SvgIcon>
+            )}
+            {formik.errors.age && formik.values.age && (
+              <>
+                <SvgIcon width={16} height={16}>
+                  <use href={`${icon}#icon-error`}></use>
+                </SvgIcon>
+                <ErrorMessageInput id="password">
+                  {formik.errors.age}
+                </ErrorMessageInput>
+              </>
+            )}
+          </InputIconErrorWrapp>
         </GenderAgeFormWrapp>
       )}
       {currentStep === 3 && (
         <ParametrsFormWrapp>
           <div>
             <LabelStyled htmlFor="height">Height</LabelStyled>
-            <Input
-              name="height"
-              type="number"
-              placeholder="Enter your height (cm)"
-              onChange={formik.handleChange}
-              value={formik.values.height}
-              valid={formik.errors}
-              touched={formik.touched}
-            />
-            {formik.errors.height && formik.values.height && (
-              <ErrorMessageInput id="password">
-                {formik.errors.height}
-              </ErrorMessageInput>
-            )}
+            <InputIconErrorWrapp>
+              <Input
+                name="height"
+                type="number"
+                placeholder="Enter your height (cm)"
+                onChange={formik.handleChange}
+                value={formik.values.height}
+                valid={formik.errors}
+                className={
+                  !formik.errors.height && formik.values.height
+                    ? 'correct'
+                    : 'incorrect'
+                }
+              />
+              {!formik.errors.height && formik.values.height && (
+                <SvgIcon width={16} height={16}>
+                  <use href={`${icon}#icon-correct`}></use>
+                </SvgIcon>
+              )}
+              {formik.errors.height && formik.values.height && (
+                <>
+                  <SvgIcon width={16} height={16}>
+                    <use href={`${icon}#icon-error`}></use>
+                  </SvgIcon>
+                  <ErrorMessageInput id="password">
+                    {formik.errors.height}
+                  </ErrorMessageInput>
+                </>
+              )}
+            </InputIconErrorWrapp>
           </div>
 
           <div>
             <LabelStyled htmlFor="weight">Weight</LabelStyled>
-            <Input
-              name="weight"
-              type="number"
-              placeholder="Enter your weight"
-              onChange={formik.handleChange}
-              value={formik.values.weight}
-              valid={formik.errors}
-              touched={formik.touched}
-            />
-            {formik.errors.weight && formik.values.weight && (
-              <ErrorMessageInput id="password">
-                {formik.errors.weight}
-              </ErrorMessageInput>
-            )}
+            <InputIconErrorWrapp>
+              <Input
+                name="weight"
+                type="number"
+                placeholder="Enter your weight"
+                onChange={formik.handleChange}
+                value={formik.values.weight}
+                valid={formik.errors}
+                className={
+                  !formik.errors.weight && formik.values.weight
+                    ? 'correct'
+                    : 'incorrect'
+                }
+              />
+              {!formik.errors.weight && formik.values.weight && (
+                <SvgIcon width={16} height={16}>
+                  <use href={`${icon}#icon-correct`}></use>
+                </SvgIcon>
+              )}
+              {formik.errors.weight && formik.values.weight && (
+                <>
+                  <SvgIcon width={16} height={16}>
+                    <use href={`${icon}#icon-error`}></use>
+                  </SvgIcon>
+                  <ErrorMessageInput id="password">
+                    {formik.errors.weight}
+                  </ErrorMessageInput>
+                </>
+              )}
+            </InputIconErrorWrapp>
           </div>
         </ParametrsFormWrapp>
       )}
