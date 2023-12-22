@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  /* width: 100%; */
+  width: 660px;
 `;
 
 export const TitleWrapper = styled.div`

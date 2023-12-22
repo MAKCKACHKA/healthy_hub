@@ -1,4 +1,3 @@
-import React from 'react';
 import DiaryItem from './DiaryItem/DiaryItem';
 
 import breakfastImage from '../../../assets/breakfast-image.svg';

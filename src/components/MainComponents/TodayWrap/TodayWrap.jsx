@@ -32,8 +32,9 @@ export default function TodayWrap() {
     // }
 
     // logIn();
-    setUserStats(user);
-  }, []);
+    setUserStats(user.user);
+    // console.log(user.user);
+  }, [user]);
 
   // useEffect(() => {
   //   async function fetchUser() {

@@ -11,8 +11,6 @@ const ForgotPasswordPage = lazy(() =>
   import('./pages/ForgotPasswordPage/ForgotPasswordPage')
 );
 
-const SetParamsPage = lazy(() => import('./pages/SetParamsPage/SetParamsPage'));
-
 const MainPage = lazy(() => import('./pages/MainPage/MainPage'));
 const DashboardPage = lazy(() => import('./pages/DashboardPage/DashboardPage'));
 const DiaryPage = lazy(() => import('./pages/DiaryPage/DiaryPage'));
@@ -90,9 +88,6 @@ function App() {
               </PrivateRoute>
             }
           />
-
-          {/* Не зазначето в ТЗ але в макеті є */}
-          <Route path="/set-params" element={<SetParamsPage />} />
 
           {/* Auth */}
           <Route

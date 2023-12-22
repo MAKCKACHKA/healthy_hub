@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 const StyledRecommendedFoodSection = styled.section`
-  width: 320px;
-  margin: 0 auto;
-
+  /* width: 320px; */
+  /* margin: 0 auto; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   p {
     color: var(--primary-title-text-color);
     font-size: 14px;
@@ -20,8 +22,6 @@ const StyledRecommendedFoodSection = styled.section`
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding-left: 10px;
-    padding-right: 10px;
   }
 
   ul {
@@ -89,7 +89,7 @@ const StyledRecommendedFoodSection = styled.section`
 
   @media screen and (min-width: 834px) {
     width: calc(834px - (27px * 2));
-    margin: 0 auto;
+    /* margin: 0 auto; */
 
     h2 {
       font-size: 18px;
