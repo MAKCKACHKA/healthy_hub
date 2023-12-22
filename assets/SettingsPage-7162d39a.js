@@ -1,4 +1,4 @@
-import{s as i,j as e}from"./index-2882b591.js";import{F as y,c as v,b as p,d as k,e as F}from"./index.esm-a5e67d56.js";import{I}from"./pageIllustrations-3bb406fa.js";import{i as m}from"./icons-42490e33.js";const C=i.div`
+import{s as i,j as e}from"./index-16d71831.js";import{F as y,c as v,b as p,d as k,e as F}from"./index.esm-7ea612db.js";import{I}from"./pageIllustrations-3d2c39e1.js";import{i as m}from"./icons-15b3876b.js";const C=i.div`
   display: flex;
   justify-content: space-between;
   max-width: 300px;
