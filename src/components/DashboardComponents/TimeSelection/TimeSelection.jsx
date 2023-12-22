@@ -55,9 +55,10 @@ export const TimeSelection = ({ month, setMonth }) => {
     const setInitMonth = () => {
         const currentDate = new Date();
         const currentMonth = currentDate.getMonth()
-        const currentMonthName = new Date(currentDate.getFullYear(), currentMonth, 1)
-            .toLocaleString('en-US', { month: 'long' });
-        return setMonth(currentMonthName)
+        // console.log('before everything fucked up month is', currentMonth)
+        // const currentMonthName = new Date(currentDate.getFullYear(), currentMonth, 1)
+        //     .toLocaleString('en-US', { month: 'long' });
+        return setMonth(currentMonth)
     }
 
     useEffect(() => {
@@ -69,7 +70,9 @@ export const TimeSelection = ({ month, setMonth }) => {
     const ListOfMonthes = ({onChooseOfMonth}) => (
         <MonthList>
         {currentAndPreviousMonth().map((month) => (
-            <MonthListItem key={month} onClick={() => onChooseOfMonth(month)}>{month}</MonthListItem>
+            <MonthListItem key={month} onClick={() => onChooseOfMonth(
+                new Date(`${month} 1, 2000`).getMonth() + 1
+            )}>{month}</MonthListItem>
         ))}
         </MonthList>
     )
@@ -78,7 +81,9 @@ export const TimeSelection = ({ month, setMonth }) => {
         <HeaderWrapper>
             <GoBackToMainPage/>
             <MonthPicker />
-            {month && <ChoosenMonth>{month}</ChoosenMonth>}
+            {month && <ChoosenMonth>
+                {new Date(2000, month - 1, 1).toLocaleString('en-US', { month: 'long' })}
+            </ChoosenMonth>}
         </HeaderWrapper>
     )
 }

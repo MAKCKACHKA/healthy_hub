@@ -13,7 +13,39 @@ import { Line } from 'react-chartjs-2';
 import { faker } from '@faker-js/faker';
 import { Overflow,TestForDiv,CaloriesAverageNumber, CaloriesAverageTitle, CaloriesHeader, CaloriesHeadingWrapper, CaloriesSectionhWrapper, СaloriesGraphWrapper, ScrollerWrapper, HeaderData } from './CaloriesGraph.styled';
 
-export const CaloriesGraph = ({month}) => {
+// c этого -----------------------------------------------
+
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { getMonthlyStatistics, signin, signup } from '../../../redux/operations';
+import { useDispatch } from "react-redux";
+
+axios.defaults.baseURL = 'https://healthy-hub-rest-api.onrender.com/api';
+
+export const CaloriesGraph = ({ month }) => {
+
+  const [dataOfUser, setDataOfUser] = useState([]); 
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+
+    if (month !== null) {
+      const fetchData = async month => {
+        try {
+          const data = await dispatch(getMonthlyStatistics(month));
+          setDataOfUser(data.payload)
+        }
+        catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+      fetchData(month)
+    }
+  }, [month])
+
+//по сюда ------------------------------------------------
+
+//логика получения данных пользователя, не теряй
 
   ChartJS.register(
     CategoryScale,
@@ -45,11 +77,24 @@ export const CaloriesGraph = ({month}) => {
   return averageValueOfTheCaloriesGraph
   }
 
-  const dataCap = () => faker.number.int({ min: 750, max: 2500 })
+  // отсюда ----------------------------------------------
 
-    // if (2 > 1) {
-  // console.log(labels)
-  // }
+  const dataCap = numberOfDay => {
+    if (dataOfUser.length !== 0) {
+      const foundItem = dataOfUser.weightPerDay.find(el => numberOfDay === el.day.toString());
+      if (foundItem) {
+        return foundItem.weight;
+      } else {
+        return 0;
+      }
+    }
+    return 0;
+}
+    
+  // до сюда ---------------------------------------------
+  
+  //логика получения данных по дням 
+
 
   const options = {
       maintainAspectRatio: false, 
@@ -150,7 +195,7 @@ export const CaloriesGraph = ({month}) => {
         pointHoverRadius: 3,
         pointHitRadius: 12,
         pointBackgroundColor: '#e3ffa8',
-        data: labels.map(() => dataCap()),
+        data: labels.map(el => dataCap(el)),
       },
     ],
   };
