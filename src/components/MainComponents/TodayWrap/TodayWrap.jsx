@@ -10,46 +10,17 @@ import icons from '../../../assets/icons.svg';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { selectUserData } from '../../../redux/selesctors';
+import { selectUserData, selectToken } from '../../../redux/selesctors';
 
 axios.defaults.baseURL = 'https://healthy-hub-rest-api.onrender.com/api';
 
 export default function TodayWrap() {
-  const [userStats, setUserStats] = useState({});
-  // const [token, setToken] = useState('');
+  const token = useSelector(selectToken);
   const user = useSelector(selectUserData);
 
   useEffect(() => {
-    // async function logIn() {
-    //   await axios
-    //     .post('/auth/signin', {
-    //       email: 'john.doe@example.com',
-    //       password: 'randompassword123',
-    //     })
-    //     .then((response) => {
-    //       setToken(response.data.user.token);
-    //     });
-    // }
-
-    // logIn();
-    setUserStats(user);
+    console.log(user);
   }, []);
-
-  // useEffect(() => {
-  //   async function fetchUser() {
-  //     await axios
-  //       .get('/user/current', {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       })
-  //       .then((response) => {
-  //         console.log(response.data);
-  //         setUserStats(response.data);
-  //       });
-  //   }
-  //   if (token !== '') fetchUser();
-  // }, [token]);
 
   return (
     <div>
@@ -64,15 +35,17 @@ export default function TodayWrap() {
       </HeadingWrapper>
       <StyledContainer>
         <DailyGoal
-          calories={userStats.dailyCalories}
-          water={userStats.dailyWater}
+          calories={user.user?.dailyCalories}
+          water={user.user?.dailyWater}
         />
-        <Water
-          waterobjective={userStats.dailyWater}
-          watercurrent={waterConsumed.ml ? waterConsumed.ml : waterConsumed}
-          token={token}
-        />
-        <Food stats={userStats} meals={mealsConsumed} />
+        {/*
+          <Water
+            waterobjective={user.dailyWater}
+            watercurrent={user.consumedWaterByDay}
+            token={token}
+          />
+  */}
+        {/*<Food stats={user} meals={user.consumedMealsByDay} />*/}
       </StyledContainer>
     </div>
   );
