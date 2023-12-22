@@ -1,4 +1,6 @@
 import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { signup } from '../../redux/operations.js';
 import { validationShemaUser } from '../../validationShemas/validationShemasSingIn';
 import { FormStyled } from '../ForgotPasswordForm/ForgotPasswordForm.styled';
 import { InputWrapp } from '../Input/Input.styled';
@@ -17,22 +19,13 @@ import {
 import { PrimaryBtn } from '../PrimaryBtn/PrimaryBtn';
 
 export const SignUpForm = ({ currentStep }) => {
-  const handleSubmitForm = (
-    { name, email, password, goal, gender, age, height, weight, activity },
-    actions
-  ) => {
-    console.log({
-      name,
-      email,
-      password,
-      goal,
-      gender,
-      age,
-      height,
-      weight,
-      activity,
-    });
+  const dispatch = useDispatch();
 
+  const handleSubmitForm = (values, actions) => {
+    const user = { ...values };
+    user.coefficientOfActivity = Number(user.coefficientOfActivity);
+    dispatch(signup({ ...user }));
+    
     actions.resetForm();
   };
 
@@ -41,18 +34,18 @@ export const SignUpForm = ({ currentStep }) => {
       name: '',
       email: '',
       password: '',
-      goal: 'Lose Fat',
-      gender: 'Male',
+      goal: 'lose fat',
+      gender: 'male',
       age: '',
       height: '',
       weight: '',
-      activity: '1.2',
+      coefficientOfActivity: '1.2',
     },
 
     validationSchema: validationShemaUser,
     onSubmit: handleSubmitForm,
   });
-  console.log(formik);
+
   return (
     <FormStyled $currentStep={currentStep} onSubmit={formik.handleSubmit}>
       {currentStep === 0 && (
@@ -65,9 +58,8 @@ export const SignUpForm = ({ currentStep }) => {
               onChange={formik.handleChange}
               value={formik.values.name}
               valid={formik.errors}
-              touched={formik.touched}
             />
-            {formik.errors.name && !formik.values.name && (
+            {formik.errors.name && formik.values.name !== '' && (
               <ErrorMessageInput id="name">
                 {formik.errors.name}
               </ErrorMessageInput>
@@ -82,7 +74,6 @@ export const SignUpForm = ({ currentStep }) => {
               onChange={formik.handleChange}
               value={formik.values.email}
               valid={formik.errors}
-              touched={formik.touched}
             />
             {formik.errors.email && formik.values.email !== '' && (
               <ErrorMessageInput id="email">
@@ -99,7 +90,6 @@ export const SignUpForm = ({ currentStep }) => {
               onChange={formik.handleChange}
               value={formik.values.password}
               valid={formik.errors}
-              touched={formik.touched}
             />
             {formik.errors.password && formik.values.password !== '' && (
               <ErrorMessageInput id="password">
@@ -114,7 +104,7 @@ export const SignUpForm = ({ currentStep }) => {
           <RadioBtn
             name="goal"
             type="radio"
-            value="Lose Fat"
+            value="lose fat"
             labelText="Lose Fat"
             onChange={formik.handleChange}
             defaultChecked
@@ -122,14 +112,14 @@ export const SignUpForm = ({ currentStep }) => {
           <RadioBtn
             name="goal"
             type="radio"
-            value="Maintain"
+            value="maintain"
             labelText="Maintain"
             onChange={formik.handleChange}
           />
           <RadioBtn
             name="goal"
             type="radio"
-            value="Gain Muscle"
+            value="gain muscle"
             labelText="Gain Muscle"
             onChange={formik.handleChange}
           />
@@ -145,7 +135,7 @@ export const SignUpForm = ({ currentStep }) => {
               id="gender"
               name="gender"
               type="radio"
-              value="Male"
+              value="male"
               labelText="Male"
               onChange={formik.handleChange}
               defaultChecked
@@ -153,7 +143,7 @@ export const SignUpForm = ({ currentStep }) => {
             <RadioBtn
               name="gender"
               type="radio"
-              value="Female"
+              value="female"
               labelText="Female"
               onChange={formik.handleChange}
             />
@@ -168,7 +158,6 @@ export const SignUpForm = ({ currentStep }) => {
             onChange={formik.handleChange}
             value={formik.values.age}
             valid={formik.errors}
-            touched={formik.touched}
           />
           {formik.errors.age && formik.values.age && (
             <ErrorMessageInput id="password">
@@ -188,7 +177,6 @@ export const SignUpForm = ({ currentStep }) => {
               onChange={formik.handleChange}
               value={formik.values.height}
               valid={formik.errors}
-              touched={formik.touched}
             />
             {formik.errors.height && formik.values.height && (
               <ErrorMessageInput id="password">
@@ -206,7 +194,6 @@ export const SignUpForm = ({ currentStep }) => {
               onChange={formik.handleChange}
               value={formik.values.weight}
               valid={formik.errors}
-              touched={formik.touched}
             />
             {formik.errors.weight && formik.values.weight && (
               <ErrorMessageInput id="password">
@@ -220,7 +207,7 @@ export const SignUpForm = ({ currentStep }) => {
       {currentStep === 4 && (
         <AvtivityFormWrapp>
           <RadioBtn
-            name="activity"
+            name="coefficientOfActivity"
             type="radio"
             value="1.2"
             labelText="1.2 - if you do not have physical activity and sedentary work"
@@ -228,28 +215,28 @@ export const SignUpForm = ({ currentStep }) => {
             defaultChecked
           />
           <RadioBtn
-            name="activity"
+            name="coefficientOfActivity"
             type="radio"
             value="1.375"
             labelText="1.375 - if you do short runs or light gymnastics 1-3 times a week"
             onChange={formik.handleChange}
           />
           <RadioBtn
-            name="activity"
+            name="coefficientOfActivity"
             type="radio"
             value="1.55"
             labelText="1.55 - if you play sports with average loads 3-5 times a week"
             onChange={formik.handleChange}
           />
           <RadioBtn
-            name="activity"
+            name="coefficientOfActivity"
             type="radio"
             value="1.725"
             labelText="1.725 ​​- if you train fully 6-7 times a week"
             onChange={formik.handleChange}
           />
           <RadioBtn
-            name="activity"
+            name="coefficientOfActivity"
             type="radio"
             value="1.9"
             labelText="1.9 - if your work is related to physical labor, you train 2 times a day and include strength exercises in your training program"
