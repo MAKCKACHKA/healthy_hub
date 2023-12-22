@@ -1,16 +1,17 @@
 import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { signin } from '../../redux/operations.js';
 import { validationShemasSignIn } from '../../validationShemas/validationShemasSingIn';
 import { PrimaryBtn } from '../PrimaryBtn/PrimaryBtn';
 import { Input } from '../Input/Input';
-import {
-  ErrorMessageInput,
-  SingInFormStyled,
-} from './SignInForm.styled';
+import { ErrorMessageInput, SingInFormStyled } from './SignInForm.styled';
 import { InputWrapp } from '../Input/Input.styled';
 
 export const SingInForm = () => {
+  const dispatch = useDispatch();
+
   const handleSubmitForm = ({ email, password }, actions) => {
-    console.log({ email, password });
+    dispatch(signin({ email, password }));
 
     actions.resetForm();
   };
