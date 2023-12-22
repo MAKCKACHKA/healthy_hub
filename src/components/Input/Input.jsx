@@ -7,7 +7,6 @@ export const Input = ({
   onChange,
   value,
   valid,
-  touched,
 }) => {
   return (
     <InputStyled
@@ -19,7 +18,6 @@ export const Input = ({
       onChange={onChange}
       value={value}
       $valid={valid}
-      $touched={touched}
     />
   );
 };
