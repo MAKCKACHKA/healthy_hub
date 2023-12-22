@@ -18,7 +18,6 @@ export const Input = ({
       placeholder={placeholder}
       onChange={onChange}
       value={value}
-      $valid={valid}
       className={className}
     />
   );
