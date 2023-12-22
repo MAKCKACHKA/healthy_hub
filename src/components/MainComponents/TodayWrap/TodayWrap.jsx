@@ -22,8 +22,8 @@ export default function TodayWrap() {
     async function logIn() {
       await axios
         .post('/auth/signin', {
-          email: 'john.doe@example.com',
-          password: 'randompassword123',
+          email: 'test@mail.net',
+          password: 'test1234',
         })
         .then((response) => {
           setToken(response.data.token);
