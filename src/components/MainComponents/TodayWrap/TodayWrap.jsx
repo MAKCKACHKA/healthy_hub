@@ -28,10 +28,8 @@ export default function TodayWrap() {
       </HeadingWrapper>
       <StyledContainer>
         <DailyGoal />
-        {
-          <Water />
-          /*<Food />*/
-        }
+        <Water />
+        <Food />
       </StyledContainer>
     </div>
   );

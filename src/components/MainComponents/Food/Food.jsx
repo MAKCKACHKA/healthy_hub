@@ -9,15 +9,25 @@ import {
 } from './Food.styled';
 import BigChart from './BigChart/BigChart';
 import DoughnutElement from './Doughnut/Doughnut.jsx';
+import { useSelector } from 'react-redux';
+import {
+  selectDailyNutrition,
+  selectUserMeals,
+  selectUserData,
+} from '../../../redux/selesctors.js';
 
 export default function Food(props) {
+  const dailyNutrition = useSelector(selectDailyNutrition);
+  const dailyMeals = useSelector(selectUserMeals);
+  const userStats = useSelector(selectUserData);
+
   return (
     <Container>
       <Heading>Food</Heading>
       <FullFrame>
         <BigChart
-          calories={props.stats.dailyCalories}
-          currentCalories={props.meals?.totalConsumedCaloriesPerDay || 0}
+          calories={userStats?.dailyCalories}
+          currentCalories={dailyMeals?.totalConsumedCaloriesPerDay || 0}
         />
         <SmallCharts>
           <Chart>
@@ -27,15 +37,15 @@ export default function Food(props) {
               color="#FFC4F7"
               percentage={
                 Math.round(
-                  (props.meals.totalConsumedCarbohydratesPerDay * 100) /
-                    props.stats.dailyNutrition?.carbohydrates
+                  (dailyMeals.totalConsumedCarbohydratesPerDay * 100) /
+                    dailyNutrition?.carbohydrates
                 ) || 0
               }
             />
             <Percentage>
               {Math.round(
-                (props.meals.totalConsumedCarbohydratesPerDay * 100) /
-                  props.stats.dailyNutrition?.carbohydrates
+                (dailyMeals.totalConsumedCarbohydratesPerDay * 100) /
+                  dailyNutrition?.carbohydrates
               ) || 0}
               %
             </Percentage>
@@ -43,14 +53,14 @@ export default function Food(props) {
               <h3>Carbohidrates</h3>
               <div>
                 <p>
-                  Goal: <span>{props.stats.dailyNutrition?.carbohydrates}</span>
+                  Goal: <span>{dailyNutrition?.carbohydrates}</span>
                 </p>
                 <p>
                   left:{' '}
                   <span>
-                    {props.stats.dailyNutrition?.carbohydrates -
-                      props.meals.totalConsumedCarbohydratesPerDay ||
-                      props.stats.dailyNutrition?.carbohydrates}
+                    {dailyNutrition?.carbohydrates -
+                      dailyMeals.totalConsumedCarbohydratesPerDay ||
+                      dailyNutrition?.carbohydrates}
                   </span>
                 </p>
               </div>
@@ -63,15 +73,15 @@ export default function Food(props) {
               color="#FFF3B7"
               percentage={
                 Math.round(
-                  (props.meals.totalConsumedProteinPerDay * 100) /
-                    props.stats.dailyNutrition?.protein
+                  (dailyMeals.totalConsumedProteinPerDay * 100) /
+                    dailyNutrition?.protein
                 ) || 0
               }
             />
             <Percentage>
               {Math.round(
-                (props.meals.totalConsumedProteinPerDay * 100) /
-                  props.stats.dailyNutrition?.protein
+                (dailyMeals.totalConsumedProteinPerDay * 100) /
+                  dailyNutrition?.protein
               ) || 0}
               %
             </Percentage>
@@ -79,14 +89,14 @@ export default function Food(props) {
               <h3>Protein</h3>
               <div>
                 <p>
-                  Goal: <span>{props.stats.dailyNutrition?.protein}</span>
+                  Goal: <span>{dailyNutrition?.protein}</span>
                 </p>
                 <p>
                   left:{' '}
                   <span>
-                    {props.stats.dailyNutrition?.protein -
-                      props.meals.totalConsumedProteinPerDay ||
-                      props.stats.dailyNutrition?.protein}
+                    {dailyNutrition?.protein -
+                      dailyMeals.totalConsumedProteinPerDay ||
+                      dailyNutrition?.protein}
                   </span>
                 </p>
               </div>
@@ -99,15 +109,14 @@ export default function Food(props) {
               color="#B6B6B6"
               percentage={
                 Math.round(
-                  (props.meals.totalConsumedFatPerDay * 100) /
-                    props.stats.dailyNutrition?.fat
+                  (dailyMeals.totalConsumedFatPerDay * 100) /
+                    dailyNutrition?.fat
                 ) || 0
               }
             />
             <Percentage>
               {Math.round(
-                (props.meals.totalConsumedFatPerDay * 100) /
-                  props.stats.dailyNutrition?.fat
+                (dailyMeals.totalConsumedFatPerDay * 100) / dailyNutrition?.fat
               ) || 0}
               %
             </Percentage>
@@ -115,14 +124,13 @@ export default function Food(props) {
               <h3>Fat</h3>
               <div>
                 <p>
-                  Goal: <span>{props.stats.dailyNutrition?.fat}</span>
+                  Goal: <span>{dailyNutrition?.fat}</span>
                 </p>
                 <p>
                   left:{' '}
                   <span>
-                    {props.stats.dailyNutrition?.fat -
-                      props.meals.totalConsumedFatPerDay ||
-                      props.stats.dailyNutrition?.fat}
+                    {dailyNutrition?.fat - dailyMeals?.totalConsumedFatPerDay ||
+                      dailyNutrition?.fat}
                   </span>
                 </p>
               </div>

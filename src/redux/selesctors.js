@@ -6,4 +6,5 @@ export const selectUserData = (state) => state.data.data;
 
 export const selectUserMeals = (state) => state.data.data.consumedMealsByDay;
 
-export const selectDailyNutrition = (state) => state.data.data.dailyNutrition;
+export const selectDailyNutrition = (state) =>
+  state.data.data.user.dailyNutrition;

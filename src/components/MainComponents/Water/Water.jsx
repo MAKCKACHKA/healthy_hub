@@ -18,7 +18,7 @@ import {
 import WaterChart from './WaterChart/WaterChart';
 import icons from '../../../assets/icons.svg';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectUserData, selectToken } from '../../../redux/selesctors';
+import { selectUserData } from '../../../redux/selesctors';
 import {
   getCurrentUser,
   addWaterIntake,
@@ -53,8 +53,6 @@ export default function Water() {
   const dispatch = useDispatch();
   const userData = useSelector(selectUserData);
 
-  console.log(userData);
-
   function openModal() {
     setIsOpen(true);
   }
@@ -68,13 +66,11 @@ export default function Water() {
     dispatch(addWaterIntake({ ml: e.target.children[0].children[0].value }));
     closeModal();
     dispatch(getCurrentUser());
-    console.log('Water Added');
   };
 
   const deleteWater = () => {
     dispatch(deleteWaterIntake());
     dispatch(getCurrentUser());
-    console.log('Water Deleted');
   };
 
   return (
