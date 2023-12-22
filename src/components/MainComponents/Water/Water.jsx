@@ -17,7 +17,13 @@ import {
 } from './Water.styled';
 import WaterChart from './WaterChart/WaterChart';
 import icons from '../../../assets/icons.svg';
-import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectUserData, selectToken } from '../../../redux/selesctors';
+import {
+  getCurrentUser,
+  addWaterIntake,
+  deleteWaterIntake,
+} from '../../../redux/operations';
 
 const customStyles = {
   content: {
@@ -41,42 +47,13 @@ const customStyles = {
 };
 
 Modal.setAppElement('#root');
-axios.defaults.baseURL = 'https://healthy-hub-rest-api.onrender.com/api';
 
-export default function Water({ waterobjective, watercurrent, token }) {
-  const [percentage, setPercentage] = useState(0);
+export default function Water() {
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [current, setCurrent] = useState(watercurrent);
+  const dispatch = useDispatch();
+  const userData = useSelector(selectUserData);
 
-  useEffect(() => {
-    setCurrent(watercurrent);
-  }, [watercurrent]);
-
-  useEffect(() => {
-    setPercentage(Math.round((current * 100) / waterobjective));
-  }, [current]);
-
-  async function calcPercentage(e) {
-    e.preventDefault();
-    console.log(`Bearer ${token}`);
-    await axios.post(
-      '/user/water-intake',
-      { ml: e.target.children[0].children[0].value },
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
-
-    let quantity = e.target.children[0].children[0].value;
-    setPercentage(percentage + Math.round((quantity * 100) / waterobjective));
-    setCurrent(current + Math.round(e.target.children[0].children[0].value));
-    closeModal();
-  }
-
-  async function deleteWater() {
-    await axios.delete('/user/water-intake', {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    setCurrent(0);
-  }
+  console.log(userData);
 
   function openModal() {
     setIsOpen(true);
@@ -86,20 +63,39 @@ export default function Water({ waterobjective, watercurrent, token }) {
     setIsOpen(false);
   }
 
+  const modalWaterAdd = (e) => {
+    e.preventDefault();
+    dispatch(addWaterIntake({ ml: e.target.children[0].children[0].value }));
+    closeModal();
+    dispatch(getCurrentUser());
+    console.log('Water Added');
+  };
+
+  const deleteWater = () => {
+    dispatch(deleteWaterIntake());
+    dispatch(getCurrentUser());
+    console.log('Water Deleted');
+  };
+
   return (
     <Container>
       <Heading>Water</Heading>
       <FullFrame>
-        <WaterChart percentage={percentage} />
+        <WaterChart
+          percentage={Math.round(
+            (userData.consumedWaterByDay?.ml * 100) / userData.user?.dailyWater
+          )}
+        />
         <Info>
           <SubHeading>Water consumption</SubHeading>
           <ValueContainer>
             <Value>
-              {current} <span>ml</span>
+              {userData?.consumedWaterByDay?.ml || 0} <span>ml</span>
             </Value>
             <LeftValue>
               <span>left : </span>
-              {waterobjective >= current ? waterobjective - current : 0}
+              {userData.user?.dailyWater - userData.consumedWaterByDay?.ml ||
+                userData.user?.dailyWater}
               ml
             </LeftValue>
           </ValueContainer>
@@ -118,10 +114,9 @@ export default function Water({ waterobjective, watercurrent, token }) {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel="Example Modal"
       >
         <ModalHeading>Add water Intake</ModalHeading>
-        <ModalForm onSubmit={calcPercentage}>
+        <ModalForm onSubmit={(e) => modalWaterAdd(e)}>
           <label>
             How much water
             <input type="number" placeholder="Enter millilitters" />

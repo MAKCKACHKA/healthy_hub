@@ -15,13 +15,6 @@ import { selectUserData, selectToken } from '../../../redux/selesctors';
 axios.defaults.baseURL = 'https://healthy-hub-rest-api.onrender.com/api';
 
 export default function TodayWrap() {
-  const token = useSelector(selectToken);
-  const user = useSelector(selectUserData);
-
-  useEffect(() => {
-    console.log(user);
-  }, []);
-
   return (
     <div>
       <HeadingWrapper>
@@ -34,18 +27,11 @@ export default function TodayWrap() {
         </StyledLink>
       </HeadingWrapper>
       <StyledContainer>
-        <DailyGoal
-          calories={user.user?.dailyCalories}
-          water={user.user?.dailyWater}
-        />
-        {/*
-          <Water
-            waterobjective={user.dailyWater}
-            watercurrent={user.consumedWaterByDay}
-            token={token}
-          />
-  */}
-        {/*<Food stats={user} meals={user.consumedMealsByDay} />*/}
+        <DailyGoal />
+        {
+          <Water />
+          /*<Food />*/
+        }
       </StyledContainer>
     </div>
   );
