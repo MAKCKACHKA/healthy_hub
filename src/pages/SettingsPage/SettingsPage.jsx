@@ -140,7 +140,7 @@ export default function SettingsPage() {
                           ? createUrl
                             ? URL.createObjectURL(avatar)
                             : avatar
-                          : null
+                          : URL.createObjectURL(avatar)
                       }
                       alt="Selected"
                     />
