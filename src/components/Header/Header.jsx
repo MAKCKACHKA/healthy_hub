@@ -20,8 +20,6 @@ export const Header = () => {
         <StyledLink to="/signin">SignInPage</StyledLink>
         <StyledLink to="/forgot-password">ForgotPasswordPage</StyledLink>
 
-        <StyledLink to="/set-params">SetParamsPage</StyledLink>
-
         <StyledLink to="/main">MainPage</StyledLink>
         <StyledLink to="/dashboard">DashboardPage</StyledLink>
         <StyledLink to="/diary">DiaryPage</StyledLink>

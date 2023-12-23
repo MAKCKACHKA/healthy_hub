@@ -12,7 +12,8 @@ const Value = styled.p`
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: 50px;
+  width: 168px;
+  text-align: center;
 
   span {
     color: var(--primary-text-color);
@@ -29,12 +30,21 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const BigChart = ({ calories }) => {
+const BigChart = ({ calories, currentCalories }) => {
+  const calculatePercentage = () => {
+    return Math.round((currentCalories * 100) / calories);
+  };
+
   return (
     <Container>
-      <DoughnutElement color="#45FFBC" widthpx={168} heightpx={168} />
+      <DoughnutElement
+        percentage={calculatePercentage()}
+        color="#45FFBC"
+        widthpx={168}
+        heightpx={168}
+      />
       <Value>
-        1360 <span>calories</span>
+        {currentCalories} <span>calories</span>
       </Value>
     </Container>
   );
