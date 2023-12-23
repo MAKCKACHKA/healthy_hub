@@ -16,7 +16,7 @@ import {
   selectUserData,
 } from '../../../redux/selesctors.js';
 
-export default function Food(props) {
+export default function Food() {
   const dailyNutrition = useSelector(selectDailyNutrition);
   const dailyMeals = useSelector(selectUserMeals);
   const userStats = useSelector(selectUserData);
@@ -26,7 +26,7 @@ export default function Food(props) {
       <Heading>Food</Heading>
       <FullFrame>
         <BigChart
-          calories={userStats?.dailyCalories}
+          calories={userStats?.user.dailyCalories}
           currentCalories={dailyMeals?.totalConsumedCaloriesPerDay || 0}
         />
         <SmallCharts>
