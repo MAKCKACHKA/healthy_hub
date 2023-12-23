@@ -83,11 +83,6 @@ export const СaloriesGraphWrapper = styled.div`
     /* max-width: 320px; */
 `
 
-export const TestForDiv = styled.div`
-    /* width:676px; */
-    height: 323px;
-`
-
 export const CaloriesAverageTitle = styled.p`
     color:var(--primary-title-text-color);
     font-family: Poppins;

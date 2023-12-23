@@ -1,4 +1,3 @@
-// import 'react-datepicker/dist/react-datepicker.css';
 import { useEffect, useState } from 'react';
 import icons from './../../../assets/icons.svg';
 import React from 'react';

@@ -47,24 +47,7 @@ export const WaterGraph = ({ month }) => {
     Legend
   );
 
-  const numberOfDaysInTheMonth = (month) => {
-
-    // const date = new Date(`${month} 1, 2000`);
-  // const monthNumber = date.getMonth() + 1;
-  // const daysInMonth = 
-  // const daysArray = Array.from({ length: daysInMonth }, (_, index) => (index + 1).toString());
-
-
-  // const monthNumber = month
-  // const daysInMonth = new Date().getDate()
-  // const daysInMonth = 
-  
-      // console.log(month)
-  // console.log(new Date().getMonth())
-  // console.log(month !== new Date().getMonth())
-  
-    // console.log(monthNumberTested)
-
+  const numberOfDaysInTheMonth = (month) => {    
     let monthNumberTested 
 
     if (month !== new Date().getMonth()) {
@@ -75,19 +58,6 @@ export const WaterGraph = ({ month }) => {
     const daysArray = Array.from({ length: monthNumberTested }, (_, index) => (index + 1).toString());
     return daysArray 
   }
-
-  const avarageCalc = () => {
-  const dataOfGraph = data.datasets[0].data
-  const lengthOfGraph = labels.length
-  let sum = 0
-  for (let i = 0; i < lengthOfGraph; i += 1) {
-    sum += dataOfGraph[i]
-  }
-  const averageValueOfTheWaterGraph = Math.round(sum / lengthOfGraph)
-  return averageValueOfTheWaterGraph
-  }
-
-  // const dataCap = () => faker.number.int({ min: 750, max: 2500 })
 
   const dataCap = numberOfDay => {
     if (Object.keys(dataOfUser).length) {

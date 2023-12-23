@@ -9,7 +9,6 @@ import {
   Filler,
   Legend,
 } from 'chart.js';
-import { faker } from '@faker-js/faker';
 import { ScrollerWrapper, Overflow, WeightAverageNumber, WeightAverageTitle, WeightHeader, WeightHeadingWrapper, WeightSectionhWrapper, WeightGraphWrapper, WeightArrayList, MonthArrayList, WeightArrayItem, MonthArrayItem, HeaderData } from './WeightGraph.styled';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -78,13 +77,8 @@ export const WeightGraph = ({month}) => {
       }  
       weightCapFu()
     } else {
-      // console.log('bruh')
   }
 }, [dataOfUser])
-
-//по сюда ------------------------------------------------
-
-//логика получения данных пользователя, не теряй
 
   ChartJS.register(
     CategoryScale,
@@ -98,22 +92,6 @@ export const WeightGraph = ({month}) => {
   );
 
   const numberOfDaysInTheMonth = (month) => {
-
-    // const date = new Date(`${month} 1, 2000`);
-  // const monthNumber = date.getMonth() + 1;
-  // const daysInMonth = 
-  // const daysArray = Array.from({ length: daysInMonth }, (_, index) => (index + 1).toString());
-
-
-  // const monthNumber = month
-  // const daysInMonth = new Date().getDate()
-  // const daysInMonth = 
-  
-      // console.log(month)
-  // console.log(new Date().getMonth())
-  // console.log(month !== new Date().getMonth())
-  
-    // console.log(monthNumberTested)
 
     let monthNumberTested 
 
@@ -141,10 +119,7 @@ export const WeightGraph = ({month}) => {
     return null;
   }
 
-  // const dataCap = () => faker.number.int({ min: 63, max: 75 })
-  
-  
-    // отсюда ----------------------------------------------
+
 
   const fakeDataTestWeight = [
       {day: 15, weight: 133},
@@ -158,7 +133,6 @@ export const WeightGraph = ({month}) => {
   
   const weightArray = () => {
     const weightArr = weightCap
-    // console.log(weightArr)
     if (weightArr.length !== 0) {
       return (
         <WeightArrayList>
@@ -170,56 +144,6 @@ export const WeightGraph = ({month}) => {
       )}
     return (<div></div>);
   }
-  
-  
-  // const dataCap = numberOfDay => {
-  //   // console.log(numberOfDay)
-  //   // console.log(fakeDataTestWeight)
-  //   if (fakeDataTestWeight.length !== 0) {
-  //     const foundItem = fakeDataTestWeight.find(el => numberOfDay === el.day.toString());
-  //     if (foundItem) {
-  //       return foundItem.weight;
-  //     } else {
-  //       return 0;
-  //     }
-  //   }
-  //   return 0;
-  // }
-
-  
-
- // до сюда ---------------------------------------------
-  // numberOfDaysInTheMonth(month)
-  //логика получения данных по дням 
-
-
-
-
-  // const avarageCalc = () => {
-  //   const dataOfGraph = weightCap()
-  //   const countOfDays = daysArray.length
-  //   if(!weightCap() || !daysArray.length){return}
-  //   let sum = 0
-  //   for (let i = 0; i < countOfDays; i += 1) {
-  //     sum += dataOfGraph[i]
-  //   }
-  //   const averageValueOfTheWeightGraph = Math.round(sum / countOfDays)
-  //   return averageValueOfTheWeightGraph
-  // }
-
-  // const labels = dateOfMonths
-
-  // const averageValueOfTheWeightGraph = avarageCalc()
-  
-  // const monthsCount = array => {
-  //   labels.map(el => {
-  //     return(<li>el</li>)
-  //   })
-  // }
-
-
-
-  // console.log(monthsCount(monthArray))
 
   return (
     <WeightSectionhWrapper>

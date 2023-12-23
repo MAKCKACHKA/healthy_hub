@@ -10,17 +10,11 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { Overflow,TestForDiv,CaloriesAverageNumber, CaloriesAverageTitle, CaloriesHeader, CaloriesHeadingWrapper, CaloriesSectionhWrapper, СaloriesGraphWrapper, ScrollerWrapper, HeaderData } from './CaloriesGraph.styled';
-
-// c этого -----------------------------------------------
-
-import axios from 'axios';
+import { Overflow,CaloriesAverageNumber, CaloriesAverageTitle, CaloriesHeader, CaloriesHeadingWrapper, CaloriesSectionhWrapper, СaloriesGraphWrapper, ScrollerWrapper, HeaderData } from './CaloriesGraph.styled';
 import { useState, useEffect } from 'react';
-import { getMonthlyStatistics, signin, signup } from '../../../redux/operations';
+import { getMonthlyStatistics } from '../../../redux/operations';
 import { useDispatch } from "react-redux";
   
-axios.defaults.baseURL = 'https://healthy-hub-rest-api.onrender.com/api';
-
 export const CaloriesGraph = ({ month }) => {
 
   const [dataOfUser, setDataOfUser] = useState([]); 
@@ -41,10 +35,6 @@ export const CaloriesGraph = ({ month }) => {
       fetchData(month)
     }
   }, [month])
-
-//по сюда ------------------------------------------------
-
-//логика получения данных пользователя, не теряй
 
   ChartJS.register(
     CategoryScale,
@@ -69,8 +59,6 @@ export const CaloriesGraph = ({ month }) => {
     return daysArray 
   }
 
-  // отсюда ----------------------------------------------
-
   const dataCap = numberOfDay => {    
     if (Object.keys(dataOfUser).length.length) {
       const foundItem = dataOfUser.callPerDay.find(el => numberOfDay === el.day.toString());
@@ -81,12 +69,7 @@ export const CaloriesGraph = ({ month }) => {
       }
     }
     return 0;
-}
-    
-  // до сюда ---------------------------------------------
-  
-  //логика получения данных по дням 
-
+  }
 
   const options = {
       maintainAspectRatio: false, 
@@ -192,7 +175,6 @@ export const CaloriesGraph = ({ month }) => {
     ],
   };
     
-  // const averageValueOfTheCaloriesGraph = avarageCalc()
   
   return (
     <CaloriesSectionhWrapper>
@@ -212,9 +194,7 @@ export const CaloriesGraph = ({ month }) => {
       <ScrollerWrapper>
         <Overflow>
           <СaloriesGraphWrapper>
-            {/* <TestForDiv> */}
-              <Line options={options} data={data}/>
-            {/* </TestForDiv> */}
+            <Line options={options} data={data}/>
           </СaloriesGraphWrapper>
         </Overflow>
       </ScrollerWrapper>
