@@ -53,11 +53,7 @@ export const TimeSelection = ({ month, setMonth }) => {
     }
 
     const setInitMonth = () => {
-        const currentDate = new Date();
-        const currentMonth = currentDate.getMonth()
-        // console.log('before everything fucked up month is', currentMonth)
-        // const currentMonthName = new Date(currentDate.getFullYear(), currentMonth, 1)
-        //     .toLocaleString('en-US', { month: 'long' });
+        const currentMonth = new Date().getMonth()+1
         return setMonth(currentMonth)
     }
 
@@ -81,8 +77,9 @@ export const TimeSelection = ({ month, setMonth }) => {
         <HeaderWrapper>
             <GoBackToMainPage/>
             <MonthPicker />
-            {month && <ChoosenMonth>
-                {new Date(2000, month - 1, 1).toLocaleString('en-US', { month: 'long' })}
+            {month &&
+                <ChoosenMonth>
+                {new Date(2000, month-1, 1).toLocaleString('en-US', { month: 'long' })}
             </ChoosenMonth>}
         </HeaderWrapper>
     )

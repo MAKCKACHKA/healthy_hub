@@ -10,7 +10,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { faker } from '@faker-js/faker';
 import { Overflow,TestForDiv,CaloriesAverageNumber, CaloriesAverageTitle, CaloriesHeader, CaloriesHeadingWrapper, CaloriesSectionhWrapper, СaloriesGraphWrapper, ScrollerWrapper, HeaderData } from './CaloriesGraph.styled';
 
 // c этого -----------------------------------------------
@@ -19,7 +18,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { getMonthlyStatistics, signin, signup } from '../../../redux/operations';
 import { useDispatch } from "react-redux";
-
+  
 axios.defaults.baseURL = 'https://healthy-hub-rest-api.onrender.com/api';
 
 export const CaloriesGraph = ({ month }) => {
@@ -59,31 +58,24 @@ export const CaloriesGraph = ({ month }) => {
   );
 
   const numberOfDaysInTheMonth = month => {
-    const date = new Date(`${month} 1, 2000`);
-    const monthNumber = date.getMonth() + 1;
-    const daysInMonth = new Date(2023, monthNumber, 0).getDate();
-    const daysArray = Array.from({ length: daysInMonth }, (_, index) => (index + 1).toString());
-    return daysArray
-  }
+    let monthNumberTested 
 
-  const avarageCalc = () => {
-  const dataOfGraph = data.datasets[0].data
-    const lengthOfGraph = labels.length
-  let sum = 0
-  for (let i = 0; i < lengthOfGraph; i += 1) {
-    sum += dataOfGraph[i]
-  }
-  const averageValueOfTheCaloriesGraph = Math.round(sum / lengthOfGraph)
-  return averageValueOfTheCaloriesGraph
+    if (month !== new Date().getMonth()) {
+      monthNumberTested = new Date().getDate()
+    } else {
+      monthNumberTested = new Date(2023, month, 0).getDate();
+    }
+    const daysArray = Array.from({ length: monthNumberTested }, (_, index) => (index + 1).toString());
+    return daysArray 
   }
 
   // отсюда ----------------------------------------------
 
-  const dataCap = numberOfDay => {
-    if (dataOfUser.length !== 0) {
-      const foundItem = dataOfUser.weightPerDay.find(el => numberOfDay === el.day.toString());
+  const dataCap = numberOfDay => {    
+    if (Object.keys(dataOfUser).length.length) {
+      const foundItem = dataOfUser.callPerDay.find(el => numberOfDay === el.day.toString());
       if (foundItem) {
-        return foundItem.weight;
+        return foundItem.calories;
       } else {
         return 0;
       }
@@ -200,16 +192,20 @@ export const CaloriesGraph = ({ month }) => {
     ],
   };
     
-  const averageValueOfTheCaloriesGraph = avarageCalc()
+  // const averageValueOfTheCaloriesGraph = avarageCalc()
   
   return (
     <CaloriesSectionhWrapper>
       <CaloriesHeadingWrapper>
       <CaloriesHeader>Calories</CaloriesHeader>
-        {averageValueOfTheCaloriesGraph &&
+        {dataOfUser.avgCalories ? 
           (<HeaderData>
             <CaloriesAverageTitle>Average value:</CaloriesAverageTitle>
-            <CaloriesAverageNumber>{averageValueOfTheCaloriesGraph}cal</CaloriesAverageNumber>
+            <CaloriesAverageNumber>{dataOfUser.avgCalories}cal</CaloriesAverageNumber>
+          </HeaderData>) :
+          (<HeaderData>
+            <CaloriesAverageTitle>Average value:</CaloriesAverageTitle>
+            <CaloriesAverageNumber>no added data yet</CaloriesAverageNumber>
           </HeaderData>)
         }
       </CaloriesHeadingWrapper>

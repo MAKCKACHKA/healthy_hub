@@ -21,11 +21,11 @@ export const ScrollerWrapper = styled.div`
 
 export const Overflow = styled.div`
     background: var(--layout-color);
-    padding: 24px 21px 36px;
     border-radius: 12px;
     
     @media screen and (min-width: 834px) and (max-width: 1439px) {
-        padding-bottom: 44px;
+        /* padding-bottom: 44px; */
+        /* padding: 24px 21px 36px; */
     }
     
     @media screen and (max-width: 834px){
@@ -38,8 +38,11 @@ export const Overflow = styled.div`
 
 export const CaloriesSectionhWrapper = styled.div`
     margin-top: 16px;
-    
-`
+    /* width: 676px; */
+    @media screen and (min-width: 1440px){
+        width: 676px;
+    }
+`   
 export const CaloriesHeadingWrapper = styled.div`
     display: flex;
     align-items: baseline;

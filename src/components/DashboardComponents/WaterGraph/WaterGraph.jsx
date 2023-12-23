@@ -10,10 +10,31 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { faker } from '@faker-js/faker';
 import { WaterAverageNumber, WaterAverageTitle, WaterHeader, WaterHeadingWrapper, WaterSectionhWrapper, WaterGraphWrapper, Overflow, ScrollerWrapper, HeaderData } from './WaterGraph.styled';
+import { useEffect, useState } from 'react';
+import { getMonthlyStatistics} from '../../../redux/operations';
+import { useDispatch } from 'react-redux';
 
-export const WaterGraph = ({month, dateOfMonths, setDateOfMonths}) => {
+export const WaterGraph = ({ month }) => {
+
+  const [dataOfUser, setDataOfUser] = useState([]); 
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+
+    if (month !== null) {
+      const fetchData = async month => {
+        try {
+          const data = await dispatch(getMonthlyStatistics(month));
+          setDataOfUser(data.payload)
+        }
+        catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+      fetchData(month)
+    }
+  }, [month])
 
   ChartJS.register(
     CategoryScale,
@@ -26,12 +47,33 @@ export const WaterGraph = ({month, dateOfMonths, setDateOfMonths}) => {
     Legend
   );
 
-  const numberOfDaysInTheMonth = month => {
-    const date = new Date(`${month} 1, 2000`);
-    const monthNumber = date.getMonth() + 1;
-    const daysInMonth = new Date(2023, monthNumber, 0).getDate();
-    const daysArray = Array.from({ length: daysInMonth }, (_, index) => (index + 1).toString());
-    return daysArray
+  const numberOfDaysInTheMonth = (month) => {
+
+    // const date = new Date(`${month} 1, 2000`);
+  // const monthNumber = date.getMonth() + 1;
+  // const daysInMonth = 
+  // const daysArray = Array.from({ length: daysInMonth }, (_, index) => (index + 1).toString());
+
+
+  // const monthNumber = month
+  // const daysInMonth = new Date().getDate()
+  // const daysInMonth = 
+  
+      // console.log(month)
+  // console.log(new Date().getMonth())
+  // console.log(month !== new Date().getMonth())
+  
+    // console.log(monthNumberTested)
+
+    let monthNumberTested 
+
+    if (month !== new Date().getMonth()) {
+      monthNumberTested = new Date().getDate()
+    } else {
+      monthNumberTested = new Date(2023, month, 0).getDate();
+    }
+    const daysArray = Array.from({ length: monthNumberTested }, (_, index) => (index + 1).toString());
+    return daysArray 
   }
 
   const avarageCalc = () => {
@@ -45,7 +87,19 @@ export const WaterGraph = ({month, dateOfMonths, setDateOfMonths}) => {
   return averageValueOfTheWaterGraph
   }
 
-  const dataCap = () => faker.number.int({ min: 750, max: 2500 })
+  // const dataCap = () => faker.number.int({ min: 750, max: 2500 })
+
+  const dataCap = numberOfDay => {
+    if (Object.keys(dataOfUser).length) {
+      const foundItem = dataOfUser.waterPerDay.find(el => numberOfDay === el.day.toString());
+      if (foundItem) {
+        return foundItem.ml;
+      } else {
+        return 0;
+      }
+    }
+    return 0;
+  }
 
   const options = {
     responsive: true,
@@ -140,21 +194,23 @@ export const WaterGraph = ({month, dateOfMonths, setDateOfMonths}) => {
         pointHoverRadius: 3,
         pointHitRadius: 12,
         pointBackgroundColor: '#e3ffa8',
-        data: labels.map(() => dataCap()),
+        data: labels.map(el => dataCap(el)),
       },
     ],
   };
-    
-  const averageValueOfTheWaterGraph = avarageCalc()
-  
+      
   return (
     <WaterSectionhWrapper>
       <WaterHeadingWrapper>
       <WaterHeader>Water</WaterHeader>
-        {averageValueOfTheWaterGraph &&
+        {dataOfUser.avgWater ?
           (<HeaderData>
           <WaterAverageTitle>Average value:</WaterAverageTitle>
-          <WaterAverageNumber>{averageValueOfTheWaterGraph}ml</WaterAverageNumber>
+          <WaterAverageNumber>{dataOfUser.avgWater}ml</WaterAverageNumber>
+          </HeaderData>) :
+          (<HeaderData>
+          <WaterAverageTitle>Average value:</WaterAverageTitle>
+          <WaterAverageNumber>no added data yet</WaterAverageNumber>
           </HeaderData>)
         }
       </WaterHeadingWrapper>

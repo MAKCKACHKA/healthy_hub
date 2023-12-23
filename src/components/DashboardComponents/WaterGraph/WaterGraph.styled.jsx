@@ -21,11 +21,11 @@ export const ScrollerWrapper = styled.div`
 
 export const Overflow = styled.div`
     background: var(--layout-color);
-    padding: 24px 21px 36px;
     border-radius: 12px;
     
     @media screen and (min-width: 834px) and (max-width: 1439px) {
-        padding-bottom: 44px;
+        /* padding-bottom: 44px;
+        padding: 24px 21px 36px; */
     }
     
     @media screen and (max-width: 834px){
@@ -38,11 +38,14 @@ export const Overflow = styled.div`
 
 export const CaloriesSectionhWrapper = styled.div`
     margin-top: 16px;
-    
+    width: 676px;
 `
 
 export const WaterSectionhWrapper = styled.div`
     margin-top: 16px;
+    @media screen and (min-width: 1440px){
+        width: 676px;
+    }
     @media screen and (min-width: 834px) and (max-width: 1439px) {
         margin-top: 40px;
     }
@@ -81,10 +84,10 @@ export const WaterGraphWrapper = styled.div`
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
-    min-width: 676px;
-    min-height: 382px;
     /* width: 676px;
     height: 382px; */
+    min-width: 676px;
+    min-height: 382px;
     flex-shrink: 0;
 `
 
