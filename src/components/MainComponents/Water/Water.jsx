@@ -61,16 +61,18 @@ export default function Water() {
     setIsOpen(false);
   }
 
-  const modalWaterAdd = (e) => {
+  const modalWaterAdd = async (e) => {
     e.preventDefault();
-    dispatch(addWaterIntake({ ml: e.target.children[0].children[0].value }));
+    await dispatch(
+      addWaterIntake({ ml: e.target.children[0].children[0].value })
+    );
     closeModal();
-    dispatch(getCurrentUser());
+    await dispatch(getCurrentUser());
   };
 
-  const deleteWater = () => {
-    dispatch(deleteWaterIntake());
-    dispatch(getCurrentUser());
+  const deleteWater = async () => {
+    await dispatch(deleteWaterIntake());
+    await dispatch(getCurrentUser());
   };
 
   return (
