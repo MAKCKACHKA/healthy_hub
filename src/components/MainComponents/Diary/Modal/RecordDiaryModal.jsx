@@ -29,58 +29,42 @@ const RecordDiaryModal = ({ onClose, image, mealType }) => {
 
   const formik = useFormik({
     initialValues: {
-      products: [
+      mealType: mealType,
+      foods: [
         {
-          mealType: mealType,
-          foods: [
-            {
-              name: '',
-              nutrition: {
-                carbohydrates: '',
-                protein: '',
-                fat: '',
-              },
-              calories: '',
-            },
-          ],
+          name: '',
+          nutrition: {
+            carbohydrates: '',
+            protein: '',
+            fat: '',
+          },
+          calories: '',
         },
       ],
     },
     onSubmit: async (values) => {
       try {
-        if (
-          values.products &&
-          values.products.length > 0 &&
-          values.products[0].foods &&
-          values.products[0].foods.length > 0
-        ) {
+        if (values.foods && values.foods.length > 0 && values.foods[0]) {
           const foodIntakeData = {
             mealType: mealType.toLowerCase(),
-            foods: values.products.map((product) => ({
-              name: product.foods[0].name ? product.foods[0].name : 'string',
+            foods: values.foods.map((food) => ({
+              name: food.name ? food.name : 'string',
               nutrition: {
-                carbohydrates: product.foods[0].nutrition.carbohydrates
-                  ? Number(product.foods[0].nutrition.carbohydrates)
+                carbohydrates: food.nutrition.carbohydrates
+                  ? Number(food.nutrition.carbohydrates)
                   : 0,
-                protein: product.foods[0].nutrition.protein
-                  ? Number(product.foods[0].nutrition.protein)
+                protein: food.nutrition.protein
+                  ? Number(food.nutrition.protein)
                   : 0,
-                fat: product.foods[0].nutrition.fat
-                  ? Number(product.foods[0].nutrition.fat)
-                  : 0,
+                fat: food.nutrition.fat ? Number(food.nutrition.fat) : 0,
               },
-              calories: product.foods[0].calories
-                ? Number(product.foods[0].calories)
-                : 0,
+              calories: food.calories ? Number(food.calories) : 0,
             })),
           };
 
           console.log('Food intake data:', foodIntakeData);
 
-          dispatch(addFoodIntake(foodIntakeData));
-
-          console.log('Backend response:', response);
-          console.log('Response data:', response.data);
+          await dispatch(addFoodIntake(foodIntakeData));
 
           onClose();
         } else {
@@ -138,47 +122,57 @@ const RecordDiaryModal = ({ onClose, image, mealType }) => {
         </WrapperFormTitle>
         <FormFormic onSubmit={formik.handleSubmit}>
           <ContentWrapper>
-            {formik.values.products.map((product, index) => (
+            {formik.values.foods.map((food, index) => (
               <ProductList key={index}>
                 <Product>
                   <WrapperInput>
                     <Input
                       type="text"
                       id={`name-${index}`}
-                      name={`products[${index}].foods[0].name`}
+                      name={`foods[${index}].name`}
                       placeholder="The name of the product or dish"
+                      onChange={formik.handleChange}
+                      value={food.name}
                     />
                   </WrapperInput>
                   <WrapperInput>
                     <Input
                       type="number"
                       id={`carbonohidrates-${index}`}
-                      name={`products[${index}].foods[0].nutrition.carbohydrates`}
+                      name={`foods[${index}].nutrition.carbohydrates`}
                       placeholder="Carbonoh."
+                      onChange={formik.handleChange}
+                      value={food.nutrition.carbohydrates}
                     />
                   </WrapperInput>
                   <WrapperInput>
                     <Input
                       type="number"
                       id={`protein-${index}`}
-                      name={`products[${index}].foods[0].nutrition.protein`}
+                      name={`foods[${index}].nutrition.protein`}
                       placeholder="Protein"
+                      onChange={formik.handleChange}
+                      value={food.nutrition.protein}
                     />
                   </WrapperInput>
                   <WrapperInput>
                     <Input
                       type="number"
                       id={`fat-${index}`}
-                      name={`products[${index}].foods[0].nutrition.fat`}
+                      name={`foods[${index}].nutrition.fat`}
                       placeholder="Fat"
+                      onChange={formik.handleChange}
+                      value={food.nutrition.fat}
                     />
                   </WrapperInput>
                   <WrapperInput>
                     <Input
                       type="number"
                       id={`calories-${index}`}
-                      name={`products[${index}].foods[0].calories`}
+                      name={`foods[${index}].calories`}
                       placeholder="Calories"
+                      onChange={formik.handleChange}
+                      value={food.calories}
                     />
                   </WrapperInput>
                   <BtnRemoveProduct
