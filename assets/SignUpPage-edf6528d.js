@@ -1,4 +1,4 @@
-import{s as t,j as e,u as g,a as u,r as y}from"./index-4a43244d.js";import{I as v}from"./pageIllustrations-7a0426c0.js";import{I as f,a as s,E as l,P as p,v as j,A as b,T as w,b as C,S as k,c as S}from"./SignInPage.styled-c070d6ff.js";import{u as T}from"./index.esm-666edb59.js";import{F,S as A}from"./ForgotPasswordPage.styled-a4cdca11.js";const B=t.button`
+import{s as t,j as e,u as g,a as u,r as y}from"./index-048b4020.js";import{I as v}from"./pageIllustrations-c54f3d9d.js";import{I as f,a as s,E as l,P as p,v as j,A as b,T as w,b as C,S as k,c as S}from"./SignInPage.styled-2549b2ae.js";import{u as T}from"./index.esm-5f35269e.js";import{F,S as A}from"./ForgotPasswordPage.styled-0343e33e.js";const B=t.button`
   width: 192px;
   text-align: center;
   border: none;
