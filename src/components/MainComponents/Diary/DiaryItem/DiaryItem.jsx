@@ -22,7 +22,6 @@ const DiaryItem = ({ title, image }) => {
         <Title>{title}</Title>
       </TitleWrap>
       <AddButton onClick={toggleModal}>+ Record your meal</AddButton>
-
       {isModalOpen && (
         <RecordDiaryModal
           onClose={toggleModal}
