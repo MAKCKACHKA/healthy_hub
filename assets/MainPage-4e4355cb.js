@@ -1,4 +1,4 @@
-import{s,c as oe,d as Ne,j as n,r as Q,g as ct,e as dt,h as pt,u as qe,i as ut,k as De,l as ft,m as ht,L as Ke,n as mt,o as xt}from"./index-048b4020.js";import{i as G}from"./icons-8bbb8889.js";import{C as gt,A as yt,D as vt}from"./index-c4050fc6.js";import{u as bt}from"./index.esm-5f35269e.js";import{b as wt}from"./breakfast-image-5653c41a.js";const Ct=s.h4`
+import{s,c as oe,d as Ne,j as n,r as Q,g as ct,e as dt,h as pt,u as qe,i as ut,k as De,l as ft,m as ht,L as Ke,n as mt,o as xt}from"./index-572e7cf1.js";import{i as G}from"./icons-2f1f60d3.js";import{C as gt,A as yt,D as vt}from"./index-d7199a7d.js";import{u as bt}from"./index.esm-b3cdac2b.js";import{b as wt}from"./breakfast-image-7598f26b.js";const Ct=s.h4`
   color: var(--primary-title-text-color);
   font-size: 18px;
   font-style: normal;
