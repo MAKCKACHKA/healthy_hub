@@ -1,4 +1,4 @@
-import{s as n,u as r,c as l,n as c,r as h,o as m,j as i}from"./index-7f5ec795.js";import{I as g}from"./pageIllustrations-0d25189a.js";const w=n.div`
+import{s as r,u as n,c as l,o as c,r as h,p as m,j as i}from"./index-4a3c05f4.js";import{I as g}from"./pageIllustrations-62604a68.js";const w=r.div`
   width: 320px;
   margin: 0 auto;
 
@@ -130,4 +130,4 @@ import{s as n,u as r,c as l,n as c,r as h,o as m,j as i}from"./index-7f5ec795.js
       padding: 20px 108px 20px 24px;
     }
   }
-`,f=w;function v(){const d=r(),t=l(c);let e=[];return h.useEffect(()=>{d(m())},[d]),t&&(e=t.slice(0,10)),i.jsx(f,{children:i.jsxs("div",{className:"main_div",children:[i.jsx("h3",{children:"Recommended Food"}),i.jsxs("div",{className:"wrapper",children:[i.jsx("svg",{className:"img_div",children:i.jsx("use",{href:`${g}#icon-recommented-food`})}),i.jsx("ul",{children:e==null?void 0:e.map(({amount:p,calories:o,img:s,name:x,_id:a})=>i.jsx("li",{children:i.jsxs("div",{className:"description",children:[i.jsx("div",{className:"small_img_div",children:i.jsx("img",{src:s,alt:"",width:46,height:46})}),i.jsxs("section",{children:[i.jsx("h4",{children:x}),i.jsxs("p",{children:[p,i.jsxs("span",{children:[o," calories"]})]})]})]})},a))})]})]})})}export{v as default};
+`,f=w;function v(){const d=n(),t=l(c);let e=[];return h.useEffect(()=>{d(m())},[d]),t&&(e=t.slice(0,10)),i.jsx(f,{children:i.jsxs("div",{className:"main_div",children:[i.jsx("h3",{children:"Recommended Food"}),i.jsxs("div",{className:"wrapper",children:[i.jsx("svg",{className:"img_div",children:i.jsx("use",{href:`${g}#icon-recommented-food`})}),i.jsx("ul",{children:e==null?void 0:e.map(({amount:p,calories:o,img:s,name:x,_id:a})=>i.jsx("li",{children:i.jsxs("div",{className:"description",children:[i.jsx("div",{className:"small_img_div",children:i.jsx("img",{src:s,alt:"",width:46,height:46})}),i.jsxs("section",{children:[i.jsx("h4",{children:x}),i.jsxs("p",{children:[p,i.jsxs("span",{children:[o," calories"]})]})]})]})},a))})]})]})})}export{v as default};
