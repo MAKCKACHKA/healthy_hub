@@ -28,7 +28,7 @@ const DoughnutElement = (props) => {
     labels: ['Filled', 'Empty'],
     datasets: [
       {
-        data: [75, 25],
+        data: [props.percentage, 100 - props.percentage],
         backgroundColor: [props.color, '#292928'],
         borderColor: ['transparent', '#292928'],
         borderWidth: [0, 0],

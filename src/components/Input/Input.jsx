@@ -7,6 +7,7 @@ export const Input = ({
   onChange,
   value,
   valid,
+  className,
 }) => {
   return (
     <InputStyled
@@ -18,6 +19,7 @@ export const Input = ({
       onChange={onChange}
       value={value}
       $valid={valid}
+      className={className}
     />
   );
 };

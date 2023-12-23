@@ -17,6 +17,13 @@ import {
 } from './Water.styled';
 import WaterChart from './WaterChart/WaterChart';
 import icons from '../../../assets/icons.svg';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectUserData } from '../../../redux/selesctors';
+import {
+  getCurrentUser,
+  addWaterIntake,
+  deleteWaterIntake,
+} from '../../../redux/operations';
 
 const customStyles = {
   content: {
@@ -41,21 +48,10 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-export default function Water({ waterobjective, watercurrent }) {
-  const [current, setCurrent] = useState(
-    watercurrent == null ? 0 : watercurrent
-  );
-  const [left, setLeft] = useState(waterobjective);
-  const [percentage, setPercentage] = useState(0);
+export default function Water() {
   const [modalIsOpen, setIsOpen] = useState(false);
-
-  function calcPercentage(e) {
-    e.preventDefault();
-    let quantity = e.target.children[0].children[0].value;
-    setPercentage(percentage + Math.round((quantity * 100) / waterobjective));
-    setCurrent(current + Math.round(e.target.children[0].children[0].value));
-    closeModal();
-  }
+  const dispatch = useDispatch();
+  const userData = useSelector(selectUserData);
 
   function openModal() {
     setIsOpen(true);
@@ -65,20 +61,40 @@ export default function Water({ waterobjective, watercurrent }) {
     setIsOpen(false);
   }
 
+  const modalWaterAdd = async (e) => {
+    e.preventDefault();
+    await dispatch(
+      addWaterIntake({ ml: e.target.children[0].children[0].value })
+    );
+    closeModal();
+    await dispatch(getCurrentUser());
+  };
+
+  const deleteWater = async () => {
+    await dispatch(deleteWaterIntake());
+    await dispatch(getCurrentUser());
+  };
+
   return (
     <Container>
       <Heading>Water</Heading>
       <FullFrame>
-        <WaterChart percentage={percentage} />
+        <WaterChart
+          percentage={Math.round(
+            (userData.consumedWaterByDay?.ml * 100) / userData.user?.dailyWater
+          )}
+        />
         <Info>
           <SubHeading>Water consumption</SubHeading>
           <ValueContainer>
             <Value>
-              {current} <span>ml</span>
+              {userData?.consumedWaterByDay?.ml || 0} <span>ml</span>
             </Value>
             <LeftValue>
               <span>left : </span>
-              {waterobjective >= current ? waterobjective - current : 0}ml
+              {userData.user?.dailyWater - userData.consumedWaterByDay?.ml ||
+                userData.user?.dailyWater}
+              ml
             </LeftValue>
           </ValueContainer>
           <IntakeButton onClick={openModal}>
@@ -89,22 +105,16 @@ export default function Water({ waterobjective, watercurrent }) {
           </IntakeButton>
         </Info>
       </FullFrame>
-      <DeleteButton
-        width="20"
-        height="20"
-        fill="none"
-        onClick={() => setCurrent(0)}
-      >
+      <DeleteButton width="20" height="20" fill="none" onClick={deleteWater}>
         <use href={`${icons}#icon-trash`}></use>
       </DeleteButton>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel="Example Modal"
       >
         <ModalHeading>Add water Intake</ModalHeading>
-        <ModalForm onSubmit={calcPercentage}>
+        <ModalForm onSubmit={(e) => modalWaterAdd(e)}>
           <label>
             How much water
             <input type="number" placeholder="Enter millilitters" />
