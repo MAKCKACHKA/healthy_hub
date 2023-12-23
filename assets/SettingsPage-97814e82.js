@@ -1,4 +1,4 @@
-import{s as i,c as I,d as S,u as C,r as m,k as w,j as e,t as R,v as L}from"./index-bbf0cb38.js";import{F as k,c as N,b as g,d as z,e as W}from"./index.esm-1ffa3176.js";import{I as $}from"./pageIllustrations-b2648298.js";import{i as v}from"./icons-71a84f07.js";const M=i.div`
+import{s as i,c as I,d as S,u as C,r as m,k as w,j as e,t as R,v as L}from"./index-7f5ec795.js";import{F as k,c as N,b as g,d as z,e as W}from"./index.esm-1ae36d31.js";import{I as $}from"./pageIllustrations-0d25189a.js";import{i as v}from"./icons-04a79b9e.js";const M=i.div`
   display: flex;
   justify-content: space-between;
   max-width: 300px;
