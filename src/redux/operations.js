@@ -232,15 +232,13 @@ export const addUserAvatar = createAsyncThunk(
   'auth/addUserAvatar',
   async (avatarData, thunkAPI) => {
     try {
-      const formData = new FormData();
-      formData.append('avatar', avatarData);
-
-      const res = await axios.post('/user/avatar', formData, {
+      const res = await axios.post('/user/avatar', avatarData, {
         headers: {
           'Content-Type': 'multipart/form-data',
+          'x-rapidapi-host': 'file-upload8.p.rapidapi.com',
+          'x-rapidapi-key': 'your-rapidapi-key-here',
         },
       });
-
       return res.data;
     } catch (error) {
       toast.error(error.message);
