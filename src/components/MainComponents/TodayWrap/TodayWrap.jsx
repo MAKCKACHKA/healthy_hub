@@ -7,46 +7,8 @@ import {
   StyledLink,
 } from './TodayWrap.styled';
 import icons from '../../../assets/icons.svg';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-
-axios.defaults.baseURL = 'https://healthy-hub-rest-api.onrender.com/api';
 
 export default function TodayWrap() {
-  const [userStats, setUserStats] = useState({});
-  const [token, setToken] = useState('');
-
-  useEffect(() => {
-    async function logIn() {
-      await axios
-        .post('/auth/signin', {
-          email: 'john.doe@example.com',
-          password: 'randompassword123',
-        })
-        .then((response) => {
-          setToken(response.data.user.token);
-        });
-    }
-
-    logIn();
-  }, [token]);
-
-  useEffect(() => {
-    async function fetchUser() {
-      await axios
-        .get('/user/current', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((response) => {
-          console.log(response.data);
-          setUserStats(response.data);
-        });
-    }
-    if (token !== '') fetchUser();
-  }, [token]);
-
   return (
     <div>
       <HeadingWrapper>
@@ -59,15 +21,9 @@ export default function TodayWrap() {
         </StyledLink>
       </HeadingWrapper>
       <StyledContainer>
-        <DailyGoal
-          calories={userStats.dailyCalories}
-          water={userStats.dailyWater}
-        />
-        <Water
-          waterobjective={userStats.dailyWater}
-          watercurrent={userStats.consumedWaterByDay}
-        />
-        <Food stats={userStats.consumedMealsByDay} />
+        <DailyGoal />
+        <Water />
+        <Food />
       </StyledContainer>
     </div>
   );
