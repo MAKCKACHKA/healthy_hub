@@ -12,6 +12,8 @@ import {
   IntakeButton,
   DeleteButton,
   ModalHeading,
+  StyledInput,
+  ErrorMessage,
   ModalForm,
   CancelModal,
 } from './Water.styled';
@@ -50,6 +52,11 @@ Modal.setAppElement('#root');
 
 export default function Water() {
   const [modalIsOpen, setIsOpen] = useState(false);
+
+  const [numberValue, setNumberValue] = useState('');
+  const [isValid, setIsValid] = useState(true);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [inputBorder, setInputBorder] = useState('var(--primary-btn-color)');
   const dispatch = useDispatch();
   const userData = useSelector(selectUserData);
 
@@ -59,20 +66,62 @@ export default function Water() {
 
   function closeModal() {
     setIsOpen(false);
+    setInputBorder('var(--primary-btn-color)');
+    setErrorMessage('');
   }
 
   const modalWaterAdd = async (e) => {
     e.preventDefault();
-    await dispatch(
-      addWaterIntake({ ml: e.target.children[0].children[0].value })
-    );
-    closeModal();
-    await dispatch(getCurrentUser());
+    if (isValid) {
+      await dispatch(
+        addWaterIntake({ ml: e.target.children[0].children[0].value })
+      );
+      closeModal();
+      setInputBorder('var(--primary-btn-color)');
+
+      await dispatch(getCurrentUser());
+    }
   };
 
   const deleteWater = async () => {
     await dispatch(deleteWaterIntake());
     await dispatch(getCurrentUser());
+  };
+
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value.trim();
+    setNumberValue(inputValue);
+    if (inputValue === '') {
+      setIsValid(false);
+      setErrorMessage('This field is required*');
+      setInputBorder('var(--error-validate-input)');
+    } else if (parseInt(inputValue) < 0) {
+      setIsValid(false);
+      setErrorMessage('Enter a positive number*');
+      setInputBorder('var(--error-validate-input)');
+    } else {
+      setIsValid(true);
+      setErrorMessage('');
+      setInputBorder('#3CBC81');
+    }
+  };
+
+  const handleBlur = (e) => {
+    const inputValue = e.target.value.trim();
+
+    if (inputValue === '') {
+      setIsValid(false);
+      setErrorMessage('This field is required*');
+      setInputBorder('var(--error-validate-input)');
+    } else if (parseInt(numberValue) < 0) {
+      setIsValid(false);
+      setErrorMessage('Enter a positive number*');
+      setInputBorder('var(--error-validate-input)');
+    } else {
+      setIsValid(true);
+      setErrorMessage('');
+      setInputBorder('#3CBC81');
+    }
   };
 
   return (
@@ -117,7 +166,14 @@ export default function Water() {
         <ModalForm onSubmit={(e) => modalWaterAdd(e)}>
           <label>
             How much water
-            <input type="number" placeholder="Enter millilitters" />
+            <StyledInput
+              type="number"
+              placeholder="Enter millilitters"
+              onChange={(e) => handleInputChange(e)}
+              onBlur={(e) => handleBlur(e)}
+              $borderColor={inputBorder}
+            />
+            <ErrorMessage>{errorMessage}</ErrorMessage>
           </label>
           <button>Confirm</button>
         </ModalForm>
