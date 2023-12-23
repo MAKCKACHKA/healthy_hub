@@ -8,11 +8,6 @@ import {
 } from './TodayWrap.styled';
 import icons from '../../../assets/icons.svg';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { selectUserData, selectToken } from '../../../redux/selesctors';
-
-axios.defaults.baseURL = 'https://healthy-hub-rest-api.onrender.com/api';
 
 export default function TodayWrap() {
   return (
