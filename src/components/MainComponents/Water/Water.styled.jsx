@@ -135,29 +135,6 @@ export const ModalForm = styled.form`
     margin-bottom: 32px;
   }
 
-  input {
-    margin-top: 12px;
-    outline: none;
-    background-color: transparent;
-    border: 1px solid var(--primary-btn-color);
-    border-radius: 12px;
-    padding: 8px 10px;
-    color: #fff;
-  }
-
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  input::placeholder {
-    color: var(--Color-Primary-Grey, #b6b6b6);
-    font-size: 14px;
-
-    line-height: 1.42;
-  }
-
   button {
     border-radius: 12px;
     background: var(--primary-btn-color);
@@ -173,6 +150,35 @@ export const ModalForm = styled.form`
     width: 100%;
     margin-bottom: 16px;
   }
+`;
+
+export const StyledInput = styled.input`
+  margin-top: 12px;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid ${(props) => props.$borderColor};
+  border-radius: 12px;
+  padding: 8px 10px;
+  color: #fff;
+
+  ::placeholder {
+    color: var(--Color-Primary-Grey, #b6b6b6);
+    font-size: 14px;
+
+    line-height: 1.42;
+  }
+`;
+
+export const ErrorMessage = styled.p`
+  color: #e74a3b;
+
+  text-align: center;
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.16;
+  margin-top: 4px;
 `;
 
 export const CancelModal = styled.p`
