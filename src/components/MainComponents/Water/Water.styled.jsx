@@ -161,7 +161,12 @@ export const StyledInput = styled.input`
   padding: 8px 10px;
   color: #fff;
 
-  ::placeholder {
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+  }
+  &::placeholder {
     color: var(--Color-Primary-Grey, #b6b6b6);
     font-size: 14px;
 
