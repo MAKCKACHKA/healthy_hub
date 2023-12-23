@@ -1,7 +1,4 @@
 import React from 'react';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-
 import {
   Backdrop,
   Modal,
@@ -24,94 +21,78 @@ import {
 import trashImage from '../../../../assets/trash.png';
 import { useDispatch } from 'react-redux';
 import { addFoodIntake } from '../../../../redux/operations';
+import { useFormik } from 'formik';
+// import * as Yup from 'yup';
 
 const RecordDiaryModal = ({ onClose, image, mealType }) => {
   const dispatch = useDispatch();
-
-  const schema = Yup.object({
-    products: Yup.array().of(
-      Yup.object().shape({
-        name: Yup.string()
-          .required('Name is required')
-          .trim('Name cannot include leading and trailing spaces')
-          .strict(true),
-        carbonohidrates: Yup.number()
-          .required('Carbonohydrates is required')
-          .typeError('Must be a number')
-          .min(0, 'Must be a positive number')
-          .max(100, 'The maximum allowable value is 100')
-          .test(
-            'maxDigitsAfterDecimal',
-            'Must have 1 digit after decimal',
-            (number) => /^\d+(\.\d{1})?$/.test(number)
-          ),
-        protein: Yup.number()
-          .required('Protein is required')
-          .typeError('Must be a number')
-          .min(0, 'Must be a positive number')
-          .max(100, 'The maximum allowable value is 100')
-          .test(
-            'maxDigitsAfterDecimal',
-            'Must have 1 digit after decimal',
-            (number) => /^\d+(\.\d{1})?$/.test(number)
-          ),
-        fat: Yup.number()
-          .required('Fat is required')
-          .typeError('Must be a number')
-          .min(0, 'Must be a positive number')
-          .max(100, 'The maximum allowable value is 100')
-          .test(
-            'maxDigitsAfterDecimal',
-            'Must have 1 digit after decimal',
-            (number) => /^\d+(\.\d{1})?$/.test(number)
-          ),
-        calories: Yup.number()
-          .required('Calories is required')
-          .typeError('Must be a number')
-          .min(0, 'Must a be positive number')
-          .max(1000, 'The maximum allowable value is 1000')
-          .integer('Must be an integer'),
-      })
-    ),
-  });
 
   const formik = useFormik({
     initialValues: {
       products: [
         {
           mealType: mealType,
-          name: 'egg',
-          carbonohidrates: '10',
-          protein: '1',
-          fat: '1',
-          calories: '1',
+          foods: [
+            {
+              name: '',
+              nutrition: {
+                carbohydrates: '',
+                protein: '',
+                fat: '',
+              },
+              calories: '',
+            },
+          ],
         },
       ],
     },
-    validationSchema: schema,
-    onSubmit: (values) => {
-      const foodIntakeData = {
-        mealType: mealType.toLowerCase(),
-        foodDetails: {
-          name: values.products[0].name ? values.products[0].name : 'string',
-          nutrition: {
-            carbohydrates: values.products[0].carbonohidrates
-              ? Number(values.products[0].carbonohidrates)
-              : 0,
-            protein: values.products[0].protein
-              ? Number(values.products[0].protein)
-              : 0,
-            fat: values.products[0].fat ? Number(values.products[0].fat) : 0,
-          },
-          calories: values.products[0].calories
-            ? Number(values.products[0].calories)
-            : 0,
-        },
-      };
+    onSubmit: async (values) => {
+      try {
+        if (
+          values.products &&
+          values.products.length > 0 &&
+          values.products[0].foods &&
+          values.products[0].foods.length > 0
+        ) {
+          const foodIntakeData = {
+            mealType: mealType.toLowerCase(),
+            foods: values.products.map((product) => ({
+              name: product.foods[0].name ? product.foods[0].name : 'string',
+              nutrition: {
+                carbohydrates: product.foods[0].nutrition.carbohydrates
+                  ? Number(product.foods[0].nutrition.carbohydrates)
+                  : 0,
+                protein: product.foods[0].nutrition.protein
+                  ? Number(product.foods[0].nutrition.protein)
+                  : 0,
+                fat: product.foods[0].nutrition.fat
+                  ? Number(product.foods[0].nutrition.fat)
+                  : 0,
+              },
+              calories: product.foods[0].calories
+                ? Number(product.foods[0].calories)
+                : 0,
+            })),
+          };
 
-      dispatch(addFoodIntake(foodIntakeData));
+          console.log('Food intake data:', foodIntakeData);
 
-      onClose();
+          dispatch(addFoodIntake(foodIntakeData));
+
+          console.log('Backend response:', response);
+          console.log('Response data:', response.data);
+
+          onClose();
+        } else {
+          console.error('Invalid products array structure');
+        }
+      } catch (error) {
+        console.error('Submission error:', error);
+        console.error(
+          'Error details:',
+          error.response ? error.response.data : 'No response data'
+        );
+      }
     },
   });
 
@@ -130,7 +111,20 @@ const RecordDiaryModal = ({ onClose, image, mealType }) => {
   const handleAddProduct = () => {
     formik.setFieldValue('products', [
       ...formik.values.products,
-      { name: '', carbonohidrates: '', protein: '', fat: '', calories: '' },
+      {
+        mealType: mealType,
+        foods: [
+          {
+            name: '',
+            nutrition: {
+              carbohydrates: '',
+              protein: '',
+              fat: '',
+            },
+            calories: '',
+          },
+        ],
+      },
     ]);
   };
 
@@ -151,7 +145,7 @@ const RecordDiaryModal = ({ onClose, image, mealType }) => {
                     <Input
                       type="text"
                       id={`name-${index}`}
-                      name={`products[${index}].name`}
+                      name={`products[${index}].foods[0].name`}
                       placeholder="The name of the product or dish"
                     />
                   </WrapperInput>
@@ -159,7 +153,7 @@ const RecordDiaryModal = ({ onClose, image, mealType }) => {
                     <Input
                       type="number"
                       id={`carbonohidrates-${index}`}
-                      name={`products[${index}].carbonohidrates`}
+                      name={`products[${index}].foods[0].nutrition.carbohydrates`}
                       placeholder="Carbonoh."
                     />
                   </WrapperInput>
@@ -167,7 +161,7 @@ const RecordDiaryModal = ({ onClose, image, mealType }) => {
                     <Input
                       type="number"
                       id={`protein-${index}`}
-                      name={`products[${index}].protein`}
+                      name={`products[${index}].foods[0].nutrition.protein`}
                       placeholder="Protein"
                     />
                   </WrapperInput>
@@ -175,7 +169,7 @@ const RecordDiaryModal = ({ onClose, image, mealType }) => {
                     <Input
                       type="number"
                       id={`fat-${index}`}
-                      name={`products[${index}].fat`}
+                      name={`products[${index}].foods[0].nutrition.fat`}
                       placeholder="Fat"
                     />
                   </WrapperInput>
@@ -183,7 +177,7 @@ const RecordDiaryModal = ({ onClose, image, mealType }) => {
                     <Input
                       type="number"
                       id={`calories-${index}`}
-                      name={`products[${index}].calories`}
+                      name={`products[${index}].foods[0].calories`}
                       placeholder="Calories"
                     />
                   </WrapperInput>
