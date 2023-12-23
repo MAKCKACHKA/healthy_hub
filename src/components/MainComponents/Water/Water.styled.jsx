@@ -151,6 +151,13 @@ export const ModalForm = styled.form`
     margin: 0;
   }
 
+  input::placeholder {
+    color: var(--Color-Primary-Grey, #b6b6b6);
+    font-size: 14px;
+
+    line-height: 1.42;
+  }
+
   button {
     border-radius: 12px;
     background: var(--primary-btn-color);

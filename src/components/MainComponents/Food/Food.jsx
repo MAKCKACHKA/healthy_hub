@@ -9,56 +9,129 @@ import {
 } from './Food.styled';
 import BigChart from './BigChart/BigChart';
 import DoughnutElement from './Doughnut/Doughnut.jsx';
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import {
+  selectDailyNutrition,
+  selectUserMeals,
+  selectUserData,
+} from '../../../redux/selesctors.js';
 
-export default function Food({ stats }) {
+export default function Food() {
+  const dailyNutrition = useSelector(selectDailyNutrition);
+  const dailyMeals = useSelector(selectUserMeals);
+  const userStats = useSelector(selectUserData);
+
   return (
     <Container>
       <Heading>Food</Heading>
       <FullFrame>
-        <BigChart />
+        <BigChart
+          calories={userStats?.user.dailyCalories}
+          currentCalories={dailyMeals?.totalConsumedCaloriesPerDay || 0}
+        />
         <SmallCharts>
           <Chart>
-            <DoughnutElement heightpx={48} widthpx={48} color="#FFC4F7" />
-            <Percentage>80%</Percentage>
+            <DoughnutElement
+              heightpx={48}
+              widthpx={48}
+              color="#FFC4F7"
+              percentage={
+                Math.round(
+                  (dailyMeals.totalConsumedCarbohydratesPerDay * 100) /
+                    dailyNutrition?.carbohydrates
+                ) || 0
+              }
+            />
+            <Percentage>
+              {Math.round(
+                (dailyMeals.totalConsumedCarbohydratesPerDay * 100) /
+                  dailyNutrition?.carbohydrates
+              ) || 0}
+              %
+            </Percentage>
             <ChartInfo>
               <h3>Carbohidrates</h3>
               <div>
                 <p>
-                  Goal: <span>170</span>
+                  Goal: <span>{dailyNutrition?.carbohydrates}</span>
                 </p>
                 <p>
-                  left: <span>34</span>
+                  left:{' '}
+                  <span>
+                    {dailyNutrition?.carbohydrates -
+                      dailyMeals.totalConsumedCarbohydratesPerDay ||
+                      dailyNutrition?.carbohydrates}
+                  </span>
                 </p>
               </div>
             </ChartInfo>
           </Chart>
           <Chart>
-            <DoughnutElement heightpx={48} widthpx={48} color="#FFF3B7" />
-            <Percentage>80%</Percentage>
+            <DoughnutElement
+              heightpx={48}
+              widthpx={48}
+              color="#FFF3B7"
+              percentage={
+                Math.round(
+                  (dailyMeals.totalConsumedProteinPerDay * 100) /
+                    dailyNutrition?.protein
+                ) || 0
+              }
+            />
+            <Percentage>
+              {Math.round(
+                (dailyMeals.totalConsumedProteinPerDay * 100) /
+                  dailyNutrition?.protein
+              ) || 0}
+              %
+            </Percentage>
             <ChartInfo>
               <h3>Protein</h3>
               <div>
                 <p>
-                  Goal: <span>127.5</span>
+                  Goal: <span>{dailyNutrition?.protein}</span>
                 </p>
                 <p>
-                  left: <span>8</span>
+                  left:{' '}
+                  <span>
+                    {dailyNutrition?.protein -
+                      dailyMeals.totalConsumedProteinPerDay ||
+                      dailyNutrition?.protein}
+                  </span>
                 </p>
               </div>
             </ChartInfo>
           </Chart>
           <Chart>
-            <DoughnutElement heightpx={48} widthpx={48} color="#B6B6B6" />
-            <Percentage>80%</Percentage>
+            <DoughnutElement
+              heightpx={48}
+              widthpx={48}
+              color="#B6B6B6"
+              percentage={
+                Math.round(
+                  (dailyMeals?.totalConsumedFatPerDay * 100) /
+                    dailyNutrition?.fat
+                ) || 0
+              }
+            />
+            <Percentage>
+              {Math.round(
+                (dailyMeals?.totalConsumedFatPerDay * 100) / dailyNutrition?.fat
+              ) || 0}
+              %
+            </Percentage>
             <ChartInfo>
               <h3>Fat</h3>
               <div>
                 <p>
-                  Goal: <span>56</span>
+                  Goal: <span>{dailyNutrition?.fat}</span>
                 </p>
                 <p>
-                  left: <span>11,2</span>
+                  left:{' '}
+                  <span>
+                    {dailyNutrition?.fat - dailyMeals?.totalConsumedFatPerDay ||
+                      dailyNutrition?.fat}
+                  </span>
                 </p>
               </div>
             </ChartInfo>
