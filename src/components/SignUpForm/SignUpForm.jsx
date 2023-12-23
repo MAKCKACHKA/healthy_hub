@@ -32,7 +32,7 @@ export const SignUpForm = ({ currentStep }) => {
     const user = { ...values };
     user.coefficientOfActivity = Number(user.coefficientOfActivity);
     dispatch(signup({ ...user }));
-    
+
     actions.resetForm();
   };
 
@@ -85,7 +85,8 @@ export const SignUpForm = ({ currentStep }) => {
                   {formik.errors.name}
                 </ErrorMessageInput>
               </>
-            />
+            )}
+
             {formik.errors.name && formik.values.name !== '' && (
               <ErrorMessageInput id="name">
                 {formik.errors.name}
@@ -223,25 +224,6 @@ export const SignUpForm = ({ currentStep }) => {
           </GenderAgeRadioBtn>
           <LabelStyled htmlFor="age">Your age</LabelStyled>
           <InputIconErrorWrapp>
-          <Input
-            name="age"
-            type="number"
-            placeholder="Enter your age"
-            onChange={formik.handleChange}
-            value={formik.values.age}
-            valid={formik.errors}
-          />
-          {formik.errors.age && formik.values.age && (
-            <ErrorMessageInput id="password">
-              {formik.errors.age}
-            </ErrorMessageInput>
-          )}
-        </GenderAgeFormWrapp>
-      )}
-      {currentStep === 3 && (
-        <ParametrsFormWrapp>
-          <div>
-            <LabelStyled htmlFor="height">Height</LabelStyled>
             <Input
               name="age"
               type="number"
@@ -249,26 +231,11 @@ export const SignUpForm = ({ currentStep }) => {
               onChange={formik.handleChange}
               value={formik.values.age}
               valid={formik.errors}
-              className={
-                !formik.errors.age && formik.values.age
-                  ? 'correct'
-                  : 'incorrect'
-              }
             />
-            {!formik.errors.age && formik.values.age && (
-              <SvgIcon width={16} height={16}>
-                <use href={`${icon}#icon-correct`}></use>
-              </SvgIcon>
-            )}
             {formik.errors.age && formik.values.age && (
-              <>
-                <SvgIcon width={16} height={16}>
-                  <use href={`${icon}#icon-error`}></use>
-                </SvgIcon>
-                <ErrorMessageInput id="password">
-                  {formik.errors.age}
-                </ErrorMessageInput>
-              </>
+              <ErrorMessageInput id="password">
+                {formik.errors.age}
+              </ErrorMessageInput>
             )}
           </InputIconErrorWrapp>
         </GenderAgeFormWrapp>
@@ -341,19 +308,6 @@ export const SignUpForm = ({ currentStep }) => {
                 </>
               )}
             </InputIconErrorWrapp>
-            <Input
-              name="weight"
-              type="number"
-              placeholder="Enter your weight"
-              onChange={formik.handleChange}
-              value={formik.values.weight}
-              valid={formik.errors}
-            />
-            {formik.errors.weight && formik.values.weight && (
-              <ErrorMessageInput id="password">
-                {formik.errors.weight}
-              </ErrorMessageInput>
-            )}
           </div>
         </ParametrsFormWrapp>
       )}
