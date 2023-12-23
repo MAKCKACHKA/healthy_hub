@@ -66,6 +66,8 @@ export default function Water() {
 
   function closeModal() {
     setIsOpen(false);
+    setInputBorder('var(--primary-btn-color)');
+    setErrorMessage('');
   }
 
   const modalWaterAdd = async (e) => {
