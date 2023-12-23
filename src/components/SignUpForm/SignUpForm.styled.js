@@ -67,10 +67,29 @@ export const ActivityBtnWrapp = styled.div`
 
 export const InputIconErrorWrapp = styled.div`
   position: relative;
+  &:hover button {
+    opacity: 1;
+  }
+  &:hover svg[id='password'] {
+    opacity: 0;
+  }
 `;
 
 export const SvgIcon = styled.svg`
   position: absolute;
   top: 10px;
   right: 10px;
+  opacity: 1;
+`;
+
+export const ShowPasswordBtn = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  opacity: 0;
 `;

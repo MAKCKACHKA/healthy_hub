@@ -18,10 +18,14 @@ import {
   ActivityBtnWrapp,
   SvgIcon,
   InputIconErrorWrapp,
+  ShowPasswordBtn,
 } from './SignUpForm.styled';
 import { PrimaryBtn } from '../PrimaryBtn/PrimaryBtn';
+import { useState } from 'react';
 
 export const SignUpForm = ({ currentStep }) => {
+  const [type, setType] = useState('password');
+
   const dispatch = useDispatch();
 
   const handleSubmitForm = (values, actions) => {
@@ -118,7 +122,7 @@ export const SignUpForm = ({ currentStep }) => {
           <InputIconErrorWrapp>
             <Input
               name="password"
-              type="password"
+              type={type}
               placeholder="Password"
               onChange={formik.handleChange}
               value={formik.values.password}
@@ -130,19 +134,35 @@ export const SignUpForm = ({ currentStep }) => {
               }
             />
             {!formik.errors.password && formik.values.password && (
-              <SvgIcon width={16} height={16}>
+              <SvgIcon id="password" width={16} height={16}>
                 <use href={`${icon}#icon-correct`}></use>
               </SvgIcon>
             )}
             {formik.errors.password && formik.values.password !== '' && (
               <>
-                <SvgIcon width={16} height={16}>
+                <SvgIcon id="password" width={16} height={16}>
                   <use href={`${icon}#icon-error`}></use>
                 </SvgIcon>
                 <ErrorMessageInput id="password">
                   {formik.errors.password}
                 </ErrorMessageInput>
               </>
+            )}
+            {type === 'password' ? (
+              <ShowPasswordBtn type="button" onClick={() => setType('text')}>
+                <svg width={16} height={16}>
+                  <use href={`${icon}#icon-eye`}></use>
+                </svg>
+              </ShowPasswordBtn>
+            ) : (
+              <ShowPasswordBtn
+                type="button"
+                onClick={() => setType('password')}
+              >
+                <svg width={16} height={16}>
+                  <use href={`${icon}#icon-eye-off`}></use>
+                </svg>
+              </ShowPasswordBtn>
             )}
           </InputIconErrorWrapp>
         </InputWrapp>
