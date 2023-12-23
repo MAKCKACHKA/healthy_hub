@@ -7,7 +7,6 @@ import {
   StyledLink,
 } from './TodayWrap.styled';
 import icons from '../../../assets/icons.svg';
-import axios from 'axios';
 
 export default function TodayWrap() {
   return (
