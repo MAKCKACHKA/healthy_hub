@@ -11,11 +11,13 @@ import {
   deleteWaterIntake,
   updateFoodIntake,
   addUserAvatar,
+  refreshRecommendedFood,
 } from './operations';
 
 const initialState = {
   data: {},
   statistics: {},
+  recommendedFood: [],
   isLoading: false,
   error: null,
 };
@@ -66,7 +68,14 @@ const dataSlice = createSlice({
       .addCase(updateFoodIntake.pending, handlePending)
       .addCase(updateFoodIntake.rejected, handleRejected)
       .addCase(addUserAvatar.pending, handlePending)
-      .addCase(addUserAvatar.rejected, handleRejected);
+      .addCase(addUserAvatar.rejected, handleRejected)
+      .addCase(refreshRecommendedFood.pending, handlePending)
+      .addCase(refreshRecommendedFood.rejected, handleRejected)
+      .addCase(refreshRecommendedFood.fulfilled, (state, action) => {
+        state.recommendedFood = action.payload;
+        state.isLoading = false;
+        state.error = null;
+      });
   },
 });
 
