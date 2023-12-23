@@ -1,4 +1,4 @@
-import{s as i,i as B,r as m,u as I,j as e,m as R,L as O}from"./index-3ca4d9f0.js";import{b as f}from"./breakfast-image-35742634.js";import{i as h}from"./icons-cd6d8672.js";const T=i.div`
+import{s as i,t as B,r as m,u as I,j as e,k as R,L as O}from"./index-4a43244d.js";import{b as f}from"./breakfast-image-e0be4fcf.js";import{i as h}from"./icons-1a5238bd.js";const T=i.div`
     display: flex;
     flex-wrap: wrap;
     max-width: 1372px;

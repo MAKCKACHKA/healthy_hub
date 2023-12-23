@@ -1,4 +1,4 @@
-import{s as r,u as n,e as l,k as c,r as h,l as m,j as i}from"./index-3ca4d9f0.js";import{I as g}from"./pageIllustrations-a91af519.js";const w=r.div`
+import{s as r,u as n,c as l,o as c,r as h,p as m,j as i}from"./index-4a43244d.js";import{I as g}from"./pageIllustrations-7a0426c0.js";const w=r.div`
   width: 320px;
   margin: 0 auto;
 
