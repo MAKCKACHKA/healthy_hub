@@ -28,29 +28,63 @@ import {
 import Illustration from '../../assets/pageIllustrations.svg';
 import { Formik, Form } from 'formik';
 import icons from '../../assets/icons.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUserData } from '../../redux/selesctors';
+import {
+  addUserAvatar,
+  getCurrentUser,
+  updateUserInformation,
+} from '../../redux/operations';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 export default function SettingsPage() {
+  const { user } = useSelector(selectUserData);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCurrentUser());
+  }, [dispatch]);
+
   const initialValues = {
-    name: 'Max',
-    photo: '',
-    age: '19',
-    gender: 'Male',
-    height: '',
-    weight: '',
-    activity: '1.55',
+    age: user && user.age,
+    weight: user && user.weight,
+    height: user && user.height,
+    gender: user && user.gender,
+    coefficientOfActivity: user && String(user.coefficientOfActivity),
+    name: user && user.name,
   };
 
+  const [avatar, setAvatar] = useState(user ? user.avatarURL : '');
+  const [createUrl, setObjectURL] = useState(false);
+
   const handleSave = (values) => {
-    console.log('Form data saved:', values);
+    const updatedValues = { ...values };
+    updatedValues.coefficientOfActivity = Number(
+      updatedValues.coefficientOfActivity
+    );
+
+    if (JSON.stringify(initialValues) !== JSON.stringify(values)) {
+      dispatch(updateUserInformation(updatedValues));
+    }
+
+    avatar !== '' &&
+      typeof avatar === 'object' &&
+      avatar instanceof File &&
+      dispatch(addUserAvatar({ avatar }));
+
+    setTimeout(() => {
+      dispatch(getCurrentUser());
+    }, 2300);
   };
 
   const handleCancel = (resetForm) => {
     resetForm({ values: initialValues });
+    setAvatar(user ? user.avatarURL : '');
+    setObjectURL(false);
   };
 
   const validationSchema = Yup.object().shape({
-    // name: Yup.string().required('Name is required'),
-    // photo: Yup.string().url('Invalid URL'),
     age: Yup.number()
       .positive('Must be a positive number')
       .integer('Must be an integer')
@@ -64,7 +98,6 @@ export default function SettingsPage() {
       .positive('Must be a positive number')
       .max(500, 'Cannot be greater than 500')
       .nullable(),
-    // activity: Yup.string().required('Activity is required'),
   });
 
   return (
@@ -73,7 +106,7 @@ export default function SettingsPage() {
       onSubmit={handleSave}
       validationSchema={validationSchema}
     >
-      {({ resetForm, values, setFieldValue, errors, touched }) => (
+      {({ resetForm, errors, touched }) => (
         <Form>
           <TitleContainer>
             <Title>Profile setting</Title>
@@ -93,17 +126,22 @@ export default function SettingsPage() {
                 Your name
                 <TextInput type="text" id="name" name="name" />
               </Label>
-              <LabelImg htmlFor="photo">
+              <LabelImg htmlFor="avatar">
                 Your photo
                 <FileInput>
-                  {values.photo === '' ? (
+                  {avatar === '' ? (
                     <AvatarIcon>
                       <use href={`${icons}#icon-profile-circle`} />
                     </AvatarIcon>
                   ) : (
                     <Avatar
-                      src={values.photo}
-                      // src={URL.createObjectURL(values.photo)}
+                      src={
+                        user.avatarURL
+                          ? createUrl
+                            ? URL.createObjectURL(avatar)
+                            : avatar
+                          : null
+                      }
                       alt="Selected"
                     />
                   )}
@@ -114,13 +152,11 @@ export default function SettingsPage() {
                     <ImageInput
                       type="file"
                       accept="image/*"
-                      id="photo"
-                      name="photo"
+                      id="avatar"
+                      name="avatar"
                       onChange={(e) => {
-                        setFieldValue(
-                          'photo',
-                          URL.createObjectURL(e.target.files[0])
-                        );
+                        setAvatar(e.target.files[0]);
+                        setObjectURL(true);
                       }}
                     />
                     Download new photo
@@ -143,14 +179,14 @@ export default function SettingsPage() {
                 Gender
                 <GenderRadios>
                   <RadioLabel>
-                    <RadioField type="radio" name="gender" value="Male" />
+                    <RadioField type="radio" name="gender" value="male" />
                     Male
                     <CustomRadio>
                       <span></span>
                     </CustomRadio>
                   </RadioLabel>
                   <RadioLabel>
-                    <RadioField type="radio" name="gender" value="Female" />
+                    <RadioField type="radio" name="gender" value="female" />
                     Female
                     <CustomRadio>
                       <span></span>
@@ -187,9 +223,9 @@ export default function SettingsPage() {
                 <RadioLabel>
                   <RadioField
                     type="radio"
-                    id="activity1"
-                    name="activity"
-                    value="1.2"
+                    id="coefficientOfActivity1"
+                    name="coefficientOfActivity"
+                    value={'1.2'}
                   />
                   <CustomRadio>
                     <span></span>
@@ -199,9 +235,9 @@ export default function SettingsPage() {
                 <RadioLabel>
                   <RadioField
                     type="radio"
-                    id="activity2"
-                    name="activity"
-                    value="1.375"
+                    id="coefficientOfActivity2"
+                    name="coefficientOfActivity"
+                    value={'1.375'}
                   />
                   <CustomRadio>
                     <span></span>
@@ -212,9 +248,9 @@ export default function SettingsPage() {
                 <RadioLabel>
                   <RadioField
                     type="radio"
-                    id="activity3"
-                    name="activity"
-                    value="1.55"
+                    id="coefficientOfActivity3"
+                    name="coefficientOfActivity"
+                    value={'1.55'}
                   />
                   <CustomRadio>
                     <span></span>
@@ -224,9 +260,9 @@ export default function SettingsPage() {
                 <RadioLabel>
                   <RadioField
                     type="radio"
-                    id="activity4"
-                    name="activity"
-                    value="1.725"
+                    id="coefficientOfActivity4"
+                    name="coefficientOfActivity"
+                    value={'1.725'}
                   />
                   <CustomRadio>
                     <span></span>
@@ -236,9 +272,9 @@ export default function SettingsPage() {
                 <RadioLabel>
                   <RadioField
                     type="radio"
-                    id="activity4"
-                    name="activity"
-                    value="1.9"
+                    id="coefficientOfActivity4"
+                    name="coefficientOfActivity"
+                    value={'1.9'}
                   />
                   <CustomRadio>
                     <span></span>
@@ -250,7 +286,12 @@ export default function SettingsPage() {
               </YourActivityInput>
             </FormInputs>
             <ButtonWraperDown>
-              <CancelBtn type="button" onClick={() => handleCancel(resetForm)}>
+              <CancelBtn
+                type="button"
+                onClick={() => {
+                  handleCancel(resetForm);
+                }}
+              >
                 Cancel
               </CancelBtn>
               <SaveBtn type="submit">Save</SaveBtn>
