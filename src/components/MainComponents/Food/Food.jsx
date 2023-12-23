@@ -109,14 +109,14 @@ export default function Food() {
               color="#B6B6B6"
               percentage={
                 Math.round(
-                  (dailyMeals.totalConsumedFatPerDay * 100) /
+                  (dailyMeals?.totalConsumedFatPerDay * 100) /
                     dailyNutrition?.fat
                 ) || 0
               }
             />
             <Percentage>
               {Math.round(
-                (dailyMeals.totalConsumedFatPerDay * 100) / dailyNutrition?.fat
+                (dailyMeals?.totalConsumedFatPerDay * 100) / dailyNutrition?.fat
               ) || 0}
               %
             </Percentage>
