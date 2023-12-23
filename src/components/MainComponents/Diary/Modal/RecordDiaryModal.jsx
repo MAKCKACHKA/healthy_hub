@@ -80,11 +80,11 @@ const RecordDiaryModal = ({ onClose, image, mealType }) => {
       products: [
         {
           mealType: mealType,
-          name: '',
-          carbonohidrates: '',
-          protein: '',
-          fat: '',
-          calories: '',
+          name: 'egg',
+          carbonohidrates: '10',
+          protein: '1',
+          fat: '1',
+          calories: '1',
         },
       ],
     },
