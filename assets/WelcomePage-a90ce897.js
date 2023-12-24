@@ -1,4 +1,4 @@
-import{s as i,L as n,j as e}from"./index-5e070e88.js";import{I as a}from"./pageIllustrations-bf3fe04d.js";const r=i.div`
+import{s as i,L as n,j as e}from"./index-555d45aa.js";import{I as a}from"./pageIllustrations-6b30c31b.js";const r=i.div`
   display: flex;
   gap: 16px;
   margin-bottom: 40px;
