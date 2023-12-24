@@ -1,6 +1,14 @@
 import { Link } from 'react-router-dom';
 import styled, {css} from 'styled-components';
 
+// @media screen and (min-width: 768px) {
+   
+//   }
+
+//   @media screen and (min-width: 768px) and (max-width: 1199px) {
+//     text-align: center;
+//   }
+
 export const HeaderWrapper = styled.div`
         display: flex;
         align-items: center;
@@ -10,19 +18,29 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const Header = styled.h1`
-       font-family: Poppins;
+        font-family: Poppins;
         font-size: 30px;
         font-style: normal;
         font-weight: 500;
         line-height: 36px;
         margin-right: 12px;
+        @media screen and (max-width: 834px) {
+                font-size: 24px;
+                font-weight: 500;
+                line-height: 30px;
+        }
+        
 `;
 
 export const GoBackToMainPageWrapper  = styled(Link)`
         width: 24px;
         height: 24px;
         display: inline-block;
-        cursor: pointer;        
+        cursor: pointer;   
+        @media screen and (max-width: 834px) {
+                width: 16px;
+                height: 16px;
+        }     
 `;
 
 export const GoBackToMainPageSvg  = styled.svg`
@@ -37,7 +55,10 @@ export const GoBackToMainPageSvg  = styled.svg`
         &:focus {
                 stroke: var(--primary-btn-color);
         }
-        
+        @media screen and (max-width: 834px) {
+                width: 16px;
+                height: 16px;
+        }
 `;
 
 export const MonthPickerWrapper = styled.div`
@@ -63,12 +84,17 @@ export const MonthPickerSvgInactive = styled.svg`
         &:focus {
                 stroke: var(--primary-btn-color);
                 }
+        
 `;
 
 export const MonthPickerSvgActive = styled.svg`
         ${MonthPickerSvg};
         stroke: var(--primary-btn-color);
         transform: rotate(180deg);
+        @media screen and (max-width: 834px) {
+                width: 16px;
+                height: 16px;
+        }
 `;
 
 export const MonthList = styled.ul`
@@ -118,4 +144,8 @@ export const ChoosenMonth = styled.h3`
         font-style: normal;
         font-weight: 500;
         line-height: 24px;
+        @media screen and (max-width: 834px) {
+                font-size: 16px;
+                line-height: 22px;     
+        }
 `
