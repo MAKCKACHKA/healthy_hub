@@ -41,26 +41,67 @@ import { useSelector } from 'react-redux';
 export const DiaryPills = () => {
   const user = useSelector(selectUserData);
 
-  const [diaryData, setDiaryData] = useState([]);
-
   useEffect(() => {
     if (user && user.consumedMealsByDay) {
-      const consumedBreakfast =
-        user.consumedMealsByDay && user.consumedMealsByDay.breakfast
-          ? user.consumedMealsByDay.breakfast
-          : 0;
-      const consumedLunch =
-        user.consumedMealsByDay && user.consumedMealsByDay.lunch
-          ? user.consumedMealsByDay.lunch
-          : 0;
-      const consumedDinner =
-        user.consumedMealsByDay && user.consumedMealsByDay.dinner
-          ? user.consumedMealsByDay.dinner
-          : 0;
-      const consumedSnack =
-        user.consumedMealsByDay && user.consumedMealsByDay.snack
-          ? user.consumedMealsByDay.snack
-          : 0;
+      console.log(user.consumedMealsByDay);
+    }
+  }, [user]);
+
+  const [diaryData, setDiaryData] = useState([
+    {
+      title: 'Breakfast',
+      image: breakfastImage,
+      totalCarbohydrates: 0,
+      totalProtein: 0,
+      foods: [],
+    },
+    {
+      title: 'Lunch',
+      image: lunchImage,
+      totalCarbohydrates: 0,
+      totalFat: 0,
+      totalProtein: 0,
+      foods: [],
+    },
+    {
+      title: 'Dinner',
+      image: dinnerImage,
+      totalCarbohydrates: 0,
+      foods: [],
+    },
+    {
+      title: 'Snack',
+      image: snackImage,
+      totalCarbohydrates: 0,
+      foods: [],
+    },
+  ]);
+
+  useEffect(() => {
+    // if (user && user.consumedMealsByDay && user.consumedMealsByDay === 0) {
+    //   const consumedBreakfast =
+    //     user.consumedMealsByDay && user.consumedMealsByDay.breakfast
+    //       ? user.consumedMealsByDay.breakfast
+    //       : 0;
+    //   const consumedLunch =
+    //     user.consumedMealsByDay && user.consumedMealsByDay.lunch
+    //       ? user.consumedMealsByDay.lunch
+    //       : 0;
+    //   const consumedDinner =
+    //     user.consumedMealsByDay && user.consumedMealsByDay.dinner
+    //       ? user.consumedMealsByDay.dinner
+    //       : 0;
+    //   const consumedSnack =
+    //     user.consumedMealsByDay && user.consumedMealsByDay.snack
+    //       ? user.consumedMealsByDay.snack
+    //       : 0;
+
+    if (user && user.consumedMealsByDay) {
+      console.log(user.consumedMealsByDay);
+      const consumedBreakfast = user.consumedMealsByDay.breakfast || {};
+      const consumedLunch = user.consumedMealsByDay.lunch || {};
+      const consumedDinner = user.consumedMealsByDay.dinner || {};
+      const consumedSnack = user.consumedMealsByDay.snack || {};
 
       if (
         consumedBreakfast &&
@@ -68,10 +109,10 @@ export const DiaryPills = () => {
         consumedDinner &&
         consumedDinner
       ) {
-        // console.log(consumedBreakfast);
-        // console.log(consumedLunch);
-        // console.log(consumedDinner);
-        // console.log(consumedSnack);
+        console.log(consumedBreakfast);
+        console.log(consumedLunch);
+        console.log(consumedDinner);
+        console.log(consumedSnack);
         setDiaryData([
           {
             title: 'Breakfast',
