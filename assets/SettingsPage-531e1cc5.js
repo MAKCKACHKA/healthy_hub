@@ -1,4 +1,4 @@
-import{s as t,F as b,h as R,k as F,u as I,r as f,d as S,g as u,j as e,y as C,z as L,i as v,A as z,B as N,m as $}from"./index-a2b4cfd2.js";import{I as W}from"./pageIllustrations-1bf2bdd7.js";const B=t.div`
+import{s as t,F as b,h as R,k as F,u as I,r as f,d as S,g as u,j as e,y as C,z as L,i as v,A as z,B as N,m as $}from"./index-81144562.js";import{I as W}from"./pageIllustrations-9c530642.js";const B=t.div`
   display: flex;
   justify-content: space-between;
   max-width: 300px;
@@ -6,7 +6,7 @@ import{s as t,F as b,h as R,k as F,u as I,r as f,d as S,g as u,j as e,y as C,z a
   margin-right: auto;
   margin-bottom: 24px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     max-width: 100%;
   }
   @media screen and (min-width: 1440px) {
@@ -21,13 +21,13 @@ import{s as t,F as b,h as R,k as F,u as I,r as f,d as S,g as u,j as e,y as C,z a
   font-weight: 500;
   line-height: 1.25;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     font-size: 30px;
     line-height: 1.2;
   }
 `,Y=t.div`
   display: none;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     display: flex;
     gap: 12px;
     align-items: center;
@@ -41,7 +41,7 @@ import{s as t,F as b,h as R,k as F,u as I,r as f,d as S,g as u,j as e,y as C,z a
   flex-direction: column-reverse;
   gap: 12px;
   margin-top: 40px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     display: none;
   }
 `,w=t.button`
@@ -56,7 +56,7 @@ import{s as t,F as b,h as R,k as F,u as I,r as f,d as S,g as u,j as e,y as C,z a
   font-weight: 400;
   line-height: 1.42;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     width: 212px;
   }
 `,j=t.button`
@@ -76,7 +76,7 @@ import{s as t,F as b,h as R,k as F,u as I,r as f,d as S,g as u,j as e,y as C,z a
   font-weight: 500;
   /* line-height: 1.42; */
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     width: 212px;
   }
 `,T=t.svg`
@@ -85,12 +85,12 @@ import{s as t,F as b,h as R,k as F,u as I,r as f,d as S,g as u,j as e,y as C,z a
   height: 296px;
   margin-bottom: 24px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     width: 380px;
     height: 374px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 536px;
     height: 528px;
   }
@@ -101,7 +101,7 @@ import{s as t,F as b,h as R,k as F,u as I,r as f,d as S,g as u,j as e,y as C,z a
   justify-content: space-around;
   align-items: center;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     flex-direction: row;
   }
   @media screen and (min-width: 1440px) {
@@ -118,11 +118,11 @@ import{s as t,F as b,h as R,k as F,u as I,r as f,d as S,g as u,j as e,y as C,z a
   column-gap: 60px;
   max-width: 300px;
   justify-content: center;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     max-width: 490px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     max-width: 500px;
   }
 `,d=t.label`
@@ -132,7 +132,7 @@ import{s as t,F as b,h as R,k as F,u as I,r as f,d as S,g as u,j as e,y as C,z a
   align-items: flex-start;
   gap: 12px;
   width: 280px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     width: 212px;
   }
 `,J=t.label`
@@ -142,7 +142,7 @@ import{s as t,F as b,h as R,k as F,u as I,r as f,d as S,g as u,j as e,y as C,z a
   align-items: flex-start;
   gap: 12px;
   width: 280px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     width: 218px;
   }
 `,x=t(b)`

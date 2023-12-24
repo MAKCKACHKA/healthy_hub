@@ -1,15 +1,15 @@
-import{s as i,L as n,j as e}from"./index-a2b4cfd2.js";import{I as a}from"./pageIllustrations-1bf2bdd7.js";const r=i.div`
+import{s as i,L as n,j as e}from"./index-81144562.js";import{I as a}from"./pageIllustrations-9c530642.js";const r=i.div`
   display: flex;
   gap: 16px;
   margin-bottom: 40px;
   font-weight: 500;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     margin: 0 auto 80px;
     justify-content: center;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     justify-content: left;
   }
 `,d=i(n)`
@@ -20,7 +20,7 @@ import{s as i,L as n,j as e}from"./index-a2b4cfd2.js";import{I as a}from"./pageI
   color: var(--secondary-text-color);
   background-color: var(--primary-btn-color);
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     width: 212px;
   }
 `,o=i(n)`
@@ -53,7 +53,7 @@ import{s as i,L as n,j as e}from"./index-a2b4cfd2.js";import{I as a}from"./pageI
     color: var(--primary-btn-color);
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1200px) {
+  @media screen and (min-width: 864px) and (max-width: 1440px) {
     margin: 0;
   }
 `,x=()=>e.jsxs(s,{children:[e.jsx(t,{children:"Set goals"}),e.jsx(t,{children:"Watch your calories"}),e.jsx(t,{children:"Keep track of your water intake"}),e.jsx(t,{children:"Control your weight"})]}),c=i.section`
@@ -64,12 +64,12 @@ import{s as i,L as n,j as e}from"./index-a2b4cfd2.js";import{I as a}from"./pageI
   align-items: center;
   gap: 24px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     /* margin: 40px auto 80px; */
     gap: 80px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -82,13 +82,13 @@ import{s as i,L as n,j as e}from"./index-a2b4cfd2.js";import{I as a}from"./pageI
   height: 296px;
   display: block;
   margin: 0 auto 40px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     width: 380px;
     height: 376px;
     /* margin: 40px auto 80px; */
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 592px;
     height: 588px;
     margin: 0;
@@ -96,14 +96,14 @@ import{s as i,L as n,j as e}from"./index-a2b4cfd2.js";import{I as a}from"./pageI
 `,m=i.div`
   padding-bottom: 40px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     width: 444px;
     text-align: center;
     margin: 0 auto;
     padding-bottom: 286px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     margin: 0;
     text-align: left;
     padding: 0;
@@ -116,11 +116,11 @@ import{s as i,L as n,j as e}from"./index-a2b4cfd2.js";import{I as a}from"./pageI
   text-align: center;
   word-wrap: break-word;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     font-size: 30px;
     line-height: 1.2;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     text-align: start;
   }
 `,g=i.p`
@@ -129,12 +129,12 @@ import{s as i,L as n,j as e}from"./index-a2b4cfd2.js";import{I as a}from"./pageI
   margin-bottom: 24px;
   padding: 0;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     font-size: 22px;
     line-height: 1.45;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     padding: 0;
   }
 `;function u(){return e.jsxs(c,{children:[e.jsx("div",{children:e.jsx(l,{height:300,children:e.jsx("use",{href:`${a}#icon-auth`})})}),e.jsxs(m,{children:[e.jsx(h,{children:"Set goals and achieve them"}),e.jsx(g,{children:"The service will help you set goals and follow them."}),e.jsx(p,{}),e.jsx(x,{})]})]})}export{u as default};

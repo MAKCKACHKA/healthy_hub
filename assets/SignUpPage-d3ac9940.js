@@ -1,4 +1,4 @@
-import{s as t,j as e,r as j,u as b,a as C,i as n,b as k}from"./index-a2b4cfd2.js";import{I as S}from"./pageIllustrations-1bf2bdd7.js";import{I as F,a as h,E as d,P as v,v as T,A as $,T as A,b as I,S as B,c as W}from"./SignInPage.styled-242cbb6c.js";import{F as E,S as O}from"./ForgotPasswordPage.styled-c91b45f7.js";const N=t.button`
+import{s as t,j as e,r as j,u as b,a as C,i as n,b as k}from"./index-81144562.js";import{I as S}from"./pageIllustrations-9c530642.js";import{I as F,a as h,E as d,P as v,v as T,A as $,T as A,b as I,S as B,c as W}from"./SignInPage.styled-e8054b65.js";import{F as E,S as O}from"./ForgotPasswordPage.styled-7b225efd.js";const N=t.button`
   width: 192px;
   text-align: center;
   border: none;
@@ -49,12 +49,12 @@ import{s as t,j as e,r as j,u as b,a as C,i as n,b as k}from"./index-a2b4cfd2.js
   gap: 24px;
   margin-bottom: 24px;
 
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 864px) and (max-width: 1439px) {
     flex-direction: row;
     justify-content: center;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     gap: 16px;
   }
 `,x=t.label`
@@ -67,7 +67,7 @@ import{s as t,j as e,r as j,u as b,a as C,i as n,b as k}from"./index-a2b4cfd2.js
   gap: 100px;
   margin-bottom: 24px;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     flex-direction: column;
     gap: 16px;
   }
@@ -88,7 +88,7 @@ import{s as t,j as e,r as j,u as b,a as C,i as n,b as k}from"./index-a2b4cfd2.js
   margin-bottom: 24px;
   color: var(--primary-title-text-color);
 `,H=t.div`
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 212px;
   }
 `,p=t.div`
@@ -120,17 +120,17 @@ import{s as t,j as e,r as j,u as b,a as C,i as n,b as k}from"./index-a2b4cfd2.js
   gap: 20px;
   font-weight: 500;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     max-width: 380px;
     justify-content: center;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     max-width: 212px;
     justify-content: left;
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 864px) and (max-width: 1439px) {
     margin: 0 auto;
   }
 `;function Z(){const[a,l]=j.useState(0);let i="Sign up";switch(a){case 1:i="Your goal";break;case 2:i="Select gender, Age";break;case 3:i="Body parameters";break;case 4:i="Your Activity";break}let c="You need to register to use the service";switch(a){case 1:c="Choose a goal so that we can help you effectively";break;case 2:c="Choose a goal so that we can help you effectively";break;case 3:c="Enter your parameters for correct performance tracking";break;case 4:c="To correctly calculate calorie and water intake";break}return e.jsxs(O,{children:[e.jsx($,{pageIllustrations:S,currentStep:a}),e.jsxs(A,{children:[e.jsxs("div",{children:[e.jsx(I,{titleText:i}),e.jsx(B,{description:c}),e.jsx(V,{currentStep:a}),e.jsxs(q,{children:[a<4&&e.jsx(v,{type:"button",text:"Next",onClick:()=>l(a+1)}),a>0&&e.jsx(Y,{$currentStep:a,children:e.jsx(P,{type:"button",text:"Back",onClick:()=>l(a-1)})})]})]}),a===0&&e.jsx(W,{descriptionText:"Do you already have an account?",linkText:"Sign in",to:"/signin",flexDirectionColumn:!0})]})]})}export{Z as default};

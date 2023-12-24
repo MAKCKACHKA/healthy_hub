@@ -1,4 +1,4 @@
-import{s as n,h as I,k as G,j as e,i as b,r as g,u as M,M as Z,l as te,m as X,n as ne,o as ie,L as q,a as oe,p as re,q as ae,t as se}from"./index-a2b4cfd2.js";import{C as le,A as de,D as ce}from"./index-200b0c90.js";import{b as pe}from"./breakfast-image-191d6a8f.js";const xe=n.h4`
+import{s as n,h as I,k as G,j as e,i as b,r as g,u as M,M as Z,l as te,m as X,n as ne,o as ie,L as q,a as oe,p as re,q as ae,t as se}from"./index-81144562.js";import{C as le,A as de,D as ce}from"./index-b020931a.js";import{b as pe}from"./breakfast-image-68626359.js";const xe=n.h4`
   color: var(--primary-title-text-color);
   font-size: 18px;
   font-style: normal;
@@ -74,7 +74,7 @@ import{s as n,h as I,k as G,j as e,i as b,r as g,u as M,M as Z,l as te,m as X,n 
   padding: 16px 12px;
   justify-content: space-around;
 
-  @media (min-width: 768px) {
+  @media (min-width: 864px) {
     justify-content: start;
     padding: 24px 40px;
     gap: 40px;
@@ -131,7 +131,7 @@ import{s as n,h as I,k as G,j as e,i as b,r as g,u as M,M as Z,l as te,m as X,n 
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 768px) {
+  @media (min-width: 864px) {
     flex-grow: 2;
   }
 `,ke=n.svg`
@@ -408,7 +408,7 @@ import{s as n,h as I,k as G,j as e,i as b,r as g,u as M,M as Z,l as te,m as X,n 
     stroke: var(--primary-text-color);
   }
 `;function Ze(){return e.jsxs("div",{children:[e.jsxs(Je,{children:[e.jsx("h2",{children:"Today"}),e.jsxs(_e,{to:"/dashboard",children:["On the way to the goal",e.jsx("svg",{children:e.jsx("use",{href:`${b}#icon-arrow-right`})})]})]}),e.jsxs(Ye,{children:[e.jsx(ge,{}),e.jsx(Ve,{}),e.jsx(Xe,{})]})]})}const qe=n.li`
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     display: flex;
     column-gap: 8px;
     align-items: center;
@@ -423,7 +423,7 @@ import{s as n,h as I,k as G,j as e,i as b,r as g,u as M,M as Z,l as te,m as X,n 
   color: white;
   font-family: 'Poppins', sans-serif;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     margin-bottom: 0;
   }
 `,tt=n.h3`
@@ -440,7 +440,7 @@ import{s as n,h as I,k as G,j as e,i as b,r as g,u as M,M as Z,l as te,m as X,n 
   font-weight: 400;
   line-height: 20px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     flex-direction: row;
     column-gap: 20px;
   }
@@ -720,7 +720,7 @@ import{s as n,h as I,k as G,j as e,i as b,r as g,u as M,M as Z,l as te,m as X,n 
   font-weight: 400;
   line-height: 24px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     font-size: 18px;
     line-height: 32px;
   }
@@ -732,7 +732,7 @@ import{s as n,h as I,k as G,j as e,i as b,r as g,u as M,M as Z,l as te,m as X,n 
   line-height: 20px;
   text-decoration: none;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     font-size: 14px;
     line-height: 22px;
   }
