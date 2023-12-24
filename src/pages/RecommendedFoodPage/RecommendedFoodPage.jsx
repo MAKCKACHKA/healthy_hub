@@ -1,20 +1,23 @@
 import StyledRecommendedFoodPage from './RecommendedFoodPage.styled';
 import Illustration from '../../assets/pageIllustrations.svg';
+import { useDispatch } from 'react-redux';
+import { refreshRecommendedFood } from '../../redux/operations';
+import { selectRecFood } from '../../redux/selesctors';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 export default function RecommendedFoodPage() {
-  const food = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const dispatch = useDispatch();
+  const food = useSelector(selectRecFood);
+  let reducedArr = [];
 
-  const data = {
-    carbohydrates: 14,
-    protein: 0.3,
-    fat: 0.2,
-    name: 'Apples',
-    amount: '100 g',
-    img: 'https://ftp.goit.study/img/you_health/Apples.png',
-    calories: 52,
-  };
+  useEffect(() => {
+    dispatch(refreshRecommendedFood());
+  }, [dispatch]);
 
-  const { name, amount, img, calories } = data;
+  if (food) {
+    reducedArr = food.slice(0, 10);
+  }
 
   return (
     <StyledRecommendedFoodPage>
@@ -25,9 +28,9 @@ export default function RecommendedFoodPage() {
             <use href={`${Illustration}#icon-recommented-food`} />
           </svg>
           <ul>
-            {food.map((el) => {
+            {reducedArr?.map(({ amount, calories, img, name, _id }) => {
               return (
-                <li key={el}>
+                <li key={_id}>
                   <div className="description">
                     <div className="small_img_div">
                       <img src={img} alt="" width={46} height={46} />

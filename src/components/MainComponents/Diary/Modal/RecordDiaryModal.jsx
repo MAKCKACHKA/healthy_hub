@@ -1,7 +1,4 @@
 import React from 'react';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-
 import {
   Backdrop,
   Modal,
@@ -22,60 +19,80 @@ import {
   BtnConfirm,
 } from './RecordDiaryModal.styled';
 import trashImage from '../../../../assets/trash.png';
+import { useDispatch } from 'react-redux';
+import { addFoodIntake } from '../../../../redux/operations';
+import { useFormik } from 'formik';
+// import * as Yup from 'yup';
 
-//         .required('Carbonohidrates is required')
-//         .typeError('Must be a number')
-//         .min(0, 'Must be a positive number')
-//         .max(100, 'The maximum allowable value is 100')
-//         .test(
-//           'maxDigitsAfterDecimal',
-//           'Must have 1 digits after decimal',
-//           (number) => /^\d+(\.\d{1})?$/.test(number)
-//         ),
-//       protein: yup
-//         .number()
-//         .required('Protein is required')
-//         .typeError('Must be a number')
-//         .min(0, 'Must be a positive number')
-//         .max(100, 'The maximum allowable value is 100')
-//         .test(
-//           'maxDigitsAfterDecimal',
-//           'Must have 1 digits after decimal',
-//           (number) => /^\d+(\.\d{1})?$/.test(number)
-//         ),
-//       fat: yup
-//         .number()
-//         .required('Fat is required')
-//         .typeError('Must be a number')
-//         .min(0, 'Must be a positive number')
-//         .max(100, 'The maximum allowable value is 100')
-//         .test(
-//           'maxDigitsAfterDecimal',
-//           'Must have 1 digits after decimal',
-//           (number) => /^\d+(\.\d{1})?$/.test(number)
-//         ),
-//       calories: yup
-//         .number()
-//         .required('Calories is required')
-//         .typeError('Must be a number')
-//         .min(0, 'Must a be positive number')
-//         .max(1000, 'The maximum allowable value is 1000')
-//         .integer('Must be an integer'),
-//     })
-//   ),
-// });
+const RecordDiaryModal = ({ onClose, image, mealType }) => {
+  const dispatch = useDispatch();
 
-const RecordDiaryModal = ({ onClose, onSubmit, image, mealType }) => {
   const formik = useFormik({
     initialValues: {
-      carbonohidrates: '',
-      protein: '',
-      fat: '',
-      calories: '',
+      products: [
+        {
+          mealType: mealType,
+          foods: [
+            {
+              name: '',
+              nutrition: {
+                carbohydrates: '',
+                protein: '',
+                fat: '',
+              },
+              calories: '',
+            },
+          ],
+        },
+      ],
     },
-    onSubmit: (values) => {
-      onSubmit(values);
-      onClose();
+    onSubmit: async (values) => {
+      try {
+        if (
+          values.products &&
+          values.products.length > 0 &&
+          values.products[0].foods &&
+          values.products[0].foods.length > 0
+        ) {
+          const foodIntakeData = {
+            mealType: mealType.toLowerCase(),
+            foods: values.products.map((product) => ({
+              name: product.foods[0].name ? product.foods[0].name : 'string',
+              nutrition: {
+                carbohydrates: product.foods[0].nutrition.carbohydrates
+                  ? Number(product.foods[0].nutrition.carbohydrates)
+                  : 0,
+                protein: product.foods[0].nutrition.protein
+                  ? Number(product.foods[0].nutrition.protein)
+                  : 0,
+                fat: product.foods[0].nutrition.fat
+                  ? Number(product.foods[0].nutrition.fat)
+                  : 0,
+              },
+              calories: product.foods[0].calories
+                ? Number(product.foods[0].calories)
+                : 0,
+            })),
+          };
+
+          console.log('Food intake data:', foodIntakeData);
+
+          dispatch(addFoodIntake(foodIntakeData));
+
+          console.log('Backend response:', response);
+          console.log('Response data:', response.data);
+
+          onClose();
+        } else {
+          console.error('Invalid products array structure');
+        }
+      } catch (error) {
+        console.error('Submission error:', error);
+        console.error(
+          'Error details:',
+          error.response ? error.response.data : 'No response data'
+        );
+      }
     },
   });
 
@@ -85,14 +102,32 @@ const RecordDiaryModal = ({ onClose, onSubmit, image, mealType }) => {
     }
   };
 
-  const handleRemoveProduct = () => {
-    formik.setValues({
-      carbonohidrates: '',
-      protein: '',
-      fat: '',
-      calories: '',
-    });
+  const handleRemoveProduct = (index) => {
+    const updatedProducts = [...formik.values.products];
+    updatedProducts.splice(index, 1);
+    formik.setFieldValue('products', updatedProducts);
   };
+
+  const handleAddProduct = () => {
+    formik.setFieldValue('products', [
+      ...formik.values.products,
+      {
+        mealType: mealType,
+        foods: [
+          {
+            name: '',
+            nutrition: {
+              carbohydrates: '',
+              protein: '',
+              fat: '',
+            },
+            calories: '',
+          },
+        ],
+      },
+    ]);
+  };
+
   return (
     <Backdrop onClick={handleBackdropClick}>
       <Modal>
@@ -103,49 +138,61 @@ const RecordDiaryModal = ({ onClose, onSubmit, image, mealType }) => {
         </WrapperFormTitle>
         <FormFormic onSubmit={formik.handleSubmit}>
           <ContentWrapper>
-            <ProductList>
-              <Product>
-                <WrapperInput>
-                  <Input
-                    type="text"
-                    id="carbonohidrates"
-                    name="carbonohidrates"
-                    placeholder="The name of the product or dish"
-                  />
-                </WrapperInput>
-                <WrapperInput>
-                  <Input
-                    type="number"
-                    id="field1"
-                    name="field1"
-                    placeholder="Carbonoh."
-                  />
-                </WrapperInput>
-                <WrapperInput>
-                  <Input
-                    type="number"
-                    id="protein"
-                    name="protein"
-                    placeholder="Protein"
-                  />
-                </WrapperInput>
-                <WrapperInput>
-                  <Input type="number" id="fat" name="fat" placeholder="Fat" />
-                </WrapperInput>
-                <WrapperInput>
-                  <Input
-                    type="number"
-                    id="calories"
-                    name="calories"
-                    placeholder="Calories"
-                  />
-                </WrapperInput>
-                <BtnRemoveProduct type="button" onClick={handleRemoveProduct}>
-                  <img src={trashImage} alt="trash" />
-                </BtnRemoveProduct>
-              </Product>
-            </ProductList>
-            <BtnAddNewProduct>+ Add more</BtnAddNewProduct>
+            {formik.values.products.map((product, index) => (
+              <ProductList key={index}>
+                <Product>
+                  <WrapperInput>
+                    <Input
+                      type="text"
+                      id={`name-${index}`}
+                      name={`products[${index}].foods[0].name`}
+                      placeholder="The name of the product or dish"
+                    />
+                  </WrapperInput>
+                  <WrapperInput>
+                    <Input
+                      type="number"
+                      id={`carbonohidrates-${index}`}
+                      name={`products[${index}].foods[0].nutrition.carbohydrates`}
+                      placeholder="Carbonoh."
+                    />
+                  </WrapperInput>
+                  <WrapperInput>
+                    <Input
+                      type="number"
+                      id={`protein-${index}`}
+                      name={`products[${index}].foods[0].nutrition.protein`}
+                      placeholder="Protein"
+                    />
+                  </WrapperInput>
+                  <WrapperInput>
+                    <Input
+                      type="number"
+                      id={`fat-${index}`}
+                      name={`products[${index}].foods[0].nutrition.fat`}
+                      placeholder="Fat"
+                    />
+                  </WrapperInput>
+                  <WrapperInput>
+                    <Input
+                      type="number"
+                      id={`calories-${index}`}
+                      name={`products[${index}].foods[0].calories`}
+                      placeholder="Calories"
+                    />
+                  </WrapperInput>
+                  <BtnRemoveProduct
+                    type="button"
+                    onClick={() => handleRemoveProduct(index)}
+                  >
+                    <img src={trashImage} alt="Trash" />
+                  </BtnRemoveProduct>
+                </Product>
+              </ProductList>
+            ))}
+            <BtnAddNewProduct type="button" onClick={handleAddProduct}>
+              + Add more
+            </BtnAddNewProduct>
           </ContentWrapper>
           <ContainerForBtns>
             <BtnCancel type="button" onClick={onClose}>
