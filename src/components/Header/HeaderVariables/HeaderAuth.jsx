@@ -205,7 +205,7 @@ export const HeaderAuth = () => {
             }}
           >
             <p>{testInfo.name}</p>
-            {!user ? (
+            {testInfo.image === '' ? (
               <AvatarIcon>
                 <use href={`${icons}#icon-profile-circle`} />
               </AvatarIcon>
