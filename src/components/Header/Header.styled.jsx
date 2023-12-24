@@ -37,10 +37,13 @@ export const HeaderContainer2 = styled.div`
   padding: 18px 10px;
   align-items: center;
   z-index: 50;
+  margin-bottom: 20px;
   @media screen and (min-width: 768px) {
     padding: 26px 27px;
+    margin-bottom: 24px;
   }
   @media screen and (min-width: 1200px) {
+    margin-bottom: 20px;
     padding: 26px 34px;
   }
 `;

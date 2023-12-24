@@ -2,14 +2,14 @@ import { useSelector } from 'react-redux';
 import { selectToken } from '../../redux/selesctors';
 import { HeaderAuth } from './HeaderVariables/HeaderAuth';
 import { HeaderNotAuth } from './HeaderVariables/HeaderNotAuth';
-import { HeaderContainer, Navigation, StyledLink } from './Header.styled';
+// import { HeaderContainer, Navigation, StyledLink } from './Header.styled';
 
 export const Header = () => {
   const isLogedin = useSelector(selectToken);
   return (
     <>
       {isLogedin ? <HeaderAuth /> : <HeaderNotAuth />}
-      <HeaderContainer>
+      {/* <HeaderContainer>
         <Navigation>
           <StyledLink to="/welcome">WelcomePage</StyledLink>
           <StyledLink to="/signup">SignUpPage</StyledLink>
@@ -22,7 +22,7 @@ export const Header = () => {
           <StyledLink to="/recommended-food">RecommendedFoodPage</StyledLink>
           <StyledLink to="/settings">SettingsPage</StyledLink>
         </Navigation>
-      </HeaderContainer>
+      </HeaderContainer> */}
     </>
   );
 };
