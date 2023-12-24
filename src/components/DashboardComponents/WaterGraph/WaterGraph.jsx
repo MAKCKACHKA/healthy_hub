@@ -71,13 +71,32 @@ export const WaterGraph = ({ month }) => {
     return 0;
   }
 
+  const labels = numberOfDaysInTheMonth(month)
+
+  const arrayOfGoods = labels.map(el => dataCap(el))
+  
+  const maxNumber = Math.max(...arrayOfGoods)
+
+  const arrayOfGraphData = () => {
+    return arrayOfGoods
+  }
+
+  const maxOnGraph = () => {
+    const defaultMinimum = 3000;
+    if (maxNumber < defaultMinimum) {
+      return defaultMinimum;
+    }
+    const roundedNumber = Math.ceil(maxNumber / 1000) * 1000;
+    return roundedNumber
+  }
+
   const options = {
     responsive: true,
     maintainAspectRatio: false, 
       scales: {
         y: {
           min: 0,
-          max: 3000,
+          max: maxOnGraph(),
           grid: {
             color: '#292928',
           },
@@ -92,7 +111,7 @@ export const WaterGraph = ({ month }) => {
               if (String(value).length === 1) {
                 return value;
               }
-              return String(value).slice(0, 1) + `L`;
+              return String(value/1000)+`L`
             },
           },
         },
@@ -106,7 +125,7 @@ export const WaterGraph = ({ month }) => {
           scales: {
             x: {
               min: 0,
-              max: 10,
+              max: 100,
             },
           },
         },
@@ -147,8 +166,6 @@ export const WaterGraph = ({ month }) => {
       },
   };
 
-  const labels = numberOfDaysInTheMonth(month)
-
   const data = {
     labels,
     datasets: [
@@ -164,7 +181,7 @@ export const WaterGraph = ({ month }) => {
         pointHoverRadius: 3,
         pointHitRadius: 12,
         pointBackgroundColor: '#e3ffa8',
-        data: labels.map(el => dataCap(el)),
+        data: arrayOfGraphData(),
       },
     ],
   };
@@ -176,7 +193,7 @@ export const WaterGraph = ({ month }) => {
         {dataOfUser.avgWater ?
           (<HeaderData>
           <WaterAverageTitle>Average value:</WaterAverageTitle>
-          <WaterAverageNumber>{dataOfUser.avgWater}ml</WaterAverageNumber>
+          <WaterAverageNumber>{dataOfUser.avgWater.toFixed(0)}ml</WaterAverageNumber>
           </HeaderData>) :
           (<HeaderData>
           <WaterAverageTitle>Average value:</WaterAverageTitle>

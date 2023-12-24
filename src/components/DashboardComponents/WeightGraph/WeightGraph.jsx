@@ -152,7 +152,7 @@ export const WeightGraph = ({month}) => {
           {dataOfUser.avgWeight ?
             (<HeaderData>
               <WeightAverageTitle>Average value:</WeightAverageTitle>
-              <WeightAverageNumber>{dataOfUser.avgWeight}kg</WeightAverageNumber>
+              <WeightAverageNumber>{dataOfUser.avgWeight.toFixed(0)}kg</WeightAverageNumber>
             </HeaderData>) :
             (<HeaderData>
               <WeightAverageTitle>Average value:</WeightAverageTitle>
