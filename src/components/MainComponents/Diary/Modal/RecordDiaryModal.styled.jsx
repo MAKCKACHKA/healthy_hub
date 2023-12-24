@@ -8,6 +8,7 @@ export const Backdrop = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
 `;
+
 export const Modal = styled.div`
   position: absolute;
   top: 50%;
@@ -29,6 +30,7 @@ export const Modal = styled.div`
     padding: 24px;
   }
 `;
+
 export const ModalTitle = styled.h1`
   margin-bottom: 24px;
   font-family: 'Poppins', sans-serif;
@@ -43,6 +45,7 @@ export const ModalTitle = styled.h1`
     line-height: 36px;
   }
 `;
+
 export const WrapperFormTitle = styled.div`
   display: flex;
   gap: 12px;
@@ -66,6 +69,7 @@ export const Title = styled.h2`
     line-height: 32px;
   }
 `;
+
 export const FormFormic = styled.form`
   width: 100%;
   flex-grow: 1;
@@ -88,6 +92,7 @@ export const ContentWrapper = styled.div`
   @media screen and (max-width: 768px) {
   }
 `;
+
 export const ProductList = styled.ul`
   padding: 10px;
   overflow-y: auto;
@@ -115,6 +120,7 @@ export const ProductList = styled.ul`
     }
   }
 `;
+
 export const Product = styled.li`
   & > div:nth-child(-n + 3) {
     margin-bottom: 0;
@@ -123,6 +129,7 @@ export const Product = styled.li`
   display: grid;
   grid-gap: 12px;
   grid-template-columns: 38.15% 15.26% 13.12% 9.3% 11.94% 3.05%;
+  align-items: start;
 
   & > div:nth-child(1) {
     grid-column-start: 1;
@@ -152,7 +159,7 @@ export const Product = styled.li`
     }
 
     & > div:nth-last-child(-n + 3) {
-      flex-basis: calc(38.48%);
+      flex-basis: calc(40.48%);
     }
   }
 `;
@@ -176,6 +183,7 @@ export const Input = styled.input`
     margin: 0;
   }
 `;
+
 export const BtnAddNewProduct = styled.button`
   border: none;
   background-color: transparent;
@@ -187,6 +195,7 @@ export const BtnAddNewProduct = styled.button`
   color: #8cc84b;
   cursor: pointer;
 `;
+
 export const BtnRemoveProduct = styled.button`
   padding: 0;
   margin: 0;

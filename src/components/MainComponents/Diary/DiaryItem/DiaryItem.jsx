@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import {
   AddButton,
   Title,
@@ -16,16 +17,26 @@ import {
 import trashImage from '../../../../assets/trash.png';
 
 import RecordDiaryModal from '../Modal/RecordDiaryModal.jsx';
+import {
+  deleteFoodIntake,
+  getCurrentUser,
+} from '../../../../redux/operations.js';
 
 const DiaryItem = ({ title, image }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [nutritionInfo, setNutritionInfo] = useState(null);
-
+  const dispatch = useDispatch();
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
-  const handleDelete = () => {
-    setNutritionInfo(null);
-    localStorage.removeItem(`${title}_nutritionInfo`);
+  const handleDelete = async () => {
+    try {
+      setNutritionInfo(null);
+      localStorage.removeItem(`${title}_nutritionInfo`);
+      dispatch(deleteFoodIntake(title.toLowerCase()));
+      dispatch(getCurrentUser());
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleRecord = (data) => {
