@@ -1,4 +1,4 @@
-import{s as t,F as b,h as R,k as F,u as I,r as f,d as S,g as u,j as e,x as C,y as L,i as v,z,A as N,m as $}from"./index-f4ab4a3d.js";import{I as W}from"./pageIllustrations-bad4cd7d.js";const M=t.div`
+import{s as t,F as b,h as R,k as F,u as I,r as f,d as S,g as u,j as e,x as C,y as L,i as v,z,A as N,m as $}from"./index-5aa4b38e.js";import{I as W}from"./pageIllustrations-36c90cd0.js";const M=t.div`
   display: flex;
   justify-content: space-between;
   max-width: 300px;

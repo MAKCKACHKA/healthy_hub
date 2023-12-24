@@ -1,4 +1,4 @@
-import{s as n,h as I,k as G,j as e,i as b,r as g,u as M,M as q,l as te,m as X,n as ne,o as ie,L as _,a as oe,p as re,q as ae,t as se}from"./index-f4ab4a3d.js";import{C as le,A as de,D as ce}from"./index-b043e93f.js";import{b as pe,l as xe,d as he,s as me}from"./snack-image-e800605f.js";const ge=n.h4`
+import{s as n,h as I,k as G,j as e,i as b,r as g,u as M,M as q,l as te,m as X,n as ne,o as ie,L as _,a as oe,p as re,q as ae,t as se}from"./index-5aa4b38e.js";import{C as le,A as de,D as ce}from"./index-da58568c.js";import{b as pe,l as xe,d as he,s as me}from"./snack-image-24a9dad0.js";const ge=n.h4`
   color: var(--primary-title-text-color);
   font-size: 18px;
   font-style: normal;

@@ -1,4 +1,4 @@
-import{s as e,h as v,k as M,r as o,j as t,i as m,L as k}from"./index-f4ab4a3d.js";import{b as D,l as B,d as z,s as F}from"./snack-image-e800605f.js";const S=e.div`
+import{s as e,h as z,k as C,r as l,j as t,i as m,L as F}from"./index-5aa4b38e.js";import{b as g,l as w,d as y,s as u}from"./snack-image-24a9dad0.js";const B=e.div`
   display: flex;
   flex-wrap: wrap;
   max-width: 1372px;
@@ -16,7 +16,7 @@ import{s as e,h as v,k as M,r as o,j as t,i as m,L as k}from"./index-f4ab4a3d.js
     justify-content: center;
     gap: 100px;
   }
-`,C=e.div`
+`,S=e.div`
   height: 278px;
   width: 676px;
   margin-top: 16px;
@@ -131,13 +131,13 @@ import{s as e,h as v,k as M,r as o,j as t,i as m,L as k}from"./index-f4ab4a3d.js
   @media screen and (min-width: 834px) {
     height: 176px;
   }
-`,g=e.li`
+`,j=e.li`
   display: flex;
   position: relative;
   @media screen and (max-width: 834px) {
     height: 44px;
   }
-`,y=e.div`
+`,P=e.div`
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
@@ -152,7 +152,7 @@ import{s as e,h as v,k as M,r as o,j as t,i as m,L as k}from"./index-f4ab4a3d.js
     margin-left: 16px;
     position: relative;
   }
-`,w=e.div`
+`,b=e.div`
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
@@ -167,7 +167,7 @@ import{s as e,h as v,k as M,r as o,j as t,i as m,L as k}from"./index-f4ab4a3d.js
     margin-left: 0;
     margin-bottom: 6px;
   }
-`,u=e.ul`
+`,v=e.ul`
   display: flex;
   margin-left: 32px;
   gap: 32px;
@@ -185,7 +185,7 @@ import{s as e,h as v,k as M,r as o,j as t,i as m,L as k}from"./index-f4ab4a3d.js
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
-`,l=e.li`
+`,s=e.li`
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
@@ -251,7 +251,7 @@ import{s as e,h as v,k as M,r as o,j as t,i as m,L as k}from"./index-f4ab4a3d.js
   line-height: 20px;
   color: var(--primary-btn-color);
   margin-left: 6px;
-`,q=()=>{const n=v(M),[f,j]=o.useState([]);o.useEffect(()=>{if(n&&n.consumedMealsByDay){const i=n.consumedMealsByDay&&n.consumedMealsByDay.breakfast?n.consumedMealsByDay.breakfast:0,a=n.consumedMealsByDay&&n.consumedMealsByDay.lunch?n.consumedMealsByDay.lunch:0,r=n.consumedMealsByDay&&n.consumedMealsByDay.dinner?n.consumedMealsByDay.dinner:0,s=n.consumedMealsByDay&&n.consumedMealsByDay.snack?n.consumedMealsByDay.snack:0;i&&a&&r&&r&&j([{title:"Breakfast",image:D,totalCarbohydrates:i!==0?i.totalCarbohydrates:0,totalFat:i!==0?i.totalFat:0,totalProtein:i!==0?i.totalProtein:0,foods:i!==0?i.foods?i.foods:[]:[]},{title:"Lunch",image:B,totalCarbohydrates:a!==0?a.totalCarbohydrates:0,totalFat:a!==0?a.totalFat:0,totalProtein:a!==0?a.totalProtein:0,foods:a!==0?a.foods?a.foods:[]:[]},{title:"Dinner",image:z,totalCarbohydrates:r!==0?r.totalCarbohydrates:0,totalFat:r!==0?r.totalFat:0,totalProtein:r!==0?r.totalProtein:0,foods:r!==0?r.foods?r.foods:[]:[]},{title:"Snack",image:F,totalCarbohydrates:s!==0?s.totalCarbohydrates:0,totalFat:s!==0?s.totalFat:0,totalProtein:s!==0?s.totalProtein:0,foods:s!==0?s.foods?s.foods:[]:[]}])}},[n]);const[P,b]=o.useState(window.innerWidth<834);return o.useEffect(()=>{const i=()=>{b(window.innerWidth<834)};return window.addEventListener("resize",i),()=>{window.removeEventListener("resize",i)}},[]),t.jsx(S,{children:f&&f.map(i=>t.jsxs(C,{children:[t.jsxs(I,{children:[t.jsx(E,{src:i.image,alt:"Plate"}),t.jsx(L,{children:i.title}),t.jsxs(W,{children:[t.jsxs(d,{children:[t.jsx(x,{children:"Carbonohidrates:"}),t.jsx(p,{children:i.totalCarbohydrates})]}),t.jsxs(d,{children:[t.jsx(x,{children:"Protein:"}),t.jsx(p,{children:i.totalFat})]}),t.jsxs(d,{children:[t.jsx(x,{children:"Fat:"}),t.jsx(p,{children:i.totalProtein})]})]})]}),t.jsx(T,{children:t.jsxs(O,{children:[i.foods.map((a,r)=>t.jsxs(g,{children:[t.jsx(y,{children:r+1}),P?t.jsxs(A,{children:[t.jsx(w,{children:a.name}),t.jsxs(u,{children:[t.jsxs(h,{children:[t.jsx(c,{children:"Carb."}),t.jsx(l,{children:a.nutrition.carbohydrates})]}),t.jsxs(h,{children:[t.jsx(c,{children:"Prot."}),t.jsx(l,{children:a.nutrition.protein})]}),t.jsxs(h,{children:[t.jsx(c,{children:"Fat."}),t.jsx(l,{children:a.nutrition.fat})]})]})]}):t.jsxs(t.Fragment,{children:[t.jsx(w,{children:a.name}),t.jsxs(u,{children:[t.jsx(l,{children:a.nutrition.carbohydrates}),t.jsx(l,{children:a.nutrition.protein}),t.jsx(l,{children:a.nutrition.fat})]})]}),t.jsxs(G,{children:[t.jsx(H,{children:t.jsx("use",{href:`${m}#icon-edit`})}),t.jsx(R,{children:"Edit"})]})]},r)),t.jsxs(g,{children:[t.jsx(y,{children:i.foods.length+1}),t.jsxs($,{children:[t.jsx(N,{children:t.jsx("use",{href:`${m}#icon-add`})}),t.jsx(U,{children:"Record your meal"})]})]})]})})]},i.title))})},J=e.div`
+`,q=()=>{const r=z(C);l.useEffect(()=>{r&&r.consumedMealsByDay&&console.log(r.consumedMealsByDay)},[r]);const[f,M]=l.useState([{title:"Breakfast",image:g,totalCarbohydrates:0,totalProtein:0,foods:[]},{title:"Lunch",image:w,totalCarbohydrates:0,totalFat:0,totalProtein:0,foods:[]},{title:"Dinner",image:y,totalCarbohydrates:0,foods:[]},{title:"Snack",image:u,totalCarbohydrates:0,foods:[]}]);l.useEffect(()=>{if(r&&r.consumedMealsByDay){console.log(r.consumedMealsByDay);const i=r.consumedMealsByDay.breakfast||{},a=r.consumedMealsByDay.lunch||{},n=r.consumedMealsByDay.dinner||{},o=r.consumedMealsByDay.snack||{};i&&a&&n&&n&&(console.log(i),console.log(a),console.log(n),console.log(o),M([{title:"Breakfast",image:g,totalCarbohydrates:i!==0?i.totalCarbohydrates:0,totalFat:i!==0?i.totalFat:0,totalProtein:i!==0?i.totalProtein:0,foods:i!==0?i.foods?i.foods:[]:[]},{title:"Lunch",image:w,totalCarbohydrates:a!==0?a.totalCarbohydrates:0,totalFat:a!==0?a.totalFat:0,totalProtein:a!==0?a.totalProtein:0,foods:a!==0?a.foods?a.foods:[]:[]},{title:"Dinner",image:y,totalCarbohydrates:n!==0?n.totalCarbohydrates:0,totalFat:n!==0?n.totalFat:0,totalProtein:n!==0?n.totalProtein:0,foods:n!==0?n.foods?n.foods:[]:[]},{title:"Snack",image:u,totalCarbohydrates:o!==0?o.totalCarbohydrates:0,totalFat:o!==0?o.totalFat:0,totalProtein:o!==0?o.totalProtein:0,foods:o!==0?o.foods?o.foods:[]:[]}]))}},[r]);const[k,D]=l.useState(window.innerWidth<834);return l.useEffect(()=>{const i=()=>{D(window.innerWidth<834)};return window.addEventListener("resize",i),()=>{window.removeEventListener("resize",i)}},[]),t.jsx(B,{children:f&&f.map(i=>t.jsxs(S,{children:[t.jsxs(I,{children:[t.jsx(E,{src:i.image,alt:"Plate"}),t.jsx(L,{children:i.title}),t.jsxs(W,{children:[t.jsxs(d,{children:[t.jsx(x,{children:"Carbonohidrates:"}),t.jsx(p,{children:i.totalCarbohydrates})]}),t.jsxs(d,{children:[t.jsx(x,{children:"Protein:"}),t.jsx(p,{children:i.totalFat})]}),t.jsxs(d,{children:[t.jsx(x,{children:"Fat:"}),t.jsx(p,{children:i.totalProtein})]})]})]}),t.jsx(T,{children:t.jsxs(O,{children:[i.foods.map((a,n)=>t.jsxs(j,{children:[t.jsx(P,{children:n+1}),k?t.jsxs(A,{children:[t.jsx(b,{children:a.name}),t.jsxs(v,{children:[t.jsxs(h,{children:[t.jsx(c,{children:"Carb."}),t.jsx(s,{children:a.nutrition.carbohydrates})]}),t.jsxs(h,{children:[t.jsx(c,{children:"Prot."}),t.jsx(s,{children:a.nutrition.protein})]}),t.jsxs(h,{children:[t.jsx(c,{children:"Fat."}),t.jsx(s,{children:a.nutrition.fat})]})]})]}):t.jsxs(t.Fragment,{children:[t.jsx(b,{children:a.name}),t.jsxs(v,{children:[t.jsx(s,{children:a.nutrition.carbohydrates}),t.jsx(s,{children:a.nutrition.protein}),t.jsx(s,{children:a.nutrition.fat})]})]}),t.jsxs(G,{children:[t.jsx(H,{children:t.jsx("use",{href:`${m}#icon-edit`})}),t.jsx(R,{children:"Edit"})]})]},n)),t.jsxs(j,{children:[t.jsx(P,{children:i.foods.length+1}),t.jsxs($,{children:[t.jsx(N,{children:t.jsx("use",{href:`${m}#icon-add`})}),t.jsx(U,{children:"Record your meal"})]})]})]})})]},i.title))})},J=e.div`
         display: flex;
         align-items: center;
         max-width: 1372px;
@@ -275,7 +275,7 @@ import{s as e,h as v,k as M,r as o,j as t,i as m,L as k}from"./index-f4ab4a3d.js
                 font-size: 24px;
                 line-height: 30px;
         }
-`,Q=e(k)`
+`,Q=e(F)`
         width: 24px;
         height: 24px;
         display: inline-block;
