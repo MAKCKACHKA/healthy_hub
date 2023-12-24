@@ -7,12 +7,12 @@ export const GoalFormWrapp = styled.div`
   gap: 24px;
   margin-bottom: 24px;
 
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 834px) and (max-width: 1439px) {
     flex-direction: row;
     justify-content: center;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     gap: 16px;
   }
 `;
@@ -29,7 +29,7 @@ export const GenderAgeRadioBtn = styled.div`
   gap: 100px;
   margin-bottom: 24px;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     flex-direction: column;
     gap: 16px;
   }
@@ -60,7 +60,7 @@ export const AvtivityFormWrapp = styled.div`
 `;
 
 export const ActivityBtnWrapp = styled.div`
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 212px;
   }
 `;

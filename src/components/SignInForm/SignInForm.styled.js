@@ -3,16 +3,16 @@ import styled from 'styled-components';
 export const SingInFormStyled = styled.form`
   margin-bottom: 14px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     max-width: 380px;
     margin-bottom: 20px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     max-width: 212px;
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 834px) and (max-width: 1439px) {
     margin-left: auto;
     margin-right: auto;
   }

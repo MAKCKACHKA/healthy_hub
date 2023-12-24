@@ -4,11 +4,11 @@ export const Section = styled.section`
   max-width: 300px;
   margin: 0 auto;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     max-width: 444px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     max-width: 100%;
     margin: 40px 0 72px 150px;
     display: flex;
