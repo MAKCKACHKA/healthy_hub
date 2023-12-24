@@ -34,11 +34,11 @@ export const TextPartWrapper = styled.div`
   justify-content: space-between;
   gap: 56px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     gap: 222px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     gap: 0;
     max-width: 444px;
     margin-left: 104px;

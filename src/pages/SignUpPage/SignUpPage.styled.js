@@ -6,17 +6,17 @@ export const BtnWrapp = styled.div`
   gap: 20px;
   font-weight: 500;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     max-width: 380px;
     justify-content: center;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     max-width: 212px;
     justify-content: left;
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 864px) and (max-width: 1439px) {
     margin: 0 auto;
   }
 `;

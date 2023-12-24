@@ -27,7 +27,7 @@ export const Item = styled.li`
     color: var(--primary-btn-color);
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1200px) {
+  @media screen and (min-width: 864px) and (max-width: 1440px) {
     margin: 0;
   }
 `;

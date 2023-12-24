@@ -6,13 +6,13 @@ export const Img = styled.svg`
   display: block;
   margin: 24px auto;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     width: 380px;
     height: 376px;
     margin: 40px auto 60px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 592px;
     height: 588px;
     margin: 0;

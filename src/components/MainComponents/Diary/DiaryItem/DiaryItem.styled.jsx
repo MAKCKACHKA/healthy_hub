@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CardWrap = styled.li`
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     display: flex;
     column-gap: 8px;
     align-items: center;
@@ -18,7 +18,7 @@ export const TitleWrap = styled.div`
   color: white;
   font-family: 'Poppins', sans-serif;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     margin-bottom: 0;
   }
 `;
@@ -39,7 +39,7 @@ export const InfoWrap = styled.div`
   font-weight: 400;
   line-height: 20px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     flex-direction: row;
     column-gap: 20px;
   }
