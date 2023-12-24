@@ -46,14 +46,20 @@ export const InfoWrap = styled.div`
 `;
 
 export const CarbonohidratesWrap = styled.p`
-  min-width: 190px;
+  color: white;
+  font-size: 14px;
+  min-width: 150px;
 `;
 
 export const ProteinWrap = styled.p`
+  color: white;
+  font-size: 14px;
   width: 110px;
 `;
 
 export const FatWrap = styled.p`
+  color: white;
+  font-size: 14px;
   width: 60px;
 `;
 
@@ -80,5 +86,12 @@ export const AddButton = styled.button`
   border: none;
   outline: none;
   padding: 0;
+  cursor: pointer;
+`;
+export const BtnRemoveProduct = styled.button`
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
   cursor: pointer;
 `;
