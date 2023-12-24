@@ -25,7 +25,6 @@ export const WeightGraph = ({month}) => {
     if (month !== null) {
         try {
           const data = await dispatch(getMonthlyStatistics(month));
-          // console.log(data.payload)
           setDataOfUser(data.payload);
         } catch (error) {
           console.error('Error fetching data:', error);

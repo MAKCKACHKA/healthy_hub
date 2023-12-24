@@ -62,7 +62,6 @@ export const CaloriesGraph = ({ month }) => {
   const dataCap = numberOfDay => {    
     if (Object.keys(dataOfUser).length) {
       const foundItem = dataOfUser.callPerDay.find(el => numberOfDay === el.day.toString());
-      console.log(foundItem)
       if (foundItem) {
         
         return foundItem.calories;
