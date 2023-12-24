@@ -1,4 +1,4 @@
-import{s as i,v as B,r as m,u as I,j as e,k as R,L as O}from"./index-8f948d4b.js";import{b as f}from"./breakfast-image-f3389e95.js";import{i as h}from"./icons-36678f84.js";const T=i.div`
+import{s as i,x as B,r as m,u as I,j as e,i as h,m as R,L as O}from"./index-62431355.js";import{b as f}from"./breakfast-image-266bd128.js";const T=i.div`
     display: flex;
     flex-wrap: wrap;
     max-width: 1372px;
@@ -284,4 +284,4 @@ import{s as i,v as B,r as m,u as I,j as e,k as R,L as O}from"./index-8f948d4b.js
                 stroke: var(--primary-btn-color);
         }
         
-`,q=()=>e.jsxs(A,{children:[e.jsx(H,{to:"/main",children:e.jsx(N,{children:e.jsx("use",{href:`${h}#icon-arrow-right`})})}),e.jsx(G,{children:"Diary"})]});function X(){return e.jsxs("div",{children:[e.jsx(q,{}),e.jsx(U,{})]})}export{X as default};
+`,q=()=>e.jsxs(A,{children:[e.jsx(H,{to:"/main",children:e.jsx(N,{children:e.jsx("use",{href:`${h}#icon-arrow-right`})})}),e.jsx(G,{children:"Diary"})]});function V(){return e.jsxs("div",{children:[e.jsx(q,{}),e.jsx(U,{})]})}export{V as default};
