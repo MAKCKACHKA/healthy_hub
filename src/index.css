@@ -52,3 +52,16 @@ h5,
 h6 {
   color: var(--primary-title-text-color);
 }
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="password"] {
+  -webkit-text-security: none;
+}
