@@ -1,4 +1,4 @@
-import{s as t,h as B,k as V,j as e,i as b,r as f,u as T,M as J,l as _,m as X,n as ee,o as te,L as S,a as ne,p as ie,q as oe,t as re}from"./index-62431355.js";import{C as ae,A as se,D as le}from"./index-2b551568.js";import{b as de}from"./breakfast-image-266bd128.js";const ce=t.h4`
+import{s as t,h as B,k as V,j as e,i as b,r as f,u as T,M as J,l as _,m as X,n as ee,o as te,L as S,a as ne,p as ie,q as oe,t as re}from"./index-5e070e88.js";import{C as ae,A as se,D as le}from"./index-b9241be4.js";import{b as de}from"./breakfast-image-239b6f85.js";const ce=t.h4`
   color: var(--primary-title-text-color);
   font-size: 18px;
   font-style: normal;
