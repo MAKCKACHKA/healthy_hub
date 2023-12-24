@@ -10,10 +10,31 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { faker } from '@faker-js/faker';
-import { CaloriesAverageNumber, CaloriesAverageTitle, CaloriesHeader, CaloriesHeadingWrapper, CaloriesSectionhWrapper, СaloriesGraphWrapper } from './CaloriesGraph.styled';
+import { Overflow,CaloriesAverageNumber, CaloriesAverageTitle, CaloriesHeader, CaloriesHeadingWrapper, CaloriesSectionhWrapper, СaloriesGraphWrapper, ScrollerWrapper, HeaderData } from './CaloriesGraph.styled';
+import { useState, useEffect } from 'react';
+import { getMonthlyStatistics } from '../../../redux/operations';
+import { useDispatch } from "react-redux";
+  
+export const CaloriesGraph = ({ month }) => {
 
-export const CaloriesGraph = ({month}) => {
+  const [dataOfUser, setDataOfUser] = useState([]); 
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+
+    if (month !== null) {
+      const fetchData = async month => {
+        try {
+          const data = await dispatch(getMonthlyStatistics(month));
+          setDataOfUser(data.payload)
+        }
+        catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+      fetchData(month)
+    }
+  }, [month])
 
   ChartJS.register(
     CategoryScale,
@@ -23,31 +44,35 @@ export const CaloriesGraph = ({month}) => {
     Title,
     Tooltip,
     Filler,
-    Legend
+    Legend,
   );
 
   const numberOfDaysInTheMonth = month => {
-    const date = new Date(`${month} 1, 2000`);
-    const monthNumber = date.getMonth() + 1;
-    const daysInMonth = new Date(2023, monthNumber, 0).getDate();
-    const daysArray = Array.from({ length: daysInMonth }, (_, index) => (index + 1).toString());
-    return daysArray
+    let monthNumberTested 
+
+    if (month !== new Date().getMonth()) {
+      monthNumberTested = new Date().getDate()
+    } else {
+      monthNumberTested = new Date(2023, month, 0).getDate();
+    }
+    const daysArray = Array.from({ length: monthNumberTested }, (_, index) => (index + 1).toString());
+    return daysArray 
   }
 
-  const avarageCalc = () => {
-  const dataOfGraph = data.datasets[0].data
-  const lengthOfGraph = labels.length
-  let sum = 0
-  for (let i = 0; i < lengthOfGraph; i += 1) {
-    sum += dataOfGraph[i]
+  const dataCap = numberOfDay => {    
+    if (Object.keys(dataOfUser).length.length) {
+      const foundItem = dataOfUser.callPerDay.find(el => numberOfDay === el.day.toString());
+      if (foundItem) {
+        return foundItem.calories;
+      } else {
+        return 0;
+      }
+    }
+    return 0;
   }
-  const averageValueOfTheCaloriesGraph = Math.round(sum / lengthOfGraph)
-  return averageValueOfTheCaloriesGraph
-  }
-
-  const dataCap = () => faker.number.int({ min: 750, max: 2500 })
 
   const options = {
+      maintainAspectRatio: false, 
       responsive: true,
       scales: {
         y: {
@@ -124,6 +149,12 @@ export const CaloriesGraph = ({month}) => {
 
   const labels = numberOfDaysInTheMonth(month)
 
+  const scrollerTest = () => {
+    if (labels.length > 14) {
+      return true
+    }
+  }
+
   const data = {
     labels,
     datasets: [
@@ -139,27 +170,34 @@ export const CaloriesGraph = ({month}) => {
         pointHoverRadius: 3,
         pointHitRadius: 12,
         pointBackgroundColor: '#e3ffa8',
-        data: labels.map(() => dataCap()),
+        data: labels.map(el => dataCap(el)),
       },
     ],
   };
     
-  const averageValueOfTheCaloriesGraph = avarageCalc()
   
   return (
     <CaloriesSectionhWrapper>
       <CaloriesHeadingWrapper>
       <CaloriesHeader>Calories</CaloriesHeader>
-        {averageValueOfTheCaloriesGraph &&
-          (<>
-          <CaloriesAverageTitle>Average value:</CaloriesAverageTitle>
-          <CaloriesAverageNumber>{averageValueOfTheCaloriesGraph}cal</CaloriesAverageNumber>
-          </>)
+        {dataOfUser.avgCalories ? 
+          (<HeaderData>
+            <CaloriesAverageTitle>Average value:</CaloriesAverageTitle>
+            <CaloriesAverageNumber>{dataOfUser.avgCalories}cal</CaloriesAverageNumber>
+          </HeaderData>) :
+          (<HeaderData>
+            <CaloriesAverageTitle>Average value:</CaloriesAverageTitle>
+            <CaloriesAverageNumber>no added data yet</CaloriesAverageNumber>
+          </HeaderData>)
         }
       </CaloriesHeadingWrapper>
-      <СaloriesGraphWrapper>
-        <Line options={options} data={data}></Line>
-      </СaloriesGraphWrapper>
+      <ScrollerWrapper>
+        <Overflow>
+          <СaloriesGraphWrapper>
+            <Line options={options} data={data}/>
+          </СaloriesGraphWrapper>
+        </Overflow>
+      </ScrollerWrapper>
     </CaloriesSectionhWrapper>
   )   
 }

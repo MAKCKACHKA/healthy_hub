@@ -1,7 +1,4 @@
 import React from 'react';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-
 import {
   Backdrop,
   Modal,
@@ -22,60 +19,57 @@ import {
   BtnConfirm,
 } from './RecordDiaryModal.styled';
 import trashImage from '../../../../assets/trash.png';
+import { useDispatch } from 'react-redux';
+import { addFoodIntake } from '../../../../redux/operations';
+import { useFormik } from 'formik';
 
-//         .required('Carbonohidrates is required')
-//         .typeError('Must be a number')
-//         .min(0, 'Must be a positive number')
-//         .max(100, 'The maximum allowable value is 100')
-//         .test(
-//           'maxDigitsAfterDecimal',
-//           'Must have 1 digits after decimal',
-//           (number) => /^\d+(\.\d{1})?$/.test(number)
-//         ),
-//       protein: yup
-//         .number()
-//         .required('Protein is required')
-//         .typeError('Must be a number')
-//         .min(0, 'Must be a positive number')
-//         .max(100, 'The maximum allowable value is 100')
-//         .test(
-//           'maxDigitsAfterDecimal',
-//           'Must have 1 digits after decimal',
-//           (number) => /^\d+(\.\d{1})?$/.test(number)
-//         ),
-//       fat: yup
-//         .number()
-//         .required('Fat is required')
-//         .typeError('Must be a number')
-//         .min(0, 'Must be a positive number')
-//         .max(100, 'The maximum allowable value is 100')
-//         .test(
-//           'maxDigitsAfterDecimal',
-//           'Must have 1 digits after decimal',
-//           (number) => /^\d+(\.\d{1})?$/.test(number)
-//         ),
-//       calories: yup
-//         .number()
-//         .required('Calories is required')
-//         .typeError('Must be a number')
-//         .min(0, 'Must a be positive number')
-//         .max(1000, 'The maximum allowable value is 1000')
-//         .integer('Must be an integer'),
-//     })
-//   ),
-// });
+const RecordDiaryModal = ({ onClose, image, mealType, onRecord }) => {
+  const dispatch = useDispatch();
 
-const RecordDiaryModal = ({ onClose, onSubmit, image, mealType }) => {
   const formik = useFormik({
     initialValues: {
-      carbonohidrates: '',
-      protein: '',
-      fat: '',
-      calories: '',
+      mealType: mealType,
+      foods: [
+        {
+          name: '',
+          nutrition: {
+            carbohydrates: '',
+            protein: '',
+            fat: '',
+          },
+          calories: '',
+        },
+      ],
     },
-    onSubmit: (values) => {
-      onSubmit(values);
-      onClose();
+    onSubmit: async (values) => {
+      try {
+        if (values.foods && values.foods.length > 0 && values.foods[0]) {
+          const foodIntakeData = {
+            mealType: mealType.toLowerCase(),
+            foods: values.foods.map((food) => ({
+              name: food.name ? food.name : 'string',
+              nutrition: {
+                carbohydrates: food.nutrition.carbohydrates
+                  ? Number(food.nutrition.carbohydrates)
+                  : 0,
+                protein: food.nutrition.protein
+                  ? Number(food.nutrition.protein)
+                  : 0,
+                fat: food.nutrition.fat ? Number(food.nutrition.fat) : 0,
+              },
+              calories: food.calories ? Number(food.calories) : 0,
+            })),
+          };
+
+          dispatch(addFoodIntake(foodIntakeData));
+          onRecord(foodIntakeData);
+
+          onClose();
+        } else {
+        }
+      } catch (error) {
+        console.error(error);
+      }
     },
   });
 
@@ -85,14 +79,27 @@ const RecordDiaryModal = ({ onClose, onSubmit, image, mealType }) => {
     }
   };
 
-  const handleRemoveProduct = () => {
-    formik.setValues({
-      carbonohidrates: '',
-      protein: '',
-      fat: '',
-      calories: '',
-    });
+  const handleRemoveProduct = (index) => {
+    const updatedProducts = [...formik.values.foods];
+    updatedProducts.splice(index, 1);
+    formik.setFieldValue('foods', updatedProducts);
   };
+
+  const handleAddProduct = () => {
+    formik.setFieldValue('foods', [
+      ...formik.values.foods,
+      {
+        name: '',
+        nutrition: {
+          carbohydrates: '',
+          protein: '',
+          fat: '',
+        },
+        calories: '',
+      },
+    ]);
+  };
+
   return (
     <Backdrop onClick={handleBackdropClick}>
       <Modal>
@@ -103,49 +110,71 @@ const RecordDiaryModal = ({ onClose, onSubmit, image, mealType }) => {
         </WrapperFormTitle>
         <FormFormic onSubmit={formik.handleSubmit}>
           <ContentWrapper>
-            <ProductList>
-              <Product>
-                <WrapperInput>
-                  <Input
-                    type="text"
-                    id="carbonohidrates"
-                    name="carbonohidrates"
-                    placeholder="The name of the product or dish"
-                  />
-                </WrapperInput>
-                <WrapperInput>
-                  <Input
-                    type="number"
-                    id="field1"
-                    name="field1"
-                    placeholder="Carbonoh."
-                  />
-                </WrapperInput>
-                <WrapperInput>
-                  <Input
-                    type="number"
-                    id="protein"
-                    name="protein"
-                    placeholder="Protein"
-                  />
-                </WrapperInput>
-                <WrapperInput>
-                  <Input type="number" id="fat" name="fat" placeholder="Fat" />
-                </WrapperInput>
-                <WrapperInput>
-                  <Input
-                    type="number"
-                    id="calories"
-                    name="calories"
-                    placeholder="Calories"
-                  />
-                </WrapperInput>
-                <BtnRemoveProduct type="button" onClick={handleRemoveProduct}>
-                  <img src={trashImage} alt="trash" />
-                </BtnRemoveProduct>
-              </Product>
-            </ProductList>
-            <BtnAddNewProduct>+ Add more</BtnAddNewProduct>
+            {formik.values.foods.map((food, index) => (
+              <ProductList key={index}>
+                <Product>
+                  <WrapperInput>
+                    <Input
+                      type="text"
+                      id={`name-${index}`}
+                      name={`foods[${index}].name`}
+                      placeholder="The name of the product or dish"
+                      onChange={formik.handleChange}
+                      value={food.name}
+                    />
+                  </WrapperInput>
+                  <WrapperInput>
+                    <Input
+                      type="number"
+                      id={`carbonohidrates-${index}`}
+                      name={`foods[${index}].nutrition.carbohydrates`}
+                      placeholder="Carbonoh."
+                      onChange={formik.handleChange}
+                      value={food.nutrition.carbohydrates}
+                    />
+                  </WrapperInput>
+                  <WrapperInput>
+                    <Input
+                      type="number"
+                      id={`protein-${index}`}
+                      name={`foods[${index}].nutrition.protein`}
+                      placeholder="Protein"
+                      onChange={formik.handleChange}
+                      value={food.nutrition.protein}
+                    />
+                  </WrapperInput>
+                  <WrapperInput>
+                    <Input
+                      type="number"
+                      id={`fat-${index}`}
+                      name={`foods[${index}].nutrition.fat`}
+                      placeholder="Fat"
+                      onChange={formik.handleChange}
+                      value={food.nutrition.fat}
+                    />
+                  </WrapperInput>
+                  <WrapperInput>
+                    <Input
+                      type="number"
+                      id={`calories-${index}`}
+                      name={`foods[${index}].calories`}
+                      placeholder="Calories"
+                      onChange={formik.handleChange}
+                      value={food.calories}
+                    />
+                  </WrapperInput>
+                  <BtnRemoveProduct
+                    type="button"
+                    onClick={() => handleRemoveProduct(index)}
+                  >
+                    <img src={trashImage} alt="Trash" />
+                  </BtnRemoveProduct>
+                </Product>
+              </ProductList>
+            ))}
+            <BtnAddNewProduct type="button" onClick={handleAddProduct}>
+              + Add more
+            </BtnAddNewProduct>
           </ContentWrapper>
           <ContainerForBtns>
             <BtnCancel type="button" onClick={onClose}>

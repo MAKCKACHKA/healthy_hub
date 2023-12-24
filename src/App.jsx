@@ -55,6 +55,23 @@ function App() {
     <AppWrapper>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
+        {token ?  <Route
+            index
+            element={
+              <PublicRoute>
+                <MainPage />
+              </PublicRoute>
+            }/> :          
+            <Route
+            index
+            element={
+              <PrivateRoute>
+                <WelcomePage />
+              </PrivateRoute>
+            }
+          />
+        }
+
           {/* Nonauth */}
           <Route
             path="/welcome"
