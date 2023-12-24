@@ -6,11 +6,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 768px) {
+  @media (min-width: 864px) {
     flex-direction: row;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1440px) {
     flex-direction: row;
   }
 `;
@@ -18,7 +18,7 @@ const Container = styled.div`
 const GoalContainer = styled.div`
   margin-left: 0;
 
-  @media (min-width: 768px) {
+  @media (min-width: 864px) {
     margin-left: 104px;
   }
 `;

@@ -9,7 +9,7 @@ export const TitleContainer = styled.div`
   margin-right: auto;
   margin-bottom: 24px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     max-width: 100%;
   }
   @media screen and (min-width: 1440px) {
@@ -26,7 +26,7 @@ export const Title = styled.h1`
   font-weight: 500;
   line-height: 1.25;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     font-size: 30px;
     line-height: 1.2;
   }
@@ -34,7 +34,7 @@ export const Title = styled.h1`
 
 export const ButtonWraper = styled.div`
   display: none;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     display: flex;
     gap: 12px;
     align-items: center;
@@ -49,7 +49,7 @@ export const ButtonWraperDown = styled.div`
   flex-direction: column-reverse;
   gap: 12px;
   margin-top: 40px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     display: none;
   }
 `;
@@ -65,7 +65,7 @@ export const CancelBtn = styled.button`
   font-weight: 400;
   line-height: 1.42;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     width: 212px;
   }
 `;
@@ -87,7 +87,7 @@ export const SaveBtn = styled.button`
   font-weight: 500;
   /* line-height: 1.42; */
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     width: 212px;
   }
 `;
@@ -98,12 +98,12 @@ export const IconWrapper = styled.svg`
   height: 296px;
   margin-bottom: 24px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     width: 380px;
     height: 374px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 536px;
     height: 528px;
   }
@@ -115,7 +115,7 @@ export const WrapImgAndForm = styled.div`
   justify-content: space-around;
   align-items: center;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     flex-direction: row;
   }
   @media screen and (min-width: 1440px) {
@@ -134,11 +134,11 @@ export const FormInputs = styled.div`
   column-gap: 60px;
   max-width: 300px;
   justify-content: center;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     max-width: 490px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     max-width: 500px;
   }
 `;
@@ -150,7 +150,7 @@ export const Label = styled.label`
   align-items: flex-start;
   gap: 12px;
   width: 280px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     width: 212px;
   }
 `;
@@ -161,7 +161,7 @@ export const LabelImg = styled.label`
   align-items: flex-start;
   gap: 12px;
   width: 280px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     width: 218px;
   }
 `;

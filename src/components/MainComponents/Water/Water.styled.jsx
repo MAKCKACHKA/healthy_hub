@@ -20,7 +20,7 @@ export const FullFrame = styled.div`
   padding: 16px 12px;
   justify-content: space-around;
 
-  @media (min-width: 768px) {
+  @media (min-width: 864px) {
     justify-content: start;
     padding: 24px 40px;
     gap: 40px;
@@ -89,7 +89,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 768px) {
+  @media (min-width: 864px) {
     flex-grow: 2;
   }
 `;

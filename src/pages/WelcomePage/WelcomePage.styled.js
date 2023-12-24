@@ -8,12 +8,12 @@ export const HeroSection = styled.section`
   align-items: center;
   gap: 24px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     /* margin: 40px auto 80px; */
     gap: 80px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -28,13 +28,13 @@ export const HeroImg = styled.svg`
   height: 296px;
   display: block;
   margin: 0 auto 40px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     width: 380px;
     height: 376px;
     /* margin: 40px auto 80px; */
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 592px;
     height: 588px;
     margin: 0;
@@ -44,14 +44,14 @@ export const HeroImg = styled.svg`
 export const HeroDescWrap = styled.div`
   padding-bottom: 40px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     width: 444px;
     text-align: center;
     margin: 0 auto;
     padding-bottom: 286px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     margin: 0;
     text-align: left;
     padding: 0;
@@ -66,11 +66,11 @@ export const HeroTitle = styled.h2`
   text-align: center;
   word-wrap: break-word;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     font-size: 30px;
     line-height: 1.2;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     text-align: start;
   }
 `;

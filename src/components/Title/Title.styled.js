@@ -7,13 +7,13 @@ export const TitleStiled = styled.h2`
   margin-bottom: 16px;
   word-wrap: break-word;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 864px) {
     font-size: 30px;
     line-height: 1.2;
     text-align:center;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     text-align: start;
   }
 `;
