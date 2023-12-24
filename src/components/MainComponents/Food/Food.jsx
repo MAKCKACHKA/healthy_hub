@@ -64,8 +64,11 @@ export default function Food() {
                   left:{' '}
                   <span>
                     {userStats?.user?.dailyNutrition?.carbohydrates -
-                      dailyMeals?.totalConsumedCarbohydratesPerDay ||
-                      userStats?.user?.dailyNutrition?.carbohydrates}
+                      dailyMeals?.totalConsumedCarbohydratesPerDay >=
+                    0
+                      ? userStats?.user?.dailyNutrition?.carbohydrates -
+                        dailyMeals?.totalConsumedCarbohydratesPerDay
+                      : 0}
                   </span>
                 </p>
               </div>
@@ -100,8 +103,11 @@ export default function Food() {
                   left:{' '}
                   <span>
                     {userStats?.user?.dailyNutrition?.protein -
-                      dailyMeals?.totalConsumedProteinPerDay ||
-                      userStats?.user?.dailyNutrition?.protein}
+                      dailyMeals?.totalConsumedProteinPerDay >=
+                    0
+                      ? userStats?.user?.dailyNutrition?.protein -
+                        dailyMeals?.totalConsumedProteinPerDay
+                      : 0}
                   </span>
                 </p>
               </div>
@@ -136,8 +142,11 @@ export default function Food() {
                   left:{' '}
                   <span>
                     {userStats?.user?.dailyNutrition?.fat -
-                      dailyMeals?.totalConsumedFatPerDay ||
-                      userStats?.user?.dailyNutrition?.fat}
+                      dailyMeals?.totalConsumedFatPerDay >=
+                    0
+                      ? userStats?.user?.dailyNutrition?.fat -
+                        dailyMeals?.totalConsumedFatPerDay
+                      : 0}
                   </span>
                 </p>
               </div>
