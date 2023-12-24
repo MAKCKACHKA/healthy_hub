@@ -188,13 +188,6 @@ export const TextInput = styled(Field)`
   }
 `;
 
-export const YourActivityInput = styled.label`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-`;
-
 export const RadioLabel = styled.label`
   display: flex;
   gap: 8px;
@@ -202,6 +195,21 @@ export const RadioLabel = styled.label`
   cursor: pointer;
   position: relative;
   color: var(--primary-text-color);
+`;
+export const YourActivityInput = styled.label`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  margin-top: 20px;
+
+  & > ${RadioLabel} {
+    margin-top: 12px;
+  }
+
+  & > ${RadioLabel}:not(:first-child) {
+    margin-top: 20px;
+  }
 `;
 export const RadioField = styled(Field)`
   position: absolute;
