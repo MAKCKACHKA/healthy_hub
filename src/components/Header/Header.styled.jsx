@@ -64,9 +64,12 @@ export const LogoLink = styled(Link)`
   display: flex;
   gap: 30px;
   align-items: center;
+  height: 28px;
+
   @media screen and (min-width: 768px) {
     font-size: 22px;
     line-height: 1.45;
+    height: 48px;
   }
 
   &:hover,
@@ -99,6 +102,13 @@ export const AvatarIcon = styled.svg`
   height: 28px;
   /* fill: var(--primary-text-color); */
   stroke: var(--primary-title-text-color);
+`;
+export const AvatarImage = styled.img`
+  margin-left: 6px;
+  width: 28px;
+  height: 28px;
+  border-radius: 28px;
+  /* fill: var(--primary-text-color); */
 `;
 
 export const AuthNav = styled.div``;
@@ -169,6 +179,7 @@ export const TextContainer = styled.div`
     font-weight: 500;
     line-height: 1.42;
     font-style: normal;
+    text-transform: capitalize;
   }
 `;
 

@@ -1,5 +1,6 @@
 // import icons from '../../assets/icons.svg';
 // import clap from '../../assets/emoji/clap.png';
+import { useDispatch } from 'react-redux';
 import icons from '../../../assets/icons.svg';
 
 import {
@@ -16,6 +17,7 @@ import {
   CancelBtn,
 } from './ModalStyles';
 import { Formik, Form } from 'formik';
+import { updateUserGoal } from '../../../redux/operations';
 
 export const GoalModal = ({
   setGoalModal,
@@ -25,8 +27,10 @@ export const GoalModal = ({
   muscle,
   setGoalValue,
 }) => {
+  const dispatch = useDispatch();
+
   const handleSave = (values) => {
-    console.log(values);
+    dispatch(updateUserGoal(values));
     setGoalValue(values.goal);
     setGoalModal(false);
   };
@@ -45,7 +49,11 @@ export const GoalModal = ({
       <Descriptione>
         The service will adjust your calorie intake to your goal
       </Descriptione>
-      <Formik initialValues={initialValues} onSubmit={handleSave}>
+      <Formik
+        initialValues={initialValues}
+        enableReinitialize
+        onSubmit={handleSave}
+      >
         {() => (
           <Form>
             <YourActivityInput>

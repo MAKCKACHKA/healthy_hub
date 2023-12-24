@@ -7,10 +7,12 @@ import {
   ConfirmBtnLogOut,
   LogOutText,
 } from './ModalStyles';
+import { useDispatch } from 'react-redux';
+import { signOut } from '../../../redux/operations';
 
 const customStyles = {
   overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0)',
+    backgroundColor: '#0505056f',
   },
   content: {
     top: '50%',
@@ -27,13 +29,15 @@ const customStyles = {
   },
 };
 
-function UserLogOut() {
-  console.log('success log out');
-}
-
 export function LogOutModal({ modalIsOpen, setIsOpen }) {
   function closeModal() {
     setIsOpen(false);
+  }
+
+  const dispatch = useDispatch();
+
+  function UserLogOut() {
+    dispatch(signOut());
   }
 
   return (

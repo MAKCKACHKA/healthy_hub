@@ -1,5 +1,6 @@
 // import icons from '../../assets/icons.svg';
 // import clap from '../../assets/emoji/clap.png';
+import { useDispatch } from 'react-redux';
 import icons from '../../../assets/icons.svg';
 
 import {
@@ -15,16 +16,17 @@ import {
 import { Formik, Form } from 'formik';
 
 import * as Yup from 'yup';
+import { addUserWeight } from '../../../redux/operations';
 
 export const WeightModal = ({
   setWeightModal,
   initialValues,
   setWeightValue,
-  // setTargetValue,
 }) => {
+  const dispatch = useDispatch();
+
   const handleSave = (values) => {
-    console.log('Form data saved:', values);
-    // setTargetValue(values.target);
+    dispatch(addUserWeight(values));
     setWeightValue(values.weight);
     setWeightModal(false);
   };
@@ -65,6 +67,7 @@ export const WeightModal = ({
       </p>
       <Formik
         initialValues={initialValues}
+        enableReinitialize
         onSubmit={handleSave}
         validationSchema={validationSchema}
       >

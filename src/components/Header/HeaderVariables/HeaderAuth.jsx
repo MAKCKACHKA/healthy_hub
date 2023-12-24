@@ -14,6 +14,7 @@ import {
   KgSpan,
   MobileMenuBtn,
   MobileLogoBtnWrap,
+  AvatarImage,
 } from '../Header.styled';
 
 import looseFatMen from '../../../assets/emoji/Lose-fat-men.png';
@@ -32,6 +33,8 @@ import { WeightModal } from '../Modals/WeightModal';
 import { UserModal } from '../Modals/UserModal';
 import { MenuModal } from '../Modals/MenuModal';
 import { LogOutModal } from '../Modals/LogoutModal';
+import { useSelector } from 'react-redux';
+import { selectUserData } from '../../../redux/selesctors';
 
 export const HeaderAuth = () => {
   const [goalModal, setGoalModal] = useState(false);
@@ -67,12 +70,13 @@ export const HeaderAuth = () => {
     };
   }, []);
 
+  const { user } = useSelector(selectUserData);
+
   const testInfo = {
-    name: 'Konstantin',
-    image: '',
-    goal: 'gain muscle',
-    weight: 75,
-    date: '05.06.2023',
+    name: user ? user.name : '',
+    image: user ? user.avatarURL : '',
+    goal: user ? user.goal : 'lose fat',
+    weight: user ? user.weight : 0,
   };
 
   const [goalValue, setGoalValue] = useState(testInfo.goal);
@@ -89,6 +93,13 @@ export const HeaderAuth = () => {
       ? maintain
       : run;
 
+  useEffect(() => {
+    if (user && user.goal) {
+      setGoalValue(user.goal);
+      setWeightValue(user.weight);
+    }
+  }, [user]);
+
   const initialValuesT = {
     goal: goalValue,
   };
@@ -101,7 +112,7 @@ export const HeaderAuth = () => {
       <LogOutModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
 
       <MobileLogoBtnWrap>
-        <LogoLink to="/main">Your health</LogoLink>
+        <LogoLink to="/main">HealthyHub</LogoLink>
 
         <MobileMenuBtn
           type="button"
@@ -118,108 +129,9 @@ export const HeaderAuth = () => {
           </svg>
         </MobileMenuBtn>
       </MobileLogoBtnWrap>
-      <FunctionPanel>
-        <ControlPanel>
-          <InfoContainer
-            onClick={() => {
-              setGoalModal(true);
-              setWeightModal(false);
-              setUserModal(false);
-            }}
-          >
-            <ImageWrapper>
-              <img src={GoalImg} alt="Goal" />
-            </ImageWrapper>
-            <TextContainer>
-              <p>Goal</p>
-              <EditableText>
-                {goalValue}
-                <DropIcon>
-                  <use href={`${icons}#icon-arrow-down`} />
-                </DropIcon>
-              </EditableText>
-            </TextContainer>
-          </InfoContainer>
-          <InfoContainer
-            onClick={() => {
-              setWeightModal(true);
-              setGoalModal(false);
-              setUserModal(false);
-            }}
-          >
-            <ImageWrapper>
-              <div>
-                <img src={clap} alt="Clapping hands" />
-              </div>
-            </ImageWrapper>
-            <TextContainer>
-              <p>Weight</p>
-              <EditableText>
-                {weightValue} <KgSpan>kg</KgSpan>
-                <EditIcon>
-                  <use href={`${icons}#icon-edit`} />
-                </EditIcon>
-              </EditableText>
-            </TextContainer>
-          </InfoContainer>
-          {goalModal && (
-            <GoalModal
-              setGoalModal={setGoalModal}
-              run={run}
-              maintain={maintain}
-              muscle={muscle}
-              setGoalValue={setGoalValue}
-              initialValues={initialValuesT}
-            />
-          )}
-          {weightModal && (
-            <WeightModal
-              setWeightModal={setWeightModal}
-              initialValues={initialValuesW}
-              setWeightValue={setWeightValue}
-            />
-          )}
-        </ControlPanel>
-        <AvatarContainer
-          onClick={() => {
-            setGoalModal(false);
-            setWeightModal(false);
-            setMenuModal(false);
-            if (userModal) {
-              setUserModal(false);
-            } else {
-              setUserModal(true);
-            }
-          }}
-        >
-          <p>{testInfo.name}</p>
-          <AvatarIcon>
-            <use href={`${icons}#icon-profile-circle`} />
-          </AvatarIcon>
-          <DropIcon>
-            <use href={`${icons}#icon-arrow-down`} />
-          </DropIcon>
-          {userModal && <UserModal setIsOpen={setIsOpen} />}
-        </AvatarContainer>
-        {menuModal && (
-          <MenuModal setMenuModal={setMenuModal}>
-            {goalModal && (
-              <GoalModal
-                setGoalModal={setGoalModal}
-                run={run}
-                maintain={maintain}
-                muscle={muscle}
-                setGoalValue={setGoalValue}
-                initialValues={initialValuesT}
-              />
-            )}
-            {weightModal && (
-              <WeightModal
-                setWeightModal={setWeightModal}
-                initialValues={initialValuesW}
-                setWeightValue={setWeightValue}
-              />
-            )}
+      {user && (
+        <FunctionPanel>
+          <ControlPanel>
             <InfoContainer
               onClick={() => {
                 setGoalModal(true);
@@ -235,7 +147,7 @@ export const HeaderAuth = () => {
                 <EditableText>
                   {goalValue}
                   <DropIcon>
-                    <use href={`${icons}#icon-arrow-right`} />
+                    <use href={`${icons}#icon-arrow-down`} />
                   </DropIcon>
                 </EditableText>
               </TextContainer>
@@ -262,9 +174,114 @@ export const HeaderAuth = () => {
                 </EditableText>
               </TextContainer>
             </InfoContainer>
-          </MenuModal>
-        )}
-      </FunctionPanel>
+            {goalModal && (
+              <GoalModal
+                setGoalModal={setGoalModal}
+                run={run}
+                maintain={maintain}
+                muscle={muscle}
+                setGoalValue={setGoalValue}
+                initialValues={initialValuesT}
+              />
+            )}
+            {weightModal && (
+              <WeightModal
+                setWeightModal={setWeightModal}
+                initialValues={initialValuesW}
+                setWeightValue={setWeightValue}
+              />
+            )}
+          </ControlPanel>
+          <AvatarContainer
+            onClick={() => {
+              setGoalModal(false);
+              setWeightModal(false);
+              setMenuModal(false);
+              if (userModal) {
+                setUserModal(false);
+              } else {
+                setUserModal(true);
+              }
+            }}
+          >
+            <p>{testInfo.name}</p>
+            {!user ? (
+              <AvatarIcon>
+                <use href={`${icons}#icon-profile-circle`} />
+              </AvatarIcon>
+            ) : (
+              <AvatarImage src={testInfo.image} />
+            )}
+            <DropIcon>
+              <use href={`${icons}#icon-arrow-down`} />
+            </DropIcon>
+            {userModal && <UserModal setIsOpen={setIsOpen} />}
+          </AvatarContainer>
+          {menuModal && (
+            <MenuModal setMenuModal={setMenuModal}>
+              {goalModal && (
+                <GoalModal
+                  setGoalModal={setGoalModal}
+                  run={run}
+                  maintain={maintain}
+                  muscle={muscle}
+                  setGoalValue={setGoalValue}
+                  initialValues={initialValuesT}
+                />
+              )}
+              {weightModal && (
+                <WeightModal
+                  setWeightModal={setWeightModal}
+                  initialValues={initialValuesW}
+                  setWeightValue={setWeightValue}
+                />
+              )}
+              <InfoContainer
+                onClick={() => {
+                  setGoalModal(true);
+                  setWeightModal(false);
+                  setUserModal(false);
+                }}
+              >
+                <ImageWrapper>
+                  <img src={GoalImg} alt="Goal" />
+                </ImageWrapper>
+                <TextContainer>
+                  <p>Goal</p>
+                  <EditableText>
+                    {goalValue}
+                    <DropIcon>
+                      <use href={`${icons}#icon-arrow-right`} />
+                    </DropIcon>
+                  </EditableText>
+                </TextContainer>
+              </InfoContainer>
+              <InfoContainer
+                onClick={() => {
+                  setWeightModal(true);
+                  setGoalModal(false);
+                  setUserModal(false);
+                }}
+              >
+                <ImageWrapper>
+                  <div>
+                    <img src={clap} alt="Clapping hands" />
+                  </div>
+                </ImageWrapper>
+                <TextContainer>
+                  <p>Weight</p>
+                  <EditableText>
+                    {weightValue} <KgSpan>kg</KgSpan>
+                    <EditIcon>
+                      <use href={`${icons}#icon-edit`} />
+                    </EditIcon>
+                  </EditableText>
+                </TextContainer>
+              </InfoContainer>
+            </MenuModal>
+          )}
+        </FunctionPanel>
+      )}
     </HeaderContainer2>
   );
 };
