@@ -81,12 +81,12 @@ export const SubTitleHero = styled.p`
   margin-bottom: 24px;
   padding: 0;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     font-size: 22px;
     line-height: 1.45;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     padding: 0;
   }
 `;
