@@ -1,4 +1,4 @@
-import{s as n,u,a as b,y as f,m as A,j as e}from"./index-adf44996.js";const y="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGLSURBVHgBtZRdTsJAEIBnWow8SZ8NansDOIEcAWNiIL7AETyB3gCPwIsRSIzhBnoCuQFFGn2tT/jTdpztbpMW+mOJzEN3d36+nZ3ZLcA/C+YZHbprEGjGuv4Iu0+lgQ5NGBa8pNk88JsWXs5KAYUsaXK6CYMPCy9mkJfhO92bHuCApwZsKR6szizsu5pYfELVFTCmmzy2SnBaMgY5vrqZzJLG10saEfxRhK+Iieu0+IKbsBDjGz2cFMHmXCYV5cb1lbygVxq3OWDgw6opyluB7zkB9Y6xM418MDxuRoa8DI0++KZcB2Fd9+GgxpXmGpGhARoqE1OeCu1MIELgSqdg624ngHzHbKnEQiCpDHXQ7UxgGUHQa2n6BNDCrh3fXQN9xvPhIZ4vhI3ntz8QPKscw1MIW5yR0mV0STnX5RPrRxbu7lU0p/AhJK9MKlA5NaBA1AuxC4F8DYb8vXFoNOBMpxm8Fvu0RQlSNkrKnB6NPfhiGPQgP8NhHTv9QmAk8g+kpz5BcVXWm7Ez+QWxMYesx/CgzQAAAABJRU5ErkJggg==",w=n.div`
+import{s as n,u as g,a as f,y as b,m as y,j as e,i as w}from"./index-a3280d53.js";const v=n.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -6,7 +6,7 @@ import{s as n,u,a as b,y as f,m as A,j as e}from"./index-adf44996.js";const y="d
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 10;
-`,C=n.div`
+`,j=n.div`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -22,11 +22,11 @@ import{s as n,u,a as b,y as f,m as A,j as e}from"./index-adf44996.js";const y="d
     transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
     opacity 300ms;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
     width: 90%;
     padding: 24px;
   }
-`,v=n.h1`
+`,k=n.h1`
   margin-bottom: 24px;
   font-family: 'Poppins', sans-serif;
   font-size: 24px;
@@ -35,18 +35,18 @@ import{s as n,u,a as b,y as f,m as A,j as e}from"./index-adf44996.js";const y="d
   letter-spacing: 0em;
   color: #fff;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
     font-size: 24px;
     line-height: 36px;
   }
-`,k=n.div`
+`,C=n.div`
   display: flex;
   gap: 12px;
   margin-bottom: 16px;
-`,j=n.img`
+`,P=n.img`
   width: 32px;
   height: 32px;
-`,B=n.h2`
+`,z=n.h2`
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   font-weight: 400;
@@ -54,29 +54,29 @@ import{s as n,u,a as b,y as f,m as A,j as e}from"./index-adf44996.js";const y="d
   letter-spacing: 0em;
   color: #fff;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
     font-size: 1.125rem;
     line-height: 32px;
   }
-`,I=n.form`
+`,$=n.form`
   width: 100%;
   flex-grow: 1;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`,i=n.div`
+`,o=n.div`
   display: flex;
   flex-direction: row;
   gap: 5px;
-`,z=n.div`
+`,F=n.div`
   max-height: 352px;
   margin-bottom: 16px;
   overflow-y: auto;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
   }
-`,P=n.ul`
+`,I=n.ul`
   padding: 10px;
   overflow-y: auto;
   margin-bottom: 24px;
@@ -84,7 +84,7 @@ import{s as n,u,a as b,y as f,m as A,j as e}from"./index-adf44996.js";const y="d
   flex-direction: column;
   gap: 30px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
     height: calc(100% - 44px);
     gap: 24px;
   }
@@ -102,7 +102,7 @@ import{s as n,u,a as b,y as f,m as A,j as e}from"./index-adf44996.js";const y="d
       background-color: rgba(227, 255, 168, 0.2);
     }
   }
-`,R=n.li`
+`,B=n.li`
   & > div:nth-child(-n + 3) {
     margin-bottom: 0;
   }
@@ -127,7 +127,7 @@ import{s as n,u,a as b,y as f,m as A,j as e}from"./index-adf44996.js";const y="d
     grid-column-end: 4;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -167,7 +167,7 @@ import{s as n,u,a as b,y as f,m as A,j as e}from"./index-adf44996.js";const y="d
     font-size: 14px;
     line-height: 1.42;
   }
-`,N=n.button`
+`,R=n.button`
   border: none;
   background-color: transparent;
   font-family: 'Poppins', sans-serif;
@@ -177,17 +177,17 @@ import{s as n,u,a as b,y as f,m as A,j as e}from"./index-adf44996.js";const y="d
   letter-spacing: 0em;
   color: var(--primary-btn-color);
   cursor: pointer;
-`,F=n.button`
+`,N=n.button`
   padding: 0;
   margin: 0;
   border: none;
   background-color: transparent;
   cursor: pointer;
-`,E=n.div`
+`,T=n.div`
   display: flex;
   gap: 8px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
     flex-direction: row-reverse;
   }
 `,M=n.button`
@@ -204,10 +204,10 @@ import{s as n,u,a as b,y as f,m as A,j as e}from"./index-adf44996.js";const y="d
   letter-spacing: 0em;
   cursor: pointer;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
     width: 212px;
   }
-`,Q=n.button`
+`,W=n.button`
   padding: 8px 10px;
   width: 416px;
   background-color: transparent;
@@ -225,7 +225,7 @@ import{s as n,u,a as b,y as f,m as A,j as e}from"./index-adf44996.js";const y="d
     border: 1px solid var(--primary-btn-color);
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
     width: 212px;
   }
-`,G=({onClose:d,image:p,mealType:c,onRecord:h})=>{const l=u(),a=b({initialValues:{mealType:c,foods:[{name:"",nutrition:{carbohydrates:"",protein:"",fat:""},calories:""}]},onSubmit:async r=>{try{if(r.foods&&r.foods.length>0&&r.foods[0]){const t={mealType:c.toLowerCase(),foods:r.foods.map(o=>({name:o.name?o.name:"string",nutrition:{carbohydrates:o.nutrition.carbohydrates?Number(o.nutrition.carbohydrates):0,protein:o.nutrition.protein?Number(o.nutrition.protein):0,fat:o.nutrition.fat?Number(o.nutrition.fat):0},calories:o.calories?Number(o.calories):0}))};await l(f(t)),h(t),await l(A()),d()}}catch(t){console.error(t)}}}),m=r=>{r.currentTarget===r.target&&d()},g=r=>{const t=[...a.values.foods];t.splice(r,1),a.setFieldValue("foods",t)},x=()=>{a.setFieldValue("foods",[...a.values.foods,{name:"",nutrition:{carbohydrates:"",protein:"",fat:""},calories:""}])};return e.jsx(w,{onClick:m,children:e.jsxs(C,{children:[e.jsx(v,{children:"Record your meal"}),e.jsxs(k,{children:[e.jsx(j,{src:p,alt:"Plate"}),e.jsx(B,{children:c})]}),e.jsxs(I,{onSubmit:a.handleSubmit,children:[e.jsxs(z,{children:[a.values.foods.map((r,t)=>e.jsx(P,{children:e.jsxs(R,{children:[e.jsx(i,{children:e.jsx(s,{type:"text",id:`name-${t}`,name:`foods[${t}].name`,placeholder:"The name of the product or dish",onChange:a.handleChange,value:r.name})}),e.jsx(i,{children:e.jsx(s,{type:"number",id:`carbonohidrates-${t}`,name:`foods[${t}].nutrition.carbohydrates`,placeholder:"Carbonoh.",onChange:a.handleChange,value:r.nutrition.carbohydrates})}),e.jsx(i,{children:e.jsx(s,{type:"number",id:`protein-${t}`,name:`foods[${t}].nutrition.protein`,placeholder:"Protein",onChange:a.handleChange,value:r.nutrition.protein})}),e.jsx(i,{children:e.jsx(s,{type:"number",id:`fat-${t}`,name:`foods[${t}].nutrition.fat`,placeholder:"Fat",onChange:a.handleChange,value:r.nutrition.fat})}),e.jsx(i,{children:e.jsx(s,{type:"number",id:`calories-${t}`,name:`foods[${t}].calories`,placeholder:"Calories",onChange:a.handleChange,value:r.calories})}),e.jsx(F,{type:"button",onClick:()=>g(t),children:e.jsx("img",{src:y,alt:"Trash"})})]})},t)),e.jsx(N,{type:"button",onClick:x,children:"+ Add more"})]}),e.jsxs(E,{children:[e.jsx(Q,{type:"button",onClick:d,children:"Cancel"}),e.jsx(M,{type:"submit",children:"Confirm"})]})]})]})})},W="/healthy_hub/assets/breakfast-image-63f468c4.svg",K="/healthy_hub/assets/dinner-image-19c0e7ef.svg",S="/healthy_hub/assets/lunch-image-3c133980.svg",U="/healthy_hub/assets/snack-image-28a6b2cf.svg";export{w as B,z as C,I as F,j as I,C as M,P,G as R,B as T,k as W,v as a,W as b,R as c,K as d,i as e,s as f,E as g,Q as h,M as i,S as l,U as s,y as t};
+`,A=({onClose:d,image:p,mealType:c,onRecord:h})=>{const l=g(),i=f({initialValues:{mealType:c,foods:[{name:"",nutrition:{carbohydrates:"",protein:"",fat:""},calories:""}]},onSubmit:async r=>{try{if(r.foods&&r.foods.length>0&&r.foods[0]){const t={mealType:c.toLowerCase(),foods:r.foods.map(a=>({name:a.name?a.name:"string",nutrition:{carbohydrates:a.nutrition.carbohydrates?Number(a.nutrition.carbohydrates):0,protein:a.nutrition.protein?Number(a.nutrition.protein):0,fat:a.nutrition.fat?Number(a.nutrition.fat):0},calories:a.calories?Number(a.calories):0}))};await l(b(t)),h(t),await l(y()),d()}}catch(t){console.error(t)}}}),m=r=>{r.currentTarget===r.target&&d()},x=r=>{const t=[...i.values.foods];t.splice(r,1),i.setFieldValue("foods",t)},u=()=>{i.setFieldValue("foods",[...i.values.foods,{name:"",nutrition:{carbohydrates:"",protein:"",fat:""},calories:""}])};return e.jsx(v,{onClick:m,children:e.jsxs(j,{children:[e.jsx(k,{children:"Record your meal"}),e.jsxs(C,{children:[e.jsx(P,{src:p,alt:"Plate"}),e.jsx(z,{children:c})]}),e.jsxs($,{onSubmit:i.handleSubmit,children:[e.jsxs(F,{children:[i.values.foods.map((r,t)=>e.jsx(I,{children:e.jsxs(B,{children:[e.jsx(o,{children:e.jsx(s,{type:"text",id:`name-${t}`,name:`foods[${t}].name`,placeholder:"The name of the product or dish",onChange:i.handleChange,value:r.name})}),e.jsx(o,{children:e.jsx(s,{type:"number",id:`carbonohidrates-${t}`,name:`foods[${t}].nutrition.carbohydrates`,placeholder:"Carbonoh.",onChange:i.handleChange,value:r.nutrition.carbohydrates})}),e.jsx(o,{children:e.jsx(s,{type:"number",id:`protein-${t}`,name:`foods[${t}].nutrition.protein`,placeholder:"Protein",onChange:i.handleChange,value:r.nutrition.protein})}),e.jsx(o,{children:e.jsx(s,{type:"number",id:`fat-${t}`,name:`foods[${t}].nutrition.fat`,placeholder:"Fat",onChange:i.handleChange,value:r.nutrition.fat})}),e.jsx(o,{children:e.jsx(s,{type:"number",id:`calories-${t}`,name:`foods[${t}].calories`,placeholder:"Calories",onChange:i.handleChange,value:r.calories})}),e.jsx(N,{type:"button",onClick:()=>x(t),children:e.jsx("svg",{width:"20",height:"20",fill:"none",children:e.jsx("use",{href:`${w}#icon-trash`})})})]})},t)),e.jsx(R,{type:"button",onClick:u,children:"+ Add more"})]}),e.jsxs(T,{children:[e.jsx(W,{type:"button",onClick:d,children:"Cancel"}),e.jsx(M,{type:"submit",children:"Confirm"})]})]})]})})},D="/healthy_hub/assets/breakfast-image-63f468c4.svg",S="/healthy_hub/assets/dinner-image-19c0e7ef.svg",V="/healthy_hub/assets/lunch-image-3c133980.svg",L="/healthy_hub/assets/snack-image-28a6b2cf.svg";export{v as B,F as C,$ as F,P as I,j as M,I as P,A as R,z as T,C as W,k as a,D as b,B as c,S as d,o as e,s as f,T as g,W as h,M as i,V as l,L as s};
