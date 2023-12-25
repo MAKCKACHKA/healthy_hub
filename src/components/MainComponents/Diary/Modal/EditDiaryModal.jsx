@@ -13,16 +13,10 @@ import {
   ProductList,
   Product,
   ContainerForBtns,
-  BtnRemoveProduct,
   BtnConfirm,
 } from './RecordDiaryModal.styled';
-import trashImage from '../../../../assets/trash.png';
 import { useDispatch } from 'react-redux';
-import {
-  addFoodIntake,
-  getCurrentUser,
-  updateFoodIntake,
-} from '../../../../redux/operations';
+import { getCurrentUser, updateFoodIntake } from '../../../../redux/operations';
 import { useFormik } from 'formik';
 import { useEffect, useState } from 'react';
 
@@ -93,23 +87,19 @@ export default function EditDiaryModal({
             },
           };
           console.log({ foodIntakeData });
-          const datas = {
-            mealType: 'breakfast',
-            foodDetails: {
-              name: '33',
-              calories: 33,
-              nutrition: {
-                carbohydrates: 33,
-                fat: 33,
-                protein: 33,
-              },
-            },
-          };
 
-          dispatch(updateFoodIntake(meal._id, { foodIntakeData }));
+          dispatch(
+            updateFoodIntake({
+              foodId: meal._id,
+              foodIntakeData: foodIntakeData,
+            })
+          );
+
           onRecord(foodIntakeData);
           // await dispatch(getCurrentUser());
-
+          setTimeout(() => {
+            dispatch(getCurrentUser());
+          }, 100);
           onClose();
         }
       } catch (error) {
@@ -122,12 +112,6 @@ export default function EditDiaryModal({
     if (event.currentTarget === event.target) {
       onClose();
     }
-  };
-
-  const handleRemoveProduct = (index) => {
-    const updatedProducts = [...formik.values.foods];
-    updatedProducts.splice(index, 1);
-    formik.setFieldValue('foods', updatedProducts);
   };
 
   return (
@@ -193,12 +177,6 @@ export default function EditDiaryModal({
                       value={food.calories}
                     />
                   </WrapperInput>
-                  <BtnRemoveProduct
-                    type="button"
-                    onClick={() => handleRemoveProduct(index)}
-                  >
-                    <img src={trashImage} alt="Trash" />
-                  </BtnRemoveProduct>
                 </Product>
               </ProductList>
             ))}

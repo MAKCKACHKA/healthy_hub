@@ -33,23 +33,19 @@ import snackImage from '../../../assets/snack-image.svg';
 import icons from './../../../assets/icons.svg';
 
 import { useState, useEffect } from 'react';
-import { selectToken, selectUserData } from '../../../redux/selesctors';
+import { selectUserData } from '../../../redux/selesctors';
 import { useSelector } from 'react-redux';
 import RecordDiaryModal from '../../MainComponents/Diary/Modal/RecordDiaryModal';
 import EditDiaryModal from '../../MainComponents/Diary/Modal/EditDiaryModal';
-// import { getCurrentUser } from '../../../redux/operations';
-// import { useDispatch } from 'react-redux';
 
 export const DiaryPills = () => {
   const user = useSelector(selectUserData);
-  const token = useSelector(selectToken);
-
-  useEffect(() => {
-    if (user && user.consumedMealsByDay) {
-      console.log(user.consumedMealsByDay);
-      console.log(token);
-    }
-  }, [user]);
+  //   useEffect(() => {
+  //     if (user && user.consumedMealsByDay) {
+  //       console.log(user.consumedMealsByDay);
+  //       //   console.log(token);
+  //     }
+  //   }, [user]);
 
   const [diaryData, setDiaryData] = useState([
     {

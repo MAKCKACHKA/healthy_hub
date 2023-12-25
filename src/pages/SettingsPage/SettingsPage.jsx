@@ -42,12 +42,12 @@ export default function SettingsPage() {
   const { user } = useSelector(selectUserData);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getCurrentUser());
-  //   if (user) {
-  //     setAvatar(user.avatarURL);
-  //   }
-  // }, [dispatch, user]);
+  useEffect(() => {
+    dispatch(getCurrentUser());
+    if (user) {
+      setAvatar(user.avatarURL);
+    }
+  }, [dispatch, user]);
 
   const initialValues = {
     age: user && user.age !== undefined ? user.age : '',

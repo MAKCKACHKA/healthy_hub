@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   AddButton,
   Title,
@@ -21,6 +21,7 @@ import {
   deleteFoodIntake,
   getCurrentUser,
 } from '../../../../redux/operations.js';
+import { selectUserData } from '../../../../redux/selesctors.js';
 
 const DiaryItem = ({ title, image }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,10 +29,20 @@ const DiaryItem = ({ title, image }) => {
   const dispatch = useDispatch();
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
+  const user = useSelector(selectUserData);
+
+  useEffect(() => {
+    const mealType = String(title.toLowerCase());
+    if (user && user.consumedMealsByDay && mealType) {
+      if (user.consumedMealsByDay[mealType]) {
+        setNutritionInfo(user.consumedMealsByDay[mealType]);
+      }
+    }
+  }, [user, title]);
+
   const handleDelete = async () => {
     try {
       setNutritionInfo(null);
-      localStorage.removeItem(`${title}_nutritionInfo`);
       await dispatch(deleteFoodIntake(title.toLowerCase()));
       await dispatch(getCurrentUser());
     } catch (error) {
@@ -41,16 +52,9 @@ const DiaryItem = ({ title, image }) => {
 
   const handleRecord = (data) => {
     setNutritionInfo(data);
-    localStorage.setItem(`${title}_nutritionInfo`, JSON.stringify(data));
+    title.toLowerCase();
     toggleModal();
   };
-
-  useEffect(() => {
-    const savedData = localStorage.getItem(`${title}_nutritionInfo`);
-    if (savedData) {
-      setNutritionInfo(JSON.parse(savedData));
-    }
-  }, [title]);
 
   return (
     <CardWrap>
@@ -58,11 +62,14 @@ const DiaryItem = ({ title, image }) => {
         <DiaryImage src={image} alt="Plate" />
         <Title>{title}</Title>
       </TitleWrap>
+      {nutritionInfo && nutritionInfo.foods.length === 0 && (
+        <AddButton onClick={toggleModal}>+ Record your meal</AddButton>
+      )}
       {!nutritionInfo && (
         <AddButton onClick={toggleModal}>+ Record your meal</AddButton>
       )}
 
-      {isModalOpen && !nutritionInfo && (
+      {isModalOpen && (
         <RecordDiaryModal
           onClose={toggleModal}
           image={image}
@@ -71,17 +78,17 @@ const DiaryItem = ({ title, image }) => {
         />
       )}
 
-      {nutritionInfo && (
+      {nutritionInfo && nutritionInfo.foods && nutritionInfo.foods[0] && (
         <InfoWrap>
           <CarbonohidratesWrap>
             Carbohydrates:
-            <Value>{nutritionInfo.foods[0].nutrition.carbohydrates}</Value>
+            <Value>{nutritionInfo.totalCarbohydrates}</Value>
           </CarbonohidratesWrap>
           <ProteinWrap>
-            Protein: <Value>{nutritionInfo.foods[0].nutrition.protein}</Value>
+            Protein: <Value>{nutritionInfo.totalProtein}</Value>
           </ProteinWrap>
           <FatWrap>
-            Fat: <Value>{nutritionInfo.foods[0].nutrition.fat}</Value>
+            Fat: <Value>{nutritionInfo.totalFat}</Value>
           </FatWrap>
           <BtnRemoveProduct onClick={handleDelete}>
             <img src={trashImage} alt="trash" />
