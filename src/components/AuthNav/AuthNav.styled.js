@@ -7,7 +7,7 @@ export const AuthNavLink = styled.div`
   margin-bottom: 40px;
   font-weight: 500;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     margin: 0 auto 80px;
     justify-content: center;
   }
@@ -25,7 +25,7 @@ export const SignInBtn = styled(Link)`
   color: var(--secondary-text-color);
   background-color: var(--primary-btn-color);
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     width: 212px;
   }
 `;

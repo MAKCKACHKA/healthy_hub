@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HeroSection = styled.section`
-  margin-top: 40px;
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -9,6 +9,7 @@ export const HeroSection = styled.section`
   gap: 24px;
 
   @media screen and (min-width: 834px) {
+    margin-top: 40px;
     gap: 80px;
   }
 
@@ -26,7 +27,7 @@ export const HeroImg = styled.svg`
   width: 300px;
   height: 296px;
   display: block;
-  margin: 0 auto 40px;
+
   @media screen and (min-width: 834px) {
     width: 380px;
     height: 376px;
@@ -35,17 +36,15 @@ export const HeroImg = styled.svg`
   @media screen and (min-width: 1440px) {
     width: 592px;
     height: 588px;
-    margin: 0;
   }
 `;
 
 export const HeroDescWrap = styled.div`
+  max-width: 444px;
   padding-bottom: 40px;
 
   @media screen and (min-width: 834px) {
-    width: 444px;
     text-align: center;
-    margin: 0 auto;
     padding-bottom: 286px;
   }
 
