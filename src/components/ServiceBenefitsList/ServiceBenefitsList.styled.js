@@ -6,15 +6,14 @@ export const ListItem = styled.ul`
   padding-left: 10px;
   color: var(--primary-title-text-color);
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     text-align: left;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     gap: 16px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     display: block;
   }
 `;
@@ -27,11 +26,15 @@ export const Item = styled.li`
     color: var(--primary-btn-color);
   }
 
-  &:last-child{
+  &:nth-child(odd) {
+    min-width: 250px;
+  }
+
+  &:last-child {
     margin-bottom: 0;
   }
 
-  @media screen and (min-width: 864px) and (max-width: 1440px) {
+  @media screen and (min-width: 834px) and (max-width: 1440px) {
     margin: 0;
   }
 `;
