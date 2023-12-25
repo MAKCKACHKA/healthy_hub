@@ -25,7 +25,6 @@ export const WeightGraph = ({month}) => {
     if (month !== null) {
         try {
           const data = await dispatch(getMonthlyStatistics(month));
-          // console.log(data.payload)
           setDataOfUser(data.payload);
         } catch (error) {
           console.error('Error fetching data:', error);
@@ -152,7 +151,7 @@ export const WeightGraph = ({month}) => {
           {dataOfUser.avgWeight ?
             (<HeaderData>
               <WeightAverageTitle>Average value:</WeightAverageTitle>
-              <WeightAverageNumber>{dataOfUser.avgWeight}kg</WeightAverageNumber>
+              <WeightAverageNumber>{dataOfUser.avgWeight.toFixed(0)}kg</WeightAverageNumber>
             </HeaderData>) :
             (<HeaderData>
               <WeightAverageTitle>Average value:</WeightAverageTitle>

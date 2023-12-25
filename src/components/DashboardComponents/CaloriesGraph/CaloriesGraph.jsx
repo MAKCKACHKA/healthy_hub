@@ -60,9 +60,10 @@ export const CaloriesGraph = ({ month }) => {
   }
 
   const dataCap = numberOfDay => {    
-    if (Object.keys(dataOfUser).length.length) {
+    if (Object.keys(dataOfUser).length) {
       const foundItem = dataOfUser.callPerDay.find(el => numberOfDay === el.day.toString());
       if (foundItem) {
+        
         return foundItem.calories;
       } else {
         return 0;
@@ -71,13 +72,32 @@ export const CaloriesGraph = ({ month }) => {
     return 0;
   }
 
+  const labels = numberOfDaysInTheMonth(month)
+
+  const arrayOfGoods = labels.map(el => dataCap(el))
+  
+  const maxNumber = Math.max(...arrayOfGoods)
+
+  const arrayOfGraphData = () => {
+    return arrayOfGoods
+  }
+
+  const maxOnGraph = () => {
+    const defaultMinimum = 3000;
+    if (maxNumber < defaultMinimum) {
+      return defaultMinimum;
+    }
+    const roundedNumber = Math.ceil(maxNumber / 1000) * 1000;
+    return roundedNumber
+  }
+
   const options = {
       maintainAspectRatio: false, 
       responsive: true,
       scales: {
         y: {
           min: 0,
-          max: 3000,
+          max: maxOnGraph(),
           grid: {
             color: '#292928',
           },
@@ -92,7 +112,7 @@ export const CaloriesGraph = ({ month }) => {
               if (String(value).length === 1) {
                 return value;
               }
-              return String(value).slice(0, 1) + `K`;
+              return String(value/1000)+`K`
             },
           },
         },
@@ -106,7 +126,7 @@ export const CaloriesGraph = ({ month }) => {
           scales: {
             x: {
               min: 0,
-              max: 10,
+              max: 100,
             },
           },
         },
@@ -147,14 +167,6 @@ export const CaloriesGraph = ({ month }) => {
       },
   };
 
-  const labels = numberOfDaysInTheMonth(month)
-
-  const scrollerTest = () => {
-    if (labels.length > 14) {
-      return true
-    }
-  }
-
   const data = {
     labels,
     datasets: [
@@ -170,7 +182,7 @@ export const CaloriesGraph = ({ month }) => {
         pointHoverRadius: 3,
         pointHitRadius: 12,
         pointBackgroundColor: '#e3ffa8',
-        data: labels.map(el => dataCap(el)),
+        data: arrayOfGraphData(),
       },
     ],
   };
@@ -183,7 +195,7 @@ export const CaloriesGraph = ({ month }) => {
         {dataOfUser.avgCalories ? 
           (<HeaderData>
             <CaloriesAverageTitle>Average value:</CaloriesAverageTitle>
-            <CaloriesAverageNumber>{dataOfUser.avgCalories}cal</CaloriesAverageNumber>
+            <CaloriesAverageNumber>{dataOfUser.avgCalories.toFixed(0)}cal</CaloriesAverageNumber>
           </HeaderData>) :
           (<HeaderData>
             <CaloriesAverageTitle>Average value:</CaloriesAverageTitle>
