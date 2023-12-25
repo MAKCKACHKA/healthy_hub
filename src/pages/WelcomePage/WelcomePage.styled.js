@@ -40,10 +40,10 @@ export const HeroImg = styled.svg`
 `;
 
 export const HeroDescWrap = styled.div`
-  max-width: 444px;
   padding-bottom: 40px;
 
   @media screen and (min-width: 834px) {
+    width: 444px;
     text-align: center;
     padding-bottom: 286px;
   }

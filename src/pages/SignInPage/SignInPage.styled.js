@@ -2,18 +2,25 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const SignInSection = styled.section`
-  max-width: 300px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap: 24px;
+  margin-top: 24px;
 
   @media screen and (min-width: 834px) {
-    max-width: 444px;
+    gap: 80px;
+    margin-top: 40px;
   }
 
   @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    justify-content: left;
+    gap: 104px;
     max-width: 100%;
     margin: 40px 0 72px 150px;
-    display: flex;
-    flex-wrap: wrap;
   }
 `;
 
@@ -29,19 +36,19 @@ export const ForgotPassLink = styled(Link)`
 `;
 
 export const TextPartWrapper = styled.div`
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 56px;
 
   @media screen and (min-width: 834px) {
+    width: 444px;
     gap: 222px;
   }
 
   @media screen and (min-width: 1440px) {
     gap: 0;
-    max-width: 444px;
-    margin-left: 104px;
     padding-top: 80px;
   }
 `;
@@ -51,4 +58,12 @@ export const BodyTextWrapper = styled.div`
   flex-direction: column;
   align-content: center;
   flex-wrap: wrap;
+
+  @media screen and (min-width: 834px) {
+    width: 444px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    align-content: normal;
+  }
 `;

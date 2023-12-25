@@ -10,7 +10,7 @@ export const TitleStiled = styled.h2`
   @media screen and (min-width: 834px) {
     font-size: 30px;
     line-height: 1.2;
-    text-align:center;
+    text-align: center;
   }
 
   @media screen and (min-width: 1440px) {

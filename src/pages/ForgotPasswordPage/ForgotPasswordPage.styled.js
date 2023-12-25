@@ -1,17 +1,22 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  max-width: 300px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 24px;
+  margin-top: 24px;
 
   @media screen and (min-width: 834px) {
-    max-width: 444px;
+    gap: 60px;
+    margin-top: 40px;
   }
 
   @media screen and (min-width: 1440px) {
-    max-width: 100%;
-    margin: 40px 0 72px 150px;
-    display: flex;
-    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: row;
+    gap: 104px;
+    margin-left: 150px;
   }
 `;
