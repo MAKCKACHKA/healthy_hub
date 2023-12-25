@@ -32,8 +32,8 @@ const DiaryItem = ({ title, image }) => {
     try {
       setNutritionInfo(null);
       localStorage.removeItem(`${title}_nutritionInfo`);
-      dispatch(deleteFoodIntake(title.toLowerCase()));
-      dispatch(getCurrentUser());
+      await dispatch(deleteFoodIntake(title.toLowerCase()));
+      await dispatch(getCurrentUser());
     } catch (error) {
       console.error(error);
     }

@@ -14,7 +14,7 @@ export const Modal = styled.div`
   top: 50%;
   left: 50%;
   width: 708px;
-  height: 558px;
+  min-height: 558px;
   padding: 16px 12px;
   display: flex;
   flex-direction: column;
@@ -86,8 +86,9 @@ export const WrapperInput = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  max-height: 300px;
+  max-height: 352px;
   margin-bottom: 16px;
+  overflow-y: auto;
 
   @media screen and (max-width: 768px) {
   }
@@ -129,7 +130,7 @@ export const Product = styled.li`
   display: grid;
   grid-gap: 12px;
   grid-template-columns: 38.15% 15.26% 13.12% 9.3% 11.94% 3.05%;
-  align-items: start;
+  align-items: center;
 
   & > div:nth-child(1) {
     grid-column-start: 1;
@@ -167,8 +168,8 @@ export const Product = styled.li`
 export const Input = styled.input`
   padding: 8px 10px;
   width: 100%;
-  border: 1px solid #8cc84b;
-  border-radius: 8px;
+  border: 1px solid var(--primary-btn-color);
+  border-radius: 12px;
   background-color: #000;
   font-family: 'Poppins', sans-serif;
   font-size: 0.75rem;
@@ -182,6 +183,12 @@ export const Input = styled.input`
     -webkit-appearance: none;
     margin: 0;
   }
+
+  &::placeholder {
+    color: var(--primary-text-color);
+    font-size: 14px;
+    line-height: 1.42;
+  }
 `;
 
 export const BtnAddNewProduct = styled.button`
@@ -192,7 +199,7 @@ export const BtnAddNewProduct = styled.button`
   font-weight: 500;
   line-height: 20px;
   letter-spacing: 0em;
-  color: #8cc84b;
+  color: var(--primary-btn-color);
   cursor: pointer;
 `;
 
@@ -216,7 +223,7 @@ export const ContainerForBtns = styled.div`
 export const BtnConfirm = styled.button`
   padding: 8px 10px;
   width: 212px;
-  background-color: #8cc84b;
+  background-color: var(--primary-btn-color);
   color: #000;
   border: 1px solid transparent;
   border-radius: 8px;
@@ -247,7 +254,7 @@ export const BtnCancel = styled.button`
   cursor: pointer;
 
   &:hover {
-    border: 1px solid #8cc84b;
+    border: 1px solid var(--primary-btn-color);
   }
 
   @media screen and (max-width: 768px) {
