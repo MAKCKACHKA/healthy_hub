@@ -1,4 +1,4 @@
-import{s as i,L as n,j as e}from"./index-a3280d53.js";import{I as r}from"./pageIllustrations-c760e5ba.js";const a=i.div`
+import{s as e,L as n,j as i}from"./index-ea9c0f7f.js";import{I as a}from"./pageIllustrations-78b35bed.js";const r=e.div`
   display: flex;
   gap: 16px;
   margin-bottom: 40px;
@@ -12,23 +12,33 @@ import{s as i,L as n,j as e}from"./index-a3280d53.js";import{I as r}from"./pageI
   @media screen and (min-width: 1440px) {
     justify-content: left;
   }
-`,d=i(n)`
+`,o=e(n)`
   width: 142px;
   padding: 8px 10px;
   text-align: center;
   border-radius: 12px;
   color: var(--secondary-text-color);
   background-color: var(--primary-btn-color);
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
 
   @media screen and (min-width: 834px) {
     width: 212px;
   }
-`,o=i(n)`
+`,d=e(n)`
   width: 122px;
   padding: 8px 10px;
   text-align: center;
   color: var(--primary-title-text-color);
-`,p=()=>e.jsxs(a,{children:[e.jsx(d,{to:"/signin",children:"Sign in"}),e.jsx(o,{to:"/signup",children:"Sign up"})]}),s=i.ul`
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+`,s=()=>i.jsxs(r,{children:[i.jsx(o,{to:"/signin",children:"Sign in"}),i.jsx(d,{to:"/signup",children:"Sign up"})]}),p=e.ul`
   list-style: disc;
   margin-left: 16px;
   padding-left: 10px;
@@ -44,7 +54,7 @@ import{s as i,L as n,j as e}from"./index-a3280d53.js";import{I as r}from"./pageI
   @media screen and (min-width: 1440px) {
     display: block;
   }
-`,t=i.li`
+`,t=e.li`
   margin-bottom: 16px;
   height: 20px;
   &::marker {
@@ -63,7 +73,7 @@ import{s as i,L as n,j as e}from"./index-a3280d53.js";import{I as r}from"./pageI
   @media screen and (min-width: 834px) and (max-width: 1440px) {
     margin: 0;
   }
-`,x=()=>e.jsxs(s,{children:[e.jsx(t,{children:"Set goals"}),e.jsx(t,{children:"Watch your calories"}),e.jsx(t,{children:"Keep track of your water intake"}),e.jsx(t,{children:"Control your weight"})]}),c=i.section`
+`,x=()=>i.jsxs(p,{children:[i.jsx(t,{children:"Set goals"}),i.jsx(t,{children:"Watch your calories"}),i.jsx(t,{children:"Keep track of your water intake"}),i.jsx(t,{children:"Control your weight"})]}),c=e.section`
   margin-top: 24px;
   display: flex;
   flex-direction: column;
@@ -84,7 +94,7 @@ import{s as i,L as n,j as e}from"./index-a3280d53.js";import{I as r}from"./pageI
     gap: 104px;
     justify-content: center;
   }
-`,l=i.svg`
+`,l=e.svg`
   width: 300px;
   height: 296px;
   display: block;
@@ -98,7 +108,7 @@ import{s as i,L as n,j as e}from"./index-a3280d53.js";import{I as r}from"./pageI
     width: 592px;
     height: 588px;
   }
-`,h=i.div`
+`,h=e.div`
   padding-bottom: 40px;
 
   @media screen and (min-width: 834px) {
@@ -112,7 +122,7 @@ import{s as i,L as n,j as e}from"./index-a3280d53.js";import{I as r}from"./pageI
     text-align: left;
     padding: 0;
   }
-`,m=i.h2`
+`,m=e.h2`
   font-weight: 500;
   font-size: 24px;
   line-height: 1.25;
@@ -127,7 +137,7 @@ import{s as i,L as n,j as e}from"./index-a3280d53.js";import{I as r}from"./pageI
   @media screen and (min-width: 1440px) {
     text-align: start;
   }
-`,g=i.p`
+`,g=e.p`
   font-size: 18px;
   line-height: 1.3;
   margin-bottom: 24px;
@@ -141,4 +151,4 @@ import{s as i,L as n,j as e}from"./index-a3280d53.js";import{I as r}from"./pageI
   @media screen and (min-width: 1440px) {
     padding: 0;
   }
-`;function u(){return e.jsxs(c,{children:[e.jsx(l,{height:300,children:e.jsx("use",{href:`${r}#icon-auth`})}),e.jsxs(h,{children:[e.jsx(m,{children:"Set goals and achieve them"}),e.jsx(g,{children:"The service will help you set goals and follow them."}),e.jsx(p,{}),e.jsx(x,{})]})]})}export{u as default};
+`;function u(){return i.jsxs(c,{children:[i.jsx(l,{height:300,children:i.jsx("use",{href:`${a}#icon-auth`})}),i.jsxs(h,{children:[i.jsx(m,{children:"Set goals and achieve them"}),i.jsx(g,{children:"The service will help you set goals and follow them."}),i.jsx(s,{}),i.jsx(x,{})]})]})}export{u as default};
