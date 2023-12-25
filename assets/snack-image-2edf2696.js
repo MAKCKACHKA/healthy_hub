@@ -1,1 +1,0 @@
-import"./index-ec5d26f6.js";const a="/healthy_hub/assets/breakfast-image-63f468c4.svg",e="/healthy_hub/assets/dinner-image-19c0e7ef.svg",t="/healthy_hub/assets/lunch-image-3c133980.svg",h="/healthy_hub/assets/snack-image-28a6b2cf.svg";export{a as b,e as d,t as l,h as s};
