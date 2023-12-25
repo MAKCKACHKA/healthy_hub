@@ -22,7 +22,7 @@ export const Title = styled.h2`
   font-weight: 400;
   line-height: 24px;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     font-size: 18px;
     line-height: 32px;
   }
@@ -36,7 +36,7 @@ export const DiaryLink = styled(Link)`
   line-height: 20px;
   text-decoration: none;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     font-size: 14px;
     line-height: 22px;
   }

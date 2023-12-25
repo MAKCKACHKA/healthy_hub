@@ -7,7 +7,7 @@ export const TitleStiled = styled.h2`
   margin-bottom: 16px;
   word-wrap: break-word;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     font-size: 30px;
     line-height: 1.2;
     text-align:center;

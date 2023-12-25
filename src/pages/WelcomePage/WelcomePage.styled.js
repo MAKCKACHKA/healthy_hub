@@ -8,7 +8,7 @@ export const HeroSection = styled.section`
   align-items: center;
   gap: 24px;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     /* margin: 40px auto 80px; */
     gap: 80px;
   }
@@ -28,7 +28,7 @@ export const HeroImg = styled.svg`
   height: 296px;
   display: block;
   margin: 0 auto 40px;
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     width: 380px;
     height: 376px;
     /* margin: 40px auto 80px; */
@@ -44,7 +44,7 @@ export const HeroImg = styled.svg`
 export const HeroDescWrap = styled.div`
   padding-bottom: 40px;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     width: 444px;
     text-align: center;
     margin: 0 auto;
@@ -66,7 +66,7 @@ export const HeroTitle = styled.h2`
   text-align: center;
   word-wrap: break-word;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     font-size: 30px;
     line-height: 1.2;
   }

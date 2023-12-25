@@ -42,17 +42,23 @@ export default function SettingsPage() {
   const { user } = useSelector(selectUserData);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getCurrentUser());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getCurrentUser());
+  //   if (user) {
+  //     setAvatar(user.avatarURL);
+  //   }
+  // }, [dispatch, user]);
 
   const initialValues = {
-    age: user && user.age,
-    weight: user && user.weight,
-    height: user && user.height,
-    gender: user && user.gender,
-    coefficientOfActivity: user && String(user.coefficientOfActivity),
-    name: user && user.name,
+    age: user && user.age !== undefined ? user.age : '',
+    weight: user && user.weight !== undefined ? user.weight : '',
+    height: user && user.height !== undefined ? user.height : '',
+    gender: user && user.gender !== undefined ? user.gender : '',
+    coefficientOfActivity:
+      user && user.coefficientOfActivity !== undefined
+        ? String(user.coefficientOfActivity)
+        : '',
+    name: user && user.name !== undefined ? user.name : '',
   };
 
   const [avatar, setAvatar] = useState(user ? user.avatarURL : '');
@@ -75,6 +81,8 @@ export default function SettingsPage() {
 
     setTimeout(() => {
       dispatch(getCurrentUser());
+      setAvatar(user.avatarURL);
+      avatar !== '' && typeof avatar === 'object' && setObjectURL(false);
     }, 2300);
   };
 
@@ -100,9 +108,16 @@ export default function SettingsPage() {
       .nullable(),
   });
 
+  useEffect(() => {
+    if (user) {
+      setAvatar(user.avatarURL);
+    }
+  }, [user]);
+
   return (
     <Formik
       initialValues={initialValues}
+      enableReinitialize
       onSubmit={handleSave}
       validationSchema={validationSchema}
     >

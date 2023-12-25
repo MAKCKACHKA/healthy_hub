@@ -5,7 +5,7 @@ export const SignInSection = styled.section`
   max-width: 300px;
   margin: 0 auto;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     max-width: 444px;
   }
 
@@ -34,7 +34,7 @@ export const TextPartWrapper = styled.div`
   justify-content: space-between;
   gap: 56px;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     gap: 222px;
   }
 

@@ -9,7 +9,7 @@ export const TitleContainer = styled.div`
   margin-right: auto;
   margin-bottom: 24px;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     max-width: 100%;
   }
   @media screen and (min-width: 1440px) {
@@ -26,7 +26,7 @@ export const Title = styled.h1`
   font-weight: 500;
   line-height: 1.25;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     font-size: 30px;
     line-height: 1.2;
   }
@@ -34,7 +34,7 @@ export const Title = styled.h1`
 
 export const ButtonWraper = styled.div`
   display: none;
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     display: flex;
     gap: 12px;
     align-items: center;
@@ -49,7 +49,7 @@ export const ButtonWraperDown = styled.div`
   flex-direction: column-reverse;
   gap: 12px;
   margin-top: 40px;
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     display: none;
   }
 `;
@@ -65,7 +65,7 @@ export const CancelBtn = styled.button`
   font-weight: 400;
   line-height: 1.42;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     width: 212px;
   }
 `;
@@ -87,7 +87,7 @@ export const SaveBtn = styled.button`
   font-weight: 500;
   /* line-height: 1.42; */
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     width: 212px;
   }
 `;
@@ -98,7 +98,7 @@ export const IconWrapper = styled.svg`
   height: 296px;
   margin-bottom: 24px;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     width: 380px;
     height: 374px;
   }
@@ -134,7 +134,7 @@ export const FormInputs = styled.div`
   column-gap: 60px;
   max-width: 300px;
   justify-content: center;
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     max-width: 490px;
   }
 
@@ -150,7 +150,7 @@ export const Label = styled.label`
   align-items: flex-start;
   gap: 12px;
   width: 280px;
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     width: 212px;
   }
 `;
@@ -161,7 +161,7 @@ export const LabelImg = styled.label`
   align-items: flex-start;
   gap: 12px;
   width: 280px;
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     width: 218px;
   }
 `;
@@ -188,13 +188,6 @@ export const TextInput = styled(Field)`
   }
 `;
 
-export const YourActivityInput = styled.label`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-`;
-
 export const RadioLabel = styled.label`
   display: flex;
   gap: 8px;
@@ -202,6 +195,21 @@ export const RadioLabel = styled.label`
   cursor: pointer;
   position: relative;
   color: var(--primary-text-color);
+`;
+export const YourActivityInput = styled.label`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  margin-top: 20px;
+
+  & > ${RadioLabel} {
+    margin-top: 12px;
+  }
+
+  & > ${RadioLabel}:not(:first-child) {
+    margin-top: 20px;
+  }
 `;
 export const RadioField = styled(Field)`
   position: absolute;

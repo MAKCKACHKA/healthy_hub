@@ -6,7 +6,7 @@ export const BtnWrapp = styled.div`
   gap: 20px;
   font-weight: 500;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     max-width: 380px;
     justify-content: center;
   }
@@ -16,7 +16,7 @@ export const BtnWrapp = styled.div`
     justify-content: left;
   }
 
-  @media screen and (min-width: 864px) and (max-width: 1439px) {
+  @media screen and (min-width: 834px) and (max-width: 1439px) {
     margin: 0 auto;
   }
 `;

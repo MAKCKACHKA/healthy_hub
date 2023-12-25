@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CardWrap = styled.li`
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     display: flex;
     column-gap: 8px;
     align-items: center;
@@ -18,7 +18,7 @@ export const TitleWrap = styled.div`
   color: white;
   font-family: 'Poppins', sans-serif;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     margin-bottom: 0;
   }
 `;
@@ -39,21 +39,27 @@ export const InfoWrap = styled.div`
   font-weight: 400;
   line-height: 20px;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     flex-direction: row;
     column-gap: 20px;
   }
 `;
 
 export const CarbonohidratesWrap = styled.p`
-  min-width: 190px;
+  color: white;
+  font-size: 14px;
+  min-width: 150px;
 `;
 
 export const ProteinWrap = styled.p`
+  color: white;
+  font-size: 14px;
   width: 110px;
 `;
 
 export const FatWrap = styled.p`
+  color: white;
+  font-size: 14px;
   width: 60px;
 `;
 
@@ -80,5 +86,12 @@ export const AddButton = styled.button`
   border: none;
   outline: none;
   padding: 0;
+  cursor: pointer;
+`;
+export const BtnRemoveProduct = styled.button`
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
   cursor: pointer;
 `;
