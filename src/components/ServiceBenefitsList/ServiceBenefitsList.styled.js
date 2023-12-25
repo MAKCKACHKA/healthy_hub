@@ -27,6 +27,10 @@ export const Item = styled.li`
     color: var(--primary-btn-color);
   }
 
+  &:last-child{
+    margin-bottom: 0;
+  }
+
   @media screen and (min-width: 864px) and (max-width: 1440px) {
     margin: 0;
   }

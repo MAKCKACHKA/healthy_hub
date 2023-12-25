@@ -5,11 +5,11 @@ export const SignInSection = styled.section`
   max-width: 300px;
   margin: 0 auto;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     max-width: 444px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     max-width: 100%;
     margin: 40px 0 72px 150px;
     display: flex;
@@ -22,7 +22,7 @@ export const ForgotPassLink = styled(Link)`
   text-align: center;
   color: inherit;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     text-align: start;
     margin-left: 25px;
   }
@@ -34,7 +34,7 @@ export const TextPartWrapper = styled.div`
   justify-content: space-between;
   gap: 56px;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     gap: 222px;
   }
 
@@ -44,4 +44,11 @@ export const TextPartWrapper = styled.div`
     margin-left: 104px;
     padding-top: 80px;
   }
+`;
+
+export const BodyTextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
 `;

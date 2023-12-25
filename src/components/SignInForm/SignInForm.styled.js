@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SingInFormStyled = styled.form`
   margin-bottom: 14px;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     max-width: 380px;
     margin-bottom: 20px;
   }
@@ -12,7 +12,7 @@ export const SingInFormStyled = styled.form`
     max-width: 212px;
   }
 
-  @media screen and (min-width: 864px) and (max-width: 1439) {
+  @media screen and (min-width: 834px) and (max-width: 1439) {
     margin-left: auto;
     margin-right: auto;
   }

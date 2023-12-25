@@ -1,6 +1,10 @@
 import pageIllustrations from '../../assets/pageIllustrations.svg';
 import { AuthorizationImg } from '../../components/AuthorizationImg/AuthorizationImg';
-import { ForgotPassLink, SignInSection } from './SignInPage.styled';
+import {
+  BodyTextWrapper,
+  ForgotPassLink,
+  SignInSection,
+} from './SignInPage.styled';
 import { TextPartWrapper } from './SignInPage.styled';
 import { Title } from '../../components/Title/Title';
 import { SubTitle } from '../../components/SubTitle/SubTitle';
@@ -12,14 +16,14 @@ export default function SignInPage() {
     <SignInSection>
       <AuthorizationImg pageIllustrations={pageIllustrations} />
       <TextPartWrapper>
-        <div>
+        <BodyTextWrapper>
           <Title titleText={'Sign in'} />
           <SubTitle description={'You need to login to use the service'} />
           <SingInForm />
           <ForgotPassLink to="/forgot-password">
             Forgot your password?
           </ForgotPassLink>
-        </div>
+        </BodyTextWrapper>
         <SignInOrUp
           descriptionText={`If you don't have an account yet`}
           linkText={'Sign up'}

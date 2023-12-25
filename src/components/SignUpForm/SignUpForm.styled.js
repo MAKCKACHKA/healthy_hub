@@ -7,7 +7,7 @@ export const GoalFormWrapp = styled.div`
   gap: 24px;
   margin-bottom: 24px;
 
-  @media screen and (min-width: 864px) and (max-width: 1439px) {
+  @media screen and (min-width: 834px) and (max-width: 1439px) {
     flex-direction: row;
     justify-content: center;
   }

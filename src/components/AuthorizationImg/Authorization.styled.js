@@ -6,7 +6,7 @@ export const Img = styled.svg`
   display: block;
   margin: 24px auto;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     width: 380px;
     height: 376px;
     margin: 40px auto 60px;
