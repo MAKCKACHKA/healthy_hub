@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FormStyled = styled.form`
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     max-width: 380px;
   }
 
@@ -10,7 +10,7 @@ export const FormStyled = styled.form`
     max-width: ${(props) => props.$currentStep === 4 && '328px'};
   }
 
-  @media screen and (min-width: 864px) and (max-width: 1439px) {
+  @media screen and (min-width: 834px) and (max-width: 1439px) {
     margin: 0 auto;
   }
 `;

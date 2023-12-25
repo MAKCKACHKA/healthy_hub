@@ -5,11 +5,11 @@ export const SingInOrUpWrap = styled.div`
   display: flex;
   gap: 16px;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 833px) {
     ${(prop) => prop.$flexDirectionColumn && 'flex-direction: column;'}
   }
 
-  @media screen and (min-width: 767px) and (max-width: 1199px) {
+  @media screen and (min-width: 834px) and (max-width: 1439px) {
     margin-left: 30px;
   }
 `;
