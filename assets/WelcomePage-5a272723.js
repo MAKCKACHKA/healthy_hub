@@ -1,10 +1,10 @@
-import{s as i,L as n,j as e}from"./index-a8fe235b.js";import{I as a}from"./pageIllustrations-e4474eda.js";const r=i.div`
+import{s as i,L as n,j as e}from"./index-71968ff4.js";import{I as r}from"./pageIllustrations-45a322a5.js";const a=i.div`
   display: flex;
   gap: 16px;
   margin-bottom: 40px;
   font-weight: 500;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     margin: 0 auto 80px;
     justify-content: center;
   }
@@ -20,7 +20,7 @@ import{s as i,L as n,j as e}from"./index-a8fe235b.js";import{I as a}from"./pageI
   color: var(--secondary-text-color);
   background-color: var(--primary-btn-color);
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     width: 212px;
   }
 `,o=i(n)`
@@ -28,21 +28,20 @@ import{s as i,L as n,j as e}from"./index-a8fe235b.js";import{I as a}from"./pageI
   padding: 8px 10px;
   text-align: center;
   color: var(--primary-title-text-color);
-`,s=()=>e.jsxs(r,{children:[e.jsx(d,{to:"/signin",children:"Sign in"}),e.jsx(o,{to:"/signup",children:"Sign up"})]}),p=i.ul`
+`,p=()=>e.jsxs(a,{children:[e.jsx(d,{to:"/signin",children:"Sign in"}),e.jsx(o,{to:"/signup",children:"Sign up"})]}),s=i.ul`
   list-style: disc;
   margin-left: 16px;
   padding-left: 10px;
   color: var(--primary-title-text-color);
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     text-align: left;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     gap: 16px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     display: block;
   }
 `,t=i.li`
@@ -53,15 +52,19 @@ import{s as i,L as n,j as e}from"./index-a8fe235b.js";import{I as a}from"./pageI
     color: var(--primary-btn-color);
   }
 
-  &:last-child{
+  &:nth-child(odd) {
+    min-width: 250px;
+  }
+
+  &:last-child {
     margin-bottom: 0;
   }
 
-  @media screen and (min-width: 864px) and (max-width: 1440px) {
+  @media screen and (min-width: 834px) and (max-width: 1440px) {
     margin: 0;
   }
-`,x=()=>e.jsxs(p,{children:[e.jsx(t,{children:"Set goals"}),e.jsx(t,{children:"Watch your calories"}),e.jsx(t,{children:"Keep track of your water intake"}),e.jsx(t,{children:"Control your weight"})]}),c=i.section`
-  margin-top: 40px;
+`,x=()=>e.jsxs(s,{children:[e.jsx(t,{children:"Set goals"}),e.jsx(t,{children:"Watch your calories"}),e.jsx(t,{children:"Keep track of your water intake"}),e.jsx(t,{children:"Control your weight"})]}),c=i.section`
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -69,6 +72,7 @@ import{s as i,L as n,j as e}from"./index-a8fe235b.js";import{I as a}from"./pageI
   gap: 24px;
 
   @media screen and (min-width: 834px) {
+    margin-top: 40px;
     gap: 80px;
   }
 
@@ -84,7 +88,7 @@ import{s as i,L as n,j as e}from"./index-a8fe235b.js";import{I as a}from"./pageI
   width: 300px;
   height: 296px;
   display: block;
-  margin: 0 auto 40px;
+
   @media screen and (min-width: 834px) {
     width: 380px;
     height: 376px;
@@ -93,15 +97,13 @@ import{s as i,L as n,j as e}from"./index-a8fe235b.js";import{I as a}from"./pageI
   @media screen and (min-width: 1440px) {
     width: 592px;
     height: 588px;
-    margin: 0;
   }
-`,m=i.div`
+`,h=i.div`
+  max-width: 444px;
   padding-bottom: 40px;
 
   @media screen and (min-width: 834px) {
-    width: 444px;
     text-align: center;
-    margin: 0 auto;
     padding-bottom: 286px;
   }
 
@@ -110,7 +112,7 @@ import{s as i,L as n,j as e}from"./index-a8fe235b.js";import{I as a}from"./pageI
     text-align: left;
     padding: 0;
   }
-`,h=i.h2`
+`,m=i.h2`
   font-weight: 500;
   font-size: 24px;
   line-height: 1.25;
@@ -139,4 +141,4 @@ import{s as i,L as n,j as e}from"./index-a8fe235b.js";import{I as a}from"./pageI
   @media screen and (min-width: 1440px) {
     padding: 0;
   }
-`;function u(){return e.jsxs(c,{children:[e.jsx("div",{children:e.jsx(l,{height:300,children:e.jsx("use",{href:`${a}#icon-auth`})})}),e.jsxs(m,{children:[e.jsx(h,{children:"Set goals and achieve them"}),e.jsx(g,{children:"The service will help you set goals and follow them."}),e.jsx(s,{}),e.jsx(x,{})]})]})}export{u as default};
+`;function u(){return e.jsxs(c,{children:[e.jsx("div",{children:e.jsx(l,{height:300,children:e.jsx("use",{href:`${r}#icon-auth`})})}),e.jsxs(h,{children:[e.jsx(m,{children:"Set goals and achieve them"}),e.jsx(g,{children:"The service will help you set goals and follow them."}),e.jsx(p,{}),e.jsx(x,{})]})]})}export{u as default};
