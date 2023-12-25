@@ -1,4 +1,4 @@
-import{s as n,h as I,k as H,j as e,i as b,r as g,u as E,M as q,l as te,m as R,n as ne,o as ie,L as _,a as oe,p as re,q as ae,t as se,v as le}from"./index-e6c7fe4a.js";import{C as de,A as ce,D as pe}from"./index-1d5b411f.js";import{b as xe,l as he,d as me,s as ge}from"./snack-image-b8a1741e.js";const fe=n.h4`
+import{s as n,h as I,k as H,j as e,i as b,r as g,u as E,M as q,l as te,m as R,n as ne,o as ie,L as _,a as oe,p as re,q as ae,t as se,v as le}from"./index-08a297d1.js";import{C as de,A as ce,D as pe}from"./index-f07b89a4.js";import{b as xe,l as he,d as me,s as ge}from"./snack-image-bf470da7.js";const fe=n.h4`
   color: var(--primary-title-text-color);
   font-size: 18px;
   font-style: normal;
@@ -138,6 +138,7 @@ import{s as n,h as I,k as H,j as e,i as b,r as g,u as E,M as q,l as te,m as R,n 
   position: absolute;
   top: 40px;
   right: 15px;
+  cursor: pointer;
 `,Fe=n.div`
   display: flex;
   flex-direction: column;
