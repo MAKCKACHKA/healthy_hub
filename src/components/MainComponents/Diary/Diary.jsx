@@ -1,9 +1,9 @@
 import DiaryItem from './DiaryItem/DiaryItem';
 
-import breakfastImage from '../../../assets/breakfast-image.svg';
-import dinnerImage from '../../../assets/dinner-image.svg';
-import lunchImage from '../../../assets/lunch-image.svg';
-import snackImage from '../../../assets/snack-image.svg';
+import breakfastImage from '../../../assets/meals/breakfast-image.svg';
+import dinnerImage from '../../../assets/meals/dinner-image.svg';
+import lunchImage from '../../../assets/meals/lunch-image.svg';
+import snackImage from '../../../assets/meals/snack-image.svg';
 
 import {
   CardsWrap,

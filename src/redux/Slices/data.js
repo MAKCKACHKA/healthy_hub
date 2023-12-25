@@ -12,7 +12,7 @@ import {
   updateFoodIntake,
   addUserAvatar,
   refreshRecommendedFood,
-} from './operations';
+} from '../operations';
 
 const initialState = {
   data: {},
