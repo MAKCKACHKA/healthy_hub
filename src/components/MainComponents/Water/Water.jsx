@@ -124,6 +124,16 @@ export default function Water() {
     }
   };
 
+  function calcLeft() {
+    if (userData?.consumedWaterByDay?.ml) {
+      if (userData?.user?.dailyWater - userData?.consumedWaterByDay?.ml >= 0)
+        return userData?.user?.dailyWater - userData?.consumedWaterByDay?.ml;
+      else return 0;
+    } else {
+      return userData?.user?.dailyWater;
+    }
+  }
+
   return (
     <Container>
       <Heading>Water</Heading>
@@ -141,8 +151,7 @@ export default function Water() {
             </Value>
             <LeftValue>
               <span>left : </span>
-              {userData.user?.dailyWater - userData.consumedWaterByDay?.ml ||
-                userData.user?.dailyWater}
+              {calcLeft()}
               ml
             </LeftValue>
           </ValueContainer>
