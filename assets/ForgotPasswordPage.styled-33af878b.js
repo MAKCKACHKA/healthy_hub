@@ -1,5 +1,5 @@
-import{s as a}from"./index-8e5117f4.js";const m=a.form`
-  @media screen and (min-width: 864px) {
+import{s as a}from"./index-a8fe235b.js";const m=a.form`
+  @media screen and (min-width: 834px) {
     max-width: 380px;
   }
 
@@ -8,14 +8,14 @@ import{s as a}from"./index-8e5117f4.js";const m=a.form`
     max-width: ${i=>i.$currentStep===4&&"328px"};
   }
 
-  @media screen and (min-width: 864px) and (max-width: 1439px) {
+  @media screen and (min-width: 834px) and (max-width: 1439px) {
     margin: 0 auto;
   }
 `,n=a.section`
   max-width: 300px;
   margin: 0 auto;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     max-width: 444px;
   }
 

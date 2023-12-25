@@ -1,10 +1,10 @@
-import{s as i,j as r,L as m,d,e as a,g as o}from"./index-8e5117f4.js";const x=i.svg`
+import{s as i,j as r,L as m,d,e as a,g as o}from"./index-a8fe235b.js";const x=i.svg`
   width: 300px;
   height: 296px;
   display: block;
   margin: 24px auto;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     width: 380px;
     height: 376px;
     margin: 40px auto 60px;
@@ -29,11 +29,11 @@ import{s as i,j as r,L as m,d,e as a,g as o}from"./index-8e5117f4.js";const x=i.
   display: flex;
   gap: 16px;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 833px) {
     ${e=>e.$flexDirectionColumn&&"flex-direction: column;"}
   }
 
-  @media screen and (min-width: 767px) and (max-width: 1199px) {
+  @media screen and (min-width: 834px) and (max-width: 1439px) {
     margin-left: 30px;
   }
 `,u=i(m)`
@@ -68,7 +68,7 @@ import{s as i,j as r,L as m,d,e as a,g as o}from"./index-8e5117f4.js";const x=i.
 `,$=({name:e,type:n,placeholder:t,onChange:s,value:c,valid:l,className:p})=>r.jsx(w,{autoComplete:"off",id:e,name:e,type:n,placeholder:t,onChange:s,value:c,$valid:l,className:p}),P=i.form`
   margin-bottom: 14px;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     max-width: 380px;
     margin-bottom: 20px;
   }
@@ -77,7 +77,7 @@ import{s as i,j as r,L as m,d,e as a,g as o}from"./index-8e5117f4.js";const x=i.
     max-width: 212px;
   }
 
-  @media screen and (min-width: 864px) and (max-width: 1439) {
+  @media screen and (min-width: 834px) and (max-width: 1439) {
     margin-left: auto;
     margin-right: auto;
   }
@@ -91,12 +91,12 @@ import{s as i,j as r,L as m,d,e as a,g as o}from"./index-8e5117f4.js";const x=i.
   line-height: 1.3;
   margin-bottom: 24px;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     font-size: 21px;
     line-height: 1.45;
   }
 
-  @media screen and (min-width: 864px) and (max-width: 1439px) {
+  @media screen and (min-width: 834px) and (max-width: 1439px) {
     text-align: center;
   }
 `,T=({description:e})=>r.jsx(f,{children:e}),b=i.h2`
@@ -106,7 +106,7 @@ import{s as i,j as r,L as m,d,e as a,g as o}from"./index-8e5117f4.js";const x=i.
   margin-bottom: 16px;
   word-wrap: break-word;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     font-size: 30px;
     line-height: 1.2;
     text-align:center;
@@ -119,32 +119,32 @@ import{s as i,j as r,L as m,d,e as a,g as o}from"./index-8e5117f4.js";const x=i.
   max-width: 300px;
   margin: 0 auto;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     max-width: 444px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     max-width: 100%;
     margin: 40px 0 72px 150px;
     display: flex;
     flex-wrap: wrap;
   }
-`,L=i(m)`
+`,B=i(m)`
   display: block;
   text-align: center;
   color: inherit;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     text-align: start;
     margin-left: 25px;
   }
-`,U=i.div`
+`,L=i.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 56px;
 
-  @media screen and (min-width: 864px) {
+  @media screen and (min-width: 834px) {
     gap: 222px;
   }
 
@@ -154,4 +154,9 @@ import{s as i,j as r,L as m,d,e as a,g as o}from"./index-8e5117f4.js";const x=i.
     margin-left: 104px;
     padding-top: 80px;
   }
-`;export{y as A,z as E,L as F,k as I,q as P,T as S,U as T,$ as a,W as b,S as c,P as d,E as e,A as f,I as g,j as v};
+`,U=i.div`
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+`;export{y as A,U as B,z as E,B as F,k as I,q as P,T as S,L as T,$ as a,W as b,S as c,P as d,E as e,A as f,I as g,j as v};
