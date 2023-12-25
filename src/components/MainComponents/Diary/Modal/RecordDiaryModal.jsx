@@ -20,7 +20,7 @@ import {
 } from './RecordDiaryModal.styled';
 import trashImage from '../../../../assets/trash.png';
 import { useDispatch } from 'react-redux';
-import { addFoodIntake } from '../../../../redux/operations';
+import { addFoodIntake, getCurrentUser } from '../../../../redux/operations';
 import { useFormik } from 'formik';
 
 const RecordDiaryModal = ({ onClose, image, mealType, onRecord }) => {
@@ -61,8 +61,9 @@ const RecordDiaryModal = ({ onClose, image, mealType, onRecord }) => {
             })),
           };
 
-          dispatch(addFoodIntake(foodIntakeData));
+          await dispatch(addFoodIntake(foodIntakeData));
           onRecord(foodIntakeData);
+          await dispatch(getCurrentUser());
 
           onClose();
         } else {
