@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
   padding: 20px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
   }
 `;
 
@@ -38,11 +38,11 @@ export const HeaderContainer2 = styled.div`
   align-items: center;
   z-index: 50;
   margin-bottom: 20px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     padding: 26px 27px;
     margin-bottom: 24px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     margin-bottom: 20px;
     padding: 26px 34px;
   }
@@ -69,7 +69,7 @@ export const LogoLink = styled(Link)`
   align-items: center;
   height: 28px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     font-size: 22px;
     line-height: 1.45;
     height: 48px;
@@ -94,7 +94,7 @@ export const NavLink = styled(Link)`
   &:focus {
     color: var(--primary-text-color);
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     font-size: 14px;
     line-height: 1.42;
   }
@@ -138,11 +138,11 @@ export const ControlPanel = styled.div`
   align-items: center;
   display: none;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     gap: 40px;
     display: flex;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     gap: 80px;
   }
   position: relative;
@@ -210,7 +210,7 @@ export const AvatarContainer = styled.div`
     font-weight: 400;
     line-height: 1.33;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     p {
       font-size: 14px;
       font-style: normal;
@@ -224,10 +224,10 @@ export const FunctionPanel = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     gap: 75px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     gap: 124px;
   }
 `;
@@ -260,7 +260,7 @@ export const MobileMenuBtn = styled.button`
     }
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     display: none;
   }
 `;

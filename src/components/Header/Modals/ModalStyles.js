@@ -19,11 +19,11 @@ export const ModalBody = styled.div`
   position: fixed;
   top: 0;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 833px) {
     height: 100vh;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     position: absolute;
     background-color: var(--layout-color);
     width: 392px;
@@ -50,7 +50,7 @@ export const CloseBtn = styled.svg`
     stroke: var(--primary-text-color);
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     display: block;
   }
 `;
@@ -75,7 +75,7 @@ export const ModalTitle = styled.h4`
   font-weight: 500;
   line-height: 1.25;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     font-size: 30px;
     line-height: 1.2;
   }
@@ -89,7 +89,7 @@ export const ButtonWraperDown = styled.div`
   gap: 12px;
   margin-top: 24px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     flex-direction: row;
     justify-content: flex-start;
   }
@@ -112,7 +112,7 @@ export const ConfirmBtn = styled.button`
   font-weight: 500;
   line-height: 1.42;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     width: 166px;
   }
 `;
@@ -132,7 +132,7 @@ export const CancelBtn = styled.button`
   font-style: normal;
   font-weight: 500;
   line-height: 1.42;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     display: none;
     width: 166px;
   }
@@ -159,7 +159,7 @@ export const TextInput = styled(Field)`
     -webkit-appearance: none;
     margin: 0;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     width: 166px;
   }
 `;
@@ -336,7 +336,7 @@ export const ModalMenuBody = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     display: none;
   }
 `;
