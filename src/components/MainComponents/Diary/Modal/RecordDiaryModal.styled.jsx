@@ -26,7 +26,7 @@ export const Modal = styled.div`
     transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
     opacity 300ms;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
     width: 90%;
     padding: 24px;
   }
@@ -41,7 +41,7 @@ export const ModalTitle = styled.h1`
   letter-spacing: 0em;
   color: #fff;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
     font-size: 24px;
     line-height: 36px;
   }
@@ -65,7 +65,7 @@ export const Title = styled.h2`
   letter-spacing: 0em;
   color: #fff;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
     font-size: 1.125rem;
     line-height: 32px;
   }
@@ -91,7 +91,7 @@ export const ContentWrapper = styled.div`
   margin-bottom: 16px;
   overflow-y: auto;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
   }
 `;
 
@@ -103,7 +103,7 @@ export const ProductList = styled.ul`
   flex-direction: column;
   gap: 30px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
     height: calc(100% - 44px);
     gap: 24px;
   }
@@ -148,7 +148,7 @@ export const Product = styled.li`
     grid-column-end: 4;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -216,7 +216,7 @@ export const ContainerForBtns = styled.div`
   display: flex;
   gap: 8px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
     flex-direction: row-reverse;
   }
 `;
@@ -235,7 +235,7 @@ export const BtnConfirm = styled.button`
   letter-spacing: 0em;
   cursor: pointer;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
     width: 212px;
   }
 `;
@@ -258,7 +258,7 @@ export const BtnCancel = styled.button`
     border: 1px solid var(--primary-btn-color);
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 833px) {
     width: 212px;
   }
 `;

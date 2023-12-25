@@ -38,6 +38,12 @@ export const IntakeButton = styled.button`
   padding: 8px 10px;
   width: 166px;
   font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
 
   svg {
     height: 16px;
@@ -99,6 +105,11 @@ export const DeleteButton = styled.svg`
   top: 40px;
   right: 15px;
   cursor: pointer;
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
 `;
 
 export const ValueContainer = styled.div`
@@ -150,6 +161,12 @@ export const ModalForm = styled.form`
     outline: none;
     width: 100%;
     margin-bottom: 16px;
+    padding: 8px 10px;
+    transition: opacity 0.2s;
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
   }
 `;
 
@@ -197,4 +214,9 @@ export const CancelModal = styled.p`
   line-height: 1.42;
   margin: 0;
   cursor: pointer;
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
 `;

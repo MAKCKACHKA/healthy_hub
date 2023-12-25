@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  /* width: 100%; */
   width: 660px;
 `;
 
@@ -29,12 +28,18 @@ export const Title = styled.h2`
 `;
 
 export const DiaryLink = styled(Link)`
-  color: gray;
+  color: #b6b6b6;
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
   font-weight: 500;
   line-height: 20px;
   text-decoration: none;
+
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
 
   @media screen and (min-width: 864px) {
     font-size: 14px;

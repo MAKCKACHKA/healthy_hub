@@ -48,7 +48,6 @@ export const signin = createAsyncThunk(
 export const signOut = createAsyncThunk('auth/signout', async (_, thunkAPI) => {
   try {
     const url = '/auth/signout';
-    // console.log('Full URL:', axios.defaults.baseURL + url);
     await axios.post(url);
     clearAuthHeader();
   } catch (error) {
@@ -106,11 +105,7 @@ export const getCurrentUser = createAsyncThunk(
   'auth/getCurrentUser',
   async (_, thunkAPI) => {
     try {
-      // const state = thunkAPI.getState();
-      // // setAuthToken(state.auth.token);
-      // console.log(state.auth.token);
       const res = await axios.get('/user/current');
-      // console.log(res.data);
       return res.data;
     } catch (error) {
       toast.error(error.message);

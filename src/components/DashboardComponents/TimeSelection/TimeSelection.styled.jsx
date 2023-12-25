@@ -1,14 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled, {css} from 'styled-components';
 
-// @media screen and (min-width: 768px) {
-   
-//   }
-
-//   @media screen and (min-width: 768px) and (max-width: 1199px) {
-//     text-align: center;
-//   }
-
 export const HeaderWrapper = styled.div`
         display: flex;
         align-items: center;

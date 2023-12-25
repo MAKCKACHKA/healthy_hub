@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 const StyledRecommendedFoodSection = styled.section`
-  /* width: 320px; */
-  /* margin: 0 auto; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,6 +77,11 @@ const StyledRecommendedFoodSection = styled.section`
     font-size: 14px;
     font-weight: 500px;
     color: #b6b6b6;
+    transition: opacity 0.2s;
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
   }
 
   .svg {
@@ -89,7 +92,6 @@ const StyledRecommendedFoodSection = styled.section`
 
   @media screen and (min-width: 834px) {
     width: calc(834px - (27px * 2));
-    /* margin: 0 auto; */
 
     h2 {
       font-size: 18px;

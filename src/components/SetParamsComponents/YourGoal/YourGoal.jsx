@@ -32,7 +32,7 @@ const YourGoalTitle = styled.p`
 const OtherText = styled.p`
   font-size: 22px;
   color: var(--primary-text-color);
-  width: 100%; /* Adjust as needed */
+  width: 100%;
   max-width: 444px;
   padding-bottom: 24px;
 `;
@@ -131,7 +131,9 @@ const YourGoal = () => {
           {() => (
             <Form>
               <YourGoalTitle>YourGoal</YourGoalTitle>
-              <OtherText>Choose a goal so that we can help you effectively</OtherText>
+              <OtherText>
+                Choose a goal so that we can help you effectively
+              </OtherText>
 
               <RadioLabel>
                 <RadioInput type="radio" name="selectedGoal" value="loseFat" />
@@ -150,7 +152,11 @@ const YourGoal = () => {
               </RadioLabel>
 
               <RadioLabel>
-                <RadioInput type="radio" name="selectedGoal" value="gainMuscle" />
+                <RadioInput
+                  type="radio"
+                  name="selectedGoal"
+                  value="gainMuscle"
+                />
                 <CustomRadio>
                   <span></span>
                 </CustomRadio>
@@ -161,7 +167,11 @@ const YourGoal = () => {
                 <NextButton type="submit" className="btn-next">
                   Next Page
                 </NextButton>
-                <BackButton type="button" onClick={handleBack} className="btn-back">
+                <BackButton
+                  type="button"
+                  onClick={handleBack}
+                  className="btn-back"
+                >
                   Back
                 </BackButton>
               </ButtonContainer>

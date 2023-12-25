@@ -27,10 +27,6 @@ export default function EditDiaryModal({
   onRecord,
   meal,
 }) {
-  useEffect(() => {
-    console.log(meal);
-  }, [meal]);
-
   const dispatch = useDispatch();
   const [foods, setFoods] = useState([
     {
@@ -86,7 +82,6 @@ export default function EditDiaryModal({
               calories: firstFood.calories ? Number(firstFood.calories) : 0,
             },
           };
-          console.log({ foodIntakeData });
 
           dispatch(
             updateFoodIntake({
@@ -96,7 +91,6 @@ export default function EditDiaryModal({
           );
 
           onRecord(foodIntakeData);
-          // await dispatch(getCurrentUser());
           setTimeout(() => {
             dispatch(getCurrentUser());
           }, 100);

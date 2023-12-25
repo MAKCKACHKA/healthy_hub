@@ -10,20 +10,11 @@ import {
 import BigChart from './BigChart/BigChart';
 import DoughnutElement from './Doughnut/Doughnut.jsx';
 import { useSelector } from 'react-redux';
-import {
-  selectDailyNutrition,
-  selectUserMeals,
-  selectUserData,
-} from '../../../redux/selesctors.js';
-import { useEffect } from 'react';
+import { selectUserMeals, selectUserData } from '../../../redux/selesctors.js';
 
 export default function Food() {
-  //const dailyNutrition = useSelector(selectDailyNutrition);
   const dailyMeals = useSelector(selectUserMeals);
   const userStats = useSelector(selectUserData);
-  useEffect(() => {
-    console.log(userStats);
-  }, []);
 
   return (
     <Container>

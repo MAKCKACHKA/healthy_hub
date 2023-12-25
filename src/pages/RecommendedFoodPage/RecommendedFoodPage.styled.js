@@ -119,7 +119,6 @@ const StyledRecommendedFoodPage = styled.div`
       max-width: 536px;
       height: 560px;
       margin-top: 8px;
-      /* margin: 0 auto; */
     }
 
     ul {

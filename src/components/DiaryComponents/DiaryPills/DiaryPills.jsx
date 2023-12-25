@@ -40,12 +40,6 @@ import EditDiaryModal from '../../MainComponents/Diary/Modal/EditDiaryModal';
 
 export const DiaryPills = () => {
   const user = useSelector(selectUserData);
-  //   useEffect(() => {
-  //     if (user && user.consumedMealsByDay) {
-  //       console.log(user.consumedMealsByDay);
-  //       //   console.log(token);
-  //     }
-  //   }, [user]);
 
   const [diaryData, setDiaryData] = useState([
     {
@@ -78,26 +72,7 @@ export const DiaryPills = () => {
   ]);
 
   useEffect(() => {
-    // if (user && user.consumedMealsByDay && user.consumedMealsByDay === 0) {
-    //   const consumedBreakfast =
-    //     user.consumedMealsByDay && user.consumedMealsByDay.breakfast
-    //       ? user.consumedMealsByDay.breakfast
-    //       : 0;
-    //   const consumedLunch =
-    //     user.consumedMealsByDay && user.consumedMealsByDay.lunch
-    //       ? user.consumedMealsByDay.lunch
-    //       : 0;
-    //   const consumedDinner =
-    //     user.consumedMealsByDay && user.consumedMealsByDay.dinner
-    //       ? user.consumedMealsByDay.dinner
-    //       : 0;
-    //   const consumedSnack =
-    //     user.consumedMealsByDay && user.consumedMealsByDay.snack
-    //       ? user.consumedMealsByDay.snack
-    //       : 0;
-
     if (user && user.consumedMealsByDay) {
-      //   console.log(user.consumedMealsByDay);
       const consumedBreakfast = user.consumedMealsByDay.breakfast || {};
       const consumedLunch = user.consumedMealsByDay.lunch || {};
       const consumedDinner = user.consumedMealsByDay.dinner || {};
@@ -109,10 +84,6 @@ export const DiaryPills = () => {
         consumedDinner &&
         consumedDinner
       ) {
-        // console.log(consumedBreakfast);
-        // console.log(consumedLunch);
-        // console.log(consumedDinner);
-        // console.log(consumedSnack);
         setDiaryData([
           {
             title: 'Breakfast',
@@ -193,11 +164,6 @@ export const DiaryPills = () => {
     };
   }, []);
 
-  ///////////////////////////////////////////
-
-  //   const [isModalOpen, setIsModalOpen] = useState(false);
-  //   const [nutritionInfo, setNutritionInfo] = useState([]);
-
   const [openMeal, setOpenMeal] = useState(null);
   const [openFood, setOpenFood] = useState(null);
 
@@ -227,24 +193,24 @@ export const DiaryPills = () => {
               />
             )}
             <HeaderOfPill>
-              {/* <MobileHeader> */}
               <DiaryPillImg src={meal.image} alt="Plate" />
               <TypeOfMeal>{meal.title}</TypeOfMeal>
-              {/* </MobileHeader> */}
               <MealParamsList>
                 <MealParamsItemWrapper>
                   <MealParamsItem>Carbonohidrates:</MealParamsItem>
                   <MealParamsItemData>
-                    {meal.totalCarbohydrates}
+                    {meal.totalCarbohydrates || 0}
                   </MealParamsItemData>
                 </MealParamsItemWrapper>
                 <MealParamsItemWrapper>
                   <MealParamsItem>Protein:</MealParamsItem>
-                  <MealParamsItemData>{meal.totalFat}</MealParamsItemData>
+                  <MealParamsItemData>{meal.totalFat || 0}</MealParamsItemData>
                 </MealParamsItemWrapper>
                 <MealParamsItemWrapper>
                   <MealParamsItem>Fat:</MealParamsItem>
-                  <MealParamsItemData>{meal.totalProtein}</MealParamsItemData>
+                  <MealParamsItemData>
+                    {meal.totalProtein || 0}
+                  </MealParamsItemData>
                 </MealParamsItemWrapper>
               </MealParamsList>
             </HeaderOfPill>

@@ -1,5 +1,3 @@
-// import icons from '../../assets/icons.svg';
-// import clap from '../../assets/emoji/clap.png';
 import { useDispatch } from 'react-redux';
 import icons from '../../../assets/icons.svg';
 
@@ -16,7 +14,7 @@ import {
 import { Formik, Form } from 'formik';
 
 import * as Yup from 'yup';
-import { addUserWeight } from '../../../redux/operations';
+import { addUserWeight, getCurrentUser } from '../../../redux/operations';
 
 export const WeightModal = ({
   setWeightModal,
@@ -28,12 +26,15 @@ export const WeightModal = ({
   const handleSave = (values) => {
     dispatch(addUserWeight(values));
     setWeightValue(values.weight);
+    setTimeout(() => {
+      dispatch(getCurrentUser());
+    }, 300);
     setWeightModal(false);
   };
 
   function formatDate(date) {
     const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Додаємо 1, оскільки місяці у JavaScript починаються з 0.
+    const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
 
     return `${day}.${month}.${year}`;
@@ -54,7 +55,6 @@ export const WeightModal = ({
       <CloseBtn
         onClick={() => {
           setWeightModal(false);
-          // console.log(values);
         }}
       >
         <use href={`${icons}#icon-close-circle`} />
@@ -86,10 +86,8 @@ export const WeightModal = ({
                   <div className="error-message">{errors.weight}</div>
                 )}
               </Label>
-              {/* <ButtonWraperDown> */}
               <ConfirmBtn type="submit">Confirm</ConfirmBtn>
               <CancelBtn type="submit">Cancel</CancelBtn>
-              {/* </ButtonWraperDown> */}
             </WeightForm>
           </Form>
         )}

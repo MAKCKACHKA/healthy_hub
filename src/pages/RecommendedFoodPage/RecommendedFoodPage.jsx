@@ -5,7 +5,6 @@ import { refreshRecommendedFood } from '../../redux/operations';
 import { selectRecFood } from '../../redux/selesctors';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
-//
 
 export default function RecommendedFoodPage() {
   const dispatch = useDispatch();

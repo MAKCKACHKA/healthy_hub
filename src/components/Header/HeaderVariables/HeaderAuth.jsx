@@ -46,7 +46,7 @@ export const HeaderAuth = () => {
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
-      if ((goalModal || weightModal) && screenWidth < 765) {
+      if ((goalModal || weightModal) && screenWidth < 834) {
         document.body.style.overflow = 'hidden';
       } else {
         document.body.style.overflow = 'auto';

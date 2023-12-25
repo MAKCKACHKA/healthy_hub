@@ -17,7 +17,8 @@ import {
   BtnRemoveProduct,
   BtnConfirm,
 } from './RecordDiaryModal.styled';
-import trashImage from '../../../../assets/trash.png';
+import icons from '../../../../assets/icons.svg';
+
 import { useDispatch } from 'react-redux';
 import { addFoodIntake, getCurrentUser } from '../../../../redux/operations';
 import { useFormik } from 'formik';
@@ -166,7 +167,9 @@ const RecordDiaryModal = ({ onClose, image, mealType, onRecord }) => {
                     type="button"
                     onClick={() => handleRemoveProduct(index)}
                   >
-                    <img src={trashImage} alt="Trash" />
+                    <svg width="20" height="20" fill="none">
+                      <use href={`${icons}#icon-trash`}></use>
+                    </svg>
                   </BtnRemoveProduct>
                 </Product>
               </ProductList>

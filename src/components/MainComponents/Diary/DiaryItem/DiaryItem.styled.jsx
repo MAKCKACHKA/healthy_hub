@@ -87,11 +87,23 @@ export const AddButton = styled.button`
   outline: none;
   padding: 0;
   cursor: pointer;
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
 `;
-export const BtnRemoveProduct = styled.button`
+export const BtnRemoveProduct = styled.svg`
   padding: 0;
   margin: 0;
   border: none;
   background-color: transparent;
   cursor: pointer;
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+  width: 20px;
+  height: 20px;
 `;

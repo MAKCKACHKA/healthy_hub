@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectRecFood } from '../../../redux/selesctors';
 import { useEffect } from 'react';
 import { refreshRecommendedFood } from '../../../redux/operations';
+import { NavLink } from 'react-router-dom';
 
 export default function RecommendedFoodPage() {
   const dispatch = useDispatch();
@@ -42,12 +43,12 @@ export default function RecommendedFoodPage() {
             );
           })}
         </ul>
-        <a className="href" href="././Recommended-food">
+        <NavLink className="href" to="/recommended-food">
           See more
           <svg className="svg">
             <use href={`${icons}#icon-arrow-right`} />
           </svg>
-        </a>
+        </NavLink>
       </div>
     </StyledRecommendedFoodSection>
   );

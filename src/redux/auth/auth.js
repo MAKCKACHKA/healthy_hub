@@ -5,7 +5,6 @@ import {
   signOut,
   signin,
   signup,
-  // getCurrentUser,
 } from '../operations';
 
 const initialState = {
@@ -17,7 +16,6 @@ const initialState = {
 };
 
 const handleFulfilled = (state, action) => {
-  // state.user = action.payload.user;
   state.token = action.payload.token;
   state.isLoading = false;
   state.error = null;
@@ -51,7 +49,6 @@ const authSlice = createSlice({
       .addCase(signin.rejected, handleRejected)
       .addCase(signOut.fulfilled, (state) => {
         state.token = null;
-        // state.user = { name: null, email: null };
         state.isLoading = false;
         state.error = null;
       })
@@ -59,7 +56,6 @@ const authSlice = createSlice({
       .addCase(signOut.rejected, handleRejected)
       .addCase(forgotPassword.fulfilled, (state) => {
         state.token = null;
-        // state.user = { name: '', email: '' };
         state.isLoading = false;
         state.error = null;
       })

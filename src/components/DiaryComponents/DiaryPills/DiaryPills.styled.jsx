@@ -63,6 +63,9 @@ export const HeaderOfPill = styled.div`
   flex-wrap: wrap;
   @media screen and (max-width: 834px) {
     flex-wrap: wrap;
+    ul {
+      width: 200px;
+    }
   }
 `;
 
@@ -78,6 +81,7 @@ export const TypeOfMeal = styled.h2`
   font-weight: 400;
   line-height: 32px;
   margin-left: 12px;
+  width: 104px;
   @media screen and (max-width: 834px) {
     font-size: 18px;
     line-height: 26px;
@@ -138,8 +142,8 @@ export const MealPillList = styled.ul`
   gap: 32px;
   overflow-y: scroll;
   height: 232px;
-  scrollbar-width: thin; /* Для Firefox */
-  scrollbar-color: transparent transparent; /* Для Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
 
   &::-webkit-scrollbar {
     width: 12px;
@@ -237,9 +241,7 @@ export const MealPillParamsitem = styled.li`
   &:last-child {
     width: 30px;
   }
-  /* @media screen and (min-width: 834px) and (max-width: 1440px){
-         margin-left:32px;
-    } */
+
   @media screen and (max-width: 834px) {
     width: auto;
     font-size: 12px;
@@ -259,9 +261,6 @@ export const MealPillEdit = styled.div`
     opacity: 0.8;
   }
 
-  @media screen and (min-width: 834px) and (max-width: 1440px) {
-    /* margin-left:20px; */
-  }
   @media screen and (max-width: 834px) {
     margin-left: 17px;
     align-items: flex-start;
@@ -286,7 +285,6 @@ export const MealPillEditText = styled.p`
 
 export const MealPillAdd = styled.div`
   display: flex;
-  /* align-items: center; */
   align-items: stretch;
   margin-left: 16px;
   cursor: pointer;

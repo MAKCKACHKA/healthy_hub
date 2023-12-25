@@ -19,17 +19,16 @@ export const ModalBody = styled.div`
   position: fixed;
   top: 0;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 833px) {
     height: 100vh;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     position: absolute;
     background-color: var(--layout-color);
     width: 392px;
     left: 0;
     top: 74px;
-    /* height: 352px; */
     padding: 20px 24px 40px;
     box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.2);
     border-radius: 12px;
@@ -50,7 +49,7 @@ export const CloseBtn = styled.svg`
     stroke: var(--primary-text-color);
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     display: block;
   }
 `;
@@ -75,7 +74,7 @@ export const ModalTitle = styled.h4`
   font-weight: 500;
   line-height: 1.25;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     font-size: 30px;
     line-height: 1.2;
   }
@@ -89,7 +88,7 @@ export const ButtonWraperDown = styled.div`
   gap: 12px;
   margin-top: 24px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     flex-direction: row;
     justify-content: flex-start;
   }
@@ -111,8 +110,12 @@ export const ConfirmBtn = styled.button`
   font-style: normal;
   font-weight: 500;
   line-height: 1.42;
-
-  @media screen and (min-width: 768px) {
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+  @media screen and (min-width: 834px) {
     width: 166px;
   }
 `;
@@ -132,7 +135,12 @@ export const CancelBtn = styled.button`
   font-style: normal;
   font-weight: 500;
   line-height: 1.42;
-  @media screen and (min-width: 768px) {
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+  @media screen and (min-width: 834px) {
     display: none;
     width: 166px;
   }
@@ -159,7 +167,7 @@ export const TextInput = styled(Field)`
     -webkit-appearance: none;
     margin: 0;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     width: 166px;
   }
 `;
@@ -197,7 +205,6 @@ export const ImageWrapper = styled.div`
   }
   border-radius: 12px;
   border: 1px solid var(--dashboard-bcg-color);
-  /* background: rgba(255, 255, 255, 0.01); */
   transition:
     border-color 0.3s,
     background 0.3s;
@@ -267,7 +274,6 @@ export const ModalLink = styled(Link)`
   display: flex;
   align-items: center;
   gap: 8px;
-  /* stroke: var(--primary-title-text-color); */
 
   svg {
     display: flex;
@@ -296,6 +302,11 @@ export const ModalButton = styled.button`
   font-weight: 500;
   line-height: 1.42;
 
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
   display: flex;
   align-items: center;
   gap: 8px;
@@ -336,7 +347,7 @@ export const ModalMenuBody = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 834px) {
     display: none;
   }
 `;
@@ -365,6 +376,11 @@ export const ConfirmBtnLogOut = styled.button`
   font-style: normal;
   font-weight: 500;
   line-height: 1.42;
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
 `;
 export const CancelBtnLogOut = styled.button`
   display: flex;
@@ -382,4 +398,9 @@ export const CancelBtnLogOut = styled.button`
   font-style: normal;
   font-weight: 500;
   line-height: 1.42;
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
 `;

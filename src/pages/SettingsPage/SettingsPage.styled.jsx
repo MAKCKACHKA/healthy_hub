@@ -85,7 +85,6 @@ export const SaveBtn = styled.button`
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  /* line-height: 1.42; */
 
   @media screen and (min-width: 864px) {
     width: 212px;
@@ -119,7 +118,6 @@ export const WrapImgAndForm = styled.div`
     flex-direction: row;
   }
   @media screen and (min-width: 1440px) {
-    /* justify-content: space-between; */
     margin-left: auto;
     margin-right: auto;
     max-width: 1440px;
@@ -266,7 +264,6 @@ export const AvatarIcon = styled.svg`
   width: 36px;
   height: 36px;
   border-radius: 36px;
-  /* fill: var(--primary-text-color); */
   stroke: var(--primary-title-text-color);
 `;
 
@@ -299,6 +296,5 @@ export const ImageInput = styled.input`
 export const UploadIcon = styled.svg`
   width: 16px;
   height: 16px;
-  /* flex-shrink: 0; */
   stroke: var(--primary-btn-color);
 `;

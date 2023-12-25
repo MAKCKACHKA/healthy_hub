@@ -41,6 +41,12 @@ export const StyledLink = styled(Link)`
   align-items: center;
   gap: 6px;
 
+  cursor: pointer;
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
   svg {
     height: 16px;
     width: 16px;

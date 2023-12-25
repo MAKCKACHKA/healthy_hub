@@ -14,7 +14,7 @@ import {
   BtnRemoveProduct,
 } from './DiaryItem.styled.jsx';
 
-import trashImage from '../../../../assets/trash.png';
+import icons from '../../../../assets/icons.svg';
 
 import RecordDiaryModal from '../Modal/RecordDiaryModal.jsx';
 import {
@@ -90,8 +90,13 @@ const DiaryItem = ({ title, image }) => {
           <FatWrap>
             Fat: <Value>{nutritionInfo.totalFat}</Value>
           </FatWrap>
-          <BtnRemoveProduct onClick={handleDelete}>
-            <img src={trashImage} alt="trash" />
+          <BtnRemoveProduct
+            width="20"
+            height="20"
+            fill="none"
+            onClick={handleDelete}
+          >
+            <use href={`${icons}#icon-trash`}></use>
           </BtnRemoveProduct>
         </InfoWrap>
       )}

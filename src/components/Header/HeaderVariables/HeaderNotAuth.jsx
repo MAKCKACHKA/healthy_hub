@@ -16,11 +16,8 @@ export const HeaderNotAuth = () => {
 
   return (
     <HeaderContainer2>
-      {isSignUp ? (
-        <LogoLink to="/welcome">Your health</LogoLink>
-      ) : (
-        <LogoLink to="/welcome">HealthyHub</LogoLink>
-      )}
+      <LogoLink to="/welcome">HealthyHub</LogoLink>
+
       <NonAuthNav>
         {isSignIn ? (
           <NavLink style={{ color: '#E3FFA8' }} to="/signin">

@@ -24,8 +24,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectToken } from './redux/selesctors';
 import { getCurrentUser, setAuthToken } from './redux/operations';
 
-// const test = import.meta.env.VITE_API_TEST;
-
 function PrivateRoute({ children }) {
   const token = useSelector(selectToken);
   return token ? <Navigate to="/main" /> : children;
@@ -37,10 +35,6 @@ function PublicRoute({ children }) {
 
 function App() {
   const token = useSelector(selectToken);
-  // const user = useSelector(selectUserData);
-  // useEffect(() => {
-  //   console.log(token, user);
-  // }, [user, token]);
 
   const dispatch = useDispatch();
 
@@ -55,22 +49,25 @@ function App() {
     <AppWrapper>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-        {token ?  <Route
-            index
-            element={
-              <PublicRoute>
-                <MainPage />
-              </PublicRoute>
-            }/> :          
+          {token ? (
             <Route
-            index
-            element={
-              <PrivateRoute>
-                <WelcomePage />
-              </PrivateRoute>
-            }
-          />
-        }
+              index
+              element={
+                <PublicRoute>
+                  <MainPage />
+                </PublicRoute>
+              }
+            />
+          ) : (
+            <Route
+              index
+              element={
+                <PrivateRoute>
+                  <WelcomePage />
+                </PrivateRoute>
+              }
+            />
+          )}
 
           {/* Nonauth */}
           <Route
