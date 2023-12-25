@@ -9,7 +9,6 @@ export const SignInSection = styled.section`
   align-content: center;
   gap: 24px;
   margin-top: 24px;
-
   @media screen and (min-width: 834px) {
     gap: 80px;
     margin-top: 40px;
@@ -17,10 +16,9 @@ export const SignInSection = styled.section`
 
   @media screen and (min-width: 1440px) {
     flex-direction: row;
-    justify-content: left;
     gap: 104px;
     max-width: 100%;
-    margin: 40px 0 72px 150px;
+    margin: 40px 0 72px;
   }
 `;
 
@@ -28,7 +26,11 @@ export const ForgotPassLink = styled(Link)`
   display: block;
   text-align: center;
   color: inherit;
-
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
   @media screen and (min-width: 1440px) {
     text-align: start;
     margin-left: 25px;

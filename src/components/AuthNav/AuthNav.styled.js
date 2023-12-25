@@ -24,6 +24,11 @@ export const SignInBtn = styled(Link)`
   border-radius: 12px;
   color: var(--secondary-text-color);
   background-color: var(--primary-btn-color);
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
 
   @media screen and (min-width: 834px) {
     width: 212px;
@@ -35,4 +40,9 @@ export const SignUpBtn = styled(Link)`
   padding: 8px 10px;
   text-align: center;
   color: var(--primary-title-text-color);
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
 `;

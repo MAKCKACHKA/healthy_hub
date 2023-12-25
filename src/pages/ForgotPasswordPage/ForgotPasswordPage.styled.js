@@ -7,6 +7,7 @@ export const Section = styled.section`
   align-content: center;
   gap: 24px;
   margin-top: 24px;
+  justify-content: center;
 
   @media screen and (min-width: 834px) {
     gap: 60px;
@@ -17,6 +18,6 @@ export const Section = styled.section`
     width: 100%;
     flex-direction: row;
     gap: 104px;
-    margin-left: 150px;
+    /* margin-left: 150px; */
   }
 `;

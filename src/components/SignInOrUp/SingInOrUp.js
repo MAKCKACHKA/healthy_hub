@@ -17,4 +17,9 @@ export const SingInOrUpWrap = styled.div`
 export const SingInOrUpLink = styled(Link)`
   font-weight: 500;
   color: var(--primary-title-text-color);
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
 `;

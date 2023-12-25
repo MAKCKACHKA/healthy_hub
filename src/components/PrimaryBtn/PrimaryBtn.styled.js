@@ -10,4 +10,9 @@ export const PrimaryBtnStyled = styled.button`
   border-radius: 12px;
   color: var(--secondary-text-color);
   background-color: var(--primary-btn-color);
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
 `;
