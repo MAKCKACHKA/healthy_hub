@@ -1,4 +1,4 @@
-import{s as e,h as z,k as C,r as l,j as t,i as m,L as F}from"./index-5aa4b38e.js";import{b as g,l as w,d as y,s as u}from"./snack-image-24a9dad0.js";const B=e.div`
+import{s as e,h as z,k as C,r as l,j as t,i as m,L as F}from"./index-ec5d26f6.js";import{b as g,l as w,d as y,s as u}from"./snack-image-2edf2696.js";const B=e.div`
   display: flex;
   flex-wrap: wrap;
   max-width: 1372px;
