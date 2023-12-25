@@ -12,57 +12,103 @@ import {
   ContentWrapper,
   ProductList,
   Product,
-  BtnAddNewProduct,
   ContainerForBtns,
   BtnRemoveProduct,
   BtnConfirm,
 } from './RecordDiaryModal.styled';
 import trashImage from '../../../../assets/trash.png';
 import { useDispatch } from 'react-redux';
-import { addFoodIntake, getCurrentUser } from '../../../../redux/operations';
+import {
+  addFoodIntake,
+  getCurrentUser,
+  updateFoodIntake,
+} from '../../../../redux/operations';
 import { useFormik } from 'formik';
+import { useEffect, useState } from 'react';
 
-const RecordDiaryModal = ({ onClose, image, mealType, onRecord }) => {
+export default function EditDiaryModal({
+  onClose,
+  image,
+  mealType,
+  onRecord,
+  meal,
+}) {
+  useEffect(() => {
+    console.log(meal);
+  }, [meal]);
+
   const dispatch = useDispatch();
+  const [foods, setFoods] = useState([
+    {
+      name: meal ? meal.name : '',
+      nutrition: {
+        carbohydrates: meal ? meal.nutrition.carbohydrates : '',
+        protein: meal ? meal.nutrition.protein : '',
+        fat: meal ? meal.nutrition.fat : '',
+      },
+      calories: meal ? meal.calories : '',
+    },
+  ]);
+
+  useEffect(() => {
+    setFoods([
+      {
+        name: meal ? meal.name : '',
+        nutrition: {
+          carbohydrates: meal ? meal.nutrition.carbohydrates : '',
+          protein: meal ? meal.nutrition.protein : '',
+          fat: meal ? meal.nutrition.fat : '',
+        },
+        calories: meal ? meal.calories : '',
+      },
+    ]);
+  }, [meal]);
 
   const formik = useFormik({
     initialValues: {
       mealType: mealType,
-      foods: [
-        {
-          name: '',
-          nutrition: {
-            carbohydrates: '',
-            protein: '',
-            fat: '',
-          },
-          calories: '',
-        },
-      ],
+      foods: foods,
     },
     onSubmit: async (values) => {
       try {
         if (values.foods && values.foods.length > 0 && values.foods[0]) {
+          const firstFood = values.foods[0];
+
           const foodIntakeData = {
             mealType: mealType.toLowerCase(),
-            foods: values.foods.map((food) => ({
-              name: food.name ? food.name : 'string',
+            foodDetails: {
+              name: firstFood.name ? firstFood.name : 'string',
               nutrition: {
-                carbohydrates: food.nutrition.carbohydrates
-                  ? Number(food.nutrition.carbohydrates)
+                carbohydrates: firstFood.nutrition.carbohydrates
+                  ? Number(firstFood.nutrition.carbohydrates)
                   : 0,
-                protein: food.nutrition.protein
-                  ? Number(food.nutrition.protein)
+                protein: firstFood.nutrition.protein
+                  ? Number(firstFood.nutrition.protein)
                   : 0,
-                fat: food.nutrition.fat ? Number(food.nutrition.fat) : 0,
+                fat: firstFood.nutrition.fat
+                  ? Number(firstFood.nutrition.fat)
+                  : 0,
               },
-              calories: food.calories ? Number(food.calories) : 0,
-            })),
+              calories: firstFood.calories ? Number(firstFood.calories) : 0,
+            },
+          };
+          console.log({ foodIntakeData });
+          const datas = {
+            mealType: 'breakfast',
+            foodDetails: {
+              name: '33',
+              calories: 33,
+              nutrition: {
+                carbohydrates: 33,
+                fat: 33,
+                protein: 33,
+              },
+            },
           };
 
-          await dispatch(addFoodIntake(foodIntakeData));
+          dispatch(updateFoodIntake(meal._id, { foodIntakeData }));
           onRecord(foodIntakeData);
-          await dispatch(getCurrentUser());
+          // await dispatch(getCurrentUser());
 
           onClose();
         }
@@ -84,25 +130,10 @@ const RecordDiaryModal = ({ onClose, image, mealType, onRecord }) => {
     formik.setFieldValue('foods', updatedProducts);
   };
 
-  const handleAddProduct = () => {
-    formik.setFieldValue('foods', [
-      ...formik.values.foods,
-      {
-        name: '',
-        nutrition: {
-          carbohydrates: '',
-          protein: '',
-          fat: '',
-        },
-        calories: '',
-      },
-    ]);
-  };
-
   return (
     <Backdrop onClick={handleBackdropClick}>
       <Modal>
-        <ModalTitle>Record your meal</ModalTitle>
+        <ModalTitle>Edit your meal</ModalTitle>
         <WrapperFormTitle>
           <Image src={image} alt="Plate" />
           <Title>{mealType}</Title>
@@ -171,9 +202,6 @@ const RecordDiaryModal = ({ onClose, image, mealType, onRecord }) => {
                 </Product>
               </ProductList>
             ))}
-            <BtnAddNewProduct type="button" onClick={handleAddProduct}>
-              + Add more
-            </BtnAddNewProduct>
           </ContentWrapper>
           <ContainerForBtns>
             <BtnCancel type="button" onClick={onClose}>
@@ -185,6 +213,4 @@ const RecordDiaryModal = ({ onClose, image, mealType, onRecord }) => {
       </Modal>
     </Backdrop>
   );
-};
-
-export default RecordDiaryModal;
+}

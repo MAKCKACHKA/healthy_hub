@@ -252,6 +252,13 @@ export const MealPillEdit = styled.div`
   margin-left: 40px;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+
   @media screen and (min-width: 834px) and (max-width: 1440px) {
     /* margin-left:20px; */
   }
@@ -282,6 +289,12 @@ export const MealPillAdd = styled.div`
   /* align-items: center; */
   align-items: stretch;
   margin-left: 16px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
   @media screen and (max-width: 834px) {
   }
 `;

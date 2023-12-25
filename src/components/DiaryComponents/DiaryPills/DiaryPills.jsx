@@ -33,17 +33,21 @@ import snackImage from '../../../assets/snack-image.svg';
 import icons from './../../../assets/icons.svg';
 
 import { useState, useEffect } from 'react';
-import { selectUserData } from '../../../redux/selesctors';
+import { selectToken, selectUserData } from '../../../redux/selesctors';
 import { useSelector } from 'react-redux';
+import RecordDiaryModal from '../../MainComponents/Diary/Modal/RecordDiaryModal';
+import EditDiaryModal from '../../MainComponents/Diary/Modal/EditDiaryModal';
 // import { getCurrentUser } from '../../../redux/operations';
 // import { useDispatch } from 'react-redux';
 
 export const DiaryPills = () => {
   const user = useSelector(selectUserData);
+  const token = useSelector(selectToken);
 
   useEffect(() => {
     if (user && user.consumedMealsByDay) {
       console.log(user.consumedMealsByDay);
+      console.log(token);
     }
   }, [user]);
 
@@ -97,7 +101,7 @@ export const DiaryPills = () => {
     //       : 0;
 
     if (user && user.consumedMealsByDay) {
-      console.log(user.consumedMealsByDay);
+      //   console.log(user.consumedMealsByDay);
       const consumedBreakfast = user.consumedMealsByDay.breakfast || {};
       const consumedLunch = user.consumedMealsByDay.lunch || {};
       const consumedDinner = user.consumedMealsByDay.dinner || {};
@@ -109,10 +113,10 @@ export const DiaryPills = () => {
         consumedDinner &&
         consumedDinner
       ) {
-        console.log(consumedBreakfast);
-        console.log(consumedLunch);
-        console.log(consumedDinner);
-        console.log(consumedSnack);
+        // console.log(consumedBreakfast);
+        // console.log(consumedLunch);
+        // console.log(consumedDinner);
+        // console.log(consumedSnack);
         setDiaryData([
           {
             title: 'Breakfast',
@@ -193,11 +197,39 @@ export const DiaryPills = () => {
     };
   }, []);
 
+  ///////////////////////////////////////////
+
+  //   const [isModalOpen, setIsModalOpen] = useState(false);
+  //   const [nutritionInfo, setNutritionInfo] = useState([]);
+
+  const [openMeal, setOpenMeal] = useState(null);
+  const [openFood, setOpenFood] = useState(null);
+
+  const toggleModal = (meal) => {
+    setOpenMeal(meal !== openMeal ? meal : null);
+  };
+  const toggleEditModal = (meal) => {
+    setOpenFood(meal !== openMeal ? meal : null);
+  };
+
+  const handleRecord = () => {
+    toggleModal();
+  };
+
   return (
     <DiaryPillsWrapper>
       {diaryData &&
         diaryData.map((meal) => (
           <PillElement key={meal.title}>
+            {openMeal === meal && (
+              <RecordDiaryModal
+                styles={{ zIndex: `10` }}
+                onClose={() => toggleModal(meal)}
+                image={meal.image}
+                mealType={meal.title}
+                onRecord={handleRecord}
+              />
+            )}
             <HeaderOfPill>
               {/* <MobileHeader> */}
               <DiaryPillImg src={meal.image} alt="Plate" />
@@ -271,12 +303,22 @@ export const DiaryPills = () => {
                         </MealPillParamsList>
                       </>
                     )}
-                    <MealPillEdit>
+                    <MealPillEdit onClick={() => toggleEditModal(food)}>
                       <MealPillEditSvg>
                         <use href={`${icons}#icon-edit`}></use>
                       </MealPillEditSvg>
                       <MealPillEditText>Edit</MealPillEditText>
                     </MealPillEdit>
+                    {openFood === food && (
+                      <EditDiaryModal
+                        styles={{ zIndex: `100` }}
+                        onClose={() => toggleEditModal(meal)}
+                        image={meal.image}
+                        mealType={meal.title}
+                        onRecord={handleRecord}
+                        meal={food}
+                      />
+                    )}
                   </MealPillItem>
                 ))}
                 <MealPillItem>
@@ -285,7 +327,7 @@ export const DiaryPills = () => {
                     <MealPillAddSvg>
                       <use href={`${icons}#icon-add`}></use>
                     </MealPillAddSvg>
-                    <MealPillAddParagraph>
+                    <MealPillAddParagraph onClick={() => toggleModal(meal)}>
                       Record your meal
                     </MealPillAddParagraph>
                   </MealPillAdd>

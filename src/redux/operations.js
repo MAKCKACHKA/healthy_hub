@@ -214,7 +214,7 @@ export const deleteWaterIntake = createAsyncThunk(
 
 export const updateFoodIntake = createAsyncThunk(
   'auth/updateFoodIntake',
-  async ({ foodId, foodIntakeData }, thunkAPI) => {
+  async (foodId, foodIntakeData, thunkAPI) => {
     try {
       const res = await axios.put(
         `/user/food-intake/${foodId}`,
