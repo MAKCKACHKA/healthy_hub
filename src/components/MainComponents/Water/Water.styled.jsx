@@ -98,6 +98,7 @@ export const DeleteButton = styled.svg`
   position: absolute;
   top: 40px;
   right: 15px;
+  cursor: pointer;
 `;
 
 export const ValueContainer = styled.div`
