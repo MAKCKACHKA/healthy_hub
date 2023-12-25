@@ -10,7 +10,7 @@ export const SingInOrUpWrap = styled.div`
   }
 
   @media screen and (min-width: 834px) and (max-width: 1439px) {
-    margin-left: 30px;
+    margin-left: 32px;
   }
 `;
 

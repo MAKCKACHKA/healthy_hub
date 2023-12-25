@@ -13,11 +13,9 @@ import {
 export default function WelcomePage() {
   return (
     <HeroSection>
-      <div>
-        <HeroImg height={300}>
-          <use href={`${pageIllustrations}#icon-auth`} />
-        </HeroImg>
-      </div>
+      <HeroImg height={300}>
+        <use href={`${pageIllustrations}#icon-auth`} />
+      </HeroImg>
       <HeroDescWrap>
         <HeroTitle>Set goals and achieve them</HeroTitle>
         <SubTitleHero>

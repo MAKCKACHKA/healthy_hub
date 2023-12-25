@@ -4,17 +4,12 @@ export const SingInFormStyled = styled.form`
   margin-bottom: 14px;
 
   @media screen and (min-width: 834px) {
-    max-width: 380px;
+    width: 380px;
     margin-bottom: 20px;
   }
 
   @media screen and (min-width: 1440px) {
-    max-width: 212px;
-  }
-
-  @media screen and (min-width: 834px) and (max-width: 1439) {
-    margin-left: auto;
-    margin-right: auto;
+    width: 212px;
   }
 `;
 
