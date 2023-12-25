@@ -1,4 +1,4 @@
-import{s as i,L as n,j as e}from"./index-9668496b.js";import{I as r}from"./pageIllustrations-e48ad7cb.js";const a=i.div`
+import{s as i,L as n,j as e}from"./index-23125b2b.js";import{I as r}from"./pageIllustrations-36979e7a.js";const a=i.div`
   display: flex;
   gap: 16px;
   margin-bottom: 40px;
@@ -99,10 +99,10 @@ import{s as i,L as n,j as e}from"./index-9668496b.js";import{I as r}from"./pageI
     height: 588px;
   }
 `,h=i.div`
-  max-width: 444px;
   padding-bottom: 40px;
 
   @media screen and (min-width: 834px) {
+    width: 444px;
     text-align: center;
     padding-bottom: 286px;
   }
@@ -141,4 +141,4 @@ import{s as i,L as n,j as e}from"./index-9668496b.js";import{I as r}from"./pageI
   @media screen and (min-width: 1440px) {
     padding: 0;
   }
-`;function u(){return e.jsxs(c,{children:[e.jsx("div",{children:e.jsx(l,{height:300,children:e.jsx("use",{href:`${r}#icon-auth`})})}),e.jsxs(h,{children:[e.jsx(m,{children:"Set goals and achieve them"}),e.jsx(g,{children:"The service will help you set goals and follow them."}),e.jsx(p,{}),e.jsx(x,{})]})]})}export{u as default};
+`;function u(){return e.jsxs(c,{children:[e.jsx(l,{height:300,children:e.jsx("use",{href:`${r}#icon-auth`})}),e.jsxs(h,{children:[e.jsx(m,{children:"Set goals and achieve them"}),e.jsx(g,{children:"The service will help you set goals and follow them."}),e.jsx(p,{}),e.jsx(x,{})]})]})}export{u as default};
