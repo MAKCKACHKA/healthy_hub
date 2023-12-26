@@ -2,12 +2,14 @@ import StyledRecommendedFoodPage from './RecommendedFoodPage.styled';
 import Illustration from '../../assets/pageIllustrations.svg';
 import { useDispatch } from 'react-redux';
 import { refreshRecommendedFood } from '../../redux/operations';
-import { selectRecFood } from '../../redux/selesctors';
+import { selectRecFood, selectIsLoading } from '../../redux/selesctors';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { Loader } from '../../components/Loader/Loader';
 
 export default function RecommendedFoodPage() {
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
   const food = useSelector(selectRecFood);
   let reducedArr = [];
 
@@ -27,6 +29,7 @@ export default function RecommendedFoodPage() {
           <svg className="img_div">
             <use href={`${Illustration}#icon-recommented-food`} />
           </svg>
+          {isLoading && <Loader />}
           <ul>
             {reducedArr?.map(({ amount, calories, img, name, _id }) => {
               return (
