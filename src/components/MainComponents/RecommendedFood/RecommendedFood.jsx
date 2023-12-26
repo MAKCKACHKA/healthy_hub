@@ -1,7 +1,11 @@
 import StyledRecommendedFoodSection from './RecommendedFood.styled';
 import icons from '../../../assets/icons.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectRecFood, selectIsLoading } from '../../../redux/selesctors';
+import {
+  selectRecFood,
+  selectIsLoadAuth,
+  selectIsLoadData,
+} from '../../../redux/selesctors';
 import { useEffect } from 'react';
 import { refreshRecommendedFood } from '../../../redux/operations';
 import { NavLink } from 'react-router-dom';
@@ -9,7 +13,7 @@ import { Loader } from '../../Loader/Loader';
 
 export default function RecommendedFoodPage() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectIsLoadAuth && selectIsLoadData);
   const food = useSelector(selectRecFood);
   let reducedArr = [];
 

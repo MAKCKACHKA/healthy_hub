@@ -35,8 +35,7 @@ import {
   getCurrentUser,
   updateUserInformation,
 } from '../../redux/operations';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function SettingsPage() {
   const { user } = useSelector(selectUserData);
@@ -76,6 +75,8 @@ export default function SettingsPage() {
       dispatch(getCurrentUser());
       setAvatar(user.avatarURL);
       avatar !== '' && typeof avatar === 'object' && setObjectURL(false);
+
+      window.location.href = '/healthy_hub/main ';
     }, 2300);
   };
 
@@ -83,6 +84,7 @@ export default function SettingsPage() {
     resetForm({ values: initialValues });
     setAvatar(user ? user.avatarURL : '');
     setObjectURL(false);
+    window.location.href = '/healthy_hub/main ';
   };
 
   const validationSchema = Yup.object().shape({
