@@ -1,4 +1,4 @@
-import{s as l,u as c,h as s,q as h,t as m,r as g,v as w,j as i,w as f}from"./index-d7164d05.js";import{I as u}from"./pageIllustrations-380aa4ff.js";const j=l.div`
+import{s as l,u as c,h as s,q as h,t as m,v as g,r as w,w as f,j as i,x as u}from"./index-bef6f68b.js";import{I as j}from"./pageIllustrations-b6143792.js";const v=l.div`
   width: 320px;
   margin: 0 auto;
 
@@ -129,4 +129,4 @@ import{s as l,u as c,h as s,q as h,t as m,r as g,v as w,j as i,w as f}from"./ind
       padding: 20px 108px 20px 24px;
     }
   }
-`,v=j;function b(){const d=c(),p=s(h),t=s(m);let e=[];return g.useEffect(()=>{d(w())},[d]),t&&(e=t.slice(0,10)),i.jsx(v,{children:i.jsxs("div",{className:"main_div",children:[i.jsx("h3",{children:"Recommended Food"}),i.jsxs("div",{className:"wrapper",children:[i.jsx("svg",{className:"img_div",children:i.jsx("use",{href:`${u}#icon-recommented-food`})}),p&&i.jsx(f,{}),i.jsx("ul",{children:e==null?void 0:e.map(({amount:o,calories:a,img:x,name:n,_id:r})=>i.jsx("li",{children:i.jsxs("div",{className:"description",children:[i.jsx("div",{className:"small_img_div",children:i.jsx("img",{src:x,alt:"",width:46,height:46})}),i.jsxs("section",{children:[i.jsx("h4",{children:n}),i.jsxs("p",{children:[o,i.jsxs("span",{children:[a," calories"]})]})]})]})},r))})]})]})})}export{b as default};
+`,_=v;function R(){const t=c(),a=s(h&&m),d=s(g);let e=[];return w.useEffect(()=>{t(f())},[t]),d&&(e=d.slice(0,10)),i.jsx(_,{children:i.jsxs("div",{className:"main_div",children:[i.jsx("h3",{children:"Recommended Food"}),i.jsxs("div",{className:"wrapper",children:[i.jsx("svg",{className:"img_div",children:i.jsx("use",{href:`${j}#icon-recommented-food`})}),a&&i.jsx(u,{}),i.jsx("ul",{children:e==null?void 0:e.map(({amount:p,calories:o,img:x,name:n,_id:r})=>i.jsx("li",{children:i.jsxs("div",{className:"description",children:[i.jsx("div",{className:"small_img_div",children:i.jsx("img",{src:x,alt:"",width:46,height:46})}),i.jsxs("section",{children:[i.jsx("h4",{children:n}),i.jsxs("p",{children:[p,i.jsxs("span",{children:[o," calories"]})]})]})]})},r))})]})]})})}export{R as default};
