@@ -81,8 +81,7 @@ const DiaryItem = ({ title, image }) => {
       {nutritionInfo && nutritionInfo.foods && nutritionInfo.foods[0] && (
         <InfoWrap>
           <CarbonohidratesWrap>
-            Carbohydrates:
-            <Value>{nutritionInfo.totalCarbohydrates}</Value>
+            Carbohydrates: <Value>{nutritionInfo.totalCarbohydrates}</Value>
           </CarbonohidratesWrap>
           <ProteinWrap>
             Protein: <Value>{nutritionInfo.totalProtein}</Value>

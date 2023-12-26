@@ -21,6 +21,7 @@ export const signup = createAsyncThunk(
       const res = await axios.post('/auth/signup', credentials);
       setAuthToken(res.data.token);
       console.log(res.data);
+      toast.success('Successfully sign up!');
       return res.data;
     } catch (error) {
       toast.error(error.message);
@@ -36,7 +37,7 @@ export const signin = createAsyncThunk(
       const res = await axios.post('/auth/signin', credentials);
       setAuthToken(res.data.token);
       console.log(res.data);
-
+      toast.success('Successfully sign in!');
       return res.data;
     } catch (error) {
       toast.error(error.message);
@@ -49,6 +50,7 @@ export const signOut = createAsyncThunk('auth/signout', async (_, thunkAPI) => {
   try {
     const url = '/auth/signout';
     await axios.post(url);
+    toast.success('Successfully sign out!');
     clearAuthHeader();
   } catch (error) {
     toast.error(error.message);
@@ -61,6 +63,7 @@ export const forgotPassword = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('/auth/forgot-password', credentials);
+      toast.success('A letter has been sent to your email!');
       return res.data;
     } catch (error) {
       toast.error(error.message);
@@ -119,6 +122,7 @@ export const updateUserInformation = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const res = await axios.put('/user/update', userData);
+      toast.success('User information updated');
       return res.data;
     } catch (error) {
       toast.error(error.message);
@@ -132,6 +136,7 @@ export const updateUserGoal = createAsyncThunk(
   async (goalData, thunkAPI) => {
     try {
       const res = await axios.put('/user/goal', goalData);
+      toast.success('Goal updated');
       return res.data;
     } catch (error) {
       toast.error(error.message);
@@ -145,6 +150,7 @@ export const addUserWeight = createAsyncThunk(
   async (weightData, thunkAPI) => {
     try {
       const res = await axios.post('/user/weight', weightData);
+      toast.success('Weight updated');
       return res.data;
     } catch (error) {
       toast.error(error.message);
@@ -158,6 +164,7 @@ export const addFoodIntake = createAsyncThunk(
   async (foodIntakeData, thunkAPI) => {
     try {
       const res = await axios.post('/user/food-intake', foodIntakeData);
+      toast.success('Meal added');
       return res.data;
     } catch (error) {
       toast.error(error.message);
@@ -173,6 +180,7 @@ export const deleteFoodIntake = createAsyncThunk(
       const res = await axios.delete('/user/food-intake', {
         data: { mealType },
       });
+      toast.success('Meal deleted');
       return res.data;
     } catch (error) {
       toast.error(error.message);
@@ -186,6 +194,7 @@ export const addWaterIntake = createAsyncThunk(
   async (waterIntakeData, thunkAPI) => {
     try {
       const res = await axios.post('/user/water-intake', waterIntakeData);
+      toast.success('Water added');
       return res.data;
     } catch (error) {
       toast.error(error.message);
@@ -199,6 +208,7 @@ export const deleteWaterIntake = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await axios.delete('/user/water-intake');
+      toast.success('Water deleted');
       return res.data;
     } catch (error) {
       toast.error(error.message);
@@ -215,6 +225,7 @@ export const updateFoodIntake = createAsyncThunk(
         `/user/food-intake/${foodId}`,
         foodIntakeData
       );
+      toast.success('Meal updated');
       return res.data;
     } catch (error) {
       toast.error(error.message);
@@ -234,6 +245,7 @@ export const addUserAvatar = createAsyncThunk(
           'x-rapidapi-key': 'your-rapidapi-key-here',
         },
       });
+      toast.success('Avatar updated');
       return res.data;
     } catch (error) {
       toast.error(error.message);
