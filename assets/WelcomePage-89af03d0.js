@@ -1,4 +1,4 @@
-import{s as e,L as n,j as i}from"./index-c946aa1e.js";import{I as a}from"./pageIllustrations-610b66ba.js";const r=e.div`
+import{u as e,L as n,j as i}from"./index-423a86f5.js";import{I as a}from"./pageIllustrations-54486ed8.js";const r=e.div`
   display: flex;
   gap: 16px;
   margin-bottom: 40px;
@@ -38,7 +38,7 @@ import{s as e,L as n,j as i}from"./index-c946aa1e.js";import{I as a}from"./pageI
   &:focus {
     opacity: 0.8;
   }
-`,s=()=>i.jsxs(r,{children:[i.jsx(o,{to:"/signin",children:"Sign in"}),i.jsx(d,{to:"/signup",children:"Sign up"})]}),p=e.ul`
+`,p=()=>i.jsxs(r,{children:[i.jsx(o,{to:"/signin",children:"Sign in"}),i.jsx(d,{to:"/signup",children:"Sign up"})]}),s=e.ul`
   list-style: disc;
   margin-left: 16px;
   padding-left: 10px;
@@ -73,7 +73,7 @@ import{s as e,L as n,j as i}from"./index-c946aa1e.js";import{I as a}from"./pageI
   @media screen and (min-width: 834px) and (max-width: 1440px) {
     margin: 0;
   }
-`,x=()=>i.jsxs(p,{children:[i.jsx(t,{children:"Set goals"}),i.jsx(t,{children:"Watch your calories"}),i.jsx(t,{children:"Keep track of your water intake"}),i.jsx(t,{children:"Control your weight"})]}),c=e.section`
+`,x=()=>i.jsxs(s,{children:[i.jsx(t,{children:"Set goals"}),i.jsx(t,{children:"Watch your calories"}),i.jsx(t,{children:"Keep track of your water intake"}),i.jsx(t,{children:"Control your weight"})]}),c=e.section`
   margin-top: 24px;
   display: flex;
   flex-direction: column;
@@ -151,4 +151,4 @@ import{s as e,L as n,j as i}from"./index-c946aa1e.js";import{I as a}from"./pageI
   @media screen and (min-width: 1440px) {
     padding: 0;
   }
-`;function u(){return i.jsxs(c,{children:[i.jsx(l,{height:300,children:i.jsx("use",{href:`${a}#icon-auth`})}),i.jsxs(h,{children:[i.jsx(m,{children:"Set goals and achieve them"}),i.jsx(g,{children:"The service will help you set goals and follow them."}),i.jsx(s,{}),i.jsx(x,{})]})]})}export{u as default};
+`;function u(){return i.jsxs(c,{children:[i.jsx(l,{height:300,children:i.jsx("use",{href:`${a}#icon-auth`})}),i.jsxs(h,{children:[i.jsx(m,{children:"Set goals and achieve them"}),i.jsx(g,{children:"The service will help you set goals and follow them."}),i.jsx(p,{}),i.jsx(x,{})]})]})}export{u as default};

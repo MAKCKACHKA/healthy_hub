@@ -1,4 +1,4 @@
-import{s as x,j as e,r as j,u as b,a as C,i as t,b as k}from"./index-c946aa1e.js";import{I as S}from"./pageIllustrations-610b66ba.js";import{I as F,a as h,E as c,P as v,v as T,A,T as $,b as I,S as B,c as W}from"./SignInPage.styled-aef981e6.js";import{F as E,S as O}from"./ForgotPasswordPage.styled-b1e36f9e.js";import{I as d,S as i,a as m,G as N,b as P,L as u,c as G,P as R,A as U,d as D,e as L}from"./SignUpForm.styled-9df785e0.js";const M=x.button`
+import{u as x,j as e,r as j,a as b,b as C,i as t,s as k}from"./index-423a86f5.js";import{I as S}from"./pageIllustrations-54486ed8.js";import{I as F,a as h,E as c,P as v,v as T,A,T as $,b as I,S as B,c as W}from"./SignInPage.styled-3093cecd.js";import{F as E,S as O}from"./ForgotPasswordPage.styled-5467faba.js";import{I as d,S as i,a as m,G as N,b as P,L as u,c as G,P as R,A as U,d as D,e as L}from"./SignUpForm.styled-a37ace03.js";const M=x.button`
   width: 192px;
   text-align: center;
   border: none;
