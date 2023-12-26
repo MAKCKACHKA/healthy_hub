@@ -20,7 +20,6 @@ export const signup = createAsyncThunk(
     try {
       const res = await axios.post('/auth/signup', credentials);
       setAuthToken(res.data.token);
-      console.log(res.data);
       toast.success('Successfully sign up!');
       return res.data;
     } catch (error) {
@@ -36,7 +35,6 @@ export const signin = createAsyncThunk(
     try {
       const res = await axios.post('/auth/signin', credentials);
       setAuthToken(res.data.token);
-      console.log(res.data);
       toast.success('Successfully sign in!');
       return res.data;
     } catch (error) {

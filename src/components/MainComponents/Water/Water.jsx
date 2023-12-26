@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
   Container,
   Heading,

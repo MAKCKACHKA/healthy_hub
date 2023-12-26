@@ -53,7 +53,7 @@ h6 {
   color: var(--primary-title-text-color);
 }
 
-input[type="number"] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
 input::-webkit-inner-spin-button,
@@ -62,6 +62,10 @@ input::-webkit-outer-spin-button {
   margin: 0;
 }
 
-input[type="password"] {
+input[type='password'] {
   -webkit-text-security: none;
+}
+
+button {
+  border: 0;
 }

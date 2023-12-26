@@ -117,7 +117,7 @@ export const ValueContainer = styled.div`
   flex-direction: column;
   gap: 8px;
   margin-bottom: 16px;
-
+  width: 262px;
   @media (min-width: 834px) {
     flex-direction: row;
     gap: 40px;
@@ -178,6 +178,7 @@ export const StyledInput = styled.input`
   border-radius: 12px;
   padding: 8px 10px;
   color: #fff;
+  height: 36px;
 
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
