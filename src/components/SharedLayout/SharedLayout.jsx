@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Header } from 'components/Header/Header';
 import { Container } from './SharedLayout.styled';
 import { Toaster } from 'react-hot-toast';
+import { Loader } from '../Loader/Loader';
 // import { setToken } from '../../redux/auth/auth';
 
 const SharedLayout = () => {
@@ -10,7 +11,7 @@ const SharedLayout = () => {
     <>
       <Header />
       <Container>
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </Container>
