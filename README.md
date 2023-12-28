@@ -1,183 +1,184 @@
 # Healthy Hub
 
-**Опис компанії:** Healthy Hub - це компанія, що спеціалізується на розробці та
-наданні послуг у сфері здорового способу життя та фітнесу. Їхні продукти та
-сервіси орієнтовані на покращення фізичного здоров'я, діети та загального
-благополуччя користувачів.
+**Company Description:** Healthy Hub is a company specializing in the
+development and provision of services in the field of a healthy lifestyle and
+fitness. Their products and services are designed to improve users' physical
+health, diet, and overall well-being.
 
-**Ймовірні клієнти:**
+**Potential Clients:**
 
-1. **Особи, що прагнуть здорового способу життя:** Healthy Hub привертає осіб,
-   які цінують своє здоров'я та прагнуть до активного та збалансованого способу
-   життя.
+1. **Individuals Pursuing a Healthy Lifestyle:** Healthy Hub attracts
+   individuals who value their health and strive for an active and balanced
+   lifestyle.
 
-2. **Фітнес-ентузіасти:** Спортивні люди та ті, хто займається фітнесом,
-   знаходять цінні інструменти для відстеження та поліпшення своїх результатів.
+2. **Fitness Enthusiasts:** Athletes and fitness enthusiasts find valuable tools
+   for tracking and improving their results through Healthy Hub.
 
-3. **Ті, хто прагне досягти конкретних цілей:** Особи, які прагнуть досягти
-   конкретних цілей, таких як збільшення чи зменшення ваги, поліпшення фізичної
-   форми тощо, знаходять в платформі підтримку та інструменти для досягнення
-   своїх мет.
+3. **Those Aiming for Specific Goals:** Individuals aiming to achieve specific
+   goals, such as weight gain or loss, improvement in physical fitness, etc.,
+   find support and tools on the platform.
 
-## Складові проекту:
+## Project Components:
 
-## Backend частина:
+## Backend Part:
 
-1. Реалізовано системи авторизації для користувачів, що дозволяє їм увійти до
-   системи за допомогою унікальних облікових записів або зареєструватися у
-   системі, та вийти з облікового запису стерши токен користувача.
+1. Implemented user authentication systems, allowing users to log in to the
+   system using unique accounts or register in the system. Users can also log
+   out, invalidating their authentication token.
 
-2. Створено функціонал для відновлення паролю користувача у випадку, якщо він
-   забув свій пароль. Відправлення листа на вказану електронну пошту з новим
-   паролем.
+2. Developed functionality for user password recovery in case of forgetting
+   their password. Users receive an email with a new password.
 
-3. Підготовано даних для відображення статистичної інформації, пов'язаної з
-   використанням сервісу.
+3. Prepared data for displaying statistical information related to the use of
+   the service.
 
-4. Відображення інформації усієї інформації про користувача та відображення
-   статистики по споживанню калорій, води та ваги.
+4. Displayed comprehensive user information and statistics on calorie
+   consumption, water intake, and weight.
 
-5. Додано можливість змінювати дані користувача загалом та оновлювати його
-   зображення, зберігаючи його на сервісі cloudinary.
+5. Added the ability to update user data in general and update their image,
+   storing it on the cloudinary service.
 
-6. Надано можлиість змінювати окремо дані цілі користувача та його вагу.
+6. Provided the ability to separately modify user goal data and weight.
 
-7. Є можливість добавляти, видаляти прийоми їжі та води.
+7. Enabled adding and deleting food and water intake records.
 
-8. Реалізовано системи рекомендацій, яка аналізує інформацію про користувача
-   (денні цілі) та надає персоналізовані рекомендації щодо харчування.
+8. Implemented a recommendation system that analyzes user information (daily
+   goals) and provides personalized nutrition recommendations.
 
-9. Запущено проект на Swagger для полегшення співпраці та взаємодії між
-   розробниками, які працюють з різними частинами системи.
+9. Launched the project on Swagger to facilitate collaboration and interaction
+   between developers working on different parts of the system.
 
-## Frontend частина:
+## Frontend Part:
 
 ### Header:
 
-![](./assets/headerNonAuth.png)
+![HeaderNonAuth](./assets/headerNonAuth.png)
 
-![](./assets/headerOnSignIn.png)
+![HeaderOnSignIn](./assets/headerOnSignIn.png)
 
-![](./assets/authHeader.png)
+![HeaderAuth](./assets/authHeader.png)
 
-В залежності авторизований користувач чи ні може відображати різну інформацію,
-якщо користувач не авторизований тоді відображає логотип компанії та навігацію
-Sign in / Sign up які підсвічуються у випадку якщо ці сторінки активні. Якщо
-авторизований тоді будуть відображатися логотип та дані про вагу, ціль, ім’я та
-аватар користувача, усі ці дані мають функції при натисканні на логотип
-пересилає на головну сторінку, при натисканні на ціль відкривається модальне
-вікно для зміни цілі користувача, при натисканні на вагу відкривається модальне
-вікно для зміни ваги та при натисканні на ім’я можна побачити посилання на
-сторінку settings та кнопку Log out.
+Depending on whether the user is authenticated or not, different information is
+displayed. For unauthenticated users, the company logo and navigation for Sign
+In/Sign Up are shown. When authenticated, the logo and user's weight, goal,
+name, and avatar are displayed. Clicking on the logo redirects to the home page,
+goal opens a modal for changing the user's goal, weight opens a modal for
+changing weight, and clicking on the name reveals links to the settings page and
+a Log Out button.
 
-### Welcome page:
+### Welcome Page:
 
 ![Welcome page](./assets/welcomePage.png)
 
-Сторінка яка зустрічає кожного неавторизованого користувача, містить в собі
-посилання на сторінки sign In та sign up.
+A page welcoming unauthenticated users, containing links to the Sign In and Sign
+Up pages.
 
-Sign in page:
+### Sign In Page:
 
 ![Sign in page](./assets/signIn.png)
 
-Sign in містить в собі форму з поштою та паролем для авторизації зареєстрованого
-користувача.
+Includes a form with email and password fields for the authorization of
+registered users.
+
+### Forgot Password Page:
 
 ![Forgot password page](./assets/forgot.png)
 
-Сторінка яка дає змогу користувачеві якій забув свій пароль відновити його
-увівши пошту.
+Allows users who have forgotten their password to recover it by entering their
+email.
 
-Sign up page:
+### Sign Up Page:
 
 ![Sign up page](./assets/signUp.png)
 
-Сторінка реєстрації користувача яка містить в собі форму для заповнення частини
-інформації про користувача, такі як ім'я, пошта та пароль.
+User registration page with a form for filling in user information, such as
+name, email, and password.
 
-### Your goal ![Goal](./assets/goal.png)
+### Your Goal Section:
 
-Секція реєстрації користувача яка продовжує заповнення форми про користувача з
-інформацією про його ціль.
+![Goal](./assets/goal.png)
 
-### Select gender, Age ![Select gender, Age](./assets/gender.png)
+Continues the user registration process, filling in information about the user's
+goal.
 
-Ця секція також продовжує реєстрацію користувача, в якій користувач може вибрати
-стать та вік.
+### Select Gender, Age Section:
 
-### Body parameters ![Parameters](./assets/params.png)
+![Select gender, Age](./assets/gender.png)
 
-Ця секція реєстрації, відповідає за дані про вагу та ріст користувача.
+Continues the user registration process, allowing users to select gender and
+age.
 
-### Your Activity ![Activity](./assets/activity.png)
+### Body Parameters Section:
 
-Ця секція реєстрації відповідає за дані про фізичну активніст, саме тут і є
-кнопка Sing Up яка відповідає за реєстрацію користувача та внесення даних на
-backend.
+![Parameters](./assets/params.png)
 
-### Main page:
+This section corresponds to the user's weight and height data.
 
-![Activity](./assets/main.png)
+### Your Activity Section:
 
-Головна сторінка авторизованого користувача, містить найважливіші дані для
-користувача, має кілька секцій.
+![Activity](./assets/activity.png)
 
-**Секція Today**
+Handles user registration data related to physical activity. The Sign-Up button
+registers the user and sends data to the backend.
 
-Ця секція містить денну ціль по споживанню води та калорій, також тут є
-можливість вностит дані про спожиту воду та побачити скільки ще потрібно випити,
-ще є частина з калоріями та нутрієнтами де можна необхідну їх кількість та
-графік їх споживання. Також ця секція має посилання на сторінку Dashboard.
+### Main Page:
 
-**Секція Diary**
+![Main page](./assets/main.png)
 
-За допомогою цієї секції користувачі можуть легко фіксувати свої щоденні прийоми
-їжі, реєструючи деталі щодо вживаних продуктів. Також користувач може слідкувати
-за вмістом вуглеводів, білків, жирів в введених продуктах харчування за кожним
-прийомом їжі. Ще тут є посилання на повний список на сторінці Diary.
+The main page for authenticated users contains essential user data and several
+sections.
 
-**Секція Recommended Food**
+**Today Section:**
 
-В даній секції зареєстрований користувач може побачити скорочений список
-рекомендованих продуктів та yатиснуваши на кнопку “see more” користувач
-потрапляє на сторінку recommended food бачить весь список рекомендованих йому
-продуктів.
+Displays the daily goals for water and calorie consumption. Users can input data
+on water intake and see how much more they need to drink. The section also
+includes information on calories and nutrients, with a graph of their
+consumption. It has a link to the Dashboard page.
+
+**Diary Section:**
+
+Allows users to easily record their daily food intake, detailing the consumed
+products. Users can track the content of carbohydrates, proteins, and fats for
+each meal. There is also a link to the full list on the Diary page.
+
+**Recommended Food Section:**
+
+Shows a condensed list of recommended foods for the registered user. Clicking
+"see more" takes the user to the Recommended Food page, displaying the full list
+of recommended products.
 
 ### Dashboard:
 
 ![Dashboard](./assets/dashboard.png)
 
-На сторінці можна проглядати свою статистику за цей або минулий місяць яка
-влючає у себе графік вживаних калорій та випитої води а також числовий графік
-вашої ваги. На цій сторінці зручно відслідковувати свій прогресс по набору або
-скиданню ваги та слідкувати за кількістю вживання води та калорій на протязі
-поточного або минулого місяця.
+On this page, users can view their statistics for the current or past month,
+including a graph of consumed calories, water intake, and a numerical graph of
+their weight. This page is convenient for tracking progress in weight gain or
+loss and monitoring water and calorie intake over the current or past month.
 
-### Diary page:
+### Diary Page:
 
 ![Diary](./assets/diary.png)
 
-Надає інформацію про прийоми їжі, які страви були спожиті на сніданок, обід,
-вечерю та перекус, надає можливість додавати та змінювати страву, його калорії
-та нутрієнти та розраховує загальну суму за прийом їжі.
+Provides information about food intake, detailing the meals consumed for
+breakfast, lunch, dinner, and snacks. Users can add and modify meals, including
+their calories and nutrients, and the system calculates the total for each meal.
 
-### Recommended food:
+### Recommended Food Page:
 
 ![Recommended food](./assets/recommendedFood.png)
 
-В даному розділі зареєстрований користувач може побачити продукти які йому краще
-споживати для досягнення своіх персональних потреб, вирахуваних на основі мети
-(наприклад схуднення або набір м’язів) а також ваги та раціону. До того ж в
-картках вказана кількість калорій на 100 грам продукту.
+In this section, registered users can see products that are best for them based
+on their personal needs, derived from their goals (e.g., weight loss or muscle
+gain), weight, and diet. Each card displays the calorie count per 100 grams of
+the product.
 
-### Settings page:
+### Settings Page:
 
 ![Settings page](./assets/settings.png)
 
-На сторінці Settings можна знайти повну інформацію по користувач, таку як: ім’я,
-вік, стать, ріст, вага, фізична активність та аватар користувача. Ці дані можна
-легко змінити, на числових даних проставлено валідацію щоб користувач міг
-уникнути помилки та на місті фото користувача можна одразу побачити обраний
-автар, зміни зберігаються після натискання кнопки save, також можна відмінити
-зміни натиснувши кнопку cancel.
+Displays comprehensive user information, such as name, age, gender, height,
+weight, physical activity, and user avatar. Users can easily modify this data,
+with numeric data validation to avoid errors. The chosen avatar is immediately
+visible next to the user's photo, and changes are saved by clicking the "Save"
+button, with the option to cancel changes.
