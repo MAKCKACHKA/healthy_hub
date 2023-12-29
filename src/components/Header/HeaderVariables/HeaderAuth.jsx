@@ -136,7 +136,7 @@ export const HeaderAuth = () => {
             } else {
               setMenuModal(true);
             }
-            setOverlay(!overlay);
+            setOverlay(true);
           }}
         >
           <svg>
@@ -152,7 +152,7 @@ export const HeaderAuth = () => {
                 setGoalModal(true);
                 setWeightModal(false);
                 setUserModal(false);
-                setOverlay(!overlay);
+                setOverlay(true);
               }}
             >
               <ImageWrapper>
@@ -173,7 +173,7 @@ export const HeaderAuth = () => {
                 setWeightModal(true);
                 setGoalModal(false);
                 setUserModal(false);
-                setOverlay(!overlay);
+                setOverlay(true);
               }}
             >
               <ImageWrapper>
@@ -221,7 +221,7 @@ export const HeaderAuth = () => {
               } else {
                 setUserModal(true);
               }
-              setOverlay(!overlay);
+              setOverlay(true);
             }}
           >
             <p>{testInfo.name}</p>
@@ -267,7 +267,7 @@ export const HeaderAuth = () => {
                   setGoalModal(true);
                   setWeightModal(false);
                   setUserModal(false);
-                  setOverlay(!overlay);
+                  setOverlay(true);
                 }}
               >
                 <ImageWrapper>
@@ -288,7 +288,7 @@ export const HeaderAuth = () => {
                   setWeightModal(true);
                   setGoalModal(false);
                   setUserModal(false);
-                  setOverlay(!overlay);
+                  setOverlay(true);
                 }}
               >
                 <ImageWrapper>

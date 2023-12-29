@@ -28,13 +28,13 @@ export const WeightModal = ({
   const handleSave = (values) => {
     dispatch(addUserWeight(values));
     setWeightValue(values.weight);
-    setOverlay(false);
-    setMenuModal(false);
 
     setTimeout(() => {
       dispatch(getCurrentUser());
     }, 300);
     setWeightModal(false);
+    setOverlay(false);
+    setMenuModal(false);
   };
 
   function formatDate(date) {

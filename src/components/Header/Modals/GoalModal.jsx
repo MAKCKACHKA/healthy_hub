@@ -32,13 +32,13 @@ export const GoalModal = ({
   const handleSave = (values) => {
     dispatch(updateUserGoal(values));
     setGoalValue(values.goal);
-    setMenuModal(false);
-    setOverlay(false);
     setTimeout(() => {
       dispatch(getCurrentUser());
     }, 300);
 
     setGoalModal(false);
+    setOverlay(false);
+    setMenuModal(false);
   };
 
   return (
