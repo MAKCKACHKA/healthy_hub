@@ -20,12 +20,17 @@ export const WeightModal = ({
   setWeightModal,
   initialValues,
   setWeightValue,
+  setOverlay,
+  setMenuModal,
 }) => {
   const dispatch = useDispatch();
 
   const handleSave = (values) => {
     dispatch(addUserWeight(values));
     setWeightValue(values.weight);
+    setOverlay(false);
+    setMenuModal(false);
+
     setTimeout(() => {
       dispatch(getCurrentUser());
     }, 300);
@@ -55,6 +60,8 @@ export const WeightModal = ({
       <CloseBtn
         onClick={() => {
           setWeightModal(false);
+          setOverlay(false);
+          setMenuModal(false);
         }}
       >
         <use href={`${icons}#icon-close-circle`} />
@@ -87,7 +94,16 @@ export const WeightModal = ({
                 )}
               </Label>
               <ConfirmBtn type="submit">Confirm</ConfirmBtn>
-              <CancelBtn type="submit">Cancel</CancelBtn>
+              <CancelBtn
+                type="button"
+                onClick={() => {
+                  setWeightModal(false);
+                  setOverlay(false);
+                  setMenuModal(false);
+                }}
+              >
+                Cancel
+              </CancelBtn>
             </WeightForm>
           </Form>
         )}

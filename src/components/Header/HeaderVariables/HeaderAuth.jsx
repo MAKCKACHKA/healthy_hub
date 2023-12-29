@@ -15,6 +15,7 @@ import {
   MobileMenuBtn,
   MobileLogoBtnWrap,
   AvatarImage,
+  OverlayContainer,
 } from '../Header.styled';
 
 import looseFatMen from '../../../assets/emoji/Lose-fat-men.png';
@@ -42,6 +43,8 @@ export const HeaderAuth = () => {
   const [userModal, setUserModal] = useState(false);
   const [menuModal, setMenuModal] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
+
+  const [overlay, setOverlay] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -82,7 +85,7 @@ export const HeaderAuth = () => {
   const [goalValue, setGoalValue] = useState(testInfo.goal);
   const [weightValue, setWeightValue] = useState(testInfo.weight);
 
-  const gender = 'male';
+  const gender = user ? user.gender : 'male' || 'female';
   const run = gender === 'male' ? looseFatMen : looseFatGirl;
   const maintain = gender === 'male' ? maintainMen : maintainGirl;
 
@@ -110,6 +113,17 @@ export const HeaderAuth = () => {
   return (
     <HeaderContainer2>
       <LogOutModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
+      <OverlayContainer
+        visible={overlay}
+        onClick={() => {
+          setOverlay(false);
+          setGoalModal(false);
+          setWeightModal(false);
+          setUserModal(false);
+          setMenuModal(false);
+          setIsOpen(false);
+        }}
+      />
 
       <MobileLogoBtnWrap>
         <LogoLink to="/main">HealthyHub</LogoLink>
@@ -122,6 +136,7 @@ export const HeaderAuth = () => {
             } else {
               setMenuModal(true);
             }
+            setOverlay(!overlay);
           }}
         >
           <svg>
@@ -137,6 +152,7 @@ export const HeaderAuth = () => {
                 setGoalModal(true);
                 setWeightModal(false);
                 setUserModal(false);
+                setOverlay(!overlay);
               }}
             >
               <ImageWrapper>
@@ -157,6 +173,7 @@ export const HeaderAuth = () => {
                 setWeightModal(true);
                 setGoalModal(false);
                 setUserModal(false);
+                setOverlay(!overlay);
               }}
             >
               <ImageWrapper>
@@ -182,6 +199,7 @@ export const HeaderAuth = () => {
                 muscle={muscle}
                 setGoalValue={setGoalValue}
                 initialValues={initialValuesT}
+                setOverlay={setOverlay}
               />
             )}
             {weightModal && (
@@ -189,6 +207,7 @@ export const HeaderAuth = () => {
                 setWeightModal={setWeightModal}
                 initialValues={initialValuesW}
                 setWeightValue={setWeightValue}
+                setOverlay={setOverlay}
               />
             )}
           </ControlPanel>
@@ -202,6 +221,7 @@ export const HeaderAuth = () => {
               } else {
                 setUserModal(true);
               }
+              setOverlay(!overlay);
             }}
           >
             <p>{testInfo.name}</p>
@@ -215,10 +235,12 @@ export const HeaderAuth = () => {
             <DropIcon>
               <use href={`${icons}#icon-arrow-down`} />
             </DropIcon>
-            {userModal && <UserModal setIsOpen={setIsOpen} />}
+            {userModal && (
+              <UserModal setIsOpen={setIsOpen} setOverlay={setOverlay} />
+            )}
           </AvatarContainer>
           {menuModal && (
-            <MenuModal setMenuModal={setMenuModal}>
+            <MenuModal setMenuModal={setMenuModal} setOverlay={setOverlay}>
               {goalModal && (
                 <GoalModal
                   setGoalModal={setGoalModal}
@@ -227,6 +249,8 @@ export const HeaderAuth = () => {
                   muscle={muscle}
                   setGoalValue={setGoalValue}
                   initialValues={initialValuesT}
+                  setOverlay={setOverlay}
+                  setMenuModal={setMenuModal}
                 />
               )}
               {weightModal && (
@@ -234,6 +258,8 @@ export const HeaderAuth = () => {
                   setWeightModal={setWeightModal}
                   initialValues={initialValuesW}
                   setWeightValue={setWeightValue}
+                  setOverlay={setOverlay}
+                  setMenuModal={setMenuModal}
                 />
               )}
               <InfoContainer
@@ -241,6 +267,7 @@ export const HeaderAuth = () => {
                   setGoalModal(true);
                   setWeightModal(false);
                   setUserModal(false);
+                  setOverlay(!overlay);
                 }}
               >
                 <ImageWrapper>
@@ -261,6 +288,7 @@ export const HeaderAuth = () => {
                   setWeightModal(true);
                   setGoalModal(false);
                   setUserModal(false);
+                  setOverlay(!overlay);
                 }}
               >
                 <ImageWrapper>

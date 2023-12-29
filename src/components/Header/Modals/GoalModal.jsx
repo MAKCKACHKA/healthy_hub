@@ -24,12 +24,16 @@ export const GoalModal = ({
   maintain,
   muscle,
   setGoalValue,
+  setOverlay,
+  setMenuModal,
 }) => {
   const dispatch = useDispatch();
 
   const handleSave = (values) => {
     dispatch(updateUserGoal(values));
     setGoalValue(values.goal);
+    setMenuModal(false);
+    setOverlay(false);
     setTimeout(() => {
       dispatch(getCurrentUser());
     }, 300);
@@ -42,6 +46,8 @@ export const GoalModal = ({
       <CloseBtn
         onClick={() => {
           setGoalModal(false);
+          setOverlay(false);
+          setMenuModal(false);
         }}
       >
         <use href={`${icons}#icon-close-circle`} />
@@ -98,7 +104,16 @@ export const GoalModal = ({
             </YourActivityInput>
             <ButtonWraperDown>
               <ConfirmBtn type="submit">Confirm</ConfirmBtn>
-              <CancelBtn type="submit">Cancel</CancelBtn>
+              <CancelBtn
+                type="button"
+                onClick={() => {
+                  setGoalModal(false);
+                  setOverlay(false);
+                  setMenuModal(false);
+                }}
+              >
+                Cancel
+              </CancelBtn>
             </ButtonWraperDown>
           </Form>
         )}
