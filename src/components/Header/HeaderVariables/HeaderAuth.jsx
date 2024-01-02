@@ -45,6 +45,17 @@ export const HeaderAuth = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   const [overlay, setOverlay] = useState(false);
+  const [linked, setLinked] = useState(false);
+
+  useEffect(() => {
+    if (modalIsOpen) {
+      setIsOpen(true);
+      setOverlay(false);
+    }
+    if (linked) {
+      setOverlay(false);
+    }
+  }, [modalIsOpen, overlay, linked]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -65,6 +76,7 @@ export const HeaderAuth = () => {
         setWeightModal(false);
         setUserModal(false);
         setMenuModal(false);
+        setOverlay(false);
       }
     };
     window.addEventListener('keydown', handleKeyPress);
@@ -112,18 +124,17 @@ export const HeaderAuth = () => {
 
   return (
     <HeaderContainer2>
-      <LogOutModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
       <OverlayContainer
-        visible={overlay}
+        style={overlay ? { display: 'block' } : { display: 'none' }}
         onClick={() => {
           setOverlay(false);
           setGoalModal(false);
           setWeightModal(false);
           setUserModal(false);
           setMenuModal(false);
-          setIsOpen(false);
         }}
       />
+      <LogOutModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
 
       <MobileLogoBtnWrap>
         <LogoLink to="/main">HealthyHub</LogoLink>
@@ -193,6 +204,7 @@ export const HeaderAuth = () => {
             </InfoContainer>
             {goalModal && (
               <GoalModal
+                setMenuModal={setMenuModal}
                 setGoalModal={setGoalModal}
                 run={run}
                 maintain={maintain}
@@ -204,6 +216,7 @@ export const HeaderAuth = () => {
             )}
             {weightModal && (
               <WeightModal
+                setMenuModal={setMenuModal}
                 setWeightModal={setWeightModal}
                 initialValues={initialValuesW}
                 setWeightValue={setWeightValue}
@@ -236,7 +249,7 @@ export const HeaderAuth = () => {
               <use href={`${icons}#icon-arrow-down`} />
             </DropIcon>
             {userModal && (
-              <UserModal setIsOpen={setIsOpen} setOverlay={setOverlay} />
+              <UserModal setIsOpen={setIsOpen} setLinked={setLinked} />
             )}
           </AvatarContainer>
           {menuModal && (

@@ -2,10 +2,18 @@ import icons from '../../../assets/icons.svg';
 
 import { UserModalBody, ModalLink, ModalButton } from './ModalStyles';
 
-export const UserModal = ({ setIsOpen, setOverlay }) => {
+export const UserModal = ({ setIsOpen, setLinked }) => {
   return (
     <UserModalBody>
-      <ModalLink to="/settings">
+      <ModalLink
+        to="/settings"
+        onClick={() => {
+          setLinked(true);
+          setTimeout(() => {
+            setLinked(false);
+          }, 1);
+        }}
+      >
         <svg>
           <use href={`${icons}#icon-setting-2`} />
         </svg>
@@ -14,7 +22,6 @@ export const UserModal = ({ setIsOpen, setOverlay }) => {
       <ModalButton
         onClick={() => {
           setIsOpen(true);
-          setOverlay(false);
         }}
       >
         <svg>
