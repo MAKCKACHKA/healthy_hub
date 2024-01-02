@@ -1,4 +1,4 @@
-import{u as n}from"./index-96a574da.js";const t=n.form`
+import{u as n}from"./index-fa00579d.js";const t=n.form`
   @media screen and (min-width: 834px) {
     max-width: 380px;
   }
