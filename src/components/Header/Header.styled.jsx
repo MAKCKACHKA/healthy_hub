@@ -161,7 +161,7 @@ export const InfoContainer = styled.div`
   align-items: center;
   gap: 12px;
   max-width: 200px;
-  z-index: 12;
+  /* z-index: 12; */
   overflow: none;
 `;
 
@@ -180,7 +180,7 @@ export const ImageWrapper = styled.div`
 
 export const TextContainer = styled.div`
   position: relative;
-  z-index: 2;
+  /* z-index: 2; */
   overflow: none;
   p {
     color: var(--primary-title-text-color);
